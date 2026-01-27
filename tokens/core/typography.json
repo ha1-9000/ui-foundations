@@ -1,0 +1,40 @@
+{
+  "Core": {
+    "Font": {
+      "Size": {
+        "xs": { "value": 12 },
+        "sm": { "value": 14 },
+        "md": { "value": 16 },
+        "lg": { "value": 20 },
+        "xl": { "value": 24 },
+        "2xl": { "value": 32 },
+        "3xl": { "value": 40 }
+      },
+      "Family": {
+        "Sans": { "value": "Inter" },
+        "Serif": { "value": "Slabo 13px" },
+        "Mono": { "value": "SFMono-Regular" }
+      },
+      "Weight": {
+        "100": { "value": "Thin" },
+        "200": { "value": "Extra Light" },
+        "300": { "value": "Light" },
+        "400": { "value": "Normal" },
+        "500": { "value": "Medium" },
+        "600": { "value": "Semi Bold" },
+        "700": { "value": "Bold" },
+        "800": { "value": "Extra Bold" },
+        "900": { "value": "Black" }
+      }
+    },
+    "LineHeight": {
+      "xs": { "value": 16 },
+      "sm": { "value": 20 },
+      "md": { "value": 24 },
+      "lg": { "value": 28 },
+      "xl": { "value": 32 },
+      "2xl": { "value": 44 },
+      "3xl": { "value": 56 }
+    }
+  }
+}
