@@ -1,0 +1,10 @@
+{
+  "name": "ui-foundations",
+  "private": true,
+  "scripts": {
+    "mcp:export": "node scripts/export-from-figma-mcp.mjs",
+    "tokens:sync": "node scripts/figma-sync.mjs",
+    "tokens:validate": "node scripts/validate-tokens.mjs",
+    "tokens:build": "node scripts/export-css.mjs"
+  }
+}
