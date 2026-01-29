@@ -1,0 +1,34 @@
+/* Button token usage examples (ui-foundations) */
+
+.button {
+  /* Derived from component tokens */
+  --button-solid-bg: var(--button-solid-container-background-default);
+  --button-solid-border: var(--button-solid-container-border-color-default);
+  --button-solid-text: var(--button-solid-label-text-color-default);
+
+  --button-outline-bg: var(--button-outline-container-background-default);
+  --button-outline-border: var(--button-outline-container-border-color-default);
+  --button-outline-text: var(--button-outline-label-text-color-default);
+
+  background: var(--button-solid-bg);
+  border-color: var(--button-solid-border);
+  color: var(--button-solid-text);
+}
+
+.button--outline {
+  background: var(--button-outline-bg);
+  border-color: var(--button-outline-border);
+  color: var(--button-outline-text);
+}
+
+/* Container query example (Core.Container.400 = 768px) */
+.button-group {
+  container-type: inline-size;
+}
+
+@container (min-width: 768px) {
+  .button {
+    padding-inline: var(--button-padding-inline);
+    padding-block: var(--button-padding-block);
+  }
+}
