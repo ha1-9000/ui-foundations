@@ -82,25 +82,6 @@ function toKebabCase(str) {
     .toLowerCase();
 }
 
-function getTypographyField(segments) {
-  const fieldMap = {
-    "font family": "fontFamily",
-    "font size": "fontSize",
-    "font weight": "fontWeight",
-    "font style": "fontWeight",
-    "line height": "lineHeight",
-  };
-
-  for (let i = 0; i < segments.length; i += 1) {
-    const normalized = String(segments[i]).toLowerCase().trim();
-    if (fieldMap[normalized]) {
-      return { field: fieldMap[normalized], index: i };
-    }
-  }
-
-  return null;
-}
-
 function normalizeColor(value) {
   if (typeof value === "string") {
     return value;
@@ -180,34 +161,36 @@ function formatPx(value) {
   return value;
 }
 
-function isSpacingPath(segments) {
-  return segments.some((segment) => {
-    const lower = String(segment).toLowerCase();
-    return (
-      lower === "space" || lower === "spacing" || lower.includes("spacing")
-    );
-  });
-}
-
-function isRadiusPath(segments) {
-  return segments.some((segment) => {
-    const lower = String(segment).toLowerCase();
-    return (
-      lower.includes("radius") ||
-      lower.includes("corner") ||
-      lower.includes("radii")
-    );
-  });
-}
-
-function isShadowPath(segments) {
-  return segments.some((segment) =>
-    String(segment).toLowerCase().includes("shadow"),
-  );
-}
-
 function buildTokenKey(segments) {
   return toKebabCase(segments.join("-"));
+}
+
+function formatTokenValue(token, rawValue, tokenKey, segments) {
+  const type = String(token.type || "").toLowerCase();
+
+  if (type === "color") {
+    return normalizeColor(rawValue);
+  }
+
+  if (type === "number") {
+    if (isBreakpointToken(segments) || isContainerToken(segments)) {
+      return formatPx(rawValue);
+    }
+    return formatLength(rawValue);
+  }
+
+  if (type === "shadow") {
+    if (rawValue && typeof rawValue === "object" && rawValue.offsetX !== undefined) {
+      return `${formatLength(rawValue.offsetX)} ${formatLength(rawValue.offsetY)} ${formatLength(rawValue.blur)} ${rawValue.color}`;
+    }
+  }
+
+  const lowerKey = tokenKey.toLowerCase();
+  if (lowerKey.startsWith("zindex-") || lowerKey.startsWith("z-index-")) {
+    return rawValue;
+  }
+
+  return formatLength(rawValue);
 }
 
 function addToken(tokens, token, tokenMap) {
@@ -221,65 +204,11 @@ function addToken(tokens, token, tokenMap) {
       ? aliasToCssVar(aliasMatch[1])
       : resolveAlias(token.value, tokenMap);
   }
-  const type = String(token.type || "").toLowerCase();
   const segments = token.pathSegments;
 
-  // Breakpoint/Container must be classified before numeric buckets
-  if (isBreakpointToken(segments) && segments[1] !== undefined) {
-    const label = mapStepToSizeLabel(segments[1]);
-    tokens.breakpoints[label] = resolved;
-    return;
-  }
-
-  if (isContainerToken(segments) && segments[1] !== undefined) {
-    const label = mapStepToSizeLabel(segments[1]);
-    tokens.containers[label] = resolved;
-    return;
-  }
-
-  const typographyField = getTypographyField(segments);
-  if (typographyField) {
-    const { field, index } = typographyField;
-    let nameSegments = [];
-
-    if (index < segments.length - 1) {
-      nameSegments = segments.slice(index + 1);
-    } else {
-      nameSegments = segments.slice(0, index);
-    }
-
-    if (nameSegments[0] && nameSegments[0].toLowerCase() === "typography") {
-      nameSegments = nameSegments.slice(1);
-    }
-
-    const tokenKey = toKebabCase(nameSegments.join("-") || "typography");
-    const entry = tokens.typography[tokenKey] || {};
-    entry[field] = resolved;
-    tokens.typography[tokenKey] = entry;
-    return;
-  }
-
-  if (type === "color") {
-    tokens.colors[buildTokenKey(segments)] = normalizeColor(resolved);
-    return;
-  }
-
-  if (isSpacingPath(segments)) {
-    tokens.spacing[buildTokenKey(segments)] = resolved;
-    return;
-  }
-
-  if (isRadiusPath(segments)) {
-    tokens.radii[buildTokenKey(segments)] = resolved;
-    return;
-  }
-
-  if (isShadowPath(segments)) {
-    tokens.shadows[buildTokenKey(segments)] = resolved;
-    return;
-  }
-
-  tokens.other[buildTokenKey(segments)] = resolved;
+  const tokenKey = buildTokenKey(segments);
+  const formattedValue = formatTokenValue(token, resolved, tokenKey, segments);
+  tokens.other[tokenKey] = formattedValue;
 }
 
 function buildTokensFromList(tokenList) {
@@ -310,6 +239,12 @@ function buildTokensFromList(tokenList) {
 function normalizeOutputBase(filePath) {
   const base = path.basename(filePath).toLowerCase().replace(/\s+/g, "-");
   return base.replace(/\.jsonc?$/i, "");
+}
+
+function normalizePerFileBase(base) {
+  if (base === "light-mode.tokens") return "color.light.tokens";
+  if (base === "dark-mode.tokens") return "color.dark.tokens";
+  return base;
 }
 
 async function extractTokens() {
@@ -348,7 +283,8 @@ async function extractTokens() {
     }
 
     for (const { filePath, tokenList } of perFileTokens) {
-      const base = normalizeOutputBase(filePath);
+      const rawBase = normalizeOutputBase(filePath);
+      const base = normalizePerFileBase(rawBase);
       const perTokens = buildTokensFromList(tokenList);
       const jsonOut = JSON.stringify(perTokens, null, 2);
       const cssOut = generateCSS(perTokens);
@@ -358,6 +294,16 @@ async function extractTokens() {
       fs.writeFileSync(path.join(cssDir, `${base}.css`), cssOut);
       fs.writeFileSync(path.join(tsDir, `${base}.ts`), tsOut);
 
+      if (rawBase !== base) {
+        const oldJson = path.join(jsonDir, `${rawBase}.json`);
+        const oldCss = path.join(cssDir, `${rawBase}.css`);
+        const oldTs = path.join(tsDir, `${rawBase}.ts`);
+        for (const oldFile of [oldJson, oldCss, oldTs]) {
+          if (fs.existsSync(oldFile)) {
+            fs.unlinkSync(oldFile);
+          }
+        }
+      }
     }
 
     console.log("✅ Tokens generated from local exports!");
@@ -372,55 +318,8 @@ async function extractTokens() {
 function generateCSS(tokens) {
   let css = `/* Auto-generated design tokens from Figma */\n/* Generated on ${new Date().toISOString()} */\n\n:root {\n`;
 
-  Object.entries(tokens.colors).forEach(([key, value]) => {
-    css += `  --color-${key}: ${value};\n`;
-  });
-
-  Object.entries(tokens.typography).forEach(([key, value]) => {
-    if (value.fontFamily !== undefined) {
-      css += `  --typography-${key}-font-family: ${value.fontFamily};\n`;
-    }
-    if (value.fontSize !== undefined) {
-      css += `  --typography-${key}-font-size: ${formatLength(value.fontSize)};\n`;
-    }
-    if (value.fontWeight !== undefined) {
-      css += `  --typography-${key}-font-weight: ${value.fontWeight};\n`;
-    }
-    if (value.lineHeight !== undefined) {
-      css += `  --typography-${key}-line-height: ${formatLength(value.lineHeight)};\n`;
-    }
-  });
-
-  Object.entries(tokens.spacing).forEach(([key, value]) => {
-    css += `  --space-${key}: ${formatLength(value)};\n`;
-  });
-
-  Object.entries(tokens.radii).forEach(([key, value]) => {
-    css += `  --radius-${key}: ${formatLength(value)};\n`;
-  });
-
-  Object.entries(tokens.shadows).forEach(([key, value]) => {
-    if (value && typeof value === "object" && value.offsetX !== undefined) {
-      css += `  --shadow-${key}: ${formatLength(value.offsetX)} ${formatLength(value.offsetY)} ${formatLength(value.blur)} ${value.color};\n`;
-    } else {
-      css += `  --shadow-${key}: ${value};\n`;
-    }
-  });
-
-  Object.entries(tokens.breakpoints).forEach(([key, value]) => {
-    css += `  --breakpoint-${key}: ${formatPx(value)};\n`;
-  });
-
-  Object.entries(tokens.containers).forEach(([key, value]) => {
-    css += `  --container-${key}: ${formatPx(value)};\n`;
-  });
-
   Object.entries(tokens.other).forEach(([key, value]) => {
-    const lowerKey = key.toLowerCase();
-    const isZIndex =
-      lowerKey.startsWith("zindex-") || lowerKey.startsWith("z-index-");
-    const formatted = isZIndex ? value : formatLength(value);
-    css += `  --${key}: ${formatted};\n`;
+    css += `  --${key}: ${value};\n`;
   });
 
   css += `}\n`;

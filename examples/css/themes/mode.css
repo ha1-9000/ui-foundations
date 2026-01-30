@@ -1,13 +1,17 @@
 @layer themes {
+  :root {
+    color-scheme: light dark;
+  }
+
   @media (prefers-color-scheme: dark) {
     :root:not([data-mode]) {
-      --color-color-fill-surface: var(--neutral-black);
-      --color-color-text-default: var(--neutral-white);
+      --color-fill-surface: var(--color-neutral-black);
+      --color-text-default: var(--color-neutral-white);
     }
   }
 
   :root[data-mode="dark"] {
-    --color-color-fill-surface: var(--neutral-black);
-    --color-color-text-default: var(--neutral-white);
+    --color-fill-surface: var(--color-neutral-black);
+    --color-text-default: var(--color-neutral-white);
   }
 }

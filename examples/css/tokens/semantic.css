@@ -1,65 +1,45 @@
 @layer tokens {
   /* Auto-generated design tokens from Figma */
-  /* Generated on 2026-01-30T10:28:46.339Z */
+  /* Generated on 2026-01-30T12:20:00.553Z */
 
   :root {
-    --color-color-text-default: var(--neutral-black);
-    --color-color-text-strong: var(--neutral-black);
-    --color-color-text-subtle: var(--neutral-dark-grey);
-    --color-color-text-brand: var(--brand-purple-600);
-    --color-color-text-disabled: var(--neutral-dark-grey);
-    --color-color-text-inverse: var(--neutral-white);
-    --color-color-text-danger: var(--brand-red);
-    --color-color-fill-surface: var(--neutral-white);
-    --color-color-fill-subtle: var(--neutral-light-grey);
-    --color-color-fill-brand: var(--brand-purple-600);
-    --color-color-fill-disabled: var(--neutral-grey);
-    --color-color-fill-hover: var(--overlay-elevation-200);
-    --color-color-fill-active: var(--overlay-elevation-200);
-    --color-color-fill-danger: var(--brand-red);
-    --color-color-border-default: var(--color-text-default);
-    --color-color-border-subtle: var(--color-fill-subtle);
-    --color-color-border-strong: var(--color-fill-active);
-    --color-color-border-brand: var(--color-fill-brand);
-    --color-color-border-disabled: var(--color-fill-disabled);
-    --color-color-border-danger: var(--brand-red);
+    --corner-small: var(--size-radius-200);
+    --corner-medium: var(--size-radius-400);
+    --corner-large: var(--size-radius-600);
+    --corner-full: var(--size-radius-100-);
+    --corner-button-radius: var(--size-radius-100-);
+    --color-text-default: var(--color-neutral-black);
+    --color-text-strong: var(--color-neutral-black);
+    --color-text-subtle: var(--color-neutral-dark-grey);
+    --color-text-brand: var(--color-brand-purple-600);
+    --color-text-disabled: var(--color-neutral-dark-grey);
+    --color-text-inverse: var(--color-neutral-white);
+    --color-text-danger: var(--color-brand-red);
+    --color-fill-surface: var(--color-neutral-white);
+    --color-fill-subtle: var(--color-neutral-light-grey);
+    --color-fill-brand: var(--color-brand-purple-600);
+    --color-fill-disabled: var(--color-neutral-grey);
+    --color-fill-hover: var(--color-overlay-elevation-200);
+    --color-fill-active: var(--color-overlay-elevation-200);
+    --color-fill-danger: var(--color-brand-red);
+    --color-border-default: var(--color-text-default);
+    --color-border-subtle: var(--color-fill-subtle);
+    --color-border-strong: var(--color-fill-active);
+    --color-border-brand: var(--color-fill-brand);
+    --color-border-disabled: var(--color-fill-disabled);
+    --color-border-danger: var(--color-brand-red);
+    --typography-code: var(--font-family-mono);
     --typography-heading-font-family: var(--font-family-serif);
-    --typography-heading-font-size: var(--font-size-md);
     --typography-heading-font-weight: var(--font-weight-700);
+    --typography-heading-font-size: var(--font-size-md);
     --typography-heading-line-height: var(--line-height-md);
     --typography-label-font-family: var(--font-family-serif);
-    --typography-label-font-size: var(--font-size-md);
     --typography-label-font-weight: var(--font-weight-600);
+    --typography-label-font-size: var(--font-size-md);
     --typography-label-line-height: var(--line-height-md);
     --typography-body-font-family: var(--font-family-sans);
-    --typography-body-font-size: var(--font-size-md);
     --typography-body-font-weight: var(--font-weight-400);
+    --typography-body-font-size: var(--font-size-md);
     --typography-body-line-height: var(--line-height-md);
-    --radius-corner-small: var(--size-radius-200);
-    --radius-corner-medium: var(--size-radius-400);
-    --radius-corner-large: var(--size-radius-600);
-    --radius-corner-full: var(--size-radius-100-);
-    --radius-corner-button-radius: var(--size-radius-100-);
-    --typography-code: var(--font-family-mono);
-    --color-text-default: var(--color-color-text-default);
-    --color-text-strong: var(--color-color-text-strong);
-    --color-text-subtle: var(--color-color-text-subtle);
-    --color-text-brand: var(--color-color-text-brand);
-    --color-text-disabled: var(--color-color-text-disabled);
-    --color-text-inverse: var(--color-color-text-inverse);
-    --color-text-danger: var(--color-color-text-danger);
-    --color-fill-surface: var(--color-color-fill-surface);
-    --color-fill-subtle: var(--color-color-fill-subtle);
-    --color-fill-brand: var(--color-color-fill-brand);
-    --color-fill-disabled: var(--color-color-fill-disabled);
-    --color-fill-hover: var(--color-color-fill-hover);
-    --color-fill-active: var(--color-color-fill-active);
-    --color-fill-danger: var(--color-color-fill-danger);
-    --color-border-default: var(--color-color-border-default);
-    --color-border-subtle: var(--color-color-border-subtle);
-    --color-border-strong: var(--color-color-border-strong);
-    --color-border-brand: var(--color-color-border-brand);
-    --color-border-disabled: var(--color-color-border-disabled);
-    --color-border-danger: var(--color-color-border-danger);
   }
 }

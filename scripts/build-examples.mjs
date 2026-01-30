@@ -57,6 +57,19 @@ function buildLayeredFile(varLines, { includeHeader = true } = {}) {
   return `@layer tokens {\n${headerBlock}${rootBlock}\n}\n`;
 }
 
+function buildLayeredBlocks(blocks, { includeHeader = true } = {}) {
+  const header = includeHeader
+    ? [
+        "  /* Auto-generated design tokens from Figma */",
+        `  /* Generated on ${GENERATED_AT} */`,
+        "",
+      ].join("\n")
+    : "";
+  const headerBlock = header ? `${header}\n` : "";
+  const body = blocks.join("\n");
+  return `@layer tokens {\n${headerBlock}${body}\n}\n`;
+}
+
 function parseVarNames(varLines) {
   return varLines
     .map((line) => line.match(/^--([^:]+):/))
@@ -88,32 +101,26 @@ function buildCoreAliases(varNames) {
   return aliases;
 }
 
-function buildSemanticAliases(varNames) {
-  const aliases = [];
-  const existing = new Set(varNames);
-  for (const name of varNames) {
+function renameSemanticVarLines(varLines) {
+  return varLines.map((line) => {
+    const match = line.match(/^--([^:]+):\s*(.+);?$/);
+    if (!match) return line;
+    const name = match[1];
+    let value = match[2].replace(/;+$/, "").trim();
+    value = value
+      .replace(/var\(--brand-/g, "var(--color-brand-")
+      .replace(/var\(--neutral-/g, "var(--color-neutral-")
+      .replace(/var\(--overlay-/g, "var(--color-overlay-");
     if (name.startsWith("color-color-")) {
-      const alias = name.replace(/^color-/, "");
-      if (!existing.has(alias)) {
-        aliases.push(`--${alias}: var(--${name});`);
-      }
+      const renamed = `color-${name.slice("color-color-".length)}`;
+      return `--${renamed}: ${value};`;
     }
-  }
-  return aliases;
+    return `--${name}: ${value};`;
+  });
 }
 
 function buildColorAliases(varNames) {
-  const aliases = [];
-  const existing = new Set(varNames);
-  for (const name of varNames) {
-    if (name.startsWith("color-")) {
-      const alias = name.slice("color-".length);
-      if (!existing.has(alias)) {
-        aliases.push(`--${alias}: var(--${name});`);
-      }
-    }
-  }
-  return aliases;
+  return [];
 }
 
 function buildComponentAliases(varNames) {
@@ -213,10 +220,10 @@ function buildExamplesTokens() {
   const semanticVars = extractVarLines(
     semanticCss.match(/:root\s*\{([\s\S]*?)\}/)?.[1] || "",
   );
-  const semanticAliases = buildSemanticAliases(parseVarNames(semanticVars));
+  const semanticRenamed = renameSemanticVarLines(semanticVars);
   writeFile(
     path.join(EXAMPLES_TOKENS_DIR, "semantic.css"),
-    buildLayeredFile([...semanticVars, ...semanticAliases]),
+    buildLayeredFile(semanticRenamed),
   );
 
   const componentCss = readFile(
@@ -234,40 +241,49 @@ function buildExamplesTokens() {
   const colorModesCss = readFile(path.join(DIST_CSS_DIR, "color.tokens.css"));
   const { light, dark } = extractColorVarsFromModes(colorModesCss);
   const colorAliases = buildColorAliases(parseVarNames(light));
-  const colorModesWithAliases = injectAliasesIntoFirstVarsRoot(
-    colorModesCss,
-    colorAliases,
-  );
-  writeFile(
-    path.join(EXAMPLES_TOKENS_DIR, "color.modes.css"),
-    colorModesWithAliases.trimEnd() + "\n",
-  );
+  const lightVars = [...light, ...colorAliases];
+  const darkVars = [...dark, ...colorAliases];
 
+  const lightBlocks = [
+    buildRootBlock(lightVars, 2).replace(":root", ':root[data-mode="light"]'),
+  ];
   writeFile(
     path.join(EXAMPLES_TOKENS_DIR, "color.light.css"),
-    buildLayeredFile([...light, ...colorAliases]),
+    buildLayeredBlocks(lightBlocks),
   );
+
+  const darkBlocks = [
+    buildRootBlock(darkVars, 2).replace(":root", ':root[data-mode="dark"]'),
+  ];
   writeFile(
     path.join(EXAMPLES_TOKENS_DIR, "color.dark.css"),
-    buildLayeredFile([...dark, ...colorAliases]),
+    buildLayeredBlocks(darkBlocks),
   );
+
+  const deprecatedModesPath = path.join(
+    EXAMPLES_TOKENS_DIR,
+    "color.modes.css",
+  );
+  if (fs.existsSync(deprecatedModesPath)) {
+    fs.unlinkSync(deprecatedModesPath);
+  }
 }
 
 function buildExamplesIndex() {
-  const parts = [
-    "@layer reset, base, tokens, components, themes, overrides;",
-    readFile(path.join(EXAMPLES_CSS_DIR, "base", "reset.css")).trim(),
-    readFile(path.join(EXAMPLES_CSS_DIR, "base", "base.css")).trim(),
-    readFile(path.join(EXAMPLES_TOKENS_DIR, "core.css")).trim(),
-    readFile(path.join(EXAMPLES_TOKENS_DIR, "color.modes.css")).trim(),
-    readFile(path.join(EXAMPLES_TOKENS_DIR, "semantic.css")).trim(),
-    readFile(path.join(EXAMPLES_TOKENS_DIR, "components.css")).trim(),
-    readFile(path.join(EXAMPLES_CSS_DIR, "themes", "mode.css")).trim(),
-    readFile(path.join(EXAMPLES_CSS_DIR, "recipes", "layout.css")).trim(),
-    readFile(path.join(EXAMPLES_CSS_DIR, "patterns", "button.css")).trim(),
+  const imports = [
+    '@import url("./base/reset.css") layer(reset);',
+    '@import url("./base/base.css") layer(base);',
+    '@import url("./tokens/core.css") layer(tokens);',
+    '@import url("./tokens/color.light.css") layer(tokens);',
+    '@import url("./tokens/color.dark.css") layer(tokens);',
+    '@import url("./tokens/semantic.css") layer(tokens);',
+    '@import url("./tokens/components.css") layer(tokens);',
+    '@import url("./themes/mode.css") layer(themes);',
+    '@import url("./recipes/layout.css") layer(components);',
+    '@import url("./patterns/button.css") layer(components);',
   ];
 
-  const content = parts.filter(Boolean).join("\n\n") + "\n";
+  const content = `${imports.join("\n")}\n`;
   writeFile(path.join(EXAMPLES_CSS_DIR, "index.css"), content);
 }
 

@@ -1,8 +1,8 @@
 @layer tokens {
   /* Auto-generated design tokens from Figma */
-  /* Generated on 2026-01-30T10:28:46.339Z */
+  /* Generated on 2026-01-30T12:20:00.553Z */
 
-  :root {
+  :root[data-mode="light"] {
     --color-brand-red: rgb(255 0 0);
     --color-brand-green: rgb(19 174 92);
     --color-brand-purple-200: rgb(222 192 255);
@@ -28,30 +28,5 @@
     --color-overlay-elevation-200: rgba(0 0 0 / 0.2);
     --color-overlay-elevation-100: rgba(0 0 0 / 0.1);
     --color-overlay-elevation-000: rgba(0 0 0 / 0);
-    --brand-red: var(--color-brand-red);
-    --brand-green: var(--color-brand-green);
-    --brand-purple-200: var(--color-brand-purple-200);
-    --brand-purple-600: var(--color-brand-purple-600);
-    --brand-purple-800: var(--color-brand-purple-800);
-    --brand-blue-200: var(--color-brand-blue-200);
-    --brand-blue-500: var(--color-brand-blue-500);
-    --brand-blue-700: var(--color-brand-blue-700);
-    --brand-blue-800: var(--color-brand-blue-800);
-    --neutral-transparent: var(--color-neutral-transparent);
-    --neutral-black: var(--color-neutral-black);
-    --neutral-dark-grey: var(--color-neutral-dark-grey);
-    --neutral-grey: var(--color-neutral-grey);
-    --neutral-light-grey: var(--color-neutral-light-grey);
-    --neutral-white: var(--color-neutral-white);
-    --overlay-elevation-900: var(--color-overlay-elevation-900);
-    --overlay-elevation-800: var(--color-overlay-elevation-800);
-    --overlay-elevation-700: var(--color-overlay-elevation-700);
-    --overlay-elevation-600: var(--color-overlay-elevation-600);
-    --overlay-elevation-500: var(--color-overlay-elevation-500);
-    --overlay-elevation-400: var(--color-overlay-elevation-400);
-    --overlay-elevation-300: var(--color-overlay-elevation-300);
-    --overlay-elevation-200: var(--color-overlay-elevation-200);
-    --overlay-elevation-100: var(--color-overlay-elevation-100);
-    --overlay-elevation-000: var(--color-overlay-elevation-000);
   }
 }

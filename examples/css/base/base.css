@@ -2,8 +2,8 @@
   :root {
     font-family: var(--font-family-sans, system-ui, sans-serif);
     line-height: 1.5;
-    color: var(--color-color-text-default, #000);
-    background: var(--color-color-fill-surface, #fff);
+    color: var(--color-text-default, #000);
+    background: var(--color-fill-surface, #fff);
   }
 
   body {
@@ -30,5 +30,47 @@
   h1 {
     margin: 0 0 16px;
     font-size: 1.5rem;
+  }
+
+  h2 {
+    margin: 24px 0 12px;
+    font-size: 1.25rem;
+  }
+
+  h3 {
+    margin: 16px 0 8px;
+    font-size: 1rem;
+  }
+
+  .palette {
+    margin-top: 24px;
+  }
+
+  .palette-group + .palette-group {
+    margin-top: 16px;
+  }
+
+  .swatch-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: var(--size-spacing-200, 0.5rem);
+  }
+
+  .swatch {
+    position: relative;
+    border-radius: var(--size-radius-200, 0.25rem);
+    border: 1px solid var(--color-border-subtle, #ccc);
+    padding: 12px;
+    min-height: 72px;
+    display: flex;
+    align-items: flex-end;
+    background:
+      linear-gradient(135deg, rgba(0 0 0 / 0.04), rgba(0 0 0 / 0))
+      var(--swatch-color);
+    color: var(--color-text-default, #000);
+  }
+
+  .swatch span {
+    font-size: 0.75rem;
   }
 }
