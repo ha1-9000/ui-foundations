@@ -1,0 +1,24 @@
+@layer components {
+  /* Responsive & Layering examples (ui-foundations) */
+  
+  /* Viewport breakpoint (media query) */
+  @media (min-width: 1200px) {
+    /* Example: page-level layout adjustments */
+  }
+  
+  /* Container query (component-level) */
+  .card {
+    container-type: inline-size;
+  }
+  
+  @container (min-width: 768px) {
+    .card {
+      /* Example: component layout changes */
+    }
+  }
+  
+  /* Z-index usage (token export example) */
+  .modal-overlay { z-index: var(--core-zindex-modaloverlay); }
+  .modal { z-index: var(--core-zindex-modal); }
+  .tooltip { z-index: var(--core-zindex-tooltip); }
+}

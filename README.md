@@ -58,3 +58,7 @@ Rules:
 1. Read the ADRs in `decisions/`
 2. Inspect tokens in `tokens/`
 3. Use `examples/css/` for implementation references
+
+## Build (local)
+1. Generate token outputs: `npm run tokens:generate`
+2. Generate example CSS: `npm run examples:build`

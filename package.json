@@ -1,11 +1,27 @@
 {
   "name": "ui-foundations",
   "private": true,
+  "files": [
+    "dist/**",
+    "examples/**",
+    "README.md",
+    "decisions/**"
+  ],
+  "exports": {
+    "./tokens/core.css": "./dist/tokens/css/core.tokens.css",
+    "./tokens/color.css": "./dist/tokens/css/color.tokens.css",
+    "./tokens/semantic.css": "./dist/tokens/css/semantic.tokens.css",
+    "./tokens/components.css": "./dist/tokens/css/component.tokens.css",
+    "./examples/index.css": "./examples/css/index.css",
+    "./examples/*": "./examples/*"
+  },
   "scripts": {
     "tokens:generate": "node scripts/extract-tokens.js",
     "tokens:sync": "node scripts/sync-local-tokens.mjs",
     "tokens:validate": "node scripts/validate-tokens.mjs",
-    "tokens:build": "node scripts/export-css.mjs"
+    "tokens:build": "npm run tokens:generate",
+    "examples:build": "node scripts/build-examples.mjs",
+    "build": "npm run tokens:generate && npm run examples:build"
   },
   "devDependencies": {
     "fast-glob": "^3.3.3",

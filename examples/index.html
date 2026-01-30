@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>UI Foundations Examples</title>
+    <link rel="stylesheet" href="./css/index.css" />
+  </head>
+  <body>
+    <main class="page">
+      <h1>UI Foundations Examples</h1>
+      <div class="mode-toggle" role="group" aria-label="Color mode">
+        <button
+          class="button button--outline"
+          type="button"
+          data-mode="light"
+          aria-pressed="false"
+        >
+          Light
+        </button>
+        <button
+          class="button button--outline"
+          type="button"
+          data-mode="dark"
+          aria-pressed="false"
+        >
+          Dark
+        </button>
+        <button
+          class="button button--outline"
+          type="button"
+          data-mode="system"
+          aria-pressed="false"
+        >
+          System
+        </button>
+      </div>
+      <section>
+        <p>Token + pattern preview.</p>
+        <div class="button-group">
+          <button class="button">Primary</button>
+          <button class="button button--outline">Outline</button>
+        </div>
+      </section>
+    </main>
+    <script>
+      const root = document.documentElement;
+      const buttons = document.querySelectorAll("[data-mode]");
+      const stored = localStorage.getItem("ui-foundations-mode");
+
+      const updatePressedState = (mode) => {
+        buttons.forEach((button) => {
+          const active =
+            mode === "system"
+              ? button.dataset.mode === "system"
+              : button.dataset.mode === mode;
+          button.setAttribute("aria-pressed", active ? "true" : "false");
+        });
+      };
+
+      if (stored && stored !== "system") {
+        root.dataset.mode = stored;
+        updatePressedState(stored);
+      } else {
+        updatePressedState("system");
+      }
+
+      buttons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const mode = button.dataset.mode;
+          if (mode === "system") {
+            delete root.dataset.mode;
+            localStorage.removeItem("ui-foundations-mode");
+            updatePressedState("system");
+            return;
+          }
+          root.dataset.mode = mode;
+          localStorage.setItem("ui-foundations-mode", mode);
+          updatePressedState(mode);
+        });
+      });
+    </script>
+  </body>
+</html>

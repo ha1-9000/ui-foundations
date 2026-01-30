@@ -1,0 +1,34 @@
+@layer base {
+  :root {
+    font-family: var(--font-family-sans, system-ui, sans-serif);
+    line-height: 1.5;
+    color: var(--color-color-text-default, #000);
+    background: var(--color-color-fill-surface, #fff);
+  }
+
+  body {
+    margin: 0;
+  }
+
+  .page {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 24px;
+  }
+
+  .mode-toggle {
+    display: flex;
+    gap: var(--size-spacing-200, 0.5rem);
+    margin: 0 0 16px;
+  }
+
+  .mode-toggle .button[aria-pressed="true"] {
+    border-color: var(--color-border-brand, #000);
+    box-shadow: 0 0 0 2px var(--color-border-brand, #000);
+  }
+
+  h1 {
+    margin: 0 0 16px;
+    font-size: 1.5rem;
+  }
+}
