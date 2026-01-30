@@ -14,17 +14,75 @@
     --button-outline-text: var(--button-outline-label-text-color-default);
 
     background: var(--button-solid-bg);
-    border-color: var(--button-solid-border);
+    border-color: var(--button-solid-border-color-default);
+    border-width: var(--button-solid-border-size);
+    border-style: solid;
     color: var(--button-solid-text);
+    border-radius: var(--button-border-radius);
     padding-inline: var(--button-padding-inline);
     padding-block: var(--button-padding-block);
   }
 
+  .button:hover {
+    background: var(--button-solid-container-background-hover);
+    border-color: var(--button-solid-border-color-hover);
+  }
+
+  .button:active {
+    background: var(--button-solid-container-background-active);
+  }
+
+  /* Missing tokens for full state coverage:
+     - button-solid-text-color-hover
+     - button-solid-text-color-active
+     - button-solid-border-color-active
+     - button-solid-container-background-focus
+     - button-solid-border-color-focus
+     - button-solid-text-color-focus */
+
   .button--outline {
     background: var(--button-outline-bg);
-    border-color: var(--button-outline-border);
+    border-color: var(--button-outline-border-color-default);
+    border-width: var(--button-outline-border-size);
+    border-style: solid;
     color: var(--button-outline-text);
   }
+
+  .button--outline:hover {
+    border-color: var(--button-outline-border-color-hover);
+  }
+
+  /* Missing tokens for full state coverage:
+     - button-outline-text-color-hover
+     - button-outline-text-color-active
+     - button-outline-border-color-active
+     - button-outline-container-background-hover
+     - button-outline-container-background-active
+     - button-outline-container-background-focus
+     - button-outline-border-color-focus
+     - button-outline-text-color-focus */
+
+  .button--ghost {
+    background: var(--button-ghost-container-background-default);
+    border-color: var(--button-ghost-border-color-default);
+    border-width: var(--button-ghost-border-size);
+    border-style: solid;
+    color: var(--button-ghost-text-color);
+  }
+
+  .button--ghost:hover {
+    border-color: var(--button-ghost-border-color-hover);
+  }
+
+  /* Missing tokens for full state coverage:
+     - button-ghost-text-color-hover
+     - button-ghost-text-color-active
+     - button-ghost-border-color-active
+     - button-ghost-container-background-hover
+     - button-ghost-container-background-active
+     - button-ghost-container-background-focus
+     - button-ghost-border-color-focus
+     - button-ghost-text-color-focus */
 
   /* Container query example (Core.Container.400 = 768px) */
   .button-group {
