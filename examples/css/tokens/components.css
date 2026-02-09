@@ -1,6 +1,6 @@
 @layer tokens {
   /* Auto-generated design tokens from Figma */
-  /* Generated on 2026-01-30T13:45:52.672Z */
+  /* Generated on 2026-02-09T16:42:30.695Z */
 
   :root {
     --button-font-family: var(--typography-label-font-family);
@@ -12,23 +12,40 @@
     --button-padding-inline: var(--size-spacing-400);
     --button-padding-block: var(--size-spacing-200);
     --button-gap: var(--size-spacing-200);
-    --button-solid-text-color: var(--color-text-inverse);
+    --button-text-color-disabled: var(--color-text-disabled);
+    --button-border-color-disabled: var(--color-border-disabled);
+    --button-container-background-disabled: var(--color-fill-disabled);
+    --button-solid-text-color-default: var(--color-text-inverse);
+    --button-solid-text-color-hover: var(--color-text-inverse);
+    --button-solid-text-color-active: var(--color-text-inverse);
     --button-solid-border-size: var(--size-border-000);
     --button-solid-border-color-default: var(--color-border-brand);
     --button-solid-border-color-hover: var(--color-border-brand);
+    --button-solid-border-color-focus: var(--color-border-brand);
+    --button-solid-border-color-active: var(--color-border-brand);
     --button-solid-container-background-default: var(--color-fill-brand);
     --button-solid-container-background-hover: var(--color-fill-brand);
+    --button-solid-container-background-focus: var(--color-fill-brand);
     --button-solid-container-background-active: var(--color-fill-brand);
-    --button-solid-container-background-disabled: var(--color-fill-disabled);
-    --button-outline-text-color: var(--color-text-brand);
+    --button-outline-text-color-default: var(--color-text-brand);
     --button-outline-border-size: var(--size-border-100);
     --button-outline-border-color-default: var(--color-border-brand);
     --button-outline-border-color-hover: var(--color-border-brand);
+    --button-outline-border-color-active: var(--color-border-brand);
+    --button-outline-border-color-focus: var(--color-border-brand);
     --button-outline-container-background-default: var(--color-fill-surface);
-    --button-ghost-text-color: var(--color-text-brand);
+    --button-outline-container-background-hover: var(--color-fill-surface);
+    --button-outline-container-background-focus: var(--color-fill-surface);
+    --button-outline-container-background-active: var(--color-fill-surface);
+    --button-ghost-text-color-default: var(--color-text-brand);
     --button-ghost-border-size: var(--size-border-000);
     --button-ghost-border-color-default: var(--neutral-transparent);
     --button-ghost-border-color-hover: var(--neutral-transparent);
+    --button-ghost-border-color-focus: var(--neutral-transparent);
+    --button-ghost-border-color-active: var(--neutral-transparent);
     --button-ghost-container-background-default: var(--color-fill-surface);
+    --button-ghost-container-background-hover: var(--color-fill-surface);
+    --button-ghost-container-background-focus: var(--color-fill-surface);
+    --button-ghost-container-background-active: var(--color-fill-surface);
   }
 }
