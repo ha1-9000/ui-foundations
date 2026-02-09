@@ -25,7 +25,7 @@
     color: var(--button-solid-text-color-active);
   }
 
-  .button--outline {
+  .button.outline {
     background: var(--button-outline-container-background-default);
     border-color: var(--button-outline-border-color-default);
     border-width: var(--button-outline-border-size);
@@ -33,13 +33,13 @@
     color: var(--button-outline-text-color-default);
   }
 
-  .button--outline:hover {
+  .button.outline:hover {
     background: var(--button-outline-container-background-hover);
     border-color: var(--button-outline-border-color-hover);
     color: var(--button-outline-text-color-default);
   }
 
-  .button--ghost {
+  .button.ghost {
     background: var(--button-ghost-container-background-default);
     border-color: var(--button-ghost-border-color-default);
     border-width: var(--button-ghost-border-size);
@@ -47,7 +47,7 @@
     color: var(--button-ghost-text-color-default);
   }
 
-  .button--ghost:hover {
+  .button.ghost:hover {
     background: var(--button-ghost-container-background-hover);
     border-color: var(--button-ghost-border-color-hover);
     color: var(--button-ghost-text-color-default);

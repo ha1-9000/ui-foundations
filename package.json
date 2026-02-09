@@ -1,5 +1,9 @@
 {
   "name": "ui-foundations",
+  "repository": {
+    "type": "git",
+    "url": "git@ssh.source.tui:Thomas.Bielich/ui-foundations.git"
+  },
   "private": true,
   "files": [
     "dist/**",
@@ -24,6 +28,7 @@
     "build": "npm run tokens:generate && npm run examples:build"
   },
   "devDependencies": {
+    "@figma/code-connect": "^1.2.0",
     "fast-glob": "^3.3.3",
     "jsonc-parser": "^3.3.1"
   }
