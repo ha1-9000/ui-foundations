@@ -311,6 +311,8 @@ function normalizeOutputBase(filePath) {
 function normalizePerFileBase(base) {
   if (base === "light-mode.tokens") return "color.light.tokens";
   if (base === "dark-mode.tokens") return "color.dark.tokens";
+  if (base === "color-light.tokens") return "color.light.tokens";
+  if (base === "color-dark.tokens") return "color.dark.tokens";
   return base;
 }
 
