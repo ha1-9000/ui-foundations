@@ -239,6 +239,62 @@ function addToken(tokens, token, tokenMap) {
 
   const tokenKey = buildTokenKey(segments);
   const formattedValue = formatTokenValue(token, resolved, tokenKey, segments);
+  const category = String(segments[0] || "").toLowerCase();
+  const prefix = String(token.cssVar || "").toLowerCase();
+
+  if (category === "color" || prefix.startsWith("--color-")) {
+    tokens.colors[token.cssVar] = formattedValue;
+    return;
+  }
+
+  if (
+    category === "typography" ||
+    prefix.startsWith("--typography-") ||
+    prefix.startsWith("--font-") ||
+    prefix.startsWith("--line-height-") ||
+    prefix.startsWith("--letter-spacing-")
+  ) {
+    tokens.typography[token.cssVar] = formattedValue;
+    return;
+  }
+
+  if (
+    category === "spacing" ||
+    category === "space" ||
+    prefix.startsWith("--spacing-") ||
+    prefix.startsWith("--space-") ||
+    prefix.startsWith("--size-spacing-")
+  ) {
+    tokens.spacing[token.cssVar] = formattedValue;
+    return;
+  }
+
+  if (
+    category === "radius" ||
+    category === "corner" ||
+    prefix.startsWith("--radius-") ||
+    prefix.startsWith("--corner-") ||
+    prefix.startsWith("--size-radius-")
+  ) {
+    tokens.radii[token.cssVar] = formattedValue;
+    return;
+  }
+
+  if (category === "shadow" || prefix.startsWith("--shadow-")) {
+    tokens.shadows[token.cssVar] = formattedValue;
+    return;
+  }
+
+  if (category === "breakpoint" || prefix.startsWith("--breakpoint-")) {
+    tokens.breakpoints[token.cssVar] = formattedValue;
+    return;
+  }
+
+  if (category === "container" || prefix.startsWith("--container-")) {
+    tokens.containers[token.cssVar] = formattedValue;
+    return;
+  }
+
   tokens.other[token.cssVar] = formattedValue;
 }
 
