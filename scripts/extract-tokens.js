@@ -487,7 +487,18 @@ async function extractTokens() {
 function generateCSS(tokens) {
   let css = `/* Auto-generated design tokens from Figma */\n/* Generated on ${new Date().toISOString()} */\n\n:root {\n`;
 
-  Object.entries(tokens.other).forEach(([key, value]) => {
+  const merged = {
+    ...tokens.colors,
+    ...tokens.typography,
+    ...tokens.spacing,
+    ...tokens.radii,
+    ...tokens.shadows,
+    ...tokens.breakpoints,
+    ...tokens.containers,
+    ...tokens.other,
+  };
+
+  Object.entries(merged).forEach(([key, value]) => {
     css += `  ${key}: ${value};\n`;
   });
 
