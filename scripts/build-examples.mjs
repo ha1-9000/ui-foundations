@@ -123,6 +123,28 @@ function buildColorAliases(varNames) {
   return [];
 }
 
+function renameColorVarLines(varLines) {
+  return varLines.map((line) => {
+    const match = line.match(/^--([^:]+):\s*(.+);?$/);
+    if (!match) return line;
+    const name = match[1];
+    const value = match[2].replace(/;+$/, "").trim();
+    if (name.startsWith("brand-")) {
+      return `--color-${name}: ${value};`;
+    }
+    if (name.startsWith("neutral-")) {
+      return `--color-${name}: ${value};`;
+    }
+    if (name.startsWith("overlay-")) {
+      return `--color-${name}: ${value};`;
+    }
+    if (name.startsWith("color-")) {
+      return `--${name}: ${value};`;
+    }
+    return `--${name}: ${value};`;
+  });
+}
+
 function buildComponentAliases(varNames) {
   const aliases = [];
   const existing = new Set(varNames);
@@ -236,11 +258,24 @@ function buildExamplesTokens() {
     buildLayeredFile([...componentAliases, ...componentVars]),
   );
 
-  const colorModesCss = readFile(path.join(DIST_CSS_DIR, "color.tokens.css"));
+  let colorModesCss;
+  const colorModesPath = path.join(DIST_CSS_DIR, "color.tokens.css");
+  if (fs.existsSync(colorModesPath)) {
+    colorModesCss = readFile(colorModesPath);
+  } else {
+    const lightPath = path.join(DIST_CSS_DIR, "color.light.tokens.css");
+    const darkPath = path.join(DIST_CSS_DIR, "color.dark.tokens.css");
+    colorModesCss = [
+      readFile(lightPath),
+      readFile(darkPath),
+    ].join("\n");
+  }
   const { light, dark } = extractColorVarsFromModes(colorModesCss);
-  const colorAliases = buildColorAliases(parseVarNames(light));
-  const lightVars = [...light, ...colorAliases];
-  const darkVars = [...dark, ...colorAliases];
+  const lightRenamed = renameColorVarLines(light);
+  const darkRenamed = renameColorVarLines(dark);
+  const colorAliases = buildColorAliases(parseVarNames(lightRenamed));
+  const lightVars = [...lightRenamed, ...colorAliases];
+  const darkVars = [...darkRenamed, ...colorAliases];
 
   const lightBlocks = [
     buildRootBlock(lightVars, 2).replace(":root", ':root[data-mode="light"]'),

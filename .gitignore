@@ -3,3 +3,6 @@
 node_modules
 src
 dist
+docs/_site
+examples/css/tokens
+examples/css/index.css

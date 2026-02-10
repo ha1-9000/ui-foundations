@@ -11,14 +11,14 @@ const fg = require("fast-glob");
 const { parse } = require("jsonc-parser");
 
 const REPO_ROOT = path.resolve(__dirname, "..");
-const EXPORTS_DIR = path.join(REPO_ROOT, "src", "figma-exports");
+const EXPORTS_DIR = path.join(REPO_ROOT, "figma", "exports");
 const OUTPUT_DIR = path.join(REPO_ROOT, "dist", "tokens");
 
 const EXPORT_PATTERNS = [
-  "src/figma-exports/**/*.token.json",
-  "src/figma-exports/**/*.tokens.json",
-  "src/figma-exports/**/*.token.jsonc",
-  "src/figma-exports/**/*.tokens.jsonc",
+  "figma/exports/**/*.token.json",
+  "figma/exports/**/*.tokens.json",
+  "figma/exports/**/*.token.jsonc",
+  "figma/exports/**/*.tokens.jsonc",
 ];
 
 function stripBom(text) {
@@ -309,6 +309,18 @@ async function extractTokens() {
     console.log("✅ Tokens generated from local exports!");
     console.log(`📁 Files created in ${path.relative(REPO_ROOT, OUTPUT_DIR)}/`);
     console.log("   - css/*.css, json/*.json, ts/*.ts (per-file files)");
+
+    const shouldTrash =
+      process.argv.includes("--trash") || process.env.npm_config_trash === "true";
+    if (shouldTrash) {
+      for (const filePath of files) {
+        if (fs.existsSync(filePath)) {
+          fs.unlinkSync(filePath);
+        }
+      }
+
+      console.log("🧹 Removed source exports from figma/exports");
+    }
   } catch (error) {
     console.error("❌ Error extracting tokens:", error.message);
     process.exit(1);

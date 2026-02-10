@@ -3,7 +3,7 @@ import path from "node:path";
 import fg from "fast-glob";
 import { parse } from "jsonc-parser";
 
-const SRC_FIGMA_DIR = path.resolve("src/figma-exports");
+const SRC_FIGMA_DIR = path.resolve("figma/exports");
 const TOKENS_FIGMA_DIR = path.resolve("tokens/figma");
 const INDEX_FILE = path.resolve("tokens/index.json");
 
@@ -33,10 +33,10 @@ async function writeJson(filePath, data) {
 
 async function convertSrcFigmaTokens() {
   const patterns = [
-    "src/figma-exports/*.token.json",
-    "src/figma-exports/*.tokens.json",
-    "src/figma-exports/*.token.jsonc",
-    "src/figma-exports/*.tokens.jsonc",
+    "figma/exports/*.token.json",
+    "figma/exports/*.tokens.json",
+    "figma/exports/*.token.jsonc",
+    "figma/exports/*.tokens.jsonc",
   ];
 
   const files = await fg(patterns, {
@@ -63,7 +63,7 @@ async function convertSrcFigmaTokens() {
   await writeJson(INDEX_FILE, index);
 
   console.log(
-    `✔ Converted src/figma-exports -> tokens/figma: ${files.length} files`,
+    `✔ Converted figma/exports -> tokens/figma: ${files.length} files`,
   );
   console.log(`✔ Merged index written: tokens/index.json`);
 

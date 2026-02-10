@@ -51,7 +51,7 @@ Rules:
 - `decisions/` — ADRs (source of truth)
 - `tokens/` — token JSON (core, color, semantics, components)
 - `examples/` — minimal CSS examples and docs snippets
-- `figma/` — Figma mapping, Code Connect notes
+- `figma/` — Figma exports, mappings, Code Connect notes
 - `agent/` — assistant rules and prompt examples
 
 ## Quick start (local)
