@@ -36,10 +36,6 @@ function inlineImports(filePath, seen = new Set()) {
   );
 }
 
-function renameColorVars(cssText) {
-  return cssText.replace(/--(brand-|neutral-|overlay-)/g, "--color-$1");
-}
-
 function extractRootBody(cssText) {
   const match = cssText.match(/:root\s*\{([\s\S]*?)\}/);
   return match ? match[1].trim() : "";
@@ -54,17 +50,13 @@ function ensureColorTokens() {
   writeFile(colorTokensPath, content);
 }
 
-function ensureColorAliases() {
+function ensureColorModes() {
   const lightPath = path.join(DIST_TOKENS_DIR, "color.light.tokens.css");
   const darkPath = path.join(DIST_TOKENS_DIR, "color.dark.tokens.css");
-  const lightAliasPath = path.join(DIST_TOKENS_DIR, "color.light.alias.css");
-  const darkAliasPath = path.join(DIST_TOKENS_DIR, "color.dark.alias.css");
   const modesPath = path.join(DIST_TOKENS_DIR, "color.modes.css");
 
   const lightCss = fs.readFileSync(lightPath, "utf8");
   const darkCss = fs.readFileSync(darkPath, "utf8");
-  writeFile(lightAliasPath, renameColorVars(lightCss));
-  writeFile(darkAliasPath, renameColorVars(darkCss));
 
   const lightBody = extractRootBody(lightCss);
   const darkBody = extractRootBody(darkCss);
@@ -87,7 +79,7 @@ function ensureColorAliases() {
 
 function buildCoreBundle() {
   ensureColorTokens();
-  ensureColorAliases();
+  ensureColorModes();
   copyDir(path.join(REPO_ROOT, "src", "core"), path.join(DIST_DIR, "core"));
   writeFile(
     path.join(DIST_DIR, "core", "index.css"),
@@ -98,8 +90,6 @@ function buildCoreBundle() {
       '@import url("./base/typography.css") layer(base);',
       '@import url("../tokens/css/core.tokens.css") layer(tokens);',
       '@import url("../tokens/css/color.modes.css") layer(tokens);',
-      '@import url("../tokens/css/color.light.alias.css") layer(tokens);',
-      '@import url("../tokens/css/color.dark.alias.css") layer(tokens);',
       '@import url("../tokens/css/semantic.tokens.css") layer(tokens);',
       '@import url("../tokens/css/component.tokens.css") layer(tokens);',
       '@import url("./themes/mode.css") layer(themes);',
