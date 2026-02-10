@@ -1,6 +1,6 @@
 @layer tokens {
   /* Auto-generated design tokens from Figma */
-  /* Generated on 2026-02-09T17:28:24.444Z */
+  /* Generated on 2026-02-10T10:16:08.238Z */
 
   :root {
     --breakpoint-100: 580px;
@@ -20,8 +20,8 @@
     --font-size-md: 1rem;
     --font-size-lg: 1.25rem;
     --font-size-xl: 1.5rem;
-    --font-size-2xl: 2rem;
-    --font-size-3xl: 2.5rem;
+    --font-size-xxl: 2rem;
+    --font-size-xxxl: 2.5rem;
     --font-weight-100: Thin;
     --font-weight-200: Extra Light;
     --font-weight-300: Light;
@@ -45,8 +45,8 @@
     --line-height-md: 1.5rem;
     --line-height-lg: 1.75rem;
     --line-height-xl: 2rem;
-    --line-height-2xl: 2.75rem;
-    --line-height-3xl: 3.5rem;
+    --line-height-xxl: 2.75rem;
+    --line-height-xxxl: 3.5rem;
     --size-border-100: .0625rem;
     --size-border-200: .125rem;
     --size-border-300: .1875rem;

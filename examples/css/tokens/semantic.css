@@ -1,6 +1,6 @@
 @layer tokens {
   /* Auto-generated design tokens from Figma */
-  /* Generated on 2026-02-09T17:28:24.444Z */
+  /* Generated on 2026-02-10T10:16:08.238Z */
 
   :root {
     --corner-small: var(--size-radius-200);
@@ -31,8 +31,20 @@
     --typography-code: var(--font-family-mono);
     --typography-heading-font-family: var(--font-family-serif);
     --typography-heading-font-weight: var(--font-weight-700);
-    --typography-heading-font-size: var(--font-size-md);
-    --typography-heading-line-height: var(--line-height-md);
+    --typography-heading-font-size-xs: var(--font-size-xs);
+    --typography-heading-font-size-sm: var(--font-size-sm);
+    --typography-heading-font-size-md: var(--font-size-md);
+    --typography-heading-font-size-lg: var(--font-size-lg);
+    --typography-heading-font-size-xl: var(--font-size-xl);
+    --typography-heading-font-size-xxl: var(--font-size-xxl);
+    --typography-heading-font-size-xxxl: var(--font-size-xxxl);
+    --typography-heading-line-height-xs: var(--line-height-xs);
+    --typography-heading-line-height-sm: var(--line-height-sm);
+    --typography-heading-line-height-md: var(--line-height-md);
+    --typography-heading-line-height-lg: var(--line-height-lg);
+    --typography-heading-line-height-xl: var(--line-height-xl);
+    --typography-heading-line-height-xxl: var(--line-height-xxl);
+    --typography-heading-line-height-xxxl: var(--line-height-xxxl);
     --typography-label-font-family: var(--font-family-serif);
     --typography-label-font-weight: var(--font-weight-600);
     --typography-label-font-size: var(--font-size-md);

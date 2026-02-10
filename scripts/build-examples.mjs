@@ -214,9 +214,7 @@ function buildExamplesTokens() {
     buildLayeredFile([...coreVars, ...coreAliases]),
   );
 
-  const semanticCss = readFile(
-    path.join(DIST_CSS_DIR, "semantic.tokens.css"),
-  );
+  const semanticCss = readFile(path.join(DIST_CSS_DIR, "semantic.tokens.css"));
   const semanticVars = extractVarLines(
     semanticCss.match(/:root\s*\{([\s\S]*?)\}/)?.[1] || "",
   );
@@ -260,10 +258,7 @@ function buildExamplesTokens() {
     buildLayeredBlocks(darkBlocks),
   );
 
-  const deprecatedModesPath = path.join(
-    EXAMPLES_TOKENS_DIR,
-    "color.modes.css",
-  );
+  const deprecatedModesPath = path.join(EXAMPLES_TOKENS_DIR, "color.modes.css");
   if (fs.existsSync(deprecatedModesPath)) {
     fs.unlinkSync(deprecatedModesPath);
   }
@@ -273,6 +268,7 @@ function buildExamplesIndex() {
   const imports = [
     '@import url("./base/reset.css") layer(reset);',
     '@import url("./base/base.css") layer(base);',
+    '@import url("./base/typography.css") layer(base);',
     '@import url("./tokens/core.css") layer(tokens);',
     '@import url("./tokens/color.light.css") layer(tokens);',
     '@import url("./tokens/color.dark.css") layer(tokens);',
