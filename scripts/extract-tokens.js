@@ -49,6 +49,33 @@ function isTokenNode(node) {
   );
 }
 
+function extractCssVarFromWebSyntax(webSyntax) {
+  const raw = String(webSyntax || "").trim();
+  if (!raw) {
+    return { name: null, ref: null, error: "empty WEB syntax" };
+  }
+
+  let name = null;
+
+  if (raw.startsWith("var(")) {
+    const match = raw.match(/var\(([^)]+)\)/);
+    if (match && match[1]) {
+      name = match[1].trim();
+    }
+  } else if (raw.includes("--")) {
+    const index = raw.indexOf("--");
+    name = raw.slice(index).trim();
+  } else {
+    name = `--${toKebabCase(raw)}`;
+  }
+
+  if (!name || !name.startsWith("--") || name.includes(")")) {
+    return { name: null, ref: null, error: `invalid WEB syntax: ${raw}` };
+  }
+
+  return { name, ref: `var(${name})`, error: null };
+}
+
 function flattenTokens(node, pathSegments, list) {
   if (!node || typeof node !== "object") return;
 
@@ -59,11 +86,20 @@ function flattenTokens(node, pathSegments, list) {
       node.$extensions["com.figma.aliasData"].targetVariableName
         ? String(node.$extensions["com.figma.aliasData"].targetVariableName)
         : null;
+    const webSyntax =
+      node.$extensions &&
+      node.$extensions["com.figma.codeSyntax"] &&
+      node.$extensions["com.figma.codeSyntax"].WEB
+        ? String(node.$extensions["com.figma.codeSyntax"].WEB)
+        : null;
     list.push({
       pathSegments,
       type: node.$type,
       value: node.$value,
       aliasTargetName,
+      webSyntax,
+      cssVar: null,
+      cssVarRef: null,
     });
     return;
   }
@@ -117,19 +153,12 @@ function aliasToCssVar(raw) {
   return `var(--${key})`;
 }
 
-function resolveAlias(value, tokenMap, stack = new Set()) {
-  if (typeof value !== "string") return value;
-  const match = value.match(/^\{(.+)\}$/);
-  if (!match) return value;
-
-  const aliasKey = normalizeAliasKey(match[1]);
-  if (stack.has(aliasKey)) return value;
-
+function getAliasRef(aliasKey, tokenMap) {
   const target = tokenMap.get(aliasKey);
-  if (!target) return value;
-
-  stack.add(aliasKey);
-  return resolveAlias(target.value, tokenMap, stack);
+  if (target && target.cssVar) {
+    return `var(${target.cssVar})`;
+  }
+  return aliasToCssVar(aliasKey);
 }
 
 function isBreakpointToken(segments) {
@@ -194,21 +223,23 @@ function formatTokenValue(token, rawValue, tokenKey, segments) {
 }
 
 function addToken(tokens, token, tokenMap) {
-  let resolved;
+  let resolved = token.value;
   if (token.aliasTargetName) {
-    resolved = aliasToCssVar(token.aliasTargetName);
+    const aliasKey = normalizeAliasKey(token.aliasTargetName);
+    resolved = getAliasRef(aliasKey, tokenMap);
   } else {
     const aliasMatch =
       typeof token.value === "string" ? token.value.match(/^\{(.+)\}$/) : null;
-    resolved = aliasMatch
-      ? aliasToCssVar(aliasMatch[1])
-      : resolveAlias(token.value, tokenMap);
+    if (aliasMatch) {
+      const aliasKey = normalizeAliasKey(aliasMatch[1]);
+      resolved = getAliasRef(aliasKey, tokenMap);
+    }
   }
   const segments = token.pathSegments;
 
   const tokenKey = buildTokenKey(segments);
   const formattedValue = formatTokenValue(token, resolved, tokenKey, segments);
-  tokens.other[tokenKey] = formattedValue;
+  tokens.other[token.cssVar] = formattedValue;
 }
 
 function buildTokensFromList(tokenList) {
@@ -234,6 +265,42 @@ function buildTokensFromList(tokenList) {
   }
 
   return tokens;
+}
+
+function assignCssVars(tokenList, report) {
+  const seen = new Map();
+  for (const token of tokenList) {
+    const fallback = `--${buildTokenKey(token.pathSegments)}`;
+    if (!token.webSyntax) {
+      report.missingWeb.push(token.pathSegments.join("/"));
+      token.cssVar = fallback;
+      token.cssVarRef = `var(${fallback})`;
+    } else {
+      const parsed = extractCssVarFromWebSyntax(token.webSyntax);
+      if (parsed.error || !parsed.name) {
+        report.invalidWeb.push(
+          `${token.pathSegments.join("/")}: ${parsed.error}`,
+        );
+        token.cssVar = fallback;
+        token.cssVarRef = `var(${fallback})`;
+      } else {
+        token.cssVar = parsed.name;
+        token.cssVarRef = parsed.ref;
+      }
+    }
+
+    const currentPath = token.pathSegments.join("/");
+    const existing = seen.get(token.cssVar);
+    if (existing && existing !== currentPath) {
+      report.duplicates.push({
+        name: token.cssVar,
+        first: existing,
+        duplicate: currentPath,
+      });
+    } else if (!existing) {
+      seen.set(token.cssVar, currentPath);
+    }
+  }
 }
 
 function normalizeOutputBase(filePath) {
@@ -268,6 +335,12 @@ async function extractTokens() {
       flattenTokens(data, [], tokenList);
       allTokens.push(...tokenList);
       perFileTokens.push({ filePath, tokenList });
+    }
+
+    const report = { missingWeb: [], invalidWeb: [], duplicates: [] };
+    assignCssVars(allTokens, report);
+    for (const entry of perFileTokens) {
+      assignCssVars(entry.tokenList, report);
     }
 
     const tokens = buildTokensFromList(allTokens);
@@ -310,6 +383,32 @@ async function extractTokens() {
     console.log(`📁 Files created in ${path.relative(REPO_ROOT, OUTPUT_DIR)}/`);
     console.log("   - css/*.css, json/*.json, ts/*.ts (per-file files)");
 
+    const sanityToken = allTokens.find(
+      (token) => token.pathSegments.join("/") === "Breakpoint/100",
+    );
+    if (sanityToken && sanityToken.cssVar !== "--breakpoint-100") {
+      console.warn(
+        `⚠️ Sanity check failed: Breakpoint/100 cssVar is ${sanityToken.cssVar}`,
+      );
+    }
+
+    if (report.missingWeb.length > 0) {
+      console.warn("⚠️ Tokens missing codeSyntax.WEB (fallback applied):");
+      report.missingWeb.forEach((entry) => console.warn(`  - ${entry}`));
+    }
+    if (report.invalidWeb.length > 0) {
+      console.warn("⚠️ Tokens with invalid codeSyntax.WEB (fallback applied):");
+      report.invalidWeb.forEach((entry) => console.warn(`  - ${entry}`));
+    }
+    if (report.duplicates.length > 0) {
+      console.warn("⚠️ Duplicate cssVar names detected:");
+      report.duplicates.forEach((entry) =>
+        console.warn(
+          `  - ${entry.name} (${entry.first}) duplicated by ${entry.duplicate}`,
+        ),
+      );
+    }
+
     const shouldTrash =
       process.argv.includes("--trash") || process.env.npm_config_trash === "true";
     if (shouldTrash) {
@@ -331,7 +430,7 @@ function generateCSS(tokens) {
   let css = `/* Auto-generated design tokens from Figma */\n/* Generated on ${new Date().toISOString()} */\n\n:root {\n`;
 
   Object.entries(tokens.other).forEach(([key, value]) => {
-    css += `  --${key}: ${value};\n`;
+    css += `  ${key}: ${value};\n`;
   });
 
   css += `}\n`;
