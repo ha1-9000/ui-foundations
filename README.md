@@ -4,7 +4,7 @@ This repository contains the **foundation layer** of our UI platform:
 - Design tokens (core primitives, color modes, semantic roles)
 - Component token APIs (variants, parts, properties, states)
 - Architecture Decision Records (ADRs) for long-term consistency
-- Example implementations (CSS / container queries / Storybook docs)
+- Docs/playground generated with Eleventy
 
 ## What this is
 - A **token-first** foundation that aligns **Figma Variables** with **CSS custom properties**
@@ -50,16 +50,21 @@ Rules:
 
 - `decisions/` — ADRs (source of truth)
 - `tokens/` — token JSON (core, color, semantics, components)
-- `docs/` — docs/playground (HTML preview)
 - `src/` — Core/UI/React source layers
 - `figma/` — Figma exports, mappings, Code Connect notes
 - `agent/` — assistant rules and prompt examples
 
+## CSS variable naming
+CSS custom property names are derived from `com.figma.codeSyntax.WEB`.
+If a token is missing `codeSyntax.WEB`, a warning is logged and the build
+falls back to the legacy name.
+
 ## Quick start (local)
 1. Read the ADRs in `decisions/`
 2. Inspect tokens in `tokens/`
-3. Use `docs/index.html` for the preview
+3. Run `npm run docs:site` and open `_site/index.html`
 
 ## Build (local)
 1. Generate token outputs: `npm run tokens:generate`
-2. Build dist bundles: `npm run docs:build`
+2. Build CSS bundles: `npm run build:css`
+3. Build docs: `npm run docs:site`
