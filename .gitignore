@@ -1,8 +1,5 @@
 .env
 .DS_Store
 node_modules
-src
 dist
-docs/_site
-examples/css/tokens
-examples/css/index.css
+_site

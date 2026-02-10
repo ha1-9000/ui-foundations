@@ -50,15 +50,16 @@ Rules:
 
 - `decisions/` — ADRs (source of truth)
 - `tokens/` — token JSON (core, color, semantics, components)
-- `examples/` — minimal CSS examples and docs snippets
+- `docs/` — docs/playground (HTML preview)
+- `src/` — Core/UI/React source layers
 - `figma/` — Figma exports, mappings, Code Connect notes
 - `agent/` — assistant rules and prompt examples
 
 ## Quick start (local)
 1. Read the ADRs in `decisions/`
 2. Inspect tokens in `tokens/`
-3. Use `examples/css/` for implementation references
+3. Use `docs/index.html` for the preview
 
 ## Build (local)
 1. Generate token outputs: `npm run tokens:generate`
-2. Generate example CSS: `npm run examples:build`
+2. Build dist bundles: `npm run docs:build`

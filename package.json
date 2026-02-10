@@ -7,27 +7,32 @@
   "private": true,
   "files": [
     "dist/**",
-    "examples/**",
     "README.md",
     "decisions/**"
   ],
   "exports": {
+    "./core.css": "./dist/core/index.css",
+    "./core.js": "./dist/core/index.js",
+    "./ui.css": "./dist/ui/index.css",
+    "./ui.js": "./dist/ui/index.js",
+    "./react": "./dist/react/index.js",
+    "./react/button": "./dist/react/button.js",
     "./tokens/core.css": "./dist/tokens/css/core.tokens.css",
     "./tokens/color.css": "./dist/tokens/css/color.tokens.css",
     "./tokens/semantic.css": "./dist/tokens/css/semantic.tokens.css",
-    "./tokens/components.css": "./dist/tokens/css/component.tokens.css",
-    "./examples/index.css": "./examples/css/index.css",
-    "./examples/*": "./examples/*"
+    "./tokens/components.css": "./dist/tokens/css/component.tokens.css"
   },
   "scripts": {
     "tokens:generate": "node scripts/extract-tokens.js",
-    "tokens:sync": "node scripts/sync-local-tokens.mjs",
     "tokens:validate": "node scripts/validate-tokens.mjs",
     "tokens:build": "npm run tokens:generate",
-    "examples:build": "node scripts/build-examples.mjs",
-    "build": "npm run tokens:generate && npm run examples:build"
+    "build:css": "npm run tokens:generate && node scripts/build-css.mjs",
+    "build": "npm run build:css",
+    "docs:site": "npm run build:css && eleventy",
+    "docs:dev": "npm run build:css && eleventy --serve"
   },
   "devDependencies": {
+    "@11ty/eleventy": "^3.1.2",
     "@figma/code-connect": "^1.2.0",
     "fast-glob": "^3.3.3",
     "jsonc-parser": "^3.3.1"
