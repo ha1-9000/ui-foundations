@@ -49,7 +49,8 @@ Rules:
 ## Repository structure
 
 - `decisions/` — ADRs (source of truth)
-- `tokens/` — token JSON (core, color, semantics, components)
+- `figma/exports/` — token source exports from Figma
+- `dist/tokens/` — generated token artifacts (CSS/JSON/TS)
 - `src/` — Core/UI/React source layers
 - `figma/` — Figma exports, mappings, Code Connect notes
 - `agent/` — assistant rules and prompt examples
@@ -69,7 +70,7 @@ Generated JSON tokens follow the official Design Tokens Community Group format w
 
 ## Quick start (local)
 1. Read the ADRs in `decisions/`
-2. Inspect tokens in `tokens/`
+2. Inspect source tokens in `figma/exports/` and generated tokens in `dist/tokens/`
 3. Run `npm run docs:site` and open `_site/index.html`
 
 ## Build (local)

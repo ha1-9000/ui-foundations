@@ -189,19 +189,6 @@ function isLayoutPxToken(segments) {
   );
 }
 
-function mapStepToSizeLabel(step) {
-  const map = {
-    100: "sm",
-    200: "md",
-    300: "lg",
-    400: "xl",
-    500: "2xl",
-  };
-  const numeric = Number(step);
-  if (!Number.isNaN(numeric) && map[numeric]) return map[numeric];
-  return String(step);
-}
-
 function formatPx(value) {
   // Breakpoints/containers stay in px; preserve any explicit unit
   if (typeof value === "number") return `${value}px`;
