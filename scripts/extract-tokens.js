@@ -13,6 +13,7 @@ const { parse } = require("jsonc-parser");
 const REPO_ROOT = path.resolve(__dirname, "..");
 const EXPORTS_DIR = path.join(REPO_ROOT, "figma", "exports");
 const OUTPUT_DIR = path.join(REPO_ROOT, "dist", "tokens");
+const DTCG_SCHEMA_URL = "https://www.designtokens.org/schemas/2025.10/format.json";
 
 const EXPORT_PATTERNS = [
   "figma/exports/**/*.token.json",
@@ -171,6 +172,23 @@ function isContainerToken(segments) {
   return String(segments[0] || "").toLowerCase() === "container";
 }
 
+function isLayoutColumnsToken(segments) {
+  return (
+    String(segments[0] || "").toLowerCase() === "layout" &&
+    String(segments[1] || "").toLowerCase() === "columns"
+  );
+}
+
+function isLayoutPxToken(segments) {
+  if (String(segments[0] || "").toLowerCase() !== "layout") return false;
+  const second = String(segments[1] || "").toLowerCase();
+  return (
+    second.includes("max width") ||
+    second.includes("column max width") ||
+    second.includes("breakpoint")
+  );
+}
+
 function mapStepToSizeLabel(step) {
   const map = {
     100: "sm",
@@ -196,12 +214,27 @@ function buildTokenKey(segments) {
 
 function formatTokenValue(token, rawValue, tokenKey, segments) {
   const type = String(token.type || "").toLowerCase();
+  const lowerKey = tokenKey.toLowerCase();
 
   if (type === "color") {
     return normalizeColor(rawValue);
   }
 
+  if (isFontWeightPath(segments)) {
+    const mapped = toNumericFontWeight(rawValue);
+    if (mapped !== null) return mapped;
+  }
+
   if (type === "number") {
+    if (lowerKey.startsWith("zindex-") || lowerKey.startsWith("z-index-")) {
+      return rawValue;
+    }
+    if (isLayoutColumnsToken(segments)) {
+      return rawValue;
+    }
+    if (isLayoutPxToken(segments)) {
+      return formatPx(rawValue);
+    }
     if (isBreakpointToken(segments) || isContainerToken(segments)) {
       return formatPx(rawValue);
     }
@@ -214,7 +247,6 @@ function formatTokenValue(token, rawValue, tokenKey, segments) {
     }
   }
 
-  const lowerKey = tokenKey.toLowerCase();
   if (lowerKey.startsWith("zindex-") || lowerKey.startsWith("z-index-")) {
     return rawValue;
   }
@@ -295,7 +327,7 @@ function addToken(tokens, token, tokenMap) {
     return;
   }
 
-  tokens.other[token.cssVar] = formattedValue;
+  tokens.components[token.cssVar] = formattedValue;
 }
 
 function buildTokensFromList(tokenList) {
@@ -311,7 +343,7 @@ function buildTokensFromList(tokenList) {
     spacing: {},
     radii: {},
     shadows: {},
-    other: {},
+    components: {},
     breakpoints: {},
     containers: {},
   };
@@ -372,6 +404,163 @@ function normalizePerFileBase(base) {
   return base;
 }
 
+function isFontFamilyPath(segments) {
+  const joined = segments.join(".").toLowerCase();
+  return (
+    joined.startsWith("font.family") ||
+    joined.endsWith(".font family") ||
+    joined.includes(".font.family") ||
+    joined === "typography.code"
+  );
+}
+
+function isFontWeightPath(segments) {
+  const joined = segments.join(".").toLowerCase();
+  return (
+    joined.startsWith("font.weight") ||
+    joined.endsWith(".font weight") ||
+    joined.includes(".font.weight")
+  );
+}
+
+function isUnitlessNumberPath(segments) {
+  const joined = segments.join(".").toLowerCase();
+  if (joined === "layout.columns") return true;
+  if (joined.startsWith("zindex.") || joined.startsWith("z-index.")) return true;
+  return false;
+}
+
+function parseDimensionValue(value) {
+  if (typeof value === "number") return { value, unit: "px" };
+  if (typeof value === "string") {
+    const trimmed = value.trim();
+    const unitMatch = trimmed.match(/^(-?\d*\.?\d+)\s*(px|rem)$/i);
+    if (unitMatch) {
+      return {
+        value: Number(unitMatch[1]),
+        unit: unitMatch[2].toLowerCase(),
+      };
+    }
+  }
+  return null;
+}
+
+function toNumericFontWeight(value) {
+  if (typeof value === "number") return Number.isFinite(value) ? value : null;
+  if (typeof value !== "string") return null;
+
+  const trimmed = value.trim();
+  if (/^\d{1,4}$/.test(trimmed)) {
+    return Number(trimmed);
+  }
+
+  const normalized = trimmed.toLowerCase().replace(/[\s_]+/g, "-");
+  const map = {
+    thin: 100,
+    "extra-light": 200,
+    light: 300,
+    normal: 400,
+    regular: 400,
+    medium: 500,
+    "semi-bold": 600,
+    bold: 700,
+    "extra-bold": 800,
+    black: 900,
+  };
+  return map[normalized] ?? null;
+}
+
+function transformTokenNodeToW3C(tokenNode, segments, report) {
+  const token = { ...tokenNode };
+  const type = String(token.$type || "").toLowerCase();
+
+  if (type === "string" && isFontFamilyPath(segments)) {
+    token.$type = "fontFamily";
+    if (token.$extensions && token.$extensions["com.figma.type"] === "string") {
+      token.$extensions = { ...token.$extensions, "com.figma.type": "fontFamily" };
+    }
+    return token;
+  }
+
+  if (type === "string" && isFontWeightPath(segments)) {
+    const mapped = toNumericFontWeight(token.$value);
+    token.$type = "fontWeight";
+    if (mapped !== null) {
+      token.$value = mapped;
+    } else {
+      report.unmappedFontWeights.push({
+        path: segments.join("/"),
+        value: token.$value,
+      });
+    }
+    if (token.$extensions && token.$extensions["com.figma.type"] === "string") {
+      token.$extensions = { ...token.$extensions, "com.figma.type": "fontWeight" };
+    }
+    return token;
+  }
+
+  if (type === "number" && !isUnitlessNumberPath(segments)) {
+    const dimension = parseDimensionValue(token.$value);
+    if (dimension) {
+      token.$type = "dimension";
+      token.$value = dimension;
+    }
+    return token;
+  }
+
+  return token;
+}
+
+function transformNodeToW3C(node, segments, report) {
+  if (!node || typeof node !== "object") return node;
+  if (Array.isArray(node)) {
+    return node.map((entry, index) =>
+      transformNodeToW3C(entry, [...segments, String(index)], report),
+    );
+  }
+
+  if (isTokenNode(node)) {
+    return transformTokenNodeToW3C(node, segments, report);
+  }
+
+  const out = {};
+  for (const [key, value] of Object.entries(node)) {
+    out[key] = transformNodeToW3C(value, [...segments, key], report);
+  }
+  return out;
+}
+
+function stripFigmaExtensions(node) {
+  if (!node || typeof node !== "object") return node;
+  if (Array.isArray(node)) return node.map(stripFigmaExtensions);
+
+  const out = {};
+  for (const [key, value] of Object.entries(node)) {
+    if (key === "$extensions" && value && typeof value === "object") {
+      const cleaned = {};
+      for (const [extKey, extValue] of Object.entries(value)) {
+        if (!extKey.startsWith("com.figma.")) {
+          cleaned[extKey] = stripFigmaExtensions(extValue);
+        }
+      }
+      if (Object.keys(cleaned).length > 0) {
+        out[key] = cleaned;
+      }
+      continue;
+    }
+    out[key] = stripFigmaExtensions(value);
+  }
+  return out;
+}
+
+function withSchema(node) {
+  if (!node || typeof node !== "object" || Array.isArray(node)) return node;
+  return {
+    $schema: DTCG_SCHEMA_URL,
+    ...node,
+  };
+}
+
 async function extractTokens() {
   try {
     const files = await fg(EXPORT_PATTERNS, {
@@ -413,17 +602,31 @@ async function extractTokens() {
       }
     }
 
+    const includeFigmaMetadata = process.argv.includes(
+      "--include-figma-metadata",
+    );
+
     for (const { filePath, tokenList } of perFileTokens) {
       const rawBase = normalizeOutputBase(filePath);
       const base = normalizePerFileBase(rawBase);
+      const sourceData = readJsonLike(filePath);
       const perTokens = buildTokensFromList(tokenList);
-      const jsonOut = JSON.stringify(perTokens, null, 2);
+      const transformReport = { unmappedFontWeights: [] };
+      const w3cTokens = transformNodeToW3C(sourceData, [], transformReport);
+      const cleanTokens = withSchema(stripFigmaExtensions(w3cTokens));
+      const jsonOut = JSON.stringify(cleanTokens, null, 2);
       const cssOut = generateCSS(perTokens);
       const tsOut = generateTypeScript(perTokens);
 
       fs.writeFileSync(path.join(jsonDir, `${base}.json`), jsonOut);
       fs.writeFileSync(path.join(cssDir, `${base}.css`), cssOut);
       fs.writeFileSync(path.join(tsDir, `${base}.ts`), tsOut);
+      const figmaJsonPath = path.join(jsonDir, `${base}.figma.json`);
+      if (includeFigmaMetadata) {
+        fs.writeFileSync(figmaJsonPath, `${JSON.stringify(w3cTokens, null, 2)}\n`);
+      } else if (fs.existsSync(figmaJsonPath)) {
+        fs.unlinkSync(figmaJsonPath);
+      }
 
       if (rawBase !== base) {
         const oldJson = path.join(jsonDir, `${rawBase}.json`);
@@ -434,6 +637,13 @@ async function extractTokens() {
             fs.unlinkSync(oldFile);
           }
         }
+      }
+
+      if (transformReport.unmappedFontWeights.length > 0) {
+        console.warn(`⚠️ Unmapped font weights in ${path.basename(filePath)}:`);
+        transformReport.unmappedFontWeights.forEach((entry) =>
+          console.warn(`  - ${entry.path}: ${entry.value}`),
+        );
       }
     }
 
@@ -495,11 +705,16 @@ function generateCSS(tokens) {
     ...tokens.shadows,
     ...tokens.breakpoints,
     ...tokens.containers,
-    ...tokens.other,
+    ...tokens.components,
   };
 
   Object.entries(merged).forEach(([key, value]) => {
-    css += `  ${key}: ${value};\n`;
+    let cssValue = value;
+    if (key.startsWith("--font-weight-")) {
+      const mapped = toNumericFontWeight(value);
+      if (mapped !== null) cssValue = mapped;
+    }
+    css += `  ${key}: ${cssValue};\n`;
   });
 
   css += `}\n`;
@@ -507,7 +722,32 @@ function generateCSS(tokens) {
 }
 
 function generateTypeScript(tokens) {
-  return `// Auto-generated design tokens from Figma\n// Generated on ${new Date().toISOString()}\n\nexport const tokens = ${JSON.stringify(tokens, null, 2)} as const;\n\nexport type ColorToken = keyof typeof tokens.colors;\nexport type TypographyToken = keyof typeof tokens.typography;\nexport type SpacingToken = keyof typeof tokens.spacing;\nexport type RadiusToken = keyof typeof tokens.radii;\nexport type ShadowToken = keyof typeof tokens.shadows;\nexport type BreakpointToken = keyof typeof tokens.breakpoints;\nexport type ContainerToken = keyof typeof tokens.containers;\nexport type OtherToken = keyof typeof tokens.other;\n`;
+  const compact = Object.fromEntries(
+    Object.entries(tokens).filter(([, value]) => {
+      return (
+        value &&
+        typeof value === "object" &&
+        !Array.isArray(value) &&
+        Object.keys(value).length > 0
+      );
+    }),
+  );
+
+  const typeDefinitions = [
+    ["colors", "ColorToken"],
+    ["typography", "TypographyToken"],
+    ["spacing", "SpacingToken"],
+    ["radii", "RadiusToken"],
+    ["shadows", "ShadowToken"],
+    ["breakpoints", "BreakpointToken"],
+    ["containers", "ContainerToken"],
+    ["components", "ComponentToken"],
+  ]
+    .filter(([group]) => Object.prototype.hasOwnProperty.call(compact, group))
+    .map(([group, typeName]) => `export type ${typeName} = keyof typeof tokens.${group};`)
+    .join("\n");
+
+  return `// Auto-generated design tokens from Figma\n// Generated on ${new Date().toISOString()}\n\nexport const tokens = ${JSON.stringify(compact, null, 2)} as const;\n\n${typeDefinitions}\n`;
 }
 
 function formatLength(value) {

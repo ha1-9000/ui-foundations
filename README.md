@@ -59,6 +59,14 @@ CSS custom property names are derived from `com.figma.codeSyntax.WEB`.
 If a token is missing `codeSyntax.WEB`, a warning is logged and the build
 falls back to the legacy name.
 
+## Specification compliance
+Generated JSON tokens follow the official Design Tokens Community Group format where applicable:
+- W3C DTCG format: `https://www.designtokens.org/tr/drafts/format/`
+- Export normalization maps Figma values to spec-friendly types (for example `dimension`, `fontFamily`, `fontWeight`)
+- `fontWeight` values are emitted numerically in generated JSON, even if authored as strings in Figma
+- Distributed JSON in `dist/tokens/json/*.json` strips `com.figma.*` metadata for cleaner consumer output
+- Optional: include Figma metadata sidecars with `npm run tokens:generate -- --include-figma-metadata` (writes `*.figma.json`)
+
 ## Quick start (local)
 1. Read the ADRs in `decisions/`
 2. Inspect tokens in `tokens/`
