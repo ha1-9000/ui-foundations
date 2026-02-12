@@ -18,7 +18,9 @@
     "./react": "./dist/react/index.js",
     "./react/button": "./dist/react/button.js",
     "./tokens/core.css": "./dist/tokens/css/core.tokens.css",
-    "./tokens/color.css": "./dist/tokens/css/color.tokens.css",
+    "./tokens/color.css": "./dist/tokens/css/color.light.tokens.css",
+    "./tokens/color-light.css": "./dist/tokens/css/color.light.tokens.css",
+    "./tokens/color-dark.css": "./dist/tokens/css/color.dark.tokens.css",
     "./tokens/semantic.css": "./dist/tokens/css/semantic.tokens.css",
     "./tokens/components.css": "./dist/tokens/css/component.tokens.css"
   },

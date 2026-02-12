@@ -2,7 +2,7 @@
   "Button": {
     "Font Family": {
       "$type": "string",
-      "$value": "Slabo 13px",
+      "$value": "Rokkitt",
       "$extensions": {
         "com.figma.variableId": "VariableID:3:11",
         "com.figma.scopes": [
@@ -124,7 +124,7 @@
     },
     "Border Radius": {
       "$type": "number",
-      "$value": 4,
+      "$value": 10000,
       "$extensions": {
         "com.figma.variableId": "VariableID:3:14",
         "com.figma.scopes": [
@@ -134,8 +134,8 @@
           "WEB": "var(--button-border-radius)"
         },
         "com.figma.aliasData": {
-          "targetVariableId": "VariableID:1f54b731f54358a5158e8b3817c4908f9b98c91d/-1:-1",
-          "targetVariableName": "Corner/Small",
+          "targetVariableId": "VariableID:40a1ed483c1df2001d99059f31b68e41c90096f7/-1:-1",
+          "targetVariableName": "Corner/Button Radius",
           "targetVariableSetId": "VariableCollectionId:ca638b27e51c3b5c865ce72c75914b8a3dc46544/-1:-1",
           "targetVariableSetName": "02 Semantics"
         },

@@ -41,46 +41,56 @@ function extractRootBody(cssText) {
   return match ? match[1].trim() : "";
 }
 
-function ensureColorTokens() {
-  const colorTokensPath = path.join(DIST_TOKENS_DIR, "color.tokens.css");
-  if (fs.existsSync(colorTokensPath)) return;
-  const lightPath = path.join(DIST_TOKENS_DIR, "color.light.tokens.css");
-  const darkPath = path.join(DIST_TOKENS_DIR, "color.dark.tokens.css");
-  const content = `${fs.readFileSync(lightPath, "utf8")}\n${fs.readFileSync(darkPath, "utf8")}\n`;
-  writeFile(colorTokensPath, content);
-}
+function writeModeCssWithDarkTokens() {
+  const modePath = path.join(DIST_DIR, "core", "themes", "mode.css");
+  const darkTokensPath = path.join(DIST_TOKENS_DIR, "color.dark.tokens.css");
+  if (!fs.existsSync(modePath) || !fs.existsSync(darkTokensPath)) return;
 
-function ensureColorModes() {
-  const lightPath = path.join(DIST_TOKENS_DIR, "color.light.tokens.css");
-  const darkPath = path.join(DIST_TOKENS_DIR, "color.dark.tokens.css");
-  const modesPath = path.join(DIST_TOKENS_DIR, "color.modes.css");
+  const baseModeCss = fs.readFileSync(modePath, "utf8").trimEnd();
+  const darkBody = extractRootBody(fs.readFileSync(darkTokensPath, "utf8"));
+  if (!darkBody) return;
 
-  const lightCss = fs.readFileSync(lightPath, "utf8");
-  const darkCss = fs.readFileSync(darkPath, "utf8");
+  const darkModeBlock = [
+    "",
+    "@layer themes {",
+    "  @media (prefers-color-scheme: dark) {",
+    "    :root:not([data-mode]) {",
+    darkBody
+      .split("\n")
+      .map((line) => `      ${line.trim()}`)
+      .join("\n"),
+    "    }",
+    "  }",
+    "",
+    '  :root[data-mode="dark"] {',
+    darkBody
+      .split("\n")
+      .map((line) => `    ${line.trim()}`)
+      .join("\n"),
+    "  }",
+    "}",
+    "",
+  ].join("\n");
 
-  const lightBody = extractRootBody(lightCss);
-  const darkBody = extractRootBody(darkCss);
-  if (lightBody && darkBody) {
-    writeFile(
-      modesPath,
-      [
-        ':root[data-mode="light"] {',
-        lightBody,
-        "}",
-        "",
-        ':root[data-mode="dark"] {',
-        darkBody,
-        "}",
-        "",
-      ].join("\n"),
-    );
-  }
+  writeFile(modePath, `${baseModeCss}\n${darkModeBlock}`);
 }
 
 function buildCoreBundle() {
-  ensureColorTokens();
-  ensureColorModes();
   copyDir(path.join(REPO_ROOT, "src", "core"), path.join(DIST_DIR, "core"));
+  // Remove legacy derived files to keep dist/tokens/css clean.
+  for (const legacyName of ["color.tokens.css", "color.modes.css"]) {
+    const legacyPath = path.join(DIST_TOKENS_DIR, legacyName);
+    if (fs.existsSync(legacyPath)) fs.unlinkSync(legacyPath);
+  }
+  const tokenImports = [
+    "core.tokens.css",
+    "color.light.tokens.css",
+    "semantic.tokens.css",
+    "component.tokens.css",
+  ]
+    .filter((fileName) => fs.existsSync(path.join(DIST_TOKENS_DIR, fileName)))
+    .map((fileName) => `@import url("../tokens/css/${fileName}") layer(tokens);`);
+
   writeFile(
     path.join(DIST_DIR, "core", "index.css"),
     [
@@ -88,14 +98,12 @@ function buildCoreBundle() {
       '@import url("./base/fonts.css") layer(base);',
       '@import url("./base/base.css") layer(base);',
       '@import url("./base/typography.css") layer(base);',
-      '@import url("../tokens/css/core.tokens.css") layer(tokens);',
-      '@import url("../tokens/css/color.modes.css") layer(tokens);',
-      '@import url("../tokens/css/semantic.tokens.css") layer(tokens);',
-      '@import url("../tokens/css/component.tokens.css") layer(tokens);',
+      ...tokenImports,
       '@import url("./themes/mode.css") layer(themes);',
       "",
     ].join("\n"),
   );
+  writeModeCssWithDarkTokens();
 }
 
 function buildUiBundle() {

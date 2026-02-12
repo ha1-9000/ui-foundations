@@ -433,7 +433,7 @@
       },
       "Serif": {
         "$type": "string",
-        "$value": "Slabo 13px",
+        "$value": "Rokkitt",
         "$extensions": {
           "com.figma.variableId": "VariableID:3:6",
           "com.figma.scopes": [

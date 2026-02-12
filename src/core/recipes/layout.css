@@ -18,7 +18,7 @@
   }
   
   /* Z-index usage (token export example) */
-  .modal-overlay { z-index: var(--core-zindex-modaloverlay); }
-  .modal { z-index: var(--core-zindex-modal); }
-  .tooltip { z-index: var(--core-zindex-tooltip); }
+  .modal-overlay { z-index: var(--zindex-modal-overlay); }
+  .modal { z-index: var(--zindex-modal); }
+  .tooltip { z-index: var(--zindex-tooltip); }
 }

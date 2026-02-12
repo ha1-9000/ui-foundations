@@ -391,6 +391,17 @@ function normalizePerFileBase(base) {
   return base;
 }
 
+function clearGeneratedFiles(dirPath, extensions) {
+  if (!fs.existsSync(dirPath)) return;
+  for (const entry of fs.readdirSync(dirPath)) {
+    const fullPath = path.join(dirPath, entry);
+    if (!fs.statSync(fullPath).isFile()) continue;
+    if (extensions.some((ext) => entry.endsWith(ext))) {
+      fs.unlinkSync(fullPath);
+    }
+  }
+}
+
 function isFontFamilyPath(segments) {
   const joined = segments.join(".").toLowerCase();
   return (
@@ -588,6 +599,9 @@ async function extractTokens() {
         fs.mkdirSync(dir, { recursive: true });
       }
     }
+    clearGeneratedFiles(cssDir, [".css"]);
+    clearGeneratedFiles(jsonDir, [".json"]);
+    clearGeneratedFiles(tsDir, [".ts"]);
 
     const includeFigmaMetadata = process.argv.includes(
       "--include-figma-metadata",

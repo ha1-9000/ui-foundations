@@ -233,76 +233,7 @@
       }
     },
     "Neutral": {
-      "Black": {
-        "$type": "color",
-        "$value": {
-          "colorSpace": "srgb",
-          "components": [
-            0,
-            0,
-            0
-          ],
-          "alpha": 1,
-          "hex": "#000000"
-        },
-        "$extensions": {
-          "com.figma.variableId": "VariableID:1:187",
-          "com.figma.scopes": [
-            "ALL_SCOPES"
-          ],
-          "com.figma.codeSyntax": {
-            "WEB": "var(--color-neutral-black)"
-          },
-          "com.figma.isOverride": true
-        }
-      },
-      "Dark Grey": {
-        "$type": "color",
-        "$value": {
-          "colorSpace": "srgb",
-          "components": [
-            0.46666666865348816,
-            0.46666666865348816,
-            0.46666666865348816
-          ],
-          "alpha": 1,
-          "hex": "#777777"
-        },
-        "$extensions": {
-          "com.figma.variableId": "VariableID:1:188",
-          "com.figma.scopes": [
-            "ALL_SCOPES"
-          ],
-          "com.figma.codeSyntax": {
-            "WEB": "var(--color-neutral-dark-grey)"
-          },
-          "com.figma.isOverride": true
-        }
-      },
-      "Grey": {
-        "$type": "color",
-        "$value": {
-          "colorSpace": "srgb",
-          "components": [
-            0.800000011920929,
-            0.800000011920929,
-            0.800000011920929
-          ],
-          "alpha": 1,
-          "hex": "#CCCCCC"
-        },
-        "$extensions": {
-          "com.figma.variableId": "VariableID:1:189",
-          "com.figma.scopes": [
-            "ALL_SCOPES"
-          ],
-          "com.figma.codeSyntax": {
-            "WEB": "var(--color-neutral-grey)"
-          },
-          "com.figma.isOverride": true
-        }
-      },
-      "Light Grey": {
+      "200": {
         "$type": "color",
         "$value": {
           "colorSpace": "srgb",
@@ -320,12 +251,81 @@
             "ALL_SCOPES"
           ],
           "com.figma.codeSyntax": {
-            "WEB": "var(--color-neutral-light-grey)"
+            "WEB": "var(--color-neutral-200)"
           },
           "com.figma.isOverride": true
         }
       },
-      "White": {
+      "500": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.800000011920929,
+            0.800000011920929,
+            0.800000011920929
+          ],
+          "alpha": 1,
+          "hex": "#CCCCCC"
+        },
+        "$extensions": {
+          "com.figma.variableId": "VariableID:1:189",
+          "com.figma.scopes": [
+            "ALL_SCOPES"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--color-neutral-500)"
+          },
+          "com.figma.isOverride": true
+        }
+      },
+      "800": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.46666666865348816,
+            0.46666666865348816,
+            0.46666666865348816
+          ],
+          "alpha": 1,
+          "hex": "#777777"
+        },
+        "$extensions": {
+          "com.figma.variableId": "VariableID:1:188",
+          "com.figma.scopes": [
+            "ALL_SCOPES"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--color-neutral-800)"
+          },
+          "com.figma.isOverride": true
+        }
+      },
+      "1000": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0,
+            0,
+            0
+          ],
+          "alpha": 1,
+          "hex": "#000000"
+        },
+        "$extensions": {
+          "com.figma.variableId": "VariableID:1:187",
+          "com.figma.scopes": [
+            "ALL_SCOPES"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--color-neutral-1000)"
+          },
+          "com.figma.isOverride": true
+        }
+      },
+      "000": {
         "$type": "color",
         "$value": {
           "colorSpace": "srgb",
@@ -343,7 +343,7 @@
             "ALL_SCOPES"
           ],
           "com.figma.codeSyntax": {
-            "WEB": "var(--color-neutral-white)"
+            "WEB": "var(--color-neutral-000)"
           },
           "com.figma.isOverride": true
         }
