@@ -60,6 +60,11 @@ CSS custom property names are derived from `com.figma.codeSyntax.WEB`.
 If a token is missing `codeSyntax.WEB`, a warning is logged and the build
 falls back to the legacy name.
 
+Scopes are derived from export filenames:
+- `Brand X.tokens.json` -> `:root[data-brand="x"]`
+- `Mode Light.tokens.json` -> `:root`
+- `Mode Dark.tokens.json` -> `:root[data-mode="dark"]`
+
 ## Specification compliance
 Generated JSON tokens follow the official Design Tokens Community Group format where applicable:
 - W3C DTCG format: `https://www.designtokens.org/tr/drafts/format/`

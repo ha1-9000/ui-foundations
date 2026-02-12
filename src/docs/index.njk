@@ -2,7 +2,7 @@
 permalink: /index.html
 ---
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-brand="a" data-mode="light">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -36,6 +36,24 @@ permalink: /index.html
           aria-pressed="false"
         >
           System
+        </button>
+      </div>
+      <div class="mode-toggle" role="group" aria-label="Brand">
+        <button
+          class="button outline"
+          type="button"
+          data-brand="a"
+          aria-pressed="false"
+        >
+          Brand A
+        </button>
+        <button
+          class="button outline"
+          type="button"
+          data-brand="b"
+          aria-pressed="false"
+        >
+          Brand B
         </button>
       </div>
       <section>
@@ -130,56 +148,50 @@ permalink: /index.html
         <div class="palette-group">
           <h3>Brand</h3>
           <div class="swatch-grid">
-            <div class="swatch" style="--swatch-color: var(--color-brand-red)">
-              <span>brand-red</span>
+            <div class="swatch" style="--swatch-color: var(--brand-color-primary)">
+              <span>brand-color-primary</span>
             </div>
             <div
               class="swatch"
-              style="--swatch-color: var(--color-brand-green)"
+              style="--swatch-color: var(--brand-color-primary-dark)"
             >
-              <span>brand-green</span>
+              <span>brand-color-primary-dark</span>
             </div>
             <div
               class="swatch"
-              style="--swatch-color: var(--color-brand-purple-200)"
+              style="--swatch-color: var(--brand-color-accent)"
             >
-              <span>brand-purple-200</span>
+              <span>brand-color-accent</span>
             </div>
             <div
               class="swatch"
-              style="--swatch-color: var(--color-brand-purple-600)"
+              style="--swatch-color: var(--brand-color-accent-dark)"
             >
-              <span>brand-purple-600</span>
+              <span>brand-color-accent-dark</span>
             </div>
             <div
               class="swatch"
-              style="--swatch-color: var(--color-brand-purple-800)"
+              style="--swatch-color: var(--brand-color-functional-base)"
             >
-              <span>brand-purple-800</span>
+              <span>brand-color-functional-base</span>
             </div>
             <div
               class="swatch"
-              style="--swatch-color: var(--color-brand-blue-200)"
+              style="--swatch-color: var(--brand-color-functional-base-dark)"
             >
-              <span>brand-blue-200</span>
+              <span>brand-color-functional-base-dark</span>
             </div>
             <div
               class="swatch"
-              style="--swatch-color: var(--color-brand-blue-500)"
+              style="--swatch-color: var(--brand-color-functional-success)"
             >
-              <span>brand-blue-500</span>
+              <span>brand-color-functional-success</span>
             </div>
             <div
               class="swatch"
-              style="--swatch-color: var(--color-brand-blue-700)"
+              style="--swatch-color: var(--brand-color-functional-danger)"
             >
-              <span>brand-blue-700</span>
-            </div>
-            <div
-              class="swatch"
-              style="--swatch-color: var(--color-brand-blue-800)"
-            >
-              <span>brand-blue-800</span>
+              <span>brand-color-functional-danger</span>
             </div>
           </div>
         </div>
@@ -293,11 +305,13 @@ permalink: /index.html
     </main>
     <script>
       const root = document.documentElement;
-      const buttons = document.querySelectorAll("[data-mode]");
+      const modeButtons = document.querySelectorAll("[data-mode]");
+      const brandButtons = document.querySelectorAll("[data-brand]");
       const stored = localStorage.getItem("ui-foundations-mode");
+      const storedBrand = localStorage.getItem("ui-foundations-brand");
 
-      const updatePressedState = (mode) => {
-        buttons.forEach((button) => {
+      const updateModePressedState = (mode) => {
+        modeButtons.forEach((button) => {
           const active =
             mode === "system"
               ? button.dataset.mode === "system"
@@ -306,26 +320,53 @@ permalink: /index.html
         });
       };
 
+      const updateBrandPressedState = (brand) => {
+        brandButtons.forEach((button) => {
+          const active = button.dataset.brand === brand;
+          button.setAttribute("aria-pressed", active ? "true" : "false");
+        });
+      };
+
+      const applyMode = (mode) => {
+        if (mode === "system") {
+          root.removeAttribute("data-mode");
+          updateModePressedState("system");
+          return;
+        }
+        root.dataset.mode = mode;
+        updateModePressedState(mode);
+      };
+
+      const applyBrand = (brand) => {
+        root.dataset.brand = brand;
+        updateBrandPressedState(brand);
+      };
+
       if (stored) {
-        root.dataset.mode = stored;
-        updatePressedState(stored);
+        applyMode(stored);
       } else {
-        root.dataset.mode = "light";
-        updatePressedState("light");
+        applyMode("light");
       }
 
-      buttons.forEach((button) => {
+      if (storedBrand) {
+        applyBrand(storedBrand);
+      } else {
+        applyBrand("a");
+      }
+
+      modeButtons.forEach((button) => {
         button.addEventListener("click", () => {
           const mode = button.dataset.mode;
-          if (mode === "system") {
-            root.dataset.mode = "light";
-            localStorage.setItem("ui-foundations-mode", "light");
-            updatePressedState("light");
-            return;
-          }
-          root.dataset.mode = mode;
+          applyMode(mode);
           localStorage.setItem("ui-foundations-mode", mode);
-          updatePressedState(mode);
+        });
+      });
+
+      brandButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const brand = button.dataset.brand;
+          applyBrand(brand);
+          localStorage.setItem("ui-foundations-brand", brand);
         });
       });
     </script>

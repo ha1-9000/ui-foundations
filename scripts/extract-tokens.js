@@ -50,42 +50,92 @@ function isTokenNode(node) {
   );
 }
 
-function extractCssVarFromWebSyntax(webSyntax) {
+function slugifyName(name) {
+  return String(name || "")
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+function inferBucketFromFilename(fileName) {
+  const baseName = path.basename(fileName);
+  const stem = baseName
+    .replace(/\.(token|tokens)\.jsonc?$/i, "")
+    .replace(/\.jsonc?$/i, "")
+    .trim();
+
+  let match = stem.match(/^brand\s+(.+)$/i);
+  if (match) {
+    const rest = match[1].trim();
+    if (/^[a-z]$/i.test(rest)) {
+      return { bucket: "brand", id: rest.toLowerCase(), stem };
+    }
+    return { bucket: "brand", id: slugifyName(rest), stem };
+  }
+
+  match = stem.match(/^mode\s+(.+)$/i);
+  if (match) {
+    return { bucket: "mode", id: slugifyName(match[1]), stem };
+  }
+
+  // Backward-compatible fallback for legacy "Light Mode"/"Dark Mode" naming.
+  match = stem.match(/^(.+)\s+mode$/i);
+  if (match) {
+    return { bucket: "mode", id: slugifyName(match[1]), stem };
+  }
+
+  return { bucket: "other", id: slugifyName(stem), stem };
+}
+
+function parseWebSyntax(webSyntax) {
   const raw = String(webSyntax || "").trim();
   if (!raw) {
     return { name: null, ref: null, error: "empty WEB syntax" };
   }
 
   let name = null;
-
-  if (raw.startsWith("var(")) {
-    const match = raw.match(/var\(([^)]+)\)/);
-    if (match && match[1]) {
-      name = match[1].trim();
+  if (/^var\(/i.test(raw)) {
+    const match = raw.match(/^var\(\s*(--[^)\s]+)\s*\)$/i);
+    if (match) {
+      name = match[1];
+    } else {
+      return { name: null, ref: null, error: `invalid WEB syntax: ${raw}` };
     }
-  } else if (raw.includes("--")) {
-    const index = raw.indexOf("--");
-    name = raw.slice(index).trim();
   } else {
-    name = `--${toKebabCase(raw)}`;
+    name = raw;
   }
 
-  if (!name || !name.startsWith("--") || name.includes(")")) {
+  if (!name.startsWith("--") || name.includes(")")) {
     return { name: null, ref: null, error: `invalid WEB syntax: ${raw}` };
   }
 
   return { name, ref: `var(${name})`, error: null };
 }
 
-function flattenTokens(node, pathSegments, list) {
+function normalizeVariableId(raw) {
+  if (!raw) return null;
+  return String(raw).split("/")[0].trim() || null;
+}
+
+function normalizeTokenPath(raw) {
+  return String(raw || "")
+    .trim()
+    .replace(/^\{|\}$/g, "")
+    .replace(/\./g, "/")
+    .replace(/\/+/g, "/");
+}
+
+function flattenTokens(node, pathSegments, list, sourceMeta) {
   if (!node || typeof node !== "object") return;
 
   if (isTokenNode(node)) {
-    const aliasTargetName =
+    const aliasData =
       node.$extensions &&
       node.$extensions["com.figma.aliasData"] &&
-      node.$extensions["com.figma.aliasData"].targetVariableName
-        ? String(node.$extensions["com.figma.aliasData"].targetVariableName)
+      typeof node.$extensions["com.figma.aliasData"] === "object"
+        ? node.$extensions["com.figma.aliasData"]
         : null;
     const webSyntax =
       node.$extensions &&
@@ -93,21 +143,40 @@ function flattenTokens(node, pathSegments, list) {
       node.$extensions["com.figma.codeSyntax"].WEB
         ? String(node.$extensions["com.figma.codeSyntax"].WEB)
         : null;
+    const valueRef =
+      node.$value && typeof node.$value === "object" && node.$value.$ref
+        ? normalizeTokenPath(node.$value.$ref)
+        : null;
+    const stringAliasMatch =
+      typeof node.$value === "string" ? node.$value.match(/^\{(.+)\}$/) : null;
+    const variableId =
+      node.$extensions && node.$extensions["com.figma.variableId"]
+        ? normalizeVariableId(node.$extensions["com.figma.variableId"])
+        : null;
+
     list.push({
       pathSegments,
       type: node.$type,
       value: node.$value,
-      aliasTargetName,
+      variableId,
+      path: pathSegments.join("/"),
+      pathKey: pathSegments.join("."),
+      aliasTargetId: aliasData ? normalizeVariableId(aliasData.targetVariableId) : null,
+      aliasTargetName: aliasData ? normalizeTokenPath(aliasData.targetVariableName) : null,
+      aliasRefPath: valueRef || (stringAliasMatch ? normalizeTokenPath(stringAliasMatch[1]) : null),
       webSyntax,
       cssVar: null,
       cssVarRef: null,
+      sourceScope: sourceMeta.scope,
+      sourceFile: sourceMeta.filePath,
+      sourceFileName: sourceMeta.fileName,
     });
     return;
   }
 
   for (const [key, value] of Object.entries(node)) {
     if (key.startsWith("$")) continue;
-    flattenTokens(value, [...pathSegments, key], list);
+    flattenTokens(value, [...pathSegments, key], list, sourceMeta);
   }
 }
 
@@ -145,21 +214,81 @@ function toRgba(r, g, b, a) {
   return `rgba(${to255(r)} ${to255(g)} ${to255(b)} / ${alpha})`;
 }
 
-function normalizeAliasKey(raw) {
-  return raw.replace(/\//g, ".");
-}
-
-function aliasToCssVar(raw) {
-  const key = toKebabCase(raw.replace(/\//g, "-"));
+function aliasToCssVar(pathName) {
+  const key = toKebabCase(String(pathName || "").replace(/[/.]/g, "-"));
   return `var(--${key})`;
 }
 
-function getAliasRef(aliasKey, tokenMap) {
-  const target = tokenMap.get(aliasKey);
-  if (target && target.cssVar) {
-    return `var(${target.cssVar})`;
+function createTokenLookup(tokenList) {
+  const byPath = new Map();
+  const byId = new Map();
+
+  for (const token of tokenList) {
+    const normalizedPath = normalizeTokenPath(token.path);
+    byPath.set(normalizedPath, token);
+    byPath.set(normalizedPath.toLowerCase(), token);
+    byPath.set(normalizeTokenPath(token.pathKey), token);
+    byPath.set(normalizeTokenPath(token.pathKey).toLowerCase(), token);
+    if (token.variableId) {
+      byId.set(normalizeVariableId(token.variableId), token);
+    }
   }
-  return aliasToCssVar(aliasKey);
+
+  return { byPath, byId };
+}
+
+function lookupAliasTarget(token, lookup) {
+  const byId = lookup.byId;
+  const byPath = lookup.byPath;
+
+  if (token.aliasTargetId) {
+    const idMatch = byId.get(normalizeVariableId(token.aliasTargetId));
+    if (idMatch) return idMatch;
+  }
+
+  const pathCandidates = [token.aliasTargetName, token.aliasRefPath]
+    .filter(Boolean)
+    .map((entry) => normalizeTokenPath(entry));
+
+  for (const candidate of pathCandidates) {
+    const direct = byPath.get(candidate) || byPath.get(candidate.toLowerCase());
+    if (direct) return direct;
+  }
+
+  return null;
+}
+
+function resolveAliasRef(token, lookup, report = null) {
+  const target = lookupAliasTarget(token, lookup);
+  if (!target) {
+    if (report) {
+      report.missingAliasTargets.push(token.path);
+    }
+    return null;
+  }
+
+  const startRef = token.variableId || token.path;
+  let current = target;
+  const seen = new Set([startRef]);
+  while (current) {
+    const currentRef = current.variableId || current.path;
+    if (seen.has(currentRef)) {
+      if (report) {
+        report.aliasCycles.push(token.path);
+      }
+      return null;
+    }
+    seen.add(currentRef);
+    if (!(current.aliasTargetId || current.aliasTargetName || current.aliasRefPath)) {
+      break;
+    }
+    current = lookupAliasTarget(current, lookup);
+    if (!current) break;
+  }
+
+  if (target.cssVarRef) return target.cssVarRef;
+  if (target.cssVar) return `var(${target.cssVar})`;
+  return aliasToCssVar(target.path);
 }
 
 function isBreakpointToken(segments) {
@@ -241,17 +370,12 @@ function formatTokenValue(token, rawValue, tokenKey, segments) {
   return formatLength(rawValue);
 }
 
-function addToken(tokens, token, tokenMap) {
+function addToken(tokens, token, lookup, report) {
   let resolved = token.value;
-  if (token.aliasTargetName) {
-    const aliasKey = normalizeAliasKey(token.aliasTargetName);
-    resolved = getAliasRef(aliasKey, tokenMap);
-  } else {
-    const aliasMatch =
-      typeof token.value === "string" ? token.value.match(/^\{(.+)\}$/) : null;
-    if (aliasMatch) {
-      const aliasKey = normalizeAliasKey(aliasMatch[1]);
-      resolved = getAliasRef(aliasKey, tokenMap);
+  if (token.aliasTargetId || token.aliasTargetName || token.aliasRefPath) {
+    const aliasRef = resolveAliasRef(token, lookup, report);
+    if (aliasRef) {
+      resolved = aliasRef;
     }
   }
   const segments = token.pathSegments;
@@ -317,13 +441,8 @@ function addToken(tokens, token, tokenMap) {
   tokens.components[token.cssVar] = formattedValue;
 }
 
-function buildTokensFromList(tokenList) {
-  const tokenMap = new Map();
-  for (const token of tokenList) {
-    const key = token.pathSegments.join(".");
-    tokenMap.set(key, token);
-  }
-
+function buildTokensFromList(tokenList, report, lookupOverride) {
+  const lookup = lookupOverride || createTokenLookup(tokenList);
   const tokens = {
     colors: {},
     typography: {},
@@ -336,25 +455,29 @@ function buildTokensFromList(tokenList) {
   };
 
   for (const token of tokenList) {
-    addToken(tokens, token, tokenMap);
+    addToken(tokens, token, lookup, report);
   }
 
   return tokens;
 }
 
 function assignCssVars(tokenList, report) {
-  const seen = new Map();
+  if (!report.scopeSeen) {
+    report.scopeSeen = new Map();
+  }
+
   for (const token of tokenList) {
     const fallback = `--${buildTokenKey(token.pathSegments)}`;
+    const tokenPath = token.pathSegments.join("/");
     if (!token.webSyntax) {
-      report.missingWeb.push(token.pathSegments.join("/"));
+      report.missingWeb.push(tokenPath);
       token.cssVar = fallback;
       token.cssVarRef = `var(${fallback})`;
     } else {
-      const parsed = extractCssVarFromWebSyntax(token.webSyntax);
+      const parsed = parseWebSyntax(token.webSyntax);
       if (parsed.error || !parsed.name) {
         report.invalidWeb.push(
-          `${token.pathSegments.join("/")}: ${parsed.error}`,
+          `${tokenPath}: ${parsed.error}`,
         );
         token.cssVar = fallback;
         token.cssVarRef = `var(${fallback})`;
@@ -364,17 +487,21 @@ function assignCssVars(tokenList, report) {
       }
     }
 
-    const currentPath = token.pathSegments.join("/");
-    const existing = seen.get(token.cssVar);
-    if (existing && existing !== currentPath) {
-      report.duplicates.push({
-        name: token.cssVar,
-        first: existing,
-        duplicate: currentPath,
-      });
-    } else if (!existing) {
-      seen.set(token.cssVar, currentPath);
+    const scopeKey = token.sourceScope || "other:global";
+    if (!report.scopeSeen.has(scopeKey)) {
+      report.scopeSeen.set(scopeKey, new Map());
     }
+    const scopeMap = report.scopeSeen.get(scopeKey);
+    const existing = scopeMap.get(token.cssVar);
+    if (existing && existing !== tokenPath) {
+      report.duplicates.push({
+        scope: scopeKey,
+        name: token.cssVar,
+        winner: tokenPath,
+        dropped: existing,
+      });
+    }
+    scopeMap.set(token.cssVar, tokenPath);
   }
 }
 
@@ -384,6 +511,8 @@ function normalizeOutputBase(filePath) {
 }
 
 function normalizePerFileBase(base) {
+  if (base === "mode-light.tokens") return "color.light.tokens";
+  if (base === "mode-dark.tokens") return "color.dark.tokens";
   if (base === "light-mode.tokens") return "color.light.tokens";
   if (base === "dark-mode.tokens") return "color.dark.tokens";
   if (base === "color-light.tokens") return "color.light.tokens";
@@ -577,18 +706,27 @@ async function extractTokens() {
     for (const filePath of files.sort()) {
       const data = readJsonLike(filePath);
       const tokenList = [];
-      flattenTokens(data, [], tokenList);
+      const scope = inferBucketFromFilename(filePath);
+      flattenTokens(data, [], tokenList, {
+        scope: `${scope.bucket}:${scope.id || "default"}`,
+        bucket: scope.bucket,
+        id: scope.id || "default",
+        filePath,
+        fileName: path.basename(filePath),
+      });
       allTokens.push(...tokenList);
-      perFileTokens.push({ filePath, tokenList });
+      perFileTokens.push({ filePath, tokenList, scope });
     }
 
-    const report = { missingWeb: [], invalidWeb: [], duplicates: [] };
+    const report = {
+      missingWeb: [],
+      invalidWeb: [],
+      duplicates: [],
+      aliasCycles: [],
+      missingAliasTargets: [],
+      scopeSeen: new Map(),
+    };
     assignCssVars(allTokens, report);
-    for (const entry of perFileTokens) {
-      assignCssVars(entry.tokenList, report);
-    }
-
-    const tokens = buildTokensFromList(allTokens);
 
     const cssDir = path.join(OUTPUT_DIR, "css");
     const jsonDir = path.join(OUTPUT_DIR, "json");
@@ -606,12 +744,13 @@ async function extractTokens() {
     const includeFigmaMetadata = process.argv.includes(
       "--include-figma-metadata",
     );
+    const globalLookup = createTokenLookup(allTokens);
 
     for (const { filePath, tokenList } of perFileTokens) {
       const rawBase = normalizeOutputBase(filePath);
       const base = normalizePerFileBase(rawBase);
       const sourceData = readJsonLike(filePath);
-      const perTokens = buildTokensFromList(tokenList);
+      const perTokens = buildTokensFromList(tokenList, report, globalLookup);
       const transformReport = { unmappedFontWeights: [] };
       const w3cTokens = transformNodeToW3C(sourceData, [], transformReport);
       const cleanTokens = withSchema(stripFigmaExtensions(w3cTokens));
@@ -661,6 +800,17 @@ async function extractTokens() {
       );
     }
 
+    console.log("📊 Extract report:");
+    console.log(`   - missing codeSyntax.WEB: ${report.missingWeb.length}`);
+    console.log(`   - unparseable codeSyntax.WEB: ${report.invalidWeb.length}`);
+    console.log(`   - duplicate css var names (same scope): ${report.duplicates.length}`);
+    if (report.missingAliasTargets.length > 0) {
+      console.log(`   - missing alias targets: ${report.missingAliasTargets.length}`);
+    }
+    if (report.aliasCycles.length > 0) {
+      console.log(`   - alias cycles: ${report.aliasCycles.length}`);
+    }
+
     if (report.missingWeb.length > 0) {
       console.warn("⚠️ Tokens missing codeSyntax.WEB (fallback applied):");
       report.missingWeb.forEach((entry) => console.warn(`  - ${entry}`));
@@ -670,12 +820,20 @@ async function extractTokens() {
       report.invalidWeb.forEach((entry) => console.warn(`  - ${entry}`));
     }
     if (report.duplicates.length > 0) {
-      console.warn("⚠️ Duplicate cssVar names detected:");
+      console.warn("⚠️ Duplicate cssVar names within the same scope:");
       report.duplicates.forEach((entry) =>
         console.warn(
-          `  - ${entry.name} (${entry.first}) duplicated by ${entry.duplicate}`,
+          `  - [${entry.scope}] ${entry.name}: winner ${entry.winner}, dropped ${entry.dropped}`,
         ),
       );
+    }
+    if (report.missingAliasTargets.length > 0) {
+      console.warn("⚠️ Alias target not found (literal fallback applied):");
+      report.missingAliasTargets.forEach((entry) => console.warn(`  - ${entry}`));
+    }
+    if (report.aliasCycles.length > 0) {
+      console.warn("⚠️ Alias cycle detected (literal fallback applied):");
+      report.aliasCycles.forEach((entry) => console.warn(`  - ${entry}`));
     }
 
     const shouldTrash =
