@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" data-brand="a" data-mode="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{% if title %}{{ title }} · {% endif %}UI Foundations Docs</title>
+    <link rel="stylesheet" href="/vendor/ui-foundations/main.css" />
+    <link rel="stylesheet" href="/assets/docs.css" />
+  </head>
+  <body>
+    <div class="docs-shell">
+      <aside class="docs-sidebar">
+        <a class="docs-logo" href="/">UI Foundations</a>
+
+        <nav class="docs-nav" aria-label="Documentation navigation">
+          <section class="docs-nav-section">
+            <h2>Tokens</h2>
+            <ul>
+              {% for entry in collections.tokensDocs %}
+              <li>
+                <a
+                  href="{{ entry.url }}"
+                  {% if entry.url == page.url %}aria-current="page"{% endif %}
+                >
+                  {{ entry.data.navTitle or entry.data.title }}
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </section>
+
+          <section class="docs-nav-section">
+            <h2>Components</h2>
+            <ul>
+              {% for entry in collections.componentsDocs %}
+              <li>
+                <a
+                  href="{{ entry.url }}"
+                  {% if entry.url == page.url %}aria-current="page"{% endif %}
+                >
+                  {{ entry.data.navTitle or entry.data.title }}
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </section>
+        </nav>
+      </aside>
+
+      <main class="docs-main">
+        <header class="docs-header">
+          <div class="mode-toggle" role="group" aria-label="Color mode">
+            <button
+              class="button outline"
+              type="button"
+              data-mode="light"
+              aria-pressed="false"
+            >
+              Light
+            </button>
+            <button
+              class="button outline"
+              type="button"
+              data-mode="dark"
+              aria-pressed="false"
+            >
+              Dark
+            </button>
+            <button
+              class="button ghost"
+              type="button"
+              data-mode="system"
+              aria-pressed="false"
+            >
+              System
+            </button>
+          </div>
+
+          <div class="mode-toggle" role="group" aria-label="Brand">
+            <button
+              class="button outline"
+              type="button"
+              data-brand="a"
+              aria-pressed="false"
+            >
+              Brand A
+            </button>
+            <button
+              class="button outline"
+              type="button"
+              data-brand="b"
+              aria-pressed="false"
+            >
+              Brand B
+            </button>
+          </div>
+        </header>
+
+        <article class="docs-content">
+          {% if title %}<h1>{{ title }}</h1>{% endif %}
+          {% if description %}<p class="page-intro">{{ description }}</p>{% endif %}
+          {{ content | safe }}
+        </article>
+      </main>
+    </div>
+
+    <script>
+      const root = document.documentElement;
+      const modeButtons = document.querySelectorAll("[data-mode]");
+      const brandButtons = document.querySelectorAll("[data-brand]");
+      const systemDarkMedia = window.matchMedia("(prefers-color-scheme: dark)");
+      const storedMode = localStorage.getItem("ui-foundations-mode");
+      const storedBrand = localStorage.getItem("ui-foundations-brand");
+      let selectedMode = "light";
+
+      const updateModePressedState = (mode) => {
+        modeButtons.forEach((button) => {
+          const active =
+            mode === "system"
+              ? button.dataset.mode === "system"
+              : button.dataset.mode === mode;
+          button.setAttribute("aria-pressed", active ? "true" : "false");
+        });
+      };
+
+      const updateBrandPressedState = (brand) => {
+        brandButtons.forEach((button) => {
+          const active = button.dataset.brand === brand;
+          button.setAttribute("aria-pressed", active ? "true" : "false");
+        });
+      };
+
+      const applyMode = (mode) => {
+        selectedMode = mode;
+        if (mode === "system") {
+          root.dataset.mode = systemDarkMedia.matches ? "dark" : "light";
+          updateModePressedState("system");
+          return;
+        }
+
+        root.dataset.mode = mode;
+        updateModePressedState(mode);
+      };
+
+      const applyBrand = (brand) => {
+        root.dataset.brand = brand;
+        updateBrandPressedState(brand);
+      };
+
+      applyMode(storedMode || "light");
+      applyBrand(storedBrand || "a");
+
+      if (typeof systemDarkMedia.addEventListener === "function") {
+        systemDarkMedia.addEventListener("change", () => {
+          if (selectedMode === "system") {
+            root.dataset.mode = systemDarkMedia.matches ? "dark" : "light";
+          }
+        });
+      } else if (typeof systemDarkMedia.addListener === "function") {
+        systemDarkMedia.addListener(() => {
+          if (selectedMode === "system") {
+            root.dataset.mode = systemDarkMedia.matches ? "dark" : "light";
+          }
+        });
+      }
+
+      modeButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const mode = button.dataset.mode;
+          applyMode(mode);
+          localStorage.setItem("ui-foundations-mode", mode);
+        });
+      });
+
+      brandButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const brand = button.dataset.brand;
+          applyBrand(brand);
+          localStorage.setItem("ui-foundations-brand", brand);
+        });
+      });
+    </script>
+  </body>
+</html>

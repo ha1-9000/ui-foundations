@@ -61,6 +61,12 @@ Rules:
 - `figma/` — Figma exports, mappings, Code Connect notes
 - `agent/` — assistant rules and prompt examples
 
+Docs structure (`site/`):
+- `_includes/layouts/` — shared Nunjucks layouts
+- `tokens/*.md` — token docs pages (Eleventy collection)
+- `components/*.md` — component docs pages (Eleventy collection)
+- `assets/docs.css` — docs-only styling
+
 ## CSS variable naming
 
 CSS custom property names are derived from `com.figma.codeSyntax.WEB`.
