@@ -74,40 +74,40 @@
   }
 
   /* Text scale */
-  :where(sup, sub, .text--xs) {
+  :where(sup, sub, .text-xs) {
     font-size: var(--font-size-xs);
     line-height: var(--line-height-xs);
     margin-bottom: calc(var(--line-height-xs) * var(--font-size-xs));
   }
 
-  :where(.text--sm) {
+  :where(.text-sm) {
     font-size: var(--font-size-sm);
     line-height: var(--line-height-sm);
   }
 
-  :where(.text--md) {
+  :where(.text-md) {
     font-size: var(--font-size-md);
     line-height: var(--line-height-md);
   }
 
-  :where(.text--lg) {
+  :where(.text-lg) {
     font-size: var(--font-size-lg);
     line-height: var(--line-height-lg);
   }
 
-  :where(.text--xl) {
+  :where(.text-xl) {
     font-size: var(--font-size-xl);
     line-height: var(--line-height-xl);
   }
 
-  :where(.text--2xl) {
-    font-size: var(--font-size-2xl);
-    line-height: var(--line-height-2xl);
+  :where(.text-xxl) {
+    font-size: var(--font-size-xxl);
+    line-height: var(--line-height-xxl);
   }
 
-  :where(.text--3xl) {
-    font-size: var(--font-size-3xl);
-    line-height: var(--line-height-3xl);
+  :where(.text-xxxl) {
+    font-size: var(--font-size-xxxl);
+    line-height: var(--line-height-xxxl);
   }
 
   /* font weights */

@@ -11,10 +11,6 @@
     font-size: 1rem;
   }
 
-  body {
-    margin: 0;
-  }
-
   .page {
     max-width: 960px;
     margin: 0 auto;
