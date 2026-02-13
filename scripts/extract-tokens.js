@@ -13,7 +13,8 @@ const { parse } = require("jsonc-parser");
 const REPO_ROOT = path.resolve(__dirname, "..");
 const EXPORTS_DIR = path.join(REPO_ROOT, "figma", "exports");
 const OUTPUT_DIR = path.join(REPO_ROOT, "dist", "tokens");
-const DTCG_SCHEMA_URL = "https://www.designtokens.org/schemas/2025.10/format.json";
+const DTCG_SCHEMA_URL =
+  "https://www.designtokens.org/schemas/2025.10/format.json";
 
 const EXPORT_PATTERNS = [
   "figma/exports/**/*.token.json",
@@ -161,9 +162,15 @@ function flattenTokens(node, pathSegments, list, sourceMeta) {
       variableId,
       path: pathSegments.join("/"),
       pathKey: pathSegments.join("."),
-      aliasTargetId: aliasData ? normalizeVariableId(aliasData.targetVariableId) : null,
-      aliasTargetName: aliasData ? normalizeTokenPath(aliasData.targetVariableName) : null,
-      aliasRefPath: valueRef || (stringAliasMatch ? normalizeTokenPath(stringAliasMatch[1]) : null),
+      aliasTargetId: aliasData
+        ? normalizeVariableId(aliasData.targetVariableId)
+        : null,
+      aliasTargetName: aliasData
+        ? normalizeTokenPath(aliasData.targetVariableName)
+        : null,
+      aliasRefPath:
+        valueRef ||
+        (stringAliasMatch ? normalizeTokenPath(stringAliasMatch[1]) : null),
       webSyntax,
       cssVar: null,
       cssVarRef: null,
@@ -279,7 +286,13 @@ function resolveAliasRef(token, lookup, report = null) {
       return null;
     }
     seen.add(currentRef);
-    if (!(current.aliasTargetId || current.aliasTargetName || current.aliasRefPath)) {
+    if (
+      !(
+        current.aliasTargetId ||
+        current.aliasTargetName ||
+        current.aliasRefPath
+      )
+    ) {
       break;
     }
     current = lookupAliasTarget(current, lookup);
@@ -358,8 +371,14 @@ function formatTokenValue(token, rawValue, tokenKey, segments) {
   }
 
   if (type === "shadow") {
-    if (rawValue && typeof rawValue === "object" && rawValue.offsetX !== undefined) {
-      return `${formatLength(rawValue.offsetX)} ${formatLength(rawValue.offsetY)} ${formatLength(rawValue.blur)} ${rawValue.color}`;
+    if (
+      rawValue &&
+      typeof rawValue === "object" &&
+      rawValue.offsetX !== undefined
+    ) {
+      return `${formatLength(rawValue.offsetX)} ${formatLength(
+        rawValue.offsetY,
+      )} ${formatLength(rawValue.blur)} ${rawValue.color}`;
     }
   }
 
@@ -476,9 +495,7 @@ function assignCssVars(tokenList, report) {
     } else {
       const parsed = parseWebSyntax(token.webSyntax);
       if (parsed.error || !parsed.name) {
-        report.invalidWeb.push(
-          `${tokenPath}: ${parsed.error}`,
-        );
+        report.invalidWeb.push(`${tokenPath}: ${parsed.error}`);
         token.cssVar = fallback;
         token.cssVarRef = `var(${fallback})`;
       } else {
@@ -553,7 +570,8 @@ function isFontWeightPath(segments) {
 function isUnitlessNumberPath(segments) {
   const joined = segments.join(".").toLowerCase();
   if (joined === "layout.columns") return true;
-  if (joined.startsWith("zindex.") || joined.startsWith("z-index.")) return true;
+  if (joined.startsWith("zindex.") || joined.startsWith("z-index."))
+    return true;
   return false;
 }
 
@@ -604,7 +622,10 @@ function transformTokenNodeToW3C(tokenNode, segments, report) {
   if (type === "string" && isFontFamilyPath(segments)) {
     token.$type = "fontFamily";
     if (token.$extensions && token.$extensions["com.figma.type"] === "string") {
-      token.$extensions = { ...token.$extensions, "com.figma.type": "fontFamily" };
+      token.$extensions = {
+        ...token.$extensions,
+        "com.figma.type": "fontFamily",
+      };
     }
     return token;
   }
@@ -621,7 +642,10 @@ function transformTokenNodeToW3C(tokenNode, segments, report) {
       });
     }
     if (token.$extensions && token.$extensions["com.figma.type"] === "string") {
-      token.$extensions = { ...token.$extensions, "com.figma.type": "fontWeight" };
+      token.$extensions = {
+        ...token.$extensions,
+        "com.figma.type": "fontWeight",
+      };
     }
     return token;
   }
@@ -763,7 +787,10 @@ async function extractTokens() {
       fs.writeFileSync(path.join(tsDir, `${base}.ts`), tsOut);
       const figmaJsonPath = path.join(jsonDir, `${base}.figma.json`);
       if (includeFigmaMetadata) {
-        fs.writeFileSync(figmaJsonPath, `${JSON.stringify(w3cTokens, null, 2)}\n`);
+        fs.writeFileSync(
+          figmaJsonPath,
+          `${JSON.stringify(w3cTokens, null, 2)}\n`,
+        );
       } else if (fs.existsSync(figmaJsonPath)) {
         fs.unlinkSync(figmaJsonPath);
       }
@@ -789,7 +816,7 @@ async function extractTokens() {
 
     console.log("✅ Tokens generated from local exports!");
     console.log(`📁 Files created in ${path.relative(REPO_ROOT, OUTPUT_DIR)}/`);
-    console.log("   - css/*.css, json/*.json, ts/*.ts (per-file files)");
+    console.log("   • css/*.css, json/*.json, ts/*.ts (per-file files)");
 
     const sanityToken = allTokens.find(
       (token) => token.pathSegments.join("/") === "Breakpoint/100",
@@ -801,14 +828,18 @@ async function extractTokens() {
     }
 
     console.log("📊 Extract report:");
-    console.log(`   - missing codeSyntax.WEB: ${report.missingWeb.length}`);
-    console.log(`   - unparseable codeSyntax.WEB: ${report.invalidWeb.length}`);
-    console.log(`   - duplicate css var names (same scope): ${report.duplicates.length}`);
+    console.log(`   • missing codeSyntax.WEB: ${report.missingWeb.length}`);
+    console.log(`   • unparseable codeSyntax.WEB: ${report.invalidWeb.length}`);
+    console.log(
+      `   • duplicate css var names (same scope): ${report.duplicates.length}`,
+    );
     if (report.missingAliasTargets.length > 0) {
-      console.log(`   - missing alias targets: ${report.missingAliasTargets.length}`);
+      console.log(
+        `   • missing alias targets: ${report.missingAliasTargets.length}`,
+      );
     }
     if (report.aliasCycles.length > 0) {
-      console.log(`   - alias cycles: ${report.aliasCycles.length}`);
+      console.log(`   • alias cycles: ${report.aliasCycles.length}`);
     }
 
     if (report.missingWeb.length > 0) {
@@ -820,16 +851,18 @@ async function extractTokens() {
       report.invalidWeb.forEach((entry) => console.warn(`  - ${entry}`));
     }
     if (report.duplicates.length > 0) {
-      console.warn("⚠️ Duplicate cssVar names within the same scope:");
+      console.warn("⚠️  Duplicate cssVar names within the same scope:");
       report.duplicates.forEach((entry) =>
         console.warn(
-          `  - [${entry.scope}] ${entry.name}: winner ${entry.winner}, dropped ${entry.dropped}`,
+          `   • [${entry.scope}] ${entry.name}: winner ${entry.winner}, dropped ${entry.dropped}`,
         ),
       );
     }
     if (report.missingAliasTargets.length > 0) {
       console.warn("⚠️ Alias target not found (literal fallback applied):");
-      report.missingAliasTargets.forEach((entry) => console.warn(`  - ${entry}`));
+      report.missingAliasTargets.forEach((entry) =>
+        console.warn(`  - ${entry}`),
+      );
     }
     if (report.aliasCycles.length > 0) {
       console.warn("⚠️ Alias cycle detected (literal fallback applied):");
@@ -837,7 +870,8 @@ async function extractTokens() {
     }
 
     const shouldTrash =
-      process.argv.includes("--trash") || process.env.npm_config_trash === "true";
+      process.argv.includes("--trash") ||
+      process.env.npm_config_trash === "true";
     if (shouldTrash) {
       for (const filePath of files) {
         if (fs.existsSync(filePath)) {
@@ -903,10 +937,17 @@ function generateTypeScript(tokens) {
     ["components", "ComponentToken"],
   ]
     .filter(([group]) => Object.prototype.hasOwnProperty.call(compact, group))
-    .map(([group, typeName]) => `export type ${typeName} = keyof typeof tokens.${group};`)
+    .map(
+      ([group, typeName]) =>
+        `export type ${typeName} = keyof typeof tokens.${group};`,
+    )
     .join("\n");
 
-  return `// Auto-generated design tokens from Figma\n// Generated on ${new Date().toISOString()}\n\nexport const tokens = ${JSON.stringify(compact, null, 2)} as const;\n\n${typeDefinitions}\n`;
+  return `// Auto-generated design tokens from Figma\n// Generated on ${new Date().toISOString()}\n\nexport const tokens = ${JSON.stringify(
+    compact,
+    null,
+    2,
+  )} as const;\n\n${typeDefinitions}\n`;
 }
 
 function formatLength(value) {

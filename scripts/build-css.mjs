@@ -156,7 +156,9 @@ function buildTokenKey(segments) {
 }
 
 function isTokenNode(node) {
-  return node && typeof node === "object" && "$type" in node && "$value" in node;
+  return (
+    node && typeof node === "object" && "$type" in node && "$value" in node
+  );
 }
 
 function flattenTokens(node, pathSegments, list, source, orderRef) {
@@ -187,10 +189,18 @@ function flattenTokens(node, pathSegments, list, source, orderRef) {
       value: node.$value,
       source,
       order: orderRef.value++,
-      variableId: normalizeVariableId(node.$extensions?.["com.figma.variableId"]),
-      aliasTargetId: aliasData ? normalizeVariableId(aliasData.targetVariableId) : null,
-      aliasTargetName: aliasData ? normalizeTokenPath(aliasData.targetVariableName) : null,
-      aliasRefPath: valueRef || (stringAliasMatch ? normalizeTokenPath(stringAliasMatch[1]) : null),
+      variableId: normalizeVariableId(
+        node.$extensions?.["com.figma.variableId"],
+      ),
+      aliasTargetId: aliasData
+        ? normalizeVariableId(aliasData.targetVariableId)
+        : null,
+      aliasTargetName: aliasData
+        ? normalizeTokenPath(aliasData.targetVariableName)
+        : null,
+      aliasRefPath:
+        valueRef ||
+        (stringAliasMatch ? normalizeTokenPath(stringAliasMatch[1]) : null),
       webSyntax,
       cssVarName: null,
       cssVarRef: null,
@@ -277,7 +287,9 @@ function lookupAliasTarget(token, lookup) {
     .map((entry) => normalizeTokenPath(entry));
 
   for (const candidate of candidates) {
-    const match = lookup.byPath.get(candidate) || lookup.byPath.get(candidate.toLowerCase());
+    const match =
+      lookup.byPath.get(candidate) ||
+      lookup.byPath.get(candidate.toLowerCase());
     if (match) return match;
   }
 
@@ -311,7 +323,13 @@ function resolveAliasCssRef(token, lookup, report) {
       return null;
     }
     seen.add(currentRef);
-    if (!(current.aliasTargetId || current.aliasTargetName || current.aliasRefPath)) {
+    if (
+      !(
+        current.aliasTargetId ||
+        current.aliasTargetName ||
+        current.aliasRefPath
+      )
+    ) {
       break;
     }
     current = lookupAliasTarget(current, lookup);
@@ -509,7 +527,8 @@ function fileNameForScope(scope) {
   }
 
   const id = scope.id;
-  if (["primitives", "core", "core-primitives"].includes(id)) return "core.tokens.css";
+  if (["primitives", "core", "core-primitives"].includes(id))
+    return "core.tokens.css";
   if (id.includes("semantic")) return "semantic.tokens.css";
   if (id.includes("component")) return "component.tokens.css";
   return `${id}.tokens.css`;
@@ -605,7 +624,12 @@ async function generateScopedTokenCssFromExports() {
     }
 
     if (!String(value).startsWith("var(--")) {
-      value = formatTokenValue(token, value, buildTokenKey(token.pathSegments), token.pathSegments);
+      value = formatTokenValue(
+        token,
+        value,
+        buildTokenKey(token.pathSegments),
+        token.pathSegments,
+      );
     }
 
     scopedDecls.get(key).declarations.set(token.cssVarName, value);
@@ -616,7 +640,10 @@ async function generateScopedTokenCssFromExports() {
   if (lightScope && darkScope) {
     const filtered = new Map();
     for (const [name, value] of darkScope.declarations.entries()) {
-      if (!lightScope.declarations.has(name) || lightScope.declarations.get(name) !== value) {
+      if (
+        !lightScope.declarations.has(name) ||
+        lightScope.declarations.get(name) !== value
+      ) {
         filtered.set(name, value);
       }
     }
@@ -652,49 +679,17 @@ async function generateScopedTokenCssFromExports() {
     scopedFiles.push({ fileName, scope });
   }
 
-  const sanityToken = allTokens.find((token) => token.path === "Breakpoint/100");
+  const sanityToken = allTokens.find(
+    (token) => token.path === "Breakpoint/100",
+  );
   if (sanityToken && sanityToken.cssVarName !== "--breakpoint-100") {
     console.warn(
       `⚠️ Sanity check failed: Breakpoint/100 cssVarName is ${sanityToken.cssVarName}`,
     );
   }
 
-  console.log("✅ Scoped token CSS generated from figma/exports");
-  console.log(`   - files: ${scopedFiles.length}`);
-  console.log(`   - missing codeSyntax.WEB: ${report.missingWeb.length}`);
-  console.log(`   - unparseable codeSyntax.WEB: ${report.invalidWeb.length}`);
-  console.log(`   - duplicate css vars in same scope: ${report.duplicates.length}`);
-  if (report.missingAliasTargets.length > 0) {
-    console.log(`   - missing alias targets: ${report.missingAliasTargets.length}`);
-  }
-  if (report.aliasCycles.length > 0) {
-    console.log(`   - alias cycles: ${report.aliasCycles.length}`);
-  }
-
-  if (report.missingWeb.length > 0) {
-    console.warn("⚠️ Missing codeSyntax.WEB (fallback applied):");
-    report.missingWeb.forEach((entry) => console.warn(`  - ${entry}`));
-  }
-  if (report.invalidWeb.length > 0) {
-    console.warn("⚠️ Unparseable codeSyntax.WEB (fallback applied):");
-    report.invalidWeb.forEach((entry) => console.warn(`  - ${entry}`));
-  }
-  if (report.duplicates.length > 0) {
-    console.warn("⚠️ Duplicate css var names within the same scope:");
-    report.duplicates.forEach((entry) =>
-      console.warn(
-        `  - [${entry.scope}] ${entry.name}: winner ${entry.winner}, dropped ${entry.dropped}`,
-      ),
-    );
-  }
-  if (report.missingAliasTargets.length > 0) {
-    console.warn("⚠️ Alias target not found (value fallback applied):");
-    report.missingAliasTargets.forEach((entry) => console.warn(`  - ${entry}`));
-  }
-  if (report.aliasCycles.length > 0) {
-    console.warn("⚠️ Alias cycle detected (value fallback applied):");
-    report.aliasCycles.forEach((entry) => console.warn(`  - ${entry}`));
-  }
+  console.log("⚛️  Scoped token CSS generated from figma/exports");
+  console.log(`   • ${scopedFiles.length} files`);
 
   return sortByScopePriority(scopedFiles);
 }
@@ -720,8 +715,13 @@ function buildCoreBundle(scopedTokenFiles) {
   copyDir(path.join(REPO_ROOT, "src", "core"), path.join(DIST_DIR, "core"));
 
   const tokenImports = scopedTokenFiles
-    .filter((entry) => fs.existsSync(path.join(DIST_TOKENS_DIR, entry.fileName)))
-    .map((entry) => `@import url("../tokens/css/${entry.fileName}") layer(tokens);`);
+    .filter((entry) =>
+      fs.existsSync(path.join(DIST_TOKENS_DIR, entry.fileName)),
+    )
+    .map(
+      (entry) =>
+        `@import url("../tokens/css/${entry.fileName}") layer(tokens);`,
+    );
 
   writeFile(
     path.join(DIST_DIR, "core", "index.css"),
