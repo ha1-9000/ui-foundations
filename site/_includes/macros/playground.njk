@@ -1,0 +1,76 @@
+{% macro playground(config) -%}
+{%- set playgroundId = config.id or "react-playground" -%}
+{%- set runtime = config.runtime or "vanilla" -%}
+{%- set renderer = config.renderer or "" -%}
+{%- set componentExport = config.componentExport or config.componentName or "" -%}
+<div
+  class="playground-grid"
+  data-playground
+  data-runtime="{{ runtime }}"
+  data-renderer="{{ renderer }}"
+  {% if config.componentName %}data-component-name="{{ config.componentName }}"{% endif %}
+  {% if config.componentModule %}data-component-module="{{ config.componentModule }}"{% endif %}
+  {% if componentExport %}data-component-export="{{ componentExport }}"{% endif %}
+  data-playground-id="{{ playgroundId }}"
+>
+  <form class="playground-controls" id="{{ playgroundId }}-controls">
+    {% for control in config.controls %}
+    {% set controlId = playgroundId + "-" + control.name %}
+    {% set source = control.source or "prop" %}
+    {% set valueType = control.valueType or ("boolean" if control.kind == "boolean" else "string") %}
+    {% if control.kind == "boolean" %}
+    <label class="playground-field playground-check" for="{{ controlId }}">
+      <input
+        id="{{ controlId }}"
+        type="checkbox"
+        name="{{ control.name }}"
+        data-playground-control
+        data-prop="{{ control.prop or control.name }}"
+        data-source="{{ source }}"
+        data-value-type="{{ valueType }}"
+        {% if control.default %}checked{% endif %}
+      />
+      <span>{{ control.label or control.name }}</span>
+    </label>
+    {% elif control.kind == "select" %}
+    <label class="playground-field" for="{{ controlId }}">
+      <span>{{ control.label or control.name }}</span>
+      <select
+        id="{{ controlId }}"
+        name="{{ control.name }}"
+        data-playground-control
+        data-prop="{{ control.prop or control.name }}"
+        data-source="{{ source }}"
+        data-value-type="{{ valueType }}"
+      >
+        {% for option in control.options or [] %}
+        <option value="{{ option }}"{% if option == (control.default or "") %} selected{% endif %}>{{ option }}</option>
+        {% endfor %}
+      </select>
+    </label>
+    {% else %}
+    <label class="playground-field" for="{{ controlId }}">
+      <span>{{ control.label or control.name }}</span>
+      <input
+        id="{{ controlId }}"
+        type="{{ control.kind or "text" }}"
+        name="{{ control.name }}"
+        value="{{ control.default or "" }}"
+        data-playground-control
+        data-prop="{{ control.prop or control.name }}"
+        data-source="{{ source }}"
+        data-value-type="{{ valueType }}"
+      />
+    </label>
+    {% endif %}
+    {% endfor %}
+  </form>
+
+  <div class="playground-preview">
+    <p class="type-meta">Preview</p>
+    <div id="{{ playgroundId }}-root" class="playground-stage"></div>
+  </div>
+</div>
+
+<pre><code id="{{ playgroundId }}-code"></code></pre>
+{%- endmacro %}

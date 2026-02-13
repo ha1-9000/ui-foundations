@@ -230,6 +230,66 @@ body {
   gap: 8px;
 }
 
+.playground-grid {
+  display: grid;
+  grid-template-columns: minmax(220px, 320px) minmax(0, 1fr);
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.playground-controls {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+}
+
+.playground-field {
+  display: grid;
+  gap: 4px;
+}
+
+.playground-field span {
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-subtle, #555);
+}
+
+.playground-field input,
+.playground-field select {
+  border-radius: var(--size-radius-200, 0.25rem);
+  border: 1px solid var(--color-border-subtle, #ccc);
+  background: var(--color-fill-surface, #fff);
+  color: var(--color-text-default, #222);
+  padding: 8px 10px;
+}
+
+.playground-check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.playground-check span {
+  letter-spacing: normal;
+  text-transform: none;
+  font-size: 0.875rem;
+}
+
+.playground-preview {
+  border-radius: var(--size-radius-300, 0.375rem);
+  border: 1px solid var(--color-border-subtle, #ccc);
+  background: var(--color-fill-subtle, #f7f7f7);
+  padding: 12px;
+}
+
+.playground-stage {
+  min-height: 96px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 pre {
   overflow: auto;
   border-radius: var(--size-radius-300, 0.375rem);
@@ -362,5 +422,9 @@ html[data-brand="b"] .palette-group[data-brand-scope="a"] {
     height: auto;
     border-right: none;
     border-bottom: 1px solid var(--color-border-subtle, #ccc);
+  }
+
+  .playground-grid {
+    grid-template-columns: 1fr;
   }
 }
