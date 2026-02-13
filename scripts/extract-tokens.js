@@ -87,7 +87,7 @@ function inferBucketFromFilename(fileName) {
     return { bucket: "mode", id: slugifyName(match[1]), stem };
   }
 
-  return { bucket: "other", id: slugifyName(stem), stem };
+  return { bucket: "global", id: slugifyName(stem), stem };
 }
 
 function parseWebSyntax(webSyntax) {
@@ -405,16 +405,24 @@ function resolveTokenOutputValue(token, lookup, report) {
 function classifyTokenGroup(token) {
   const segments = token.pathSegments || [];
   const category = String(segments[0] || "").toLowerCase();
+  const subCategory = String(segments[1] || "").toLowerCase();
   const prefix = String(token.cssVar || "").toLowerCase();
 
-  if (category === "color" || prefix.startsWith("--color-")) {
+  if (
+    category === "color" ||
+    (category === "brand" && subCategory === "color") ||
+    prefix.startsWith("--color-") ||
+    prefix.startsWith("--brand-color-")
+  ) {
     return "colors";
   }
 
   if (
     category === "typography" ||
+    (category === "brand" && subCategory === "font") ||
     prefix.startsWith("--typography-") ||
     prefix.startsWith("--font-") ||
+    prefix.startsWith("--brand-font-") ||
     prefix.startsWith("--line-height-") ||
     prefix.startsWith("--letter-spacing-")
   ) {
@@ -424,8 +432,10 @@ function classifyTokenGroup(token) {
   if (
     category === "spacing" ||
     category === "space" ||
+    (category === "brand" && subCategory === "spacing") ||
     prefix.startsWith("--spacing-") ||
     prefix.startsWith("--space-") ||
+    prefix.startsWith("--brand-spacing-") ||
     prefix.startsWith("--size-spacing-")
   ) {
     return "spacing";
@@ -434,8 +444,12 @@ function classifyTokenGroup(token) {
   if (
     category === "radius" ||
     category === "corner" ||
+    (category === "brand" &&
+      (subCategory === "corner" || subCategory === "radius")) ||
     prefix.startsWith("--radius-") ||
     prefix.startsWith("--corner-") ||
+    prefix.startsWith("--brand-radius-") ||
+    prefix.startsWith("--brand-corner-") ||
     prefix.startsWith("--size-radius-")
   ) {
     return "radii";
@@ -457,13 +471,13 @@ function classifyTokenGroup(token) {
 }
 
 function parseScopeKey(scopeKey) {
-  const raw = String(scopeKey || "other:global");
+  const raw = String(scopeKey || "global:global");
   const separator = raw.indexOf(":");
   if (separator === -1) {
-    return { bucket: raw || "other", id: "global" };
+    return { bucket: raw || "global", id: "global" };
   }
   return {
-    bucket: raw.slice(0, separator) || "other",
+    bucket: raw.slice(0, separator) || "global",
     id: raw.slice(separator + 1) || "global",
   };
 }
@@ -554,7 +568,7 @@ function assignCssVars(tokenList, report) {
       }
     }
 
-    const scopeKey = token.sourceScope || "other:global";
+    const scopeKey = token.sourceScope || "global:global";
     if (!report.scopeSeen.has(scopeKey)) {
       report.scopeSeen.set(scopeKey, new Map());
     }

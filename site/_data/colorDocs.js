@@ -97,9 +97,9 @@ module.exports = () => {
     {
       id: "core-neutral-overlay",
       title: "Core Neutrals & Overlay",
-      description: "Aus tokens.yaml gefiltert (scope other:primitives).",
+      description: "Aus tokens.yaml gefiltert (scope global:primitives).",
       tokens: sortByName(
-        pickByPrefixes(pickByScope(tokens, "other", "primitives"), [
+        pickByPrefixes(pickByScope(tokens, "global", "primitives"), [
           "--color-transparent",
           "--color-neutral-",
           "--color-neutral-alpha-",

@@ -157,6 +157,73 @@ body {
   font-size: 0.9rem;
 }
 
+.docs-table-wrap {
+  overflow: auto;
+  border: 1px solid var(--color-border-subtle, #ccc);
+  border-radius: var(--size-radius-300, 0.375rem);
+}
+
+.docs-filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: flex-end;
+  margin: 0 0 10px;
+}
+
+.docs-filter {
+  display: grid;
+  gap: 4px;
+}
+
+.docs-filter span {
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-subtle, #555);
+}
+
+.docs-filter select {
+  min-width: 180px;
+  padding: 6px 8px;
+  border-radius: var(--size-radius-200, 0.25rem);
+  border: 1px solid var(--color-border-subtle, #ccc);
+  background: var(--color-fill-surface, #fff);
+  color: var(--color-text-default, #222);
+}
+
+.token-filter-summary {
+  margin-top: 0;
+}
+
+.docs-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 640px;
+}
+
+.docs-table th,
+.docs-table td {
+  text-align: left;
+  vertical-align: top;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--color-border-subtle, #ccc);
+}
+
+.docs-table th {
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-text-subtle, #555);
+  background: var(--color-fill-subtle, #f7f7f7);
+  position: sticky;
+  top: 0;
+}
+
+.docs-table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
 .docs-stack {
   display: flex;
   flex-wrap: wrap;
