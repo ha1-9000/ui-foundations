@@ -7,13 +7,15 @@ order: 10
 permalink: /components/button/
 ---
 
+{% import "macros/ui.njk" as ui %}
+
 ## Variants
 
 <div class="button-group docs-stack">
-  <button type="button" class="button">Solid</button>
-  <button type="button" class="button outline">Outline</button>
-  <button type="button" class="button ghost">Ghost</button>
-  <button type="button" class="button" disabled>Disabled</button>
+  {{ ui.button("Solid") }}
+  {{ ui.button("Outline", "outline") }}
+  {{ ui.button("Ghost", "ghost") }}
+  {{ ui.button("Disabled", "", true) }}
 </div>
 
 ## API (React)

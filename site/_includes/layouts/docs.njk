@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% import "macros/ui.njk" as ui %}
 <html lang="en" data-brand="a" data-mode="light">
   <head>
     <meta charset="utf-8" />
@@ -50,49 +51,14 @@
       <main class="docs-main">
         <header class="docs-header">
           <div class="mode-toggle" role="group" aria-label="Color mode">
-            <button
-              class="button outline"
-              type="button"
-              data-mode="light"
-              aria-pressed="false"
-            >
-              Light
-            </button>
-            <button
-              class="button outline"
-              type="button"
-              data-mode="dark"
-              aria-pressed="false"
-            >
-              Dark
-            </button>
-            <button
-              class="button ghost"
-              type="button"
-              data-mode="system"
-              aria-pressed="false"
-            >
-              System
-            </button>
+            {{ ui.toggleButton("Light", "mode", "light", "outline") }}
+            {{ ui.toggleButton("Dark", "mode", "dark", "outline") }}
+            {{ ui.toggleButton("System", "mode", "system", "ghost") }}
           </div>
 
           <div class="mode-toggle" role="group" aria-label="Brand">
-            <button
-              class="button outline"
-              type="button"
-              data-brand="a"
-              aria-pressed="false"
-            >
-              Brand A
-            </button>
-            <button
-              class="button outline"
-              type="button"
-              data-brand="b"
-              aria-pressed="false"
-            >
-              Brand B
-            </button>
+            {{ ui.toggleButton("Brand A", "brand", "a", "outline") }}
+            {{ ui.toggleButton("Brand B", "brand", "b", "outline") }}
           </div>
         </header>
 

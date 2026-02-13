@@ -1,0 +1,18 @@
+{% macro toggleButton(label, dataName, dataValue, variant='outline') -%}
+{%- set classes = "button" -%}
+{%- if variant -%}{%- set classes = classes + " " + variant -%}{%- endif -%}
+<button class="{{ classes }}" type="button"{% if dataName == "mode" %} data-mode="{{ dataValue }}"{% endif %}{% if dataName == "brand" %} data-brand="{{ dataValue }}"{% endif %} aria-pressed="false">{{ label }}</button>
+{%- endmacro %}
+
+{% macro button(label, variant='', disabled=false) -%}
+{%- set classes = "button" -%}
+{%- if variant -%}{%- set classes = classes + " " + variant -%}{%- endif -%}
+<button type="button" class="{{ classes }}"{% if disabled %} disabled{% endif %}>{{ label }}</button>
+{%- endmacro %}
+
+{% macro colorChip(token) -%}
+<div class="swatch" style="--swatch-color: var({{ token.cssVar }})">
+  <span class="swatch-name">{{ token.name }}</span>
+  <span class="swatch-meta">{{ token.value }}</span>
+</div>
+{%- endmacro %}

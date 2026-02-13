@@ -71,7 +71,7 @@ Docs structure (`site/`):
 
 CSS custom property names are derived from `com.figma.codeSyntax.WEB`.
 If a token is missing `codeSyntax.WEB`, a warning is logged and the build
-falls back to the legacy name.
+falls back to an auto-derived token name.
 
 Scopes are derived from export filenames:
 

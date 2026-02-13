@@ -88,6 +88,35 @@
           "com.figma.isOverride": true
         }
       },
+      "Subtle": {
+        "$type": "color",
+        "$value": {
+          "colorSpace": "srgb",
+          "components": [
+            0.886274516582489,
+            0.95686274766922,
+            0.9921568632125854
+          ],
+          "alpha": 1,
+          "hex": "#E2F4FD"
+        },
+        "$extensions": {
+          "com.figma.variableId": "VariableID:2012:292",
+          "com.figma.scopes": [
+            "ALL_SCOPES"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--brand-color-subtle)"
+          },
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:1536fc7629ec001598f416ee90ca0bcde0a58838/-1:-1",
+            "targetVariableName": "Color/Brand A/Blue/200",
+            "targetVariableSetId": "VariableCollectionId:7f51eb47d60ee7f51f98ab99ecbf671069a3ec14/-1:-1",
+            "targetVariableSetName": "Core (Primitives)"
+          },
+          "com.figma.isOverride": true
+        }
+      },
       "Accent Dark": {
         "$type": "color",
         "$value": {

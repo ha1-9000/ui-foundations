@@ -356,12 +356,12 @@
         "$value": {
           "colorSpace": "srgb",
           "components": [
-            0.43921568989753723,
-            0.7960784435272217,
-            0.95686274766922
+            0.886274516582489,
+            0.95686274766922,
+            0.9921568632125854
           ],
           "alpha": 1,
-          "hex": "#70CBF4"
+          "hex": "#E2F4FD"
         },
         "$extensions": {
           "com.figma.variableId": "VariableID:2007:338",
@@ -372,8 +372,8 @@
             "WEB": "var(--color-fill-subtle)"
           },
           "com.figma.aliasData": {
-            "targetVariableId": "VariableID:2f89fdfd00cdd04df7bfd3e4335ad7ab79274247/-1:-1",
-            "targetVariableName": "Brand/Color/Accent",
+            "targetVariableId": "VariableID:240c6f608dbbeea300198d3338d362a2ba68628b/-1:-1",
+            "targetVariableName": "Brand/Color/Subtle",
             "targetVariableSetId": "VariableCollectionId:c0fc7925c28f6d6b71a498482a60d10a29c5f1bd/-1:-1",
             "targetVariableSetName": "Themes (Brands)"
           },

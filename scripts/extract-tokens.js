@@ -81,7 +81,7 @@ function inferBucketFromFilename(fileName) {
     return { bucket: "mode", id: slugifyName(match[1]), stem };
   }
 
-  // Backward-compatible fallback for legacy "Light Mode"/"Dark Mode" naming.
+  // Also support "Light Mode"/"Dark Mode" filename order.
   match = stem.match(/^(.+)\s+mode$/i);
   if (match) {
     return { bucket: "mode", id: slugifyName(match[1]), stem };
@@ -389,7 +389,7 @@ function formatTokenValue(token, rawValue, tokenKey, segments) {
   return formatLength(rawValue);
 }
 
-function addToken(tokens, token, lookup, report) {
+function resolveTokenOutputValue(token, lookup, report) {
   let resolved = token.value;
   if (token.aliasTargetId || token.aliasTargetName || token.aliasRefPath) {
     const aliasRef = resolveAliasRef(token, lookup, report);
@@ -397,16 +397,18 @@ function addToken(tokens, token, lookup, report) {
       resolved = aliasRef;
     }
   }
-  const segments = token.pathSegments;
-
+  const segments = token.pathSegments || [];
   const tokenKey = buildTokenKey(segments);
-  const formattedValue = formatTokenValue(token, resolved, tokenKey, segments);
+  return formatTokenValue(token, resolved, tokenKey, segments);
+}
+
+function classifyTokenGroup(token) {
+  const segments = token.pathSegments || [];
   const category = String(segments[0] || "").toLowerCase();
   const prefix = String(token.cssVar || "").toLowerCase();
 
   if (category === "color" || prefix.startsWith("--color-")) {
-    tokens.colors[token.cssVar] = formattedValue;
-    return;
+    return "colors";
   }
 
   if (
@@ -416,8 +418,7 @@ function addToken(tokens, token, lookup, report) {
     prefix.startsWith("--line-height-") ||
     prefix.startsWith("--letter-spacing-")
   ) {
-    tokens.typography[token.cssVar] = formattedValue;
-    return;
+    return "typography";
   }
 
   if (
@@ -427,8 +428,7 @@ function addToken(tokens, token, lookup, report) {
     prefix.startsWith("--space-") ||
     prefix.startsWith("--size-spacing-")
   ) {
-    tokens.spacing[token.cssVar] = formattedValue;
-    return;
+    return "spacing";
   }
 
   if (
@@ -438,26 +438,40 @@ function addToken(tokens, token, lookup, report) {
     prefix.startsWith("--corner-") ||
     prefix.startsWith("--size-radius-")
   ) {
-    tokens.radii[token.cssVar] = formattedValue;
-    return;
+    return "radii";
   }
 
   if (category === "shadow" || prefix.startsWith("--shadow-")) {
-    tokens.shadows[token.cssVar] = formattedValue;
-    return;
+    return "shadows";
   }
 
   if (category === "breakpoint" || prefix.startsWith("--breakpoint-")) {
-    tokens.breakpoints[token.cssVar] = formattedValue;
-    return;
+    return "breakpoints";
   }
 
   if (category === "container" || prefix.startsWith("--container-")) {
-    tokens.containers[token.cssVar] = formattedValue;
-    return;
+    return "containers";
   }
 
-  tokens.components[token.cssVar] = formattedValue;
+  return "components";
+}
+
+function parseScopeKey(scopeKey) {
+  const raw = String(scopeKey || "other:global");
+  const separator = raw.indexOf(":");
+  if (separator === -1) {
+    return { bucket: raw || "other", id: "global" };
+  }
+  return {
+    bucket: raw.slice(0, separator) || "other",
+    id: raw.slice(separator + 1) || "global",
+  };
+}
+
+function addToken(tokens, token, lookup, report) {
+  const group = classifyTokenGroup(token);
+  const formattedValue = resolveTokenOutputValue(token, lookup, report);
+  tokens[group][token.cssVar] = formattedValue;
 }
 
 function buildTokensFromList(tokenList, report, lookupOverride) {
@@ -478,6 +492,42 @@ function buildTokensFromList(tokenList, report, lookupOverride) {
   }
 
   return tokens;
+}
+
+function buildFlatTokenIndex(tokenList, report, lookupOverride) {
+  const lookup = lookupOverride || createTokenLookup(tokenList);
+  const entries = tokenList.map((token) => {
+    const group = classifyTokenGroup(token);
+    const value = resolveTokenOutputValue(token, lookup, report);
+    const scope = parseScopeKey(token.sourceScope);
+
+    return {
+      cssVar: token.cssVar,
+      name: String(token.cssVar || "").replace(/^--/, ""),
+      value,
+      type: token.type,
+      group,
+      path: token.path,
+      pathKey: token.pathKey,
+      scope: token.sourceScope || `${scope.bucket}:${scope.id}`,
+      scopeBucket: scope.bucket,
+      scopeId: scope.id,
+      selector: selectorForScope(scope),
+      sourceFile: token.sourceFileName || path.basename(token.sourceFile || ""),
+    };
+  });
+
+  entries.sort((a, b) => {
+    const groupCmp = String(a.group).localeCompare(String(b.group));
+    if (groupCmp !== 0) return groupCmp;
+    const nameCmp = String(a.name).localeCompare(String(b.name), undefined, {
+      numeric: true,
+    });
+    if (nameCmp !== 0) return nameCmp;
+    return String(a.scope).localeCompare(String(b.scope));
+  });
+
+  return entries;
 }
 
 function assignCssVars(tokenList, report) {
@@ -771,6 +821,7 @@ async function extractTokens() {
     const cssDir = path.join(OUTPUT_DIR, "css");
     const jsonDir = path.join(OUTPUT_DIR, "json");
     const tsDir = path.join(OUTPUT_DIR, "ts");
+    const tokensYamlPath = path.join(OUTPUT_DIR, "tokens.yaml");
 
     for (const dir of [cssDir, jsonDir, tsDir]) {
       if (!fs.existsSync(dir)) {
@@ -830,9 +881,20 @@ async function extractTokens() {
       }
     }
 
+    const allTokenIndex = buildFlatTokenIndex(allTokens, report, globalLookup);
+    const allTokensDoc = {
+      summary: {
+        total: allTokenIndex.length,
+      },
+      tokens: allTokenIndex,
+    };
+    fs.writeFileSync(tokensYamlPath, generateYamlDocument(allTokensDoc));
+
     console.log("✅ Tokens generated from local exports!");
     console.log(`📁 Files created in ${path.relative(REPO_ROOT, OUTPUT_DIR)}/`);
-    console.log("   • css/*.css, json/*.json, ts/*.ts (per-file files)");
+    console.log(
+      "   • css/*.css, json/*.json, ts/*.ts (per-file files) + tokens.yaml",
+    );
 
     const sanityToken = allTokens.find(
       (token) => token.pathSegments.join("/") === "Breakpoint/100",
@@ -932,16 +994,7 @@ function generateCSS(tokens, scope) {
 }
 
 function generateTypeScript(tokens) {
-  const compact = Object.fromEntries(
-    Object.entries(tokens).filter(([, value]) => {
-      return (
-        value &&
-        typeof value === "object" &&
-        !Array.isArray(value) &&
-        Object.keys(value).length > 0
-      );
-    }),
-  );
+  const compact = compactTokenGroups(tokens);
 
   const typeDefinitions = [
     ["colors", "ColorToken"],
@@ -965,6 +1018,70 @@ function generateTypeScript(tokens) {
     null,
     2,
   )} as const;\n\n${typeDefinitions}\n`;
+}
+
+function compactTokenGroups(tokens) {
+  return Object.fromEntries(
+    Object.entries(tokens).filter(([, value]) => {
+      return (
+        value &&
+        typeof value === "object" &&
+        !Array.isArray(value) &&
+        Object.keys(value).length > 0
+      );
+    }),
+  );
+}
+
+function generateYamlDocument(data) {
+  return `# Auto-generated design tokens from Figma\n# Generated on ${new Date().toISOString()}\n\n${toYaml(data)}\n`;
+}
+
+function toYaml(value, indent = 0) {
+  const spacing = " ".repeat(indent);
+
+  if (Array.isArray(value)) {
+    if (value.length === 0) return `${spacing}[]`;
+    return value
+      .map((item) => {
+        if (item && typeof item === "object") {
+          const nested = toYaml(item, indent + 2);
+          return `${spacing}-\n${nested}`;
+        }
+        return `${spacing}- ${formatYamlScalar(item)}`;
+      })
+      .join("\n");
+  }
+
+  if (value && typeof value === "object") {
+    const entries = Object.entries(value);
+    if (entries.length === 0) return `${spacing}{}`;
+
+    return entries
+      .map(([key, entryValue]) => {
+        const yamlKey = formatYamlKey(key);
+        if (entryValue && typeof entryValue === "object") {
+          return `${spacing}${yamlKey}:\n${toYaml(entryValue, indent + 2)}`;
+        }
+        return `${spacing}${yamlKey}: ${formatYamlScalar(entryValue)}`;
+      })
+      .join("\n");
+  }
+
+  return `${spacing}${formatYamlScalar(value)}`;
+}
+
+function formatYamlKey(key) {
+  if (/^[a-zA-Z0-9_-]+$/.test(key)) return key;
+  return JSON.stringify(key);
+}
+
+function formatYamlScalar(value) {
+  if (value === null) return "null";
+  if (typeof value === "number" || typeof value === "boolean") {
+    return String(value);
+  }
+  return JSON.stringify(String(value));
 }
 
 function formatLength(value) {
