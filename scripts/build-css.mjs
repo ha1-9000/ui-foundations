@@ -9,6 +9,7 @@ const DIST_DIR = path.join(REPO_ROOT, "dist");
 const DIST_TOKENS_DIR = path.join(DIST_DIR, "tokens", "css");
 
 function copyDir(source, destination) {
+  fs.rmSync(destination, { recursive: true, force: true });
   fs.mkdirSync(destination, { recursive: true });
   fs.cpSync(source, destination, { recursive: true });
 }

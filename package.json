@@ -12,9 +12,7 @@
   ],
   "exports": {
     "./core.css": "./dist/core/index.css",
-    "./core.js": "./dist/core/index.js",
     "./ui.css": "./dist/ui/index.css",
-    "./ui.js": "./dist/ui/index.js",
     "./react": "./dist/react/index.js",
     "./react/button": "./dist/react/button.js",
     "./tokens/core.css": "./dist/tokens/css/core.tokens.css",

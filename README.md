@@ -56,7 +56,8 @@ Rules:
 - `decisions/` — ADRs (source of truth)
 - `figma/exports/` — token source exports from Figma
 - `dist/tokens/` — generated token artifacts (CSS/JSON/TS)
-- `src/` — Core/UI/React source layers
+- `src/` — package source layers (Core/UI/React)
+- `site/` — Eleventy preview/docs site (templates + docs-specific CSS)
 - `figma/` — Figma exports, mappings, Code Connect notes
 - `agent/` — assistant rules and prompt examples
 

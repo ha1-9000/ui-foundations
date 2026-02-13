@@ -1,9 +1,12 @@
 module.exports = function (eleventyConfig) {
-  eleventyConfig.addPassthroughCopy({ "dist/main.css": "main.css" });
+  eleventyConfig.addPassthroughCopy({
+    "dist/main.css": "vendor/ui-foundations/main.css",
+  });
+  eleventyConfig.addPassthroughCopy({ "site/assets": "assets" });
 
   return {
     dir: {
-      input: "src",
+      input: "site",
       output: "_site",
     },
   };
