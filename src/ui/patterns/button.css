@@ -13,16 +13,29 @@
     cursor: pointer;
   }
 
-  .button:hover {
-    background: var(--button-solid-container-background-hover);
+  .button:hover,
+  .button.is-hover {
+    background:
+      linear-gradient(0deg, var(--button-overlay-hover), var(--button-overlay-hover)),
+      var(--button-solid-container-background-default);
     border-color: var(--button-solid-border-color-hover);
     color: var(--button-solid-text-color-hover);
   }
 
-  .button:active {
-    background: var(--button-solid-container-background-active);
+  .button:active,
+  .button.is-active {
+    background:
+      linear-gradient(0deg, var(--button-overlay-active), var(--button-overlay-active)),
+      var(--button-solid-container-background-default);
     border-color: var(--button-solid-border-color-active);
     color: var(--button-solid-text-color-active);
+  }
+
+  .button:focus-visible,
+  .button.is-focus-visible {
+    background: var(--button-solid-container-background-focus);
+    border-color: var(--button-solid-border-color-focus);
+    color: var(--button-solid-text-color-default);
   }
 
   .button.outline {
@@ -33,9 +46,28 @@
     color: var(--button-outline-text-color-default);
   }
 
-  .button.outline:hover {
-    background: var(--button-outline-container-background-hover);
+  .button.outline:hover,
+  .button.outline.is-hover {
+    background:
+      linear-gradient(0deg, var(--button-overlay-hover), var(--button-overlay-hover)),
+      var(--button-outline-container-background-default);
     border-color: var(--button-outline-border-color-hover);
+    color: var(--button-outline-text-color-default);
+  }
+
+  .button.outline:active,
+  .button.outline.is-active {
+    background:
+      linear-gradient(0deg, var(--button-overlay-active), var(--button-overlay-active)),
+      var(--button-outline-container-background-default);
+    border-color: var(--button-outline-border-color-active);
+    color: var(--button-outline-text-color-active);
+  }
+
+  .button.outline:focus-visible,
+  .button.outline.is-focus-visible {
+    background: var(--button-outline-container-background-focus);
+    border-color: var(--button-outline-border-color-focus);
     color: var(--button-outline-text-color-default);
   }
 
@@ -47,9 +79,28 @@
     color: var(--button-ghost-text-color-default);
   }
 
-  .button.ghost:hover {
-    background: var(--button-ghost-container-background-hover);
+  .button.ghost:hover,
+  .button.ghost.is-hover {
+    background:
+      linear-gradient(0deg, var(--button-overlay-hover), var(--button-overlay-hover)),
+      var(--button-ghost-container-background-default);
     border-color: var(--button-ghost-border-color-hover);
+    color: var(--button-ghost-text-color-default);
+  }
+
+  .button.ghost:active,
+  .button.ghost.is-active {
+    background:
+      linear-gradient(0deg, var(--button-overlay-active), var(--button-overlay-active)),
+      var(--button-ghost-container-background-default);
+    border-color: var(--button-ghost-border-color-active);
+    color: var(--button-ghost-text-color-active);
+  }
+
+  .button.ghost:focus-visible,
+  .button.ghost.is-focus-visible {
+    background: var(--button-ghost-container-background-focus);
+    border-color: var(--button-ghost-border-color-focus);
     color: var(--button-ghost-text-color-default);
   }
 

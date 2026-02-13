@@ -104,7 +104,7 @@
     },
     "Border Size Hover": {
       "$type": "number",
-      "$value": 2,
+      "$value": 1,
       "$extensions": {
         "com.figma.variableId": "VariableID:1:267",
         "com.figma.scopes": [
@@ -112,6 +112,26 @@
         ],
         "com.figma.codeSyntax": {
           "WEB": "var(--button-border-size-hover)"
+        },
+        "com.figma.aliasData": {
+          "targetVariableId": "VariableID:4e2b44753c24701ba6b7261a429dedf42ae128ec/-1:-1",
+          "targetVariableName": "Size/Border/100",
+          "targetVariableSetId": "VariableCollectionId:7f51eb47d60ee7f51f98ab99ecbf671069a3ec14/-1:-1",
+          "targetVariableSetName": "Core (Primitives)"
+        },
+        "com.figma.isOverride": true
+      }
+    },
+    "Border Size Active": {
+      "$type": "number",
+      "$value": 2,
+      "$extensions": {
+        "com.figma.variableId": "VariableID:2016:1880",
+        "com.figma.scopes": [
+          "ALL_SCOPES"
+        ],
+        "com.figma.codeSyntax": {
+          "WEB": "var(--button-border-size-active)"
         },
         "com.figma.aliasData": {
           "targetVariableId": "VariableID:251ad33ea6a40ddef76a3c366a7583ca9f1047cc/-1:-1",
@@ -289,6 +309,64 @@
         "com.figma.isOverride": true
       }
     },
+    "Overlay Hover": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0,
+          0,
+          0
+        ],
+        "alpha": 0.20000000298023224,
+        "hex": "#000000"
+      },
+      "$extensions": {
+        "com.figma.variableId": "VariableID:2016:1884",
+        "com.figma.scopes": [
+          "ALL_SCOPES"
+        ],
+        "com.figma.codeSyntax": {
+          "WEB": "var(--button-overlay-hover)"
+        },
+        "com.figma.aliasData": {
+          "targetVariableId": "VariableID:1813c590e5dd2f8343bfdcfb58f02be7e6df72b6/-1:-1",
+          "targetVariableName": "Color/Overlay/Hover",
+          "targetVariableSetId": "VariableCollectionId:012a859522533dabad27d3a6b96593e35489046d/-1:-1",
+          "targetVariableSetName": "Appearance (Modes)"
+        },
+        "com.figma.isOverride": true
+      }
+    },
+    "Overlay Active": {
+      "$type": "color",
+      "$value": {
+        "colorSpace": "srgb",
+        "components": [
+          0,
+          0,
+          0
+        ],
+        "alpha": 0.4000000059604645,
+        "hex": "#000000"
+      },
+      "$extensions": {
+        "com.figma.variableId": "VariableID:2016:1885",
+        "com.figma.scopes": [
+          "ALL_SCOPES"
+        ],
+        "com.figma.codeSyntax": {
+          "WEB": "var(--button-overlay-active)"
+        },
+        "com.figma.aliasData": {
+          "targetVariableId": "VariableID:6b934b210fd804041f80e03209901c6fea418aa6/-1:-1",
+          "targetVariableName": "Color/Overlay/Active",
+          "targetVariableSetId": "VariableCollectionId:012a859522533dabad27d3a6b96593e35489046d/-1:-1",
+          "targetVariableSetName": "Appearance (Modes)"
+        },
+        "com.figma.isOverride": true
+      }
+    },
     "Solid": {
       "Text Color Default": {
         "$type": "color",
@@ -305,7 +383,7 @@
         "$extensions": {
           "com.figma.variableId": "VariableID:1:269",
           "com.figma.scopes": [
-            "ALL_FILLS"
+            "ALL_SCOPES"
           ],
           "com.figma.codeSyntax": {
             "WEB": "var(--button-solid-text-color-default)"
@@ -334,7 +412,7 @@
         "$extensions": {
           "com.figma.variableId": "VariableID:53:76",
           "com.figma.scopes": [
-            "ALL_FILLS"
+            "ALL_SCOPES"
           ],
           "com.figma.codeSyntax": {
             "WEB": "var(--button-solid-text-color-hover)"
@@ -363,7 +441,7 @@
         "$extensions": {
           "com.figma.variableId": "VariableID:53:77",
           "com.figma.scopes": [
-            "ALL_FILLS"
+            "ALL_SCOPES"
           ],
           "com.figma.codeSyntax": {
             "WEB": "var(--button-solid-text-color-active)"
@@ -630,7 +708,7 @@
         "$extensions": {
           "com.figma.variableId": "VariableID:1:273",
           "com.figma.scopes": [
-            "ALL_FILLS"
+            "ALL_SCOPES"
           ],
           "com.figma.codeSyntax": {
             "WEB": "var(--button-outline-text-color-default)"
@@ -659,7 +737,7 @@
         "$extensions": {
           "com.figma.variableId": "VariableID:2006:218",
           "com.figma.scopes": [
-            "ALL_FILLS"
+            "ALL_SCOPES"
           ],
           "com.figma.codeSyntax": {
             "WEB": "var(--button-outline-text-color-hover)"
@@ -688,7 +766,7 @@
         "$extensions": {
           "com.figma.variableId": "VariableID:2006:219",
           "com.figma.scopes": [
-            "ALL_FILLS"
+            "ALL_SCOPES"
           ],
           "com.figma.codeSyntax": {
             "WEB": "var(--button-outline-text-color-active)"
@@ -955,7 +1033,7 @@
         "$extensions": {
           "com.figma.variableId": "VariableID:1:278",
           "com.figma.scopes": [
-            "ALL_FILLS"
+            "ALL_SCOPES"
           ],
           "com.figma.codeSyntax": {
             "WEB": "var(--button-ghost-text-color-default)"
@@ -984,7 +1062,7 @@
         "$extensions": {
           "com.figma.variableId": "VariableID:2006:220",
           "com.figma.scopes": [
-            "ALL_FILLS"
+            "ALL_SCOPES"
           ],
           "com.figma.codeSyntax": {
             "WEB": "var(--button-ghost-text-color-hover)"
@@ -1013,7 +1091,7 @@
         "$extensions": {
           "com.figma.variableId": "VariableID:2006:221",
           "com.figma.scopes": [
-            "ALL_FILLS"
+            "ALL_SCOPES"
           ],
           "com.figma.codeSyntax": {
             "WEB": "var(--button-ghost-text-color-active)"

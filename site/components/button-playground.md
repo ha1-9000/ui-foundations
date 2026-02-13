@@ -8,6 +8,7 @@ permalink: /components/button-playground/
 templateEngineOverride: njk
 playground:
   id: button-playground
+  queryPrefix: button
   runtime: vanilla
   renderer: button
   controls:
@@ -19,11 +20,23 @@ playground:
     - kind: select
       name: variant
       label: Variant
+      query: true
       default: solid
       options:
         - solid
         - outline
         - ghost
+    - kind: select
+      name: state
+      label: State
+      default: default
+      source: meta
+      options:
+        - default
+        - hover
+        - active
+        - focus
+        - disabled
     - kind: select
       name: type
       label: Type
@@ -32,10 +45,6 @@ playground:
         - button
         - submit
         - reset
-    - kind: boolean
-      name: disabled
-      label: Disabled
-      default: false
 ---
 
 {% from "macros/playground.njk" import playground as uiPlayground %}

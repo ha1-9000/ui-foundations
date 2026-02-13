@@ -1,13 +1,15 @@
 {% macro playground(config) -%}
-{%- set playgroundId = config.id or "react-playground" -%}
+{%- set playgroundId = config.id or "ui-playground" -%}
 {%- set runtime = config.runtime or "vanilla" -%}
 {%- set renderer = config.renderer or "" -%}
 {%- set componentExport = config.componentExport or config.componentName or "" -%}
+{%- set queryPrefix = config.queryPrefix or playgroundId -%}
 <div
   class="playground-grid"
   data-playground
   data-runtime="{{ runtime }}"
   data-renderer="{{ renderer }}"
+  data-query-prefix="{{ queryPrefix }}"
   {% if config.componentName %}data-component-name="{{ config.componentName }}"{% endif %}
   {% if config.componentModule %}data-component-module="{{ config.componentModule }}"{% endif %}
   {% if componentExport %}data-component-export="{{ componentExport }}"{% endif %}
@@ -18,6 +20,7 @@
     {% set controlId = playgroundId + "-" + control.name %}
     {% set source = control.source or "prop" %}
     {% set valueType = control.valueType or ("boolean" if control.kind == "boolean" else "string") %}
+    {% set queryParam = control.query or false %}
     {% if control.kind == "boolean" %}
     <label class="playground-field playground-check" for="{{ controlId }}">
       <input
@@ -28,6 +31,7 @@
         data-prop="{{ control.prop or control.name }}"
         data-source="{{ source }}"
         data-value-type="{{ valueType }}"
+        data-query-param="{{ "1" if queryParam else "0" }}"
         {% if control.default %}checked{% endif %}
       />
       <span>{{ control.label or control.name }}</span>
@@ -42,6 +46,7 @@
         data-prop="{{ control.prop or control.name }}"
         data-source="{{ source }}"
         data-value-type="{{ valueType }}"
+        data-query-param="{{ "1" if queryParam else "0" }}"
       >
         {% for option in control.options or [] %}
         <option value="{{ option }}"{% if option == (control.default or "") %} selected{% endif %}>{{ option }}</option>
@@ -60,6 +65,7 @@
         data-prop="{{ control.prop or control.name }}"
         data-source="{{ source }}"
         data-value-type="{{ valueType }}"
+        data-query-param="{{ "1" if queryParam else "0" }}"
       />
     </label>
     {% endif %}

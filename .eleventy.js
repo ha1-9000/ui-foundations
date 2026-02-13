@@ -2,6 +2,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({
     "dist/main.css": "vendor/ui-foundations/main.css",
   });
+  eleventyConfig.addPassthroughCopy({ "src/assets": "assets/icons" });
   eleventyConfig.addPassthroughCopy({ "site/assets": "assets" });
   eleventyConfig.addCollection("tokensDocs", (collectionApi) => {
     return collectionApi
