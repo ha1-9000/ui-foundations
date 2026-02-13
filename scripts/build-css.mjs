@@ -36,6 +36,18 @@ function inlineImports(filePath, seen = new Set()) {
   );
 }
 
+function hoistRemoteImports(css) {
+  const importPattern =
+    /@import\s+url\(["']https?:\/\/[^"']+["']\)\s*(?:layer\([^)]+\))?\s*;/g;
+  const found = css.match(importPattern) || [];
+  if (found.length === 0) return css;
+
+  const uniqueImports = [...new Set(found)];
+  const withoutImports = css.replace(importPattern, "").trimStart();
+
+  return `${uniqueImports.join("\n")}\n${withoutImports}`;
+}
+
 function scopePriority(scope) {
   if (scope.bucket === "other" && scope.id === "core") return 0;
   if (scope.bucket === "other" && scope.id === "core-primitives") return 0;
@@ -167,7 +179,8 @@ function buildDocs() {
 
   const coreCss = inlineImports(path.join(DIST_DIR, "core", "index.css"));
   const uiCss = inlineImports(path.join(DIST_DIR, "ui", "index.css"));
-  writeFile(path.join(DIST_DIR, "main.css"), `${coreCss}\n${uiCss}`);
+  const bundledCss = hoistRemoteImports(`${coreCss}\n${uiCss}`);
+  writeFile(path.join(DIST_DIR, "main.css"), bundledCss);
 
   console.log("✅ Dist bundles generated in dist/");
 }
