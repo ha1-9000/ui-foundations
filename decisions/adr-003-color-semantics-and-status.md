@@ -5,19 +5,24 @@ Accepted
 
 ## Context
 We need a color model that:
-- supports Light/Dark modes via palettes (raw colors)
+- supports Light/Dark modes via raw palettes and mode-specific semantic mappings
 - supports multiple brands (brand palettes)
 - supports semantic meaning (roles) without component-specific duplication
 - keeps interaction states (hover/active/disabled) separate from status meaning (danger/success)
 
 ## Decision
 
-### 1) Color modes contain raw palettes (no meaning)
-Color Mode tokens contain raw values only:
+### 1) Raw palettes and mode-specific semantic mappings
+Raw color sources live as palette tokens:
 - `Brand.*` (brand palette)
 - `Neutral.*` (greys)
 - `Overlay.*` (alpha/elevation overlays)
-These are stored per mode, e.g. Light and Dark.
+
+Semantic color roles (`Color.Text.*`, `Color.Fill.*`, `Color.Border.*`) are emitted per mode and map to those raw palette tokens.
+In practice:
+- Light semantic mappings are the default (`:root`)
+- Dark semantic mappings are scoped (`:root[data-mode="dark"]`)
+- Mode activation policy is owned by the consumer (see ADR-008)
 
 ### 2) Semantics expose only three main role families
 Semantic color roles are:
@@ -47,5 +52,6 @@ We support inverse readability:
 
 ## Consequences
 - Semantics remain global and reusable
+- Semantic role values can differ by mode while keeping the same token API
 - Components implement variants and interaction states without polluting the semantic layer
 - Multi-brand and multi-mode mapping remains flexible

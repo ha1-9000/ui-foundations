@@ -307,8 +307,10 @@ permalink: /index.html
       const root = document.documentElement;
       const modeButtons = document.querySelectorAll("[data-mode]");
       const brandButtons = document.querySelectorAll("[data-brand]");
+      const systemDarkMedia = window.matchMedia("(prefers-color-scheme: dark)");
       const stored = localStorage.getItem("ui-foundations-mode");
       const storedBrand = localStorage.getItem("ui-foundations-brand");
+      let selectedMode = "light";
 
       const updateModePressedState = (mode) => {
         modeButtons.forEach((button) => {
@@ -328,8 +330,9 @@ permalink: /index.html
       };
 
       const applyMode = (mode) => {
+        selectedMode = mode;
         if (mode === "system") {
-          root.removeAttribute("data-mode");
+          root.dataset.mode = systemDarkMedia.matches ? "dark" : "light";
           updateModePressedState("system");
           return;
         }
@@ -346,6 +349,20 @@ permalink: /index.html
         applyMode(stored);
       } else {
         applyMode("light");
+      }
+
+      if (typeof systemDarkMedia.addEventListener === "function") {
+        systemDarkMedia.addEventListener("change", () => {
+          if (selectedMode === "system") {
+            root.dataset.mode = systemDarkMedia.matches ? "dark" : "light";
+          }
+        });
+      } else if (typeof systemDarkMedia.addListener === "function") {
+        systemDarkMedia.addListener(() => {
+          if (selectedMode === "system") {
+            root.dataset.mode = systemDarkMedia.matches ? "dark" : "light";
+          }
+        });
       }
 
       if (storedBrand) {

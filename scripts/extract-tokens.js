@@ -537,6 +537,22 @@ function normalizePerFileBase(base) {
   return base;
 }
 
+function selectorForScope(scope) {
+  if (!scope || typeof scope !== "object") return ":root";
+
+  if (scope.bucket === "brand") {
+    return `:root[data-brand="${scope.id}"]`;
+  }
+
+  if (scope.bucket === "mode") {
+    if (scope.id === "light") return ":root";
+    if (scope.id === "dark") return ':root[data-mode="dark"]';
+    return `:root[data-mode="${scope.id}"]`;
+  }
+
+  return ":root";
+}
+
 function clearGeneratedFiles(dirPath, extensions) {
   if (!fs.existsSync(dirPath)) return;
   for (const entry of fs.readdirSync(dirPath)) {
@@ -770,7 +786,7 @@ async function extractTokens() {
     );
     const globalLookup = createTokenLookup(allTokens);
 
-    for (const { filePath, tokenList } of perFileTokens) {
+    for (const { filePath, tokenList, scope } of perFileTokens) {
       const rawBase = normalizeOutputBase(filePath);
       const base = normalizePerFileBase(rawBase);
       const sourceData = readJsonLike(filePath);
@@ -779,7 +795,7 @@ async function extractTokens() {
       const w3cTokens = transformNodeToW3C(sourceData, [], transformReport);
       const cleanTokens = withSchema(stripFigmaExtensions(w3cTokens));
       const jsonOut = JSON.stringify(cleanTokens, null, 2);
-      const cssOut = generateCSS(perTokens);
+      const cssOut = generateCSS(perTokens, scope);
       const tsOut = generateTypeScript(perTokens);
 
       fs.writeFileSync(path.join(jsonDir, `${base}.json`), jsonOut);
@@ -887,8 +903,9 @@ async function extractTokens() {
   }
 }
 
-function generateCSS(tokens) {
-  let css = `/* Auto-generated design tokens from Figma */\n/* Generated on ${new Date().toISOString()} */\n\n:root {\n`;
+function generateCSS(tokens, scope) {
+  const selector = selectorForScope(scope);
+  let css = `/* Auto-generated design tokens from Figma */\n/* Generated on ${new Date().toISOString()} */\n\n${selector} {\n`;
 
   const merged = {
     ...tokens.colors,

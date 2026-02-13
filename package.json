@@ -28,10 +28,11 @@
     "tokens:generate": "node scripts/extract-tokens.js",
     "tokens:validate": "node scripts/validate-tokens.mjs",
     "tokens:build": "npm run tokens:generate",
-    "build:css": "npm run tokens:generate && node scripts/build-css.mjs",
-    "build": "npm run build:css",
-    "docs:site": "npm run build:css && eleventy",
-    "docs:dev": "npm run build:css && eleventy --serve"
+    "build:css": "node scripts/build-css.mjs",
+    "build:all": "npm run tokens:generate && npm run build:css",
+    "build": "npm run build:all",
+    "docs:site": "npm run build:all && eleventy",
+    "docs:dev": "npm run build:all && eleventy --serve"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.1.2",

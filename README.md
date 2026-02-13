@@ -90,6 +90,9 @@ Generated JSON tokens follow the official Design Tokens Community Group format w
 
 ## Build (local)
 
-1. Generate token outputs: `npm run tokens:generate`
-2. Build CSS bundles: `npm run build:css`
-3. Build docs: `npm run docs:site`
+1. Generate token outputs (after Figma export updates): `npm run tokens:generate`
+2. Build CSS bundles from already generated tokens: `npm run build:css`
+3. Full refresh in one command (tokens + CSS): `npm run build:all`
+4. Build docs: `npm run docs:site`
+
+`npm run build:css` fails if `dist/tokens/css/*.tokens.css` does not exist yet.
