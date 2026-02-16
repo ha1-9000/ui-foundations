@@ -1,1 +1,3 @@
+@import url("./patterns/label.css") layer(components);
 @import url("./patterns/button.css") layer(components);
+@import url("./patterns/icon.css") layer(components);

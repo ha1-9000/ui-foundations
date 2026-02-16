@@ -22,7 +22,13 @@
     {% set valueType = control.valueType or ("boolean" if control.kind == "boolean" else "string") %}
     {% set queryParam = control.query or false %}
     {% if control.kind == "boolean" %}
-    <label class="playground-field playground-check" for="{{ controlId }}">
+    <label
+      class="playground-field playground-check"
+      for="{{ controlId }}"
+      data-playground-field
+      data-control-name="{{ control.name }}"
+      data-visible-when="{% if control.visibleWhen %}{% for conditionName, conditionValue in control.visibleWhen %}{% if not loop.first %};{% endif %}{{ conditionName }}={{ conditionValue }}{% endfor %}{% endif %}"
+    >
       <input
         id="{{ controlId }}"
         type="checkbox"
@@ -36,8 +42,53 @@
       />
       <span>{{ control.label or control.name }}</span>
     </label>
+    {% elif control.kind == "color" %}
+    <label
+      class="playground-field"
+      for="{{ controlId }}"
+      data-playground-field
+      data-control-name="{{ control.name }}"
+      data-visible-when="{% if control.visibleWhen %}{% for conditionName, conditionValue in control.visibleWhen %}{% if not loop.first %};{% endif %}{{ conditionName }}={{ conditionValue }}{% endfor %}{% endif %}"
+    >
+      <span>{{ control.label or control.name }}</span>
+      <div class="playground-color-inline">
+        <input
+          id="{{ controlId }}"
+          type="text"
+          name="{{ control.name }}"
+          value="{{ control.default or "currentColor" }}"
+          data-playground-control
+          data-prop="{{ control.prop or control.name }}"
+          data-source="{{ source }}"
+          data-value-type="{{ valueType }}"
+          data-query-param="{{ "1" if queryParam else "0" }}"
+        />
+        <button
+          type="button"
+          class="button ghost playground-color-pick"
+          data-playground-color-button
+          data-target-control="{{ controlId }}"
+        >
+          Pick
+        </button>
+        <input
+          id="{{ controlId }}-picker"
+          type="color"
+          value="#000000"
+          data-playground-color-picker
+          data-target-control="{{ controlId }}"
+          aria-label="Pick color for {{ control.label or control.name }}"
+        />
+      </div>
+    </label>
     {% elif control.kind == "select" %}
-    <label class="playground-field" for="{{ controlId }}">
+    <label
+      class="playground-field"
+      for="{{ controlId }}"
+      data-playground-field
+      data-control-name="{{ control.name }}"
+      data-visible-when="{% if control.visibleWhen %}{% for conditionName, conditionValue in control.visibleWhen %}{% if not loop.first %};{% endif %}{{ conditionName }}={{ conditionValue }}{% endfor %}{% endif %}"
+    >
       <span>{{ control.label or control.name }}</span>
       <select
         id="{{ controlId }}"
@@ -48,13 +99,41 @@
         data-value-type="{{ valueType }}"
         data-query-param="{{ "1" if queryParam else "0" }}"
       >
-        {% for option in control.options or [] %}
+        {% if control.optionsData == "icons" %}
+        {% for option in iconNames.names %}
         <option value="{{ option }}"{% if option == (control.default or "") %} selected{% endif %}>{{ option }}</option>
         {% endfor %}
+        {% elif control.optionsData == "iconsWithNone" %}
+        {% for option in iconNames.withNone %}
+        {% set optionValue = option %}
+        {% set optionLabel = option %}
+        {% if option and option.value is defined %}
+        {% set optionValue = option.value %}
+        {% set optionLabel = option.label if option.label is defined else option.value %}
+        {% endif %}
+        <option value="{{ optionValue }}"{% if optionValue == (control.default or "") %} selected{% endif %}>{{ optionLabel }}</option>
+        {% endfor %}
+        {% else %}
+        {% for option in control.options or [] %}
+        {% set optionValue = option %}
+        {% set optionLabel = option %}
+        {% if option and option.value is defined %}
+        {% set optionValue = option.value %}
+        {% set optionLabel = option.label if option.label is defined else option.value %}
+        {% endif %}
+        <option value="{{ optionValue }}"{% if optionValue == (control.default or "") %} selected{% endif %}>{{ optionLabel }}</option>
+        {% endfor %}
+        {% endif %}
       </select>
     </label>
     {% else %}
-    <label class="playground-field" for="{{ controlId }}">
+    <label
+      class="playground-field"
+      for="{{ controlId }}"
+      data-playground-field
+      data-control-name="{{ control.name }}"
+      data-visible-when="{% if control.visibleWhen %}{% for conditionName, conditionValue in control.visibleWhen %}{% if not loop.first %};{% endif %}{{ conditionName }}={{ conditionValue }}{% endfor %}{% endif %}"
+    >
       <span>{{ control.label or control.name }}</span>
       <input
         id="{{ controlId }}"
@@ -70,6 +149,11 @@
     </label>
     {% endif %}
     {% endfor %}
+    <div class="playground-actions">
+      <button type="button" class="button ghost" data-playground-reset>
+        Reset
+      </button>
+    </div>
   </form>
 
   <div class="playground-preview">

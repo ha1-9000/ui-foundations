@@ -1,7 +1,7 @@
 ---
 layout: layouts/docs.njk
 title: Button Playground
-description: Interaktives Vanilla-Beispiel mit Live-Props fuer den Button.
+description: Interactive vanilla example with live button props.
 navTitle: Button Playground
 order: 20
 permalink: /components/button-playground/
@@ -17,6 +17,36 @@ playground:
       label: Label
       default: Book now
       source: children
+      query: true
+      visibleWhen:
+        iconOnly: false
+    - kind: select
+      name: startIcon
+      label: Start Icon
+      optionsData: iconsWithNone
+      query: true
+      default: ""
+    - kind: select
+      name: endIcon
+      label: End Icon
+      optionsData: iconsWithNone
+      query: true
+      default: ""
+      visibleWhen:
+        iconOnly: false
+    - kind: boolean
+      name: iconOnly
+      label: Icon Only
+      valueType: boolean
+      query: true
+      default: false
+    - kind: text
+      name: ariaLabel
+      label: Aria Label
+      query: true
+      default: Open menu
+      visibleWhen:
+        iconOnly: true
     - kind: select
       name: variant
       label: Variant
@@ -47,6 +77,6 @@ playground:
         - reset
 ---
 
-{% from "macros/playground.njk" import playground as uiPlayground %}
+{% from "macros/playground.njk" import playground as uiPlayground with context %}
 
 {{ uiPlayground(playground) }}

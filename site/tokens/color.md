@@ -1,7 +1,7 @@
 ---
 layout: layouts/docs.njk
 title: Color Tokens
-description: Brand-, Neutral- und Overlay-Tokens inkl. Mode- und Brand-Switch.
+description: Brand, neutral, and overlay tokens including mode and brand switching.
 navTitle: Color
 order: 10
 permalink: /tokens/color/
@@ -10,7 +10,7 @@ permalink: /tokens/color/
 {% import "macros/ui.njk" as ui %}
 
 {% if colorDocs.groups and colorDocs.groups.length %}
-<p class="page-intro">Diese Seite wird automatisch aus <code>{{ colorDocs.sourceDir }}</code> erzeugt.</p>
+<p class="page-intro">This page is generated automatically from <code>{{ colorDocs.sourceDir }}</code>.</p>
 
 <section class="palette">
 {% for group in colorDocs.groups %}
@@ -26,6 +26,6 @@ permalink: /tokens/color/
 {% endfor %}
 </section>
 {% else %}
-<p>Keine Color-Tokens gefunden in <code>{{ colorDocs.sourceDir }}</code>.</p>
-<p>Fuehre zuerst <code>npm run tokens:generate</code> aus.</p>
+<p>No color tokens found in <code>{{ colorDocs.sourceDir }}</code>.</p>
+<p>Run <code>npm run tokens:generate</code> first.</p>
 {% endif %}

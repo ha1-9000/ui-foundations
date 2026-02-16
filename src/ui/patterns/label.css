@@ -1,0 +1,49 @@
+@layer components {
+  .label-content {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--label-gap, 0.5em);
+    line-height: inherit;
+  }
+
+  .label-content__icon {
+    display: inline-flex;
+    align-items: center;
+    line-height: inherit;
+    flex: 0 0 auto;
+  }
+
+  .label-content__text {
+    line-height: inherit;
+  }
+
+  .label-content.is-icon-only {
+    gap: 0;
+  }
+
+  .field-label {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--field-label-gap, 0.25em);
+    line-height: var(--field-label-line-height, inherit);
+    cursor: pointer;
+  }
+
+  .field-label__required {
+    color: var(--field-label-required-color, currentColor);
+    font-weight: 700;
+  }
+
+  .field-label__required-text {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}

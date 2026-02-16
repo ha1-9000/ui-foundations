@@ -2,6 +2,9 @@
   /* Button token usage examples (ui-foundations) */
 
   .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     background: var(--button-solid-container-background-default);
     border-color: var(--button-solid-border-color-default);
     border-width: var(--button-solid-border-size);
@@ -11,6 +14,24 @@
     padding-inline: var(--button-padding-inline);
     padding-block: var(--button-padding-block);
     cursor: pointer;
+    -webkit-text-fill-color: currentColor;
+  }
+
+  .button .label-content {
+    line-height: inherit;
+    color: inherit;
+    -webkit-text-fill-color: currentColor;
+  }
+
+  .button .label-content__text,
+  .button .label-content__icon,
+  .button .icon {
+    color: inherit;
+    -webkit-text-fill-color: currentColor;
+  }
+
+  .button.button--icon-only {
+    padding-inline: var(--button-padding-block);
   }
 
   .button:hover,

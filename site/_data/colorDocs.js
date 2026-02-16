@@ -65,7 +65,7 @@ module.exports = () => {
     {
       id: "brand-a",
       title: "Brand A",
-      description: "Aus tokens.yaml gefiltert (scope brand:a).",
+      description: "Filtered from tokens.yaml (scope brand:a).",
       tokens: sortByName(
         pickByPrefixes(pickByScope(tokens, "brand", "a"), ["--brand-color-"]),
       ),
@@ -73,7 +73,7 @@ module.exports = () => {
     {
       id: "brand-b",
       title: "Brand B",
-      description: "Aus tokens.yaml gefiltert (scope brand:b).",
+      description: "Filtered from tokens.yaml (scope brand:b).",
       tokens: sortByName(
         pickByPrefixes(pickByScope(tokens, "brand", "b"), ["--brand-color-"]),
       ),
@@ -81,7 +81,7 @@ module.exports = () => {
     {
       id: "light-semantic",
       title: "Light Semantic Mapping",
-      description: "Aus tokens.yaml gefiltert (scope mode:light).",
+      description: "Filtered from tokens.yaml (scope mode:light).",
       tokens: sortByName(
         pickByPrefixes(pickByScope(tokens, "mode", "light"), semanticPrefixes),
       ),
@@ -89,7 +89,7 @@ module.exports = () => {
     {
       id: "dark-semantic",
       title: "Dark Semantic Mapping",
-      description: "Aus tokens.yaml gefiltert (scope mode:dark).",
+      description: "Filtered from tokens.yaml (scope mode:dark).",
       tokens: sortByName(
         pickByPrefixes(pickByScope(tokens, "mode", "dark"), semanticPrefixes),
       ),
@@ -97,7 +97,7 @@ module.exports = () => {
     {
       id: "core-neutral-overlay",
       title: "Core Neutrals & Overlay",
-      description: "Aus tokens.yaml gefiltert (scope global:primitives).",
+      description: "Filtered from tokens.yaml (scope global:primitives).",
       tokens: sortByName(
         pickByPrefixes(pickByScope(tokens, "global", "primitives"), [
           "--color-transparent",

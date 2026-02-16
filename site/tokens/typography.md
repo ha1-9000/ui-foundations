@@ -1,7 +1,7 @@
 ---
 layout: layouts/docs.njk
 title: Typography Tokens
-description: Darstellung von Heading- und Text-Scale inklusive Token-Werten.
+description: Display of heading and text scales including token values.
 navTitle: Typography
 order: 20
 permalink: /tokens/typography/

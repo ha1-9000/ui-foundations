@@ -15,6 +15,9 @@
     "./ui.css": "./dist/ui/index.css",
     "./react": "./dist/react/index.js",
     "./react/button": "./dist/react/button.js",
+    "./react/icon": "./dist/react/icon.js",
+    "./react/label": "./dist/react/label.js",
+    "./assets/*": "./dist/assets/*",
     "./tokens/core.css": "./dist/tokens/css/core.tokens.css",
     "./tokens/color.css": "./dist/tokens/css/color.light.tokens.css",
     "./tokens/color-light.css": "./dist/tokens/css/color.light.tokens.css",
@@ -23,11 +26,12 @@
     "./tokens/components.css": "./dist/tokens/css/component.tokens.css"
   },
   "scripts": {
+    "icons:generate-list": "node scripts/generate-icon-list.mjs",
     "tokens:generate": "node scripts/extract-tokens.js",
     "tokens:validate": "node scripts/validate-tokens.mjs",
     "tokens:build": "npm run tokens:generate",
     "build:css": "node scripts/build-css.mjs",
-    "build:all": "npm run tokens:generate && npm run build:css",
+    "build:all": "npm run icons:generate-list && npm run tokens:generate && npm run build:css",
     "build": "npm run build:all",
     "docs:site": "npm run build:all && eleventy",
     "docs:dev": "npm run build:all && eleventy --serve"

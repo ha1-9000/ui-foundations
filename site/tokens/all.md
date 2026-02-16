@@ -1,7 +1,7 @@
 ---
 layout: layouts/docs.njk
 title: All Tokens
-description: Tabellarische Uebersicht aller Tokens aus dem zentralen YAML-Export.
+description: Tabular overview of all tokens from the central YAML export.
 navTitle: All Tokens
 order: 5
 permalink: /tokens/all/
@@ -9,12 +9,12 @@ templateEngineOverride: njk
 ---
 
 {% if tokensTable.rows and tokensTable.rows.length %}
-<p class="page-intro">Quelle: <code>{{ tokensTable.sourceDir }}</code> ({{ tokensTable.count }} Tokens)</p>
+<p class="page-intro">Source: <code>{{ tokensTable.sourceDir }}</code> ({{ tokensTable.count }} tokens)</p>
 <div class="docs-filter-bar" aria-label="Token filters">
 <label class="docs-filter">
 <span>Scope</span>
 <select id="token-scope-filter">
-<option value="">Alle</option>
+<option value="">All</option>
 {% for scope in tokensTable.scopes %}
 <option value="{{ scope }}">{{ scope }}</option>
 {% endfor %}
@@ -23,7 +23,7 @@ templateEngineOverride: njk
 <label class="docs-filter">
 <span>Token Type</span>
 <select id="token-type-filter">
-<option value="">Alle</option>
+<option value="">All</option>
 {% for kind in tokensTable.kinds %}
 <option value="{{ kind }}">{{ kind }}</option>
 {% endfor %}
@@ -31,7 +31,7 @@ templateEngineOverride: njk
 </label>
 <button id="token-filter-reset" class="button ghost" type="button">Reset</button>
 </div>
-<p class="page-intro token-filter-summary" id="token-filter-summary">{{ tokensTable.count }} von {{ tokensTable.count }} Tokens angezeigt</p>
+<p class="page-intro token-filter-summary" id="token-filter-summary">{{ tokensTable.count }} of {{ tokensTable.count }} tokens shown</p>
 
 <div class="docs-table-wrap">
 <table class="docs-table">
@@ -54,8 +54,8 @@ templateEngineOverride: njk
 </table>
 </div>
 {% else %}
-<p>Keine Tokens gefunden in <code>{{ tokensTable.sourceDir }}</code>.</p>
-<p>Fuehre zuerst <code>npm run tokens:generate</code> aus.</p>
+<p>No tokens found in <code>{{ tokensTable.sourceDir }}</code>.</p>
+<p>Run <code>npm run tokens:generate</code> first.</p>
 {% endif %}
 
 <script>
@@ -81,7 +81,7 @@ templateEngineOverride: njk
         if (show) visible += 1;
       });
 
-      summary.textContent = `${visible} von ${rows.length} Tokens angezeigt`;
+      summary.textContent = `${visible} of ${rows.length} tokens shown`;
     };
 
     scopeFilter.addEventListener("change", applyTokenFilters);

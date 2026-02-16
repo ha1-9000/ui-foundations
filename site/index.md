@@ -1,24 +1,24 @@
 ---
 layout: layouts/docs.njk
 title: Design System Documentation
-description: Token- und Component-Dokumentation auf Basis von Eleventy Collections.
+description: Token and component documentation based on Eleventy collections.
 permalink: /
 ---
 
-## Bereiche
+## Sections
 
 <div class="docs-grid">
   <a class="docs-card" href="/tokens/">
     <h2>Tokens</h2>
-    <p>Farben, Typografie und weitere Foundations als eigene Doku-Seiten.</p>
+    <p>Colors, typography, and other foundations on dedicated documentation pages.</p>
   </a>
   <a class="docs-card" href="/components/">
     <h2>Components</h2>
-    <p>Component-API mit eigenständigen Seiten und Beispielen.</p>
+    <p>Component API with standalone pages and examples.</p>
   </a>
 </div>
 
-## Token Seiten
+## Token Pages
 
 <ul class="docs-link-list">
   {% for entry in collections.tokensDocs %}
@@ -31,7 +31,7 @@ permalink: /
   {% endfor %}
 </ul>
 
-## Component Seiten
+## Component Pages
 
 <ul class="docs-link-list">
   {% for entry in collections.componentsDocs %}

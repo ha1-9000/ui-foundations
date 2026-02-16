@@ -1,13 +1,13 @@
 ---
 layout: layouts/docs.njk
 title: Components
-description: Component-Dokumentation mit eigenen Seiten und API-Beispielen.
+description: Component documentation with dedicated pages and API examples.
 navTitle: Overview
 order: 1
 permalink: /components/
 ---
 
-Diese Sektion zeigt Komponenten als eigenständige Doku-Seiten, ähnlich zu Storybook-Stories.
+This section presents components as standalone documentation pages, similar to Storybook stories.
 
 <ul class="docs-link-list">
   {% for entry in collections.componentsDocs %}

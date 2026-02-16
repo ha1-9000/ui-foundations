@@ -1,13 +1,13 @@
 ---
 layout: layouts/docs.njk
 title: Tokens
-description: Foundations als dokumentierte Token-Kategorien.
+description: Foundations organized as documented token categories.
 navTitle: Overview
 order: 1
 permalink: /tokens/
 ---
 
-Diese Sektion dokumentiert die Token-Ebenen und deren konkrete Ausprägung in CSS.
+This section documents token layers and their concrete output in CSS.
 
 <ul class="docs-link-list">
   {% for entry in collections.tokensDocs %}

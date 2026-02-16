@@ -1,7 +1,7 @@
 ---
 layout: layouts/docs.njk
 title: Button
-description: Varianten, Zustände und Token-gebundene Darstellung.
+description: Variants, states, and token-driven rendering.
 navTitle: Button
 order: 10
 permalink: /components/button/
@@ -24,6 +24,9 @@ permalink: /components/button/
 <Button variant="solid">Solid</Button>
 <Button variant="outline">Outline</Button>
 <Button variant="ghost">Ghost</Button>
+<Button startIcon="search">Search</Button>
+<Button endIcon="plus">Add</Button>
+<Button startIcon="menu" iconOnly ariaLabel="Open menu" />
 <Button disabled>Disabled</Button>
 ```
 

@@ -169,6 +169,10 @@ function buildReactBundle() {
   copyDir(path.join(REPO_ROOT, "src", "react"), path.join(DIST_DIR, "react"));
 }
 
+function buildAssetsBundle() {
+  copyDir(path.join(REPO_ROOT, "src", "assets"), path.join(DIST_DIR, "assets"));
+}
+
 function buildDocs() {
   const tokenFiles = getTokenCssFilesFromDist();
   console.log("♻️  Using pre-generated token CSS from dist/tokens/css");
@@ -177,6 +181,7 @@ function buildDocs() {
   buildCoreBundle(tokenFiles);
   buildUiBundle();
   buildReactBundle();
+  buildAssetsBundle();
 
   const coreCss = inlineImports(path.join(DIST_DIR, "core", "index.css"));
   const uiCss = inlineImports(path.join(DIST_DIR, "ui", "index.css"));

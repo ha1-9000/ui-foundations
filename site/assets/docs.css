@@ -1,5 +1,8 @@
 :root {
   --docs-sidebar-width: 280px;
+  --docs-code-font:
+    var(--font-family-mono, "SFMono-Regular"), Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
 }
 
 body {
@@ -243,6 +246,12 @@ body {
   align-content: start;
 }
 
+.playground-actions {
+  display: flex;
+  gap: 8px;
+  padding-top: 4px;
+}
+
 .playground-field {
   display: grid;
   gap: 4px;
@@ -262,6 +271,30 @@ body {
   background: var(--color-fill-surface, #fff);
   color: var(--color-text-default, #222);
   padding: 8px 10px;
+}
+
+.playground-color-inline {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.playground-color-inline > input[type="text"] {
+  flex: 1;
+}
+
+.playground-color-pick {
+  white-space: nowrap;
+}
+
+.playground-color-inline > input[type="color"] {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  padding: 0;
+  border: 0;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .playground-check {
@@ -296,10 +329,11 @@ pre {
   border: 1px solid var(--color-border-subtle, #ccc);
   background: var(--color-fill-subtle, #f7f7f7);
   padding: 12px;
+  font-family: var(--docs-code-font);
 }
 
 code {
-  font-family: var(--font-family-mono, monospace);
+  font-family: var(--docs-code-font);
 }
 
 .palette {
