@@ -8,21 +8,27 @@ function hasTextContent(value) {
   return true;
 }
 
+function mergeClassNames(...names) {
+  return names.filter(Boolean).join(" ");
+}
+
 function renderIcon(icon, position) {
   if (!icon) return null;
 
-  const wrapperClass = `label-content__icon label-content__icon--${position}`;
+  const slotClass = `label-content__icon label-content__icon--${position}`;
 
   if (React.isValidElement(icon)) {
-    return React.createElement("span", { className: wrapperClass }, icon);
+    return React.cloneElement(icon, {
+      className: mergeClassNames(icon.props.className, slotClass),
+    });
   }
 
   if (typeof icon === "string") {
-    return React.createElement(
-      "span",
-      { className: wrapperClass },
-      React.createElement(Icon, { name: icon, decorative: true }),
-    );
+    return React.createElement(Icon, {
+      name: icon,
+      decorative: true,
+      className: slotClass,
+    });
   }
 
   if (typeof icon === "object") {
@@ -30,12 +36,8 @@ function renderIcon(icon, position) {
     if (iconProps.decorative === undefined) {
       iconProps.decorative = true;
     }
-
-    return React.createElement(
-      "span",
-      { className: wrapperClass },
-      React.createElement(Icon, iconProps),
-    );
+    iconProps.className = mergeClassNames(iconProps.className, slotClass);
+    return React.createElement(Icon, iconProps);
   }
 
   return null;

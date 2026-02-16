@@ -4,6 +4,21 @@ module.exports = function (eleventyConfig) {
   });
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
   eleventyConfig.addPassthroughCopy({ "site/assets": "assets" });
+  eleventyConfig.addPassthroughCopy({
+    "node_modules/prismjs/themes/prism-okaidia.min.css":
+      "assets/vendor/prism/prism.css",
+  });
+  eleventyConfig.addPassthroughCopy({
+    "node_modules/prismjs/prism.js": "assets/vendor/prism/prism.js",
+  });
+  eleventyConfig.addPassthroughCopy({
+    "node_modules/prismjs/components/prism-markup.min.js":
+      "assets/vendor/prism/prism-markup.min.js",
+  });
+  eleventyConfig.addPassthroughCopy({
+    "node_modules/prismjs/components/prism-jsx.min.js":
+      "assets/vendor/prism/prism-jsx.min.js",
+  });
   eleventyConfig.addCollection("tokensDocs", (collectionApi) => {
     return collectionApi
       .getFilteredByGlob("site/tokens/**/*.md")

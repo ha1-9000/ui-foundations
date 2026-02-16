@@ -200,6 +200,62 @@ const normalizeIconName = (rawValue) => {
   return value;
 };
 
+const HTML_VOID_TAGS = new Set([
+  "area",
+  "base",
+  "br",
+  "col",
+  "embed",
+  "hr",
+  "img",
+  "input",
+  "link",
+  "meta",
+  "param",
+  "source",
+  "track",
+  "wbr",
+]);
+
+const formatHtmlSnippet = (input) => {
+  const compact = String(input || "")
+    .replace(/\r\n/g, "\n")
+    .replace(/>\s+</g, "><")
+    .trim();
+  if (!compact) return "";
+
+  const tokens = compact.match(/<\/?[^>]+>|[^<]+/g) || [];
+  const lines = [];
+  let depth = 0;
+
+  tokens.forEach((rawToken) => {
+    const token = rawToken.trim();
+    if (!token) return;
+
+    if (token.startsWith("</")) {
+      depth = Math.max(depth - 1, 0);
+      lines.push(`${"  ".repeat(depth)}${token}`);
+      return;
+    }
+
+    if (token.startsWith("<")) {
+      lines.push(`${"  ".repeat(depth)}${token}`);
+
+      const isSelfClosing = token.endsWith("/>");
+      const tagMatch = token.match(/^<([a-zA-Z0-9-]+)/);
+      const tagName = tagMatch ? tagMatch[1].toLowerCase() : "";
+      if (!isSelfClosing && !HTML_VOID_TAGS.has(tagName)) {
+        depth += 1;
+      }
+      return;
+    }
+
+    lines.push(`${"  ".repeat(depth)}${token}`);
+  });
+
+  return lines.join("\n");
+};
+
 const iconLabelFromName = (name) =>
   String(name || "")
     .replace(/[-_]+/g, " ")
@@ -257,16 +313,17 @@ const createLabelIconSlot = (name, position) => {
   const icon = createIconElement({ name, decorative: true });
   if (!icon) return null;
 
-  const slot = document.createElement("span");
-  slot.className = `label-content__icon label-content__icon--${position}`;
-  slot.append(icon);
-  return slot;
+  icon.classList.add("label-content__icon", `label-content__icon--${position}`);
+  return icon;
 };
 
 const labelIconCode = (name, position) => {
   const iconMarkup = iconCode({ name, decorative: true });
   if (!iconMarkup) return "";
-  return `<span class="label-content__icon label-content__icon--${position}">${iconMarkup}</span>`;
+  return iconMarkup.replace(
+    'class="icon"',
+    `class="icon label-content__icon label-content__icon--${position}"`,
+  );
 };
 
 const renderVanillaButton = ({ props, children, meta }) => {
@@ -517,7 +574,21 @@ const initVanillaPlayground = (container) => {
     const result = renderer(state);
     mountNode.innerHTML = "";
     mountNode.append(result.element);
-    codeNode.textContent = result.code;
+    const formattedCode = formatHtmlSnippet(result.code);
+    if (
+      window.Prism &&
+      window.Prism.languages &&
+      window.Prism.languages.markup &&
+      typeof window.Prism.highlight === "function"
+    ) {
+      codeNode.innerHTML = window.Prism.highlight(
+        formattedCode,
+        window.Prism.languages.markup,
+        "markup",
+      );
+    } else {
+      codeNode.textContent = formattedCode;
+    }
     syncColorPickersFromControls(form);
     syncControlsToQueryParams(queryPrefix, queryControls);
   };

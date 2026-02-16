@@ -409,8 +409,13 @@ body {
 
 .playground-code code {
   display: block;
-  color: #e6edf3;
   font-family: var(--docs-code-font);
+}
+
+/* Override Prism's default light pre/code background inside the playground panel. */
+pre.playground-code[class*="language-"],
+pre.playground-code[class*="language-"] > code[class*="language-"] {
+  background: #0a0f15;
 }
 
 pre {
