@@ -6,6 +6,13 @@ navTitle: Button Playground
 order: 20
 permalink: /components/button-playground/
 templateEngineOverride: njk
+isPlayground: true
+breadcrumb:
+  - label: Components
+    url: /components/
+  - label: Button
+    url: /components/button/
+  - label: Playground
 playground:
   id: button-playground
   queryPrefix: button

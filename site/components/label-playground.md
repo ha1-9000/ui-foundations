@@ -6,6 +6,13 @@ navTitle: Label Playground
 order: 31
 permalink: /components/label-playground/
 templateEngineOverride: njk
+isPlayground: true
+breadcrumb:
+  - label: Components
+    url: /components/
+  - label: Label
+    url: /components/label/
+  - label: Playground
 playground:
   id: label-playground
   queryPrefix: label

@@ -5,6 +5,8 @@ description: Primitive for SVG icons from `src/assets/icons`.
 navTitle: Icon
 order: 20
 permalink: /components/icon/
+playgroundUrl: /components/icon-playground/
+playgroundLabel: Open Icon Playground
 ---
 
 ## Usage (HTML)
@@ -24,8 +26,6 @@ permalink: /components/icon/
   <span class="icon" style="--icon-src: url('/assets/icons/menu.svg'); color: #0057b8;" aria-hidden="true"></span>
   <span class="icon" style="--icon-src: url('/assets/icons/plus.svg'); color: #d81b60;" aria-hidden="true"></span>
 </div>
-
-[Open Icon Playground](/components/icon-playground/)
 
 ## API (React)
 

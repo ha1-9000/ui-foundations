@@ -63,8 +63,31 @@
         </header>
 
         <article class="docs-content">
-          {% if title %}<h1>{{ title }}</h1>{% endif %}
-          {% if description %}<p class="page-intro">{{ description }}</p>{% endif %}
+          {% set compactTitleInBreadcrumb = isPlayground and breadcrumb and breadcrumb.length %}
+          {% if breadcrumb and breadcrumb.length %}
+          <nav class="docs-breadcrumb" aria-label="Breadcrumb">
+            <ol>
+              {% for item in breadcrumb %}
+              <li>
+                {% if item.url %}
+                <a href="{{ item.url }}">{{ item.label }}</a>
+                {% else %}
+                <span aria-current="page">{{ item.label }}</span>
+                {% endif %}
+              </li>
+              {% endfor %}
+            </ol>
+          </nav>
+          {% endif %}
+          {% if title and not compactTitleInBreadcrumb %}<h1>{{ title }}</h1>{% endif %}
+          {% if description and not isPlayground %}<p class="page-intro">{{ description }}</p>{% endif %}
+          {% if playgroundUrl %}
+          <p class="docs-page-actions">
+            <a class="docs-page-link" href="{{ playgroundUrl }}">
+              {{ playgroundLabel or "Open Playground" }}
+            </a>
+          </p>
+          {% endif %}
           {{ content | safe }}
         </article>
       </main>

@@ -19,6 +19,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection("componentsDocs", (collectionApi) => {
     return collectionApi
       .getFilteredByGlob("site/components/**/*.md")
+      .filter((entry) => !entry.data.isPlayground)
       .sort((a, b) => {
         const aOrder = Number(a.data.order || 999);
         const bOrder = Number(b.data.order || 999);

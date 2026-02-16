@@ -5,6 +5,8 @@ description: Variants, states, and token-driven rendering.
 navTitle: Button
 order: 10
 permalink: /components/button/
+playgroundUrl: /components/button-playground/
+playgroundLabel: Open Button Playground
 ---
 
 {% import "macros/ui.njk" as ui %}

@@ -6,6 +6,13 @@ navTitle: Icon Playground
 order: 21
 permalink: /components/icon-playground/
 templateEngineOverride: njk
+isPlayground: true
+breadcrumb:
+  - label: Components
+    url: /components/
+  - label: Icon
+    url: /components/icon/
+  - label: Playground
 playground:
   id: icon-playground
   queryPrefix: icon

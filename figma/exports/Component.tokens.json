@@ -182,6 +182,26 @@
         "com.figma.isOverride": true
       }
     },
+    "Padding Inline Icon Only": {
+      "$type": "number",
+      "$value": 8,
+      "$extensions": {
+        "com.figma.variableId": "VariableID:2026:2178",
+        "com.figma.scopes": [
+          "ALL_SCOPES"
+        ],
+        "com.figma.codeSyntax": {
+          "WEB": "var(--button-padding-inline-icon-only)"
+        },
+        "com.figma.aliasData": {
+          "targetVariableId": "VariableID:f49eecfe3af93f43e2f4a8366a2b0f28183465c1/-1:-1",
+          "targetVariableName": "Size/Spacing/200",
+          "targetVariableSetId": "VariableCollectionId:7f51eb47d60ee7f51f98ab99ecbf671069a3ec14/-1:-1",
+          "targetVariableSetName": "Core (Primitives)"
+        },
+        "com.figma.isOverride": true
+      }
+    },
     "Padding Block": {
       "$type": "number",
       "$value": 8,

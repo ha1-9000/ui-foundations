@@ -5,6 +5,8 @@ description: Text and icon label primitives for components and form fields.
 navTitle: Label
 order: 30
 permalink: /components/label/
+playgroundUrl: /components/label-playground/
+playgroundLabel: Open Label Playground
 ---
 
 ## Usage
@@ -46,8 +48,6 @@ permalink: /components/label/
     <span class="field-label__required-text"> (required)</span>
   </label>
 </div>
-
-[Open Label Playground](/components/label-playground/)
 
 ## React exports
 
