@@ -8,18 +8,12 @@ function hasTextContent(value) {
   return true;
 }
 
-function mergeClassNames(...names) {
-  return names.filter(Boolean).join(" ");
-}
-
 function renderIcon(icon, position) {
   if (!icon) return null;
 
-  const slotClass = `label-content__icon label-content__icon--${position}`;
-
   if (React.isValidElement(icon)) {
     return React.cloneElement(icon, {
-      className: mergeClassNames(icon.props.className, slotClass),
+      "data-slot": position,
     });
   }
 
@@ -27,7 +21,7 @@ function renderIcon(icon, position) {
     return React.createElement(Icon, {
       name: icon,
       decorative: true,
-      className: slotClass,
+      "data-slot": position,
     });
   }
 
@@ -36,7 +30,7 @@ function renderIcon(icon, position) {
     if (iconProps.decorative === undefined) {
       iconProps.decorative = true;
     }
-    iconProps.className = mergeClassNames(iconProps.className, slotClass);
+    iconProps["data-slot"] = position;
     return React.createElement(Icon, iconProps);
   }
 

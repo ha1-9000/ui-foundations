@@ -24,7 +24,6 @@
   }
 
   .button .label-content__text,
-  .button .label-content__icon,
   .button .icon {
     color: inherit;
     -webkit-text-fill-color: currentColor;

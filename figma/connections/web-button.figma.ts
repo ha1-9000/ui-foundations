@@ -4,9 +4,7 @@ import { ICON_ENUM_OPTIONS_WITH_NONE } from "./icon-names";
 function renderIcon(name: string, position: "start" | "end") {
   if (!name) return "";
 
-  return `<span class="label-content__icon label-content__icon--${position}">
-    <span class="icon" style="--icon-src: url('/assets/icons/${name}.svg')" aria-hidden="true"></span>
-  </span>`;
+  return `<span class="icon" data-slot="${position}" style="--icon-src: url('/assets/icons/${name}.svg')" aria-hidden="true"></span>`;
 }
 
 figma.connect(

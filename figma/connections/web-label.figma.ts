@@ -8,7 +8,8 @@ function renderIcon(name: string, position: "start" | "end") {
   if (!name) return "";
 
   return `<span
-    class="icon label-content__icon label-content__icon--${position}"
+    class="icon"
+    data-slot="${position}"
     style="--icon-src: url('/assets/icons/${name}.svg')"
     aria-hidden="true"
   ></span>`;

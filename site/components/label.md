@@ -28,12 +28,12 @@ playgroundLabel: Open Label Playground
 
 <div class="docs-stack" style="line-height: 24px;">
   <span class="label-content">
-    <span class="icon label-content__icon label-content__icon--start" style="--icon-src: url('/assets/icons/search.svg');" aria-hidden="true"></span>
+    <span class="icon" data-slot="start" style="--icon-src: url('/assets/icons/search.svg');" aria-hidden="true"></span>
     <span class="label-content__text">Search</span>
   </span>
 
   <span class="label-content is-icon-only">
-    <span class="icon label-content__icon label-content__icon--start" style="--icon-src: url('/assets/icons/menu.svg');" aria-hidden="true"></span>
+    <span class="icon" data-slot="start" style="--icon-src: url('/assets/icons/menu.svg');" aria-hidden="true"></span>
   </span>
 
   <label class="field-label" for="preview-email">

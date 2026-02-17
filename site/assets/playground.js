@@ -313,7 +313,7 @@ const createLabelIconSlot = (name, position) => {
   const icon = createIconElement({ name, decorative: true });
   if (!icon) return null;
 
-  icon.classList.add("label-content__icon", `label-content__icon--${position}`);
+  icon.setAttribute("data-slot", position);
   return icon;
 };
 
@@ -322,7 +322,7 @@ const labelIconCode = (name, position) => {
   if (!iconMarkup) return "";
   return iconMarkup.replace(
     'class="icon"',
-    `class="icon label-content__icon label-content__icon--${position}"`,
+    `class="icon" data-slot="${position}"`,
   );
 };
 
