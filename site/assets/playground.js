@@ -510,9 +510,39 @@ const renderVanillaLabel = ({ props, children, meta }) => {
   return { element: host, code };
 };
 
+const renderVanillaInput = ({ props, meta }) => {
+  const element = document.createElement("input");
+  const previewState = String(meta.state || "default");
+  const type = String(props.type || "text");
+  const placeholder = String(props.placeholder || "");
+  const value = String(props.value || "");
+  const classes = ["input"];
+
+  if (previewState === "hover") classes.push("is-hover");
+  if (previewState === "active") classes.push("is-active");
+  if (previewState === "focus") classes.push("is-focus-visible");
+  if (previewState === "disabled") classes.push("is-disabled");
+  if (props.className) classes.push(String(props.className));
+
+  element.className = classes.join(" ");
+  element.type = type;
+  element.placeholder = placeholder;
+  element.value = value;
+  element.disabled = previewState === "disabled" || Boolean(props.disabled);
+
+  const attrs = [`class="${quoteAttr(element.className)}"`, `type="${quoteAttr(type)}"`];
+  if (placeholder) attrs.push(`placeholder="${quoteAttr(placeholder)}"`);
+  if (value) attrs.push(`value="${quoteAttr(value)}"`);
+  if (element.disabled) attrs.push("disabled");
+
+  const code = `<input ${attrs.join(" ")} />`;
+  return { element, code };
+};
+
 const renderers = {
   button: renderVanillaButton,
   icon: renderVanillaIcon,
+  input: renderVanillaInput,
   label: renderVanillaLabel,
 };
 

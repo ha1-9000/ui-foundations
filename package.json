@@ -16,6 +16,7 @@
     "./react": "./dist/react/index.js",
     "./react/button": "./dist/react/button.js",
     "./react/icon": "./dist/react/icon.js",
+    "./react/input": "./dist/react/input.js",
     "./react/label": "./dist/react/label.js",
     "./assets/*": "./dist/assets/*",
     "./tokens/core.css": "./dist/tokens/css/core.tokens.css",
