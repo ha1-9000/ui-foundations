@@ -9,6 +9,8 @@ playgroundUrl: /components/input-playground/
 playgroundLabel: Open Input Playground
 ---
 
+{% import "macros/ui.njk" as ui %}
+
 ## Usage (HTML)
 
 ```html
@@ -18,9 +20,9 @@ playgroundLabel: Open Input Playground
 ## Preview
 
 <div class="docs-stack" style="max-inline-size: 28rem;">
-  <input class="input" type="text" placeholder="Email address" />
-  <input class="input is-focus-visible" type="text" value="Focus preview" />
-  <input class="input" type="text" value="Disabled field" disabled />
+  {{ ui.input(type="text", placeholder="Email address") }}
+  {{ ui.input(type="text", value="Focus preview", state="focus") }}
+  {{ ui.input(type="text", value="Disabled field", disabled=true) }}
 </div>
 
 ## API (React)

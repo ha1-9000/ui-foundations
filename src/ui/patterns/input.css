@@ -1,6 +1,7 @@
 @layer components {
   .input {
     inline-size: 100%;
+    block-size: var(--input-height, var(--size-spacing-800));
     appearance: none;
     font-family: var(--input-font-family);
     font-weight: var(--input-font-weight);
@@ -26,6 +27,14 @@
       linear-gradient(0deg, var(--input-overlay-hover), var(--input-overlay-hover)),
       var(--input-text-container-background-default);
     border-width: var(--input-border-size-hover);
+    padding-inline: calc(
+      var(--input-padding-inline) + var(--input-border-size-default) -
+        var(--input-border-size-hover)
+    );
+    padding-block: calc(
+      var(--input-padding-block) + var(--input-border-size-default) -
+        var(--input-border-size-hover)
+    );
     border-color: var(--input-text-border-color-hover);
     color: var(--input-text-text-color-hover);
   }
@@ -36,6 +45,14 @@
       linear-gradient(0deg, var(--input-overlay-active), var(--input-overlay-active)),
       var(--input-text-container-background-default);
     border-width: var(--input-border-size-active);
+    padding-inline: calc(
+      var(--input-padding-inline) + var(--input-border-size-default) -
+        var(--input-border-size-active)
+    );
+    padding-block: calc(
+      var(--input-padding-block) + var(--input-border-size-default) -
+        var(--input-border-size-active)
+    );
     border-color: var(--input-text-border-color-active);
     color: var(--input-text-text-color-active);
   }

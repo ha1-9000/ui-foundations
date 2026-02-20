@@ -16,6 +16,10 @@ permalink: /
     <h2>Components</h2>
     <p>Component API with standalone pages and examples.</p>
   </a>
+  <a class="docs-card" href="/examples/">
+    <h2>Examples</h2>
+    <p>Organisms composed from existing components.</p>
+  </a>
 </div>
 
 ## Token Pages
@@ -35,6 +39,19 @@ permalink: /
 
 <ul class="docs-link-list">
   {% for entry in collections.componentsDocs %}
+  <li>
+    <a href="{{ entry.url }}">{{ entry.data.title }}</a>
+    {% if entry.data.description %}
+    <span>{{ entry.data.description }}</span>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ul>
+
+## Example Pages
+
+<ul class="docs-link-list">
+  {% for entry in collections.examplesDocs %}
   <li>
     <a href="{{ entry.url }}">{{ entry.data.title }}</a>
     {% if entry.data.description %}

@@ -36,6 +36,24 @@
         "com.figma.isOverride": true
       }
     },
+    "Form Radius": {
+      "$type": "number",
+      "$value": 4,
+      "$extensions": {
+        "com.figma.variableId": "VariableID:2070:527",
+        "com.figma.hiddenFromPublishing": true,
+        "com.figma.codeSyntax": {
+          "WEB": "var(--corner-form-radius)"
+        },
+        "com.figma.aliasData": {
+          "targetVariableId": "VariableID:e79a1a227ffb0041eca8ca5df0941bc3dd062fa1/-1:-1",
+          "targetVariableName": "Brand/Corner/Card",
+          "targetVariableSetId": "VariableCollectionId:c0fc7925c28f6d6b71a498482a60d10a29c5f1bd/-1:-1",
+          "targetVariableSetName": "Themes (Brands)"
+        },
+        "com.figma.isOverride": true
+      }
+    },
     "Modal Radius": {
       "$type": "number",
       "$value": 8,

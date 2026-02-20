@@ -46,6 +46,22 @@
               {% endfor %}
             </ul>
           </section>
+
+          <section class="docs-nav-section">
+            <h2>EXAMPLES</h2>
+            <ul>
+              {% for entry in collections.examplesDocs %}
+              <li>
+                <a
+                  href="{{ entry.url }}"
+                  {% if entry.url == page.url %}aria-current="page"{% endif %}
+                >
+                  {{ entry.data.navTitle or entry.data.title }}
+                </a>
+              </li>
+              {% endfor %}
+            </ul>
+          </section>
         </nav>
       </aside>
 
