@@ -57,10 +57,10 @@ Rules:
 - `dist/tokens/` — generated token artifacts (CSS/JSON/TS)
 - `src/` — package source layers (Core/UI/React)
 - `site/` — Eleventy preview/docs site (templates + docs-specific CSS)
-- `foundations/` — foundational architecture and token rules (source of truth)
+- `docs/foundations/` — foundational architecture and token rules (source of truth)
+- `docs/agentic/` — assistant behavior rules and AI collaboration playbooks
 - `figma/` — Figma exports, mappings, Code Connect notes
 - `AGENTS.md` — entrypoint for AI coding agents
-- `agentic/` — assistant behavior rules and AI collaboration playbooks
 
 Docs structure (`site/`):
 - `_includes/layouts/` — shared Nunjucks layouts
@@ -70,8 +70,8 @@ Docs structure (`site/`):
 
 AI collaboration:
 - `AGENTS.md` — quick entrypoint and baseline checks for agents
-- `agentic/assistant-behavior-rules.md` — assistant-specific guardrails
-- `agentic/team-ai-playbook.md` — standard AI-assisted workflows for component incubation and token roundtrips
+- `docs/agentic/assistant-behavior-rules.md` — assistant-specific guardrails
+- `docs/agentic/team-ai-playbook.md` — standard AI-assisted workflows for component incubation and token roundtrips
 
 ## Flow: Add a new component
 
@@ -178,7 +178,7 @@ Generated JSON tokens follow the official Design Tokens Community Group format w
 
 ## Quick start (local)
 
-1. Read the foundation rules in `foundations/`
+1. Read the foundation rules in `docs/foundations/`
 2. Inspect source tokens in `figma/exports/` and generated tokens in `dist/tokens/`
 3. Run `npm run docs:dev`
 

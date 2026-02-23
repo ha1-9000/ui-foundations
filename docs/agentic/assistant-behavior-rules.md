@@ -1,6 +1,6 @@
 # Assistant rules (UI Foundations)
 
-1. Always follow foundation rules in `/foundations` as the source of truth.
+1. Always follow foundation rules in `/docs/foundations` as the source of truth.
 2. Keep the 4-layer architecture: Core → Color Modes → Semantics → Components.
 3. Components may only reference Semantics/Core tokens; no raw values in components.
 4. Typography tokens never include color; text color lives in `Color.Text.*`.

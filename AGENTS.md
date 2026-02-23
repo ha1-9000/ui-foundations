@@ -4,12 +4,12 @@ This file is the entry point for AI coding agents working in this repository.
 
 ## Agentic docs
 
-- `agentic/assistant-behavior-rules.md` — behavior and architecture guardrails for assistants
-- `agentic/team-ai-playbook.md` — team workflow for AI-assisted implementation
+- `docs/agentic/assistant-behavior-rules.md` — behavior and architecture guardrails for assistants
+- `docs/agentic/team-ai-playbook.md` — team workflow for AI-assisted implementation
 
 ## Required baseline
 
-1. Follow foundation rules in `foundations/` as source of truth.
+1. Follow foundation rules in `docs/foundations/` as source of truth.
 2. Keep changes small, reviewable, and non-breaking by default.
 3. Validate changes before handoff with:
    - `npm run lint`

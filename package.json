@@ -8,7 +8,7 @@
   "files": [
     "dist/**",
     "README.md",
-    "foundations/**"
+    "docs/foundations/**"
   ],
   "exports": {
     "./core.css": "./dist/core/index.css",
