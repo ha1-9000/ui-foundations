@@ -4,14 +4,14 @@ This repository contains the **foundation layer** of our UI platform:
 
 - Design tokens (core primitives, color modes, semantic roles)
 - Component token APIs (variants, parts, properties, states)
-- Architecture Decision Records (ADRs) for long-term consistency
+- Foundational architecture rules for long-term consistency
 - Docs/playground generated with Eleventy
 
 ## What this is
 
 - A **token-first** foundation that aligns **Figma Variables** with **CSS custom properties**
 - A **multi-brand** and **multi-mode** ready architecture
-- A place to document decisions that must remain stable over time
+- A place to document foundational rules that must remain stable over time
 
 ## What this is not (yet)
 
@@ -31,7 +31,7 @@ This repository contains the **foundation layer** of our UI platform:
    Supports brand modes (e.g. TUI, ROBINSON, LTUR).
 
 4. **Components (APIs)**  
-   Component-level decisions: variants, parts, properties, states.  
+   Component-level API rules: variants, parts, properties, states.  
    Components reference semantic roles—**never raw values**.
 
 ## Naming conventions
@@ -53,19 +53,25 @@ Rules:
 
 ## Repository structure
 
-- `decisions/` — ADRs (source of truth)
 - `figma/exports/` — token source exports from Figma
 - `dist/tokens/` — generated token artifacts (CSS/JSON/TS)
 - `src/` — package source layers (Core/UI/React)
 - `site/` — Eleventy preview/docs site (templates + docs-specific CSS)
+- `foundations/` — foundational architecture and token rules (source of truth)
 - `figma/` — Figma exports, mappings, Code Connect notes
-- `agent/` — assistant rules and prompt examples
+- `AGENTS.md` — entrypoint for AI coding agents
+- `agentic/` — assistant behavior rules and AI collaboration playbooks
 
 Docs structure (`site/`):
 - `_includes/layouts/` — shared Nunjucks layouts
 - `tokens/*.md` — token docs pages (Eleventy collection)
 - `components/*.md` — component docs pages (Eleventy collection)
 - `assets/docs.css` — docs-only styling
+
+AI collaboration:
+- `AGENTS.md` — quick entrypoint and baseline checks for agents
+- `agentic/assistant-behavior-rules.md` — assistant-specific guardrails
+- `agentic/team-ai-playbook.md` — standard AI-assisted workflows for component incubation and token roundtrips
 
 ## Flow: Add a new component
 
@@ -172,7 +178,7 @@ Generated JSON tokens follow the official Design Tokens Community Group format w
 
 ## Quick start (local)
 
-1. Read the ADRs in `decisions/`
+1. Read the foundation rules in `foundations/`
 2. Inspect source tokens in `figma/exports/` and generated tokens in `dist/tokens/`
 3. Run `npm run docs:dev`
 

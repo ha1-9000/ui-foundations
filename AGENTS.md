@@ -1,0 +1,23 @@
+# AGENTS
+
+This file is the entry point for AI coding agents working in this repository.
+
+## Agentic docs
+
+- `agentic/assistant-behavior-rules.md` — behavior and architecture guardrails for assistants
+- `agentic/team-ai-playbook.md` — team workflow for AI-assisted implementation
+
+## Required baseline
+
+1. Follow foundation rules in `foundations/` as source of truth.
+2. Keep changes small, reviewable, and non-breaking by default.
+3. Validate changes before handoff with:
+   - `npm run lint`
+   - `npm run test:unit`
+   - `npm run ci:check`
+
+## Scope notes
+
+- This repo is token-first and Figma-aligned.
+- Prefer extending existing patterns over introducing new frameworks.
+- Keep docs and implementation in sync when changing workflows.
