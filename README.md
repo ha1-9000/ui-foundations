@@ -97,6 +97,7 @@ Generated JSON tokens follow the official Design Tokens Community Group format w
 
 ## Build (local)
 
+0. Optional syntax lint for JS files: `npm run lint`
 1. Generate token outputs (after Figma export updates): `npm run tokens:generate`
 2. Build CSS bundles from already generated tokens: `npm run build:css`
 3. Full refresh in one command (tokens + CSS): `npm run build:all`
