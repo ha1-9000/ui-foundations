@@ -10,6 +10,14 @@
 <button type="{{ type }}" class="{{ classes }}"{% if disabled %} disabled{% endif %}>{{ label }}</button>
 {%- endmacro %}
 
+{% macro buttonGroup(attached=false, orientation='horizontal', justify='start', ariaLabel='', className='') -%}
+{%- set resolvedOrientation = "vertical" if orientation == "vertical" else "horizontal" -%}
+{%- set resolvedJustify = "stretch" if justify == "stretch" else "start" -%}
+{%- set classes = "button-group" -%}
+{%- if className -%}{%- set classes = classes + " " + className -%}{%- endif -%}
+<div class="{{ classes }}" role="group" data-orientation="{{ resolvedOrientation }}" data-attached="{{ "true" if attached else "false" }}" data-justify="{{ resolvedJustify }}"{% if ariaLabel %} aria-label="{{ ariaLabel }}"{% endif %}>{{ caller() }}</div>
+{%- endmacro %}
+
 {% macro input(type='text', placeholder='', value='', state='default', disabled=false, className='', id='', name='', dataPlaygroundControl=false, dataProp='', dataSource='', dataValueType='', dataQueryParam='') -%}
 {%- set classes = "input" -%}
 {%- if state == "hover" -%}{%- set classes = classes + " is-hover" -%}{%- endif -%}

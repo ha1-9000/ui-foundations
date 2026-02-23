@@ -67,16 +67,16 @@
 
       <main class="docs-main">
         <header class="docs-header">
-          <div class="mode-toggle" role="group" aria-label="Color mode">
+          {% call ui.buttonGroup(true, "horizontal", "start", "Color mode", "mode-toggle") %}
             {{ ui.toggleButton("Light", "mode", "light", "outline") }}
             {{ ui.toggleButton("Dark", "mode", "dark", "outline") }}
-            {{ ui.toggleButton("System", "mode", "system", "ghost") }}
-          </div>
+            {{ ui.toggleButton("System", "mode", "system", "outline") }}
+          {% endcall %}
 
-          <div class="mode-toggle" role="group" aria-label="Brand">
-            {{ ui.toggleButton("Brand A", "brand", "a", "outline") }}
-            {{ ui.toggleButton("Brand B", "brand", "b", "outline") }}
-          </div>
+          {% call ui.buttonGroup(false, "horizontal", "start", "Brand", "mode-toggle") %}
+            {{ ui.toggleButton("Brand A", "brand", "a", "ghost") }}
+            {{ ui.toggleButton("Brand B", "brand", "b", "ghost") }}
+          {% endcall %}
         </header>
 
         <article class="docs-content">
@@ -119,20 +119,25 @@
       const storedBrand = localStorage.getItem("ui-foundations-brand");
       let selectedMode = "light";
 
+      const setToggleState = (button, active) => {
+        button.setAttribute("aria-pressed", active ? "true" : "false");
+        button.classList.toggle("is-active", active);
+      };
+
       const updateModePressedState = (mode) => {
         modeButtons.forEach((button) => {
           const active =
             mode === "system"
               ? button.dataset.mode === "system"
               : button.dataset.mode === mode;
-          button.setAttribute("aria-pressed", active ? "true" : "false");
+          setToggleState(button, active);
         });
       };
 
       const updateBrandPressedState = (brand) => {
         brandButtons.forEach((button) => {
           const active = button.dataset.brand === brand;
-          button.setAttribute("aria-pressed", active ? "true" : "false");
+          setToggleState(button, active);
         });
       };
 

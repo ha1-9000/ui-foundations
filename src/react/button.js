@@ -1,6 +1,14 @@
 import React from "react";
 import { LabelContent } from "./label.js";
 
+function normalizeOrientation(value) {
+  return value === "vertical" ? "vertical" : "horizontal";
+}
+
+function normalizeJustify(value) {
+  return value === "stretch" ? "stretch" : "start";
+}
+
 export function Button({
   variant = "solid",
   className = "",
@@ -58,5 +66,30 @@ export function Button({
       },
       content,
     ),
+  );
+}
+
+export function ButtonGroup({
+  className = "",
+  orientation = "horizontal",
+  attached = false,
+  justify = "start",
+  children,
+  ...props
+}) {
+  const classes = ["button-group"];
+  if (className) classes.push(className);
+
+  return React.createElement(
+    "div",
+    {
+      role: "group",
+      className: classes.join(" "),
+      "data-orientation": normalizeOrientation(orientation),
+      "data-attached": attached ? "true" : "false",
+      "data-justify": normalizeJustify(justify),
+      ...props,
+    },
+    children,
   );
 }

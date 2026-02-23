@@ -142,14 +142,9 @@ body {
 }
 
 .mode-toggle {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--size-spacing-200, 0.5rem);
-}
-
-.mode-toggle .button[aria-pressed="true"] {
-  border-color: var(--color-border-brand, #000);
-  box-shadow: 0 0 0 2px var(--color-border-brand, #000);
+  display: inline-flex;
+  flex-wrap: nowrap;
+  gap: 0;
 }
 
 .docs-grid {
@@ -322,11 +317,6 @@ body {
 
 .example-form__actions {
   padding-top: var(--form-actions-padding-block-start, 0.25rem);
-}
-
-.example-form__actions .button {
-  inline-size: 100%;
-  justify-content: center;
 }
 
 .playground-grid {
@@ -606,6 +596,16 @@ html[data-brand="b"] .palette-group[data-brand-scope="a"] {
     height: auto;
     border-right: none;
     border-bottom: 1px solid var(--color-border-subtle, #ccc);
+  }
+
+  .docs-header {
+    justify-content: flex-start;
+  }
+
+  .mode-toggle {
+    max-inline-size: 100%;
+    overflow-x: auto;
+    overflow-y: hidden;
   }
 
   .playground-grid {

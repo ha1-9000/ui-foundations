@@ -5,6 +5,7 @@
     display: inline-flex;
     align-items: center;
     justify-content: center;
+    white-space: nowrap;
     background: var(--button-solid-container-background-default);
     border-color: var(--button-solid-border-color-default);
     border-width: var(--button-solid-border-size);
@@ -35,8 +36,11 @@
 
   .button:hover,
   .button.is-hover {
-    background:
-      linear-gradient(0deg, var(--button-overlay-hover), var(--button-overlay-hover)),
+    background: linear-gradient(
+        0deg,
+        var(--button-overlay-hover),
+        var(--button-overlay-hover)
+      ),
       var(--button-solid-container-background-default);
     border-color: var(--button-solid-border-color-hover);
     color: var(--button-solid-text-color-hover);
@@ -44,8 +48,11 @@
 
   .button:active,
   .button.is-active {
-    background:
-      linear-gradient(0deg, var(--button-overlay-active), var(--button-overlay-active)),
+    background: linear-gradient(
+        0deg,
+        var(--button-overlay-active),
+        var(--button-overlay-active)
+      ),
       var(--button-solid-container-background-default);
     border-color: var(--button-solid-border-color-active);
     color: var(--button-solid-text-color-active);
@@ -68,8 +75,11 @@
 
   .button.outline:hover,
   .button.outline.is-hover {
-    background:
-      linear-gradient(0deg, var(--button-overlay-hover), var(--button-overlay-hover)),
+    background: linear-gradient(
+        0deg,
+        var(--button-overlay-hover),
+        var(--button-overlay-hover)
+      ),
       var(--button-outline-container-background-default);
     border-color: var(--button-outline-border-color-hover);
     color: var(--button-outline-text-color-default);
@@ -77,8 +87,11 @@
 
   .button.outline:active,
   .button.outline.is-active {
-    background:
-      linear-gradient(0deg, var(--button-overlay-active), var(--button-overlay-active)),
+    background: linear-gradient(
+        0deg,
+        var(--button-overlay-active),
+        var(--button-overlay-active)
+      ),
       var(--button-outline-container-background-default);
     border-color: var(--button-outline-border-color-active);
     color: var(--button-outline-text-color-active);
@@ -101,8 +114,11 @@
 
   .button.ghost:hover,
   .button.ghost.is-hover {
-    background:
-      linear-gradient(0deg, var(--button-overlay-hover), var(--button-overlay-hover)),
+    background: linear-gradient(
+        0deg,
+        var(--button-overlay-hover),
+        var(--button-overlay-hover)
+      ),
       var(--button-ghost-container-background-default);
     border-color: var(--button-ghost-border-color-hover);
     color: var(--button-ghost-text-color-default);
@@ -110,8 +126,11 @@
 
   .button.ghost:active,
   .button.ghost.is-active {
-    background:
-      linear-gradient(0deg, var(--button-overlay-active), var(--button-overlay-active)),
+    background: linear-gradient(
+        0deg,
+        var(--button-overlay-active),
+        var(--button-overlay-active)
+      ),
       var(--button-ghost-container-background-default);
     border-color: var(--button-ghost-border-color-active);
     color: var(--button-ghost-text-color-active);
@@ -133,8 +152,90 @@
     color: var(--button-text-color-disabled);
   }
 
-  /* Container query example (Core.Container.400 = 768px) */
   .button-group {
-    container-type: inline-size;
+    display: inline-flex;
+    align-items: stretch;
+    gap: var(--button-group-gap, var(--size-spacing-100, 0.25rem));
+  }
+
+  .button-group[data-orientation="vertical"] {
+    flex-direction: column;
+  }
+
+  .button-group[data-justify="stretch"] {
+    inline-size: 100%;
+  }
+
+  .button-group[data-justify="stretch"] > .button {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+
+  .button-group[data-attached="true"] {
+    gap: 0;
+  }
+
+  .button-group[data-attached="true"] > .button {
+    border-radius: 0;
+  }
+
+  .button-group[data-attached="true"]:not([data-orientation="vertical"])
+    > .button
+    + .button {
+    border-inline-start-width: 0;
+  }
+
+  .button-group[data-attached="true"][data-orientation="vertical"]
+    > .button
+    + .button {
+    border-block-start-width: 0;
+  }
+
+  .button-group[data-attached="true"]:not([data-orientation="vertical"])
+    > .button:first-child {
+    border-start-start-radius: var(
+      --button-group-border-radius,
+      var(--button-border-radius)
+    );
+    border-end-start-radius: var(
+      --button-group-border-radius,
+      var(--button-border-radius)
+    );
+  }
+
+  .button-group[data-attached="true"]:not([data-orientation="vertical"])
+    > .button:last-child {
+    border-start-end-radius: var(
+      --button-group-border-radius,
+      var(--button-border-radius)
+    );
+    border-end-end-radius: var(
+      --button-group-border-radius,
+      var(--button-border-radius)
+    );
+  }
+
+  .button-group[data-attached="true"][data-orientation="vertical"]
+    > .button:first-child {
+    border-start-start-radius: var(
+      --button-group-border-radius,
+      var(--button-border-radius)
+    );
+    border-start-end-radius: var(
+      --button-group-border-radius,
+      var(--button-border-radius)
+    );
+  }
+
+  .button-group[data-attached="true"][data-orientation="vertical"]
+    > .button:last-child {
+    border-end-start-radius: var(
+      --button-group-border-radius,
+      var(--button-border-radius)
+    );
+    border-end-end-radius: var(
+      --button-group-border-radius,
+      var(--button-border-radius)
+    );
   }
 }

@@ -304,9 +304,84 @@
     return { element, code };
   };
 
+  const renderVanillaButtonGroup = ({ props, meta }) => {
+    const element = document.createElement("div");
+    const orientation =
+      String(props.orientation || "horizontal") === "vertical"
+        ? "vertical"
+        : "horizontal";
+    const justify =
+      String(props.justify || "start") === "stretch" ? "stretch" : "start";
+    const attached = Boolean(props.attached);
+    const variant = String(props.variant || "outline");
+    const mode = String(props.mode || "actions") === "toggle"
+      ? "toggle"
+      : "actions";
+    const previewState = String(meta.state || "default");
+    const selected = String(props.selected || "1");
+    const groupLabel = String(props.groupLabel || "Button group").trim();
+
+    const labels = [
+      String(props.primaryLabel || "Day 1"),
+      String(props.secondaryLabel || "Day 2"),
+      String(props.tertiaryLabel || "Day 3"),
+    ];
+
+    element.className = "button-group";
+    element.setAttribute("role", "group");
+    element.dataset.orientation = orientation;
+    element.dataset.justify = justify;
+    element.dataset.attached = attached ? "true" : "false";
+    if (mode === "toggle" && groupLabel) {
+      element.setAttribute("aria-label", groupLabel);
+    }
+
+    const buttonCodes = labels.map((label, index) => {
+      const optionNumber = String(index + 1);
+      const isSelected = mode === "toggle" && selected === optionNumber;
+      const result = renderVanillaButton({
+        props: {
+          variant,
+          type: "button",
+        },
+        children: label,
+        meta: {
+          state: isSelected ? "active" : previewState,
+        },
+      });
+
+      if (mode === "toggle") {
+        const ariaPressed = isSelected ? "true" : "false";
+        result.element.setAttribute("aria-pressed", ariaPressed);
+        result.code = result.code.replace(
+          "<button ",
+          `<button aria-pressed="${ariaPressed}" `,
+        );
+      }
+
+      element.append(result.element);
+      return result.code;
+    });
+
+    const groupAttrs = [
+      'class="button-group"',
+      'role="group"',
+      `data-orientation="${quoteAttr(orientation)}"`,
+      `data-attached="${attached ? "true" : "false"}"`,
+      `data-justify="${quoteAttr(justify)}"`,
+    ];
+    if (mode === "toggle" && groupLabel) {
+      groupAttrs.push(`aria-label="${quoteAttr(groupLabel)}"`);
+    }
+
+    const code = `<div ${groupAttrs.join(" ")}>${buttonCodes.join("")}</div>`;
+    return { element, code };
+  };
+
   global.UIPlaygroundRenderers = {
     renderers: {
       button: renderVanillaButton,
+      "button-group": renderVanillaButtonGroup,
       icon: renderVanillaIcon,
       input: renderVanillaInput,
       label: renderVanillaLabel,

@@ -77,6 +77,9 @@ AI collaboration:
 
 ```text
 Figma
+├─ 0) Run boundary + utility check
+│  ├─ Is this a standalone component or composition of an existing one?
+│  └─ Snowflake check: one-off local case vs shared cross-context utility
 ├─ 1) Create/update component tokens
 │  └─ figma/exports/Component.tokens.json
 ├─ 2) (Optional) Add/update Code Connect mapping
@@ -122,6 +125,9 @@ This project is designed for a collaborative build loop between design and imple
 
 ```text
 Collaborative loop (real-world workflow)
+├─ 0) Run boundary + utility check
+│  ├─ standalone component or composition inside an existing component family
+│  └─ Snowflake check: solves one local case or reusable across contexts
 ├─ 1) Ask the assistant for a proposed component setup
 │  ├─ component structure (HTML/CSS/React)
 │  ├─ token naming proposal
