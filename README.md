@@ -67,6 +67,12 @@ Docs structure (`site/`):
 - `components/*.md` — component docs pages (Eleventy collection)
 - `assets/docs.css` — docs-only styling
 
+## Script locations
+
+- `scripts/` — build, token extraction, validation, lint and smoke-check automation for local/CI usage
+- `site/assets/playground/` — browser runtime modules for docs playground (shared helpers, state, code formatting, renderers)
+- `tests/` — unit tests for extraction helpers and edge-case behavior
+
 ## CSS variable naming
 
 CSS custom property names are derived from `com.figma.codeSyntax.WEB`.
