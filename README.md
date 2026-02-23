@@ -97,12 +97,33 @@ Generated JSON tokens follow the official Design Tokens Community Group format w
 
 ## Build (local)
 
-0. Optional syntax lint for JS files: `npm run lint`
-1. Generate token outputs (after Figma export updates): `npm run tokens:generate`
-2. Build CSS bundles from already generated tokens: `npm run build:css`
-3. Full refresh in one command (tokens + CSS): `npm run build:all`
-4. Run smoke checks for generated artifacts: `npm run smoke:check`
-5. Build docs: `npm run docs:site`
-6. Run CI-equivalent checks locally: `npm run ci:check`
+1. Optional syntax lint for JS files: `npm run lint`
+2. Optional unit tests for extractor helpers: `npm run test:unit`
+3. Generate token outputs (after Figma export updates): `npm run tokens:generate`
+4. Build CSS bundles from already generated tokens: `npm run build:css`
+5. Full refresh in one command (tokens + CSS): `npm run build:all`
+6. Run smoke checks for generated artifacts: `npm run smoke:check`
+7. Build docs: `npm run docs:site`
+8. Run CI-equivalent checks locally: `npm run ci:check`
 
 `npm run build:css` fails if `dist/tokens/css/*.tokens.css` does not exist yet.
+
+## Token Pipeline Internals
+
+`scripts/extract-tokens.js` is the orchestration entry point.
+
+Main helper modules:
+- `scripts/extract-tokens.utils.js` — parsing + normalization helpers (`readJsonLike`, `parseWebSyntax`, length/path utilities)
+- `scripts/extract-tokens.lookup.js` — alias lookup + cycle/missing-target handling
+- `scripts/extract-tokens.value.js` — token grouping + output value formatting
+- `scripts/extract-tokens.scope.js` — scope parsing and selector/output-base normalization
+
+Data flow:
+1. Read `figma/exports/*.tokens.json` (JSON/JSONC supported)
+2. Flatten tokens + resolve aliases across the combined lookup
+3. Assign CSS variable names from `com.figma.codeSyntax.WEB`
+4. Emit `dist/tokens/{css,json,ts}` and `dist/tokens/tokens.yaml`
+
+Fallback behavior:
+- Missing or invalid `com.figma.codeSyntax.WEB` values fall back to auto-derived CSS variable names and are reported in the extract summary.
+- Missing alias targets and alias cycles fall back to literal values and are reported.

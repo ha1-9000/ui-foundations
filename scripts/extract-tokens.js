@@ -14,13 +14,21 @@ const {
   parseWebSyntax,
   normalizeVariableId,
   normalizeTokenPath,
-  toKebabCase,
-  formatLength,
 } = require("./extract-tokens.utils.js");
+const { createTokenLookup } = require("./extract-tokens.lookup.js");
 const {
-  createTokenLookup,
-  resolveAliasRef,
-} = require("./extract-tokens.lookup.js");
+  buildTokenKey,
+  classifyTokenGroup,
+  isFontWeightPath,
+  resolveTokenOutputValue,
+  toNumericFontWeight,
+} = require("./extract-tokens.value.js");
+const {
+  normalizeOutputBase,
+  normalizePerFileBase,
+  parseScopeKey,
+  selectorForScope,
+} = require("./extract-tokens.scope.js");
 
 const REPO_ROOT = path.resolve(__dirname, "..");
 const EXPORTS_DIR = path.join(REPO_ROOT, "figma", "exports");
@@ -132,210 +140,6 @@ function flattenTokens(node, pathSegments, list, sourceMeta) {
 }
 
 
-function normalizeColor(value) {
-  if (typeof value === "string") {
-    return value;
-  }
-  if (value && typeof value === "object") {
-    if (Array.isArray(value.components)) {
-      const [r, g, b] = value.components;
-      const a = value.alpha === undefined ? 1 : value.alpha;
-      return a < 1 ? toRgba(r, g, b, a) : toRgb(r, g, b);
-    }
-    if (typeof value.hex === "string") return value.hex;
-  }
-  return value;
-}
-
-function toRgb(r, g, b) {
-  const to255 = (c) => Math.round(c * 255);
-  return `rgb(${to255(r)} ${to255(g)} ${to255(b)})`;
-}
-
-function toRgba(r, g, b, a) {
-  const to255 = (c) => Math.round(c * 255);
-  const alpha = Number(a.toFixed(4)).toString();
-  return `rgba(${to255(r)} ${to255(g)} ${to255(b)} / ${alpha})`;
-}
-
-function isBreakpointToken(segments) {
-  // Breakpoint tokens are grouped under Breakpoint.*
-  return String(segments[0] || "").toLowerCase() === "breakpoint";
-}
-
-function isContainerToken(segments) {
-  // Container tokens are grouped under Container.*
-  return String(segments[0] || "").toLowerCase() === "container";
-}
-
-function isLayoutColumnsToken(segments) {
-  return (
-    String(segments[0] || "").toLowerCase() === "layout" &&
-    String(segments[1] || "").toLowerCase() === "columns"
-  );
-}
-
-function isLayoutPxToken(segments) {
-  if (String(segments[0] || "").toLowerCase() !== "layout") return false;
-  const second = String(segments[1] || "").toLowerCase();
-  return (
-    second.includes("max width") ||
-    second.includes("column max width") ||
-    second.includes("breakpoint")
-  );
-}
-
-function formatPx(value) {
-  // Breakpoints/containers stay in px; preserve any explicit unit
-  if (typeof value === "number") return `${value}px`;
-  return value;
-}
-
-function buildTokenKey(segments) {
-  return toKebabCase(segments.join("-"));
-}
-
-function formatTokenValue(token, rawValue, tokenKey, segments) {
-  const type = String(token.type || "").toLowerCase();
-  const lowerKey = tokenKey.toLowerCase();
-
-  if (type === "color") {
-    return normalizeColor(rawValue);
-  }
-
-  if (isFontWeightPath(segments)) {
-    const mapped = toNumericFontWeight(rawValue);
-    if (mapped !== null) return mapped;
-  }
-
-  if (type === "number") {
-    if (lowerKey.startsWith("zindex-") || lowerKey.startsWith("z-index-")) {
-      return rawValue;
-    }
-    if (isLayoutColumnsToken(segments)) {
-      return rawValue;
-    }
-    if (isLayoutPxToken(segments)) {
-      return formatPx(rawValue);
-    }
-    if (isBreakpointToken(segments) || isContainerToken(segments)) {
-      return formatPx(rawValue);
-    }
-    return formatLength(rawValue);
-  }
-
-  if (type === "shadow") {
-    if (
-      rawValue &&
-      typeof rawValue === "object" &&
-      rawValue.offsetX !== undefined
-    ) {
-      return `${formatLength(rawValue.offsetX)} ${formatLength(
-        rawValue.offsetY,
-      )} ${formatLength(rawValue.blur)} ${rawValue.color}`;
-    }
-  }
-
-  if (lowerKey.startsWith("zindex-") || lowerKey.startsWith("z-index-")) {
-    return rawValue;
-  }
-
-  return formatLength(rawValue);
-}
-
-function resolveTokenOutputValue(token, lookup, report) {
-  let resolved = token.value;
-  if (token.aliasTargetId || token.aliasTargetName || token.aliasRefPath) {
-    const aliasRef = resolveAliasRef(token, lookup, report);
-    if (aliasRef) {
-      resolved = aliasRef;
-    }
-  }
-  const segments = token.pathSegments || [];
-  const tokenKey = buildTokenKey(segments);
-  return formatTokenValue(token, resolved, tokenKey, segments);
-}
-
-function classifyTokenGroup(token) {
-  const segments = token.pathSegments || [];
-  const category = String(segments[0] || "").toLowerCase();
-  const subCategory = String(segments[1] || "").toLowerCase();
-  const prefix = String(token.cssVar || "").toLowerCase();
-
-  if (
-    category === "color" ||
-    (category === "brand" && subCategory === "color") ||
-    prefix.startsWith("--color-") ||
-    prefix.startsWith("--brand-color-")
-  ) {
-    return "colors";
-  }
-
-  if (
-    category === "typography" ||
-    (category === "brand" && subCategory === "font") ||
-    prefix.startsWith("--typography-") ||
-    prefix.startsWith("--font-") ||
-    prefix.startsWith("--brand-font-") ||
-    prefix.startsWith("--line-height-") ||
-    prefix.startsWith("--letter-spacing-")
-  ) {
-    return "typography";
-  }
-
-  if (
-    category === "spacing" ||
-    category === "space" ||
-    (category === "brand" && subCategory === "spacing") ||
-    prefix.startsWith("--spacing-") ||
-    prefix.startsWith("--space-") ||
-    prefix.startsWith("--brand-spacing-") ||
-    prefix.startsWith("--size-spacing-")
-  ) {
-    return "spacing";
-  }
-
-  if (
-    category === "radius" ||
-    category === "corner" ||
-    (category === "brand" &&
-      (subCategory === "corner" || subCategory === "radius")) ||
-    prefix.startsWith("--radius-") ||
-    prefix.startsWith("--corner-") ||
-    prefix.startsWith("--brand-radius-") ||
-    prefix.startsWith("--brand-corner-") ||
-    prefix.startsWith("--size-radius-")
-  ) {
-    return "radii";
-  }
-
-  if (category === "shadow" || prefix.startsWith("--shadow-")) {
-    return "shadows";
-  }
-
-  if (category === "breakpoint" || prefix.startsWith("--breakpoint-")) {
-    return "breakpoints";
-  }
-
-  if (category === "container" || prefix.startsWith("--container-")) {
-    return "containers";
-  }
-
-  return "components";
-}
-
-function parseScopeKey(scopeKey) {
-  const raw = String(scopeKey || "global:global");
-  const separator = raw.indexOf(":");
-  if (separator === -1) {
-    return { bucket: raw || "global", id: "global" };
-  }
-  return {
-    bucket: raw.slice(0, separator) || "global",
-    id: raw.slice(separator + 1) || "global",
-  };
-}
-
 function addToken(tokens, token, lookup, report) {
   const group = classifyTokenGroup(token);
   const formattedValue = resolveTokenOutputValue(token, lookup, report);
@@ -440,37 +244,6 @@ function assignCssVars(tokenList, report) {
   }
 }
 
-function normalizeOutputBase(filePath) {
-  const base = path.basename(filePath).toLowerCase().replace(/\s+/g, "-");
-  return base.replace(/\.jsonc?$/i, "");
-}
-
-function normalizePerFileBase(base) {
-  if (base === "mode-light.tokens") return "color.light.tokens";
-  if (base === "mode-dark.tokens") return "color.dark.tokens";
-  if (base === "light-mode.tokens") return "color.light.tokens";
-  if (base === "dark-mode.tokens") return "color.dark.tokens";
-  if (base === "color-light.tokens") return "color.light.tokens";
-  if (base === "color-dark.tokens") return "color.dark.tokens";
-  return base;
-}
-
-function selectorForScope(scope) {
-  if (!scope || typeof scope !== "object") return ":root";
-
-  if (scope.bucket === "brand") {
-    return `:root[data-brand="${scope.id}"]`;
-  }
-
-  if (scope.bucket === "mode") {
-    if (scope.id === "light") return ":root";
-    if (scope.id === "dark") return ':root[data-mode="dark"]';
-    return `:root[data-mode="${scope.id}"]`;
-  }
-
-  return ":root";
-}
-
 function clearGeneratedFiles(dirPath, extensions) {
   if (!fs.existsSync(dirPath)) return;
   for (const entry of fs.readdirSync(dirPath)) {
@@ -489,15 +262,6 @@ function isFontFamilyPath(segments) {
     joined.endsWith(".font family") ||
     joined.includes(".font.family") ||
     joined === "typography.code"
-  );
-}
-
-function isFontWeightPath(segments) {
-  const joined = segments.join(".").toLowerCase();
-  return (
-    joined.startsWith("font.weight") ||
-    joined.endsWith(".font weight") ||
-    joined.includes(".font.weight")
   );
 }
 
@@ -522,31 +286,6 @@ function parseDimensionValue(value) {
     }
   }
   return null;
-}
-
-function toNumericFontWeight(value) {
-  if (typeof value === "number") return Number.isFinite(value) ? value : null;
-  if (typeof value !== "string") return null;
-
-  const trimmed = value.trim();
-  if (/^\d{1,4}$/.test(trimmed)) {
-    return Number(trimmed);
-  }
-
-  const normalized = trimmed.toLowerCase().replace(/[\s_]+/g, "-");
-  const map = {
-    thin: 100,
-    "extra-light": 200,
-    light: 300,
-    normal: 400,
-    regular: 400,
-    medium: 500,
-    "semi-bold": 600,
-    bold: 700,
-    "extra-bold": 800,
-    black: 900,
-  };
-  return map[normalized] ?? null;
 }
 
 function transformTokenNodeToW3C(tokenNode, segments, report) {
