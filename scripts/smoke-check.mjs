@@ -1,0 +1,64 @@
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const REPO_ROOT = path.resolve(__dirname, "..");
+
+function fail(message) {
+  console.error(`❌ ${message}`);
+  process.exit(1);
+}
+
+function ensureFile(relativePath, options = {}) {
+  const fullPath = path.join(REPO_ROOT, relativePath);
+  if (!fs.existsSync(fullPath)) {
+    fail(`Missing required file: ${relativePath}`);
+  }
+
+  const content = fs.readFileSync(fullPath, "utf8");
+  if (options.nonEmpty && content.trim().length === 0) {
+    fail(`File is empty: ${relativePath}`);
+  }
+  if (options.mustInclude && !content.includes(options.mustInclude)) {
+    fail(
+      `Unexpected content in ${relativePath}: missing "${options.mustInclude}"`,
+    );
+  }
+}
+
+function ensureTokenCssFiles(minCount = 5) {
+  const tokenCssDir = path.join(REPO_ROOT, "dist", "tokens", "css");
+  if (!fs.existsSync(tokenCssDir)) {
+    fail("Missing dist/tokens/css");
+  }
+
+  const files = fs
+    .readdirSync(tokenCssDir)
+    .filter((name) => name.endsWith(".tokens.css"));
+
+  if (files.length < minCount) {
+    fail(
+      `Expected at least ${minCount} token CSS files in dist/tokens/css, found ${files.length}`,
+    );
+  }
+}
+
+function run() {
+  ensureFile("dist/main.css", { nonEmpty: true, mustInclude: ".button" });
+  ensureFile("dist/tokens/tokens.yaml", {
+    nonEmpty: true,
+    mustInclude: "tokens:",
+  });
+  ensureFile("dist/tokens/json/component.tokens.json", {
+    nonEmpty: true,
+    mustInclude: '"$schema"',
+  });
+  ensureFile("dist/react/index.js", { nonEmpty: true });
+  ensureTokenCssFiles();
+
+  console.log("✅ Smoke checks passed");
+}
+
+run();

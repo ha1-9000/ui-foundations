@@ -101,7 +101,8 @@ Generated JSON tokens follow the official Design Tokens Community Group format w
 1. Generate token outputs (after Figma export updates): `npm run tokens:generate`
 2. Build CSS bundles from already generated tokens: `npm run build:css`
 3. Full refresh in one command (tokens + CSS): `npm run build:all`
-4. Build docs: `npm run docs:site`
-5. Run CI-equivalent checks locally: `npm run ci:check`
+4. Run smoke checks for generated artifacts: `npm run smoke:check`
+5. Build docs: `npm run docs:site`
+6. Run CI-equivalent checks locally: `npm run ci:check`
 
 `npm run build:css` fails if `dist/tokens/css/*.tokens.css` does not exist yet.
