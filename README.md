@@ -67,6 +67,81 @@ Docs structure (`site/`):
 - `components/*.md` — component docs pages (Eleventy collection)
 - `assets/docs.css` — docs-only styling
 
+## Flow: Add a new component
+
+```text
+Figma
+├─ 1) Create/update component tokens
+│  └─ figma/exports/Component.tokens.json
+├─ 2) (Optional) Add/update Code Connect mapping
+│  └─ figma/connections/web-<component>.figma.ts
+└─ 3) Regenerate generated artifacts
+   └─ npm run build:all
+      ├─ dist/tokens/*
+      ├─ dist/ui/*
+      ├─ dist/react/*
+      └─ dist/main.css
+
+Repository implementation
+├─ 4) Add CSS pattern
+│  └─ src/ui/patterns/<component>.css
+├─ 5) Export pattern in UI bundle
+│  └─ src/ui/index.css
+├─ 6) Add React wrapper (if needed)
+│  ├─ src/react/<component>.js
+│  └─ src/react/index.js
+└─ 7) Add assets (if needed)
+   └─ src/assets/*
+
+Documentation + Playground
+├─ 8) Add component docs page
+│  └─ site/components/<component>.md
+├─ 9) Add playground page
+│  └─ site/components/<component>-playground.md
+├─ 10) Extend macros (if needed)
+│   └─ site/_includes/macros/{ui.njk,playground.njk}
+└─ 11) Extend playground runtime (only for new behavior)
+   └─ site/assets/playground/{renderers.js,state.js,code.js,shared.js}
+
+Validation
+├─ npm run test:unit
+├─ npm run build:all
+├─ npm run docs:site
+└─ npm run ci:check
+```
+
+## Flow: AI-assisted component incubation
+
+This project is designed for a collaborative build loop between design and implementation, not only for one-way token export.
+
+```text
+Collaborative loop (real-world workflow)
+├─ 1) Ask the assistant for a proposed component setup
+│  ├─ component structure (HTML/CSS/React)
+│  ├─ token naming proposal
+│  └─ docs/playground example
+├─ 2) Review and adapt the proposal
+│  └─ align names and states with your design language
+├─ 3) Create/import the proposed tokens in Figma
+│  └─ refine values and variants in design
+├─ 4) Export from Figma back into this repository
+│  └─ figma/exports/*.tokens.json
+├─ 5) Let the assistant integrate and align implementation
+│  ├─ src/ui/patterns/<component>.css
+│  ├─ src/react/<component>.js
+│  ├─ site/components/<component>.md
+│  ├─ site/components/<component>-playground.md
+│  └─ figma/connections/web-<component>.figma.ts (if needed)
+└─ 6) Validate and iterate
+   ├─ npm run ci:check
+   └─ repeat loop for naming, states, a11y, and behavior refinements
+```
+
+Why this matters:
+- It closes the gap between design intent and production implementation.
+- It keeps token naming and component APIs consistent across Figma and code.
+- It makes component incubation faster while staying auditable in Git.
+
 ## Script locations
 
 - `scripts/` — build, token extraction, validation, lint and smoke-check automation for local/CI usage
