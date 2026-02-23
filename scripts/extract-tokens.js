@@ -8,7 +8,19 @@
 const fs = require("fs");
 const path = require("path");
 const fg = require("fast-glob");
-const { parse } = require("jsonc-parser");
+const {
+  readJsonLike,
+  slugifyName,
+  parseWebSyntax,
+  normalizeVariableId,
+  normalizeTokenPath,
+  toKebabCase,
+  formatLength,
+} = require("./extract-tokens.utils.js");
+const {
+  createTokenLookup,
+  resolveAliasRef,
+} = require("./extract-tokens.lookup.js");
 
 const REPO_ROOT = path.resolve(__dirname, "..");
 const EXPORTS_DIR = path.join(REPO_ROOT, "figma", "exports");
@@ -23,41 +35,10 @@ const EXPORT_PATTERNS = [
   "figma/exports/**/*.tokens.jsonc",
 ];
 
-function stripBom(text) {
-  return text.charCodeAt(0) === 0xfeff ? text.slice(1) : text;
-}
-
-function readJsonLike(filePath) {
-  const text = stripBom(fs.readFileSync(filePath, "utf8"));
-  const errors = [];
-  const data = parse(text, errors, {
-    allowTrailingComma: true,
-    disallowComments: false,
-  });
-
-  if (errors.length > 0) {
-    const first = errors[0];
-    throw new Error(
-      `Failed to parse ${filePath} (offset ${first.offset}, length ${first.length}, code ${first.error})`,
-    );
-  }
-
-  return data;
-}
-
 function isTokenNode(node) {
   return (
     node && typeof node === "object" && "$type" in node && "$value" in node
   );
-}
-
-function slugifyName(name) {
-  return String(name || "")
-    .trim()
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/-+/g, "-")
-    .replace(/^-|-$/g, "");
 }
 
 function inferBucketFromFilename(fileName) {
@@ -90,43 +71,6 @@ function inferBucketFromFilename(fileName) {
   return { bucket: "global", id: slugifyName(stem), stem };
 }
 
-function parseWebSyntax(webSyntax) {
-  const raw = String(webSyntax || "").trim();
-  if (!raw) {
-    return { name: null, ref: null, error: "empty WEB syntax" };
-  }
-
-  let name = null;
-  if (/^var\(/i.test(raw)) {
-    const match = raw.match(/^var\(\s*(--[^)\s]+)\s*\)$/i);
-    if (match) {
-      name = match[1];
-    } else {
-      return { name: null, ref: null, error: `invalid WEB syntax: ${raw}` };
-    }
-  } else {
-    name = raw;
-  }
-
-  if (!name.startsWith("--") || name.includes(")")) {
-    return { name: null, ref: null, error: `invalid WEB syntax: ${raw}` };
-  }
-
-  return { name, ref: `var(${name})`, error: null };
-}
-
-function normalizeVariableId(raw) {
-  if (!raw) return null;
-  return String(raw).split("/")[0].trim() || null;
-}
-
-function normalizeTokenPath(raw) {
-  return String(raw || "")
-    .trim()
-    .replace(/^\{|\}$/g, "")
-    .replace(/\./g, "/")
-    .replace(/\/+/g, "/");
-}
 
 function flattenTokens(node, pathSegments, list, sourceMeta) {
   if (!node || typeof node !== "object") return;
@@ -187,13 +131,6 @@ function flattenTokens(node, pathSegments, list, sourceMeta) {
   }
 }
 
-function toKebabCase(str) {
-  return str
-    .replace(/([a-z])([A-Z])/g, "$1-$2")
-    .replace(/[\s_]+/g, "-")
-    .replace(/[^a-zA-Z0-9-]/g, "-")
-    .toLowerCase();
-}
 
 function normalizeColor(value) {
   if (typeof value === "string") {
@@ -219,89 +156,6 @@ function toRgba(r, g, b, a) {
   const to255 = (c) => Math.round(c * 255);
   const alpha = Number(a.toFixed(4)).toString();
   return `rgba(${to255(r)} ${to255(g)} ${to255(b)} / ${alpha})`;
-}
-
-function aliasToCssVar(pathName) {
-  const key = toKebabCase(String(pathName || "").replace(/[/.]/g, "-"));
-  return `var(--${key})`;
-}
-
-function createTokenLookup(tokenList) {
-  const byPath = new Map();
-  const byId = new Map();
-
-  for (const token of tokenList) {
-    const normalizedPath = normalizeTokenPath(token.path);
-    byPath.set(normalizedPath, token);
-    byPath.set(normalizedPath.toLowerCase(), token);
-    byPath.set(normalizeTokenPath(token.pathKey), token);
-    byPath.set(normalizeTokenPath(token.pathKey).toLowerCase(), token);
-    if (token.variableId) {
-      byId.set(normalizeVariableId(token.variableId), token);
-    }
-  }
-
-  return { byPath, byId };
-}
-
-function lookupAliasTarget(token, lookup) {
-  const byId = lookup.byId;
-  const byPath = lookup.byPath;
-
-  if (token.aliasTargetId) {
-    const idMatch = byId.get(normalizeVariableId(token.aliasTargetId));
-    if (idMatch) return idMatch;
-  }
-
-  const pathCandidates = [token.aliasTargetName, token.aliasRefPath]
-    .filter(Boolean)
-    .map((entry) => normalizeTokenPath(entry));
-
-  for (const candidate of pathCandidates) {
-    const direct = byPath.get(candidate) || byPath.get(candidate.toLowerCase());
-    if (direct) return direct;
-  }
-
-  return null;
-}
-
-function resolveAliasRef(token, lookup, report = null) {
-  const target = lookupAliasTarget(token, lookup);
-  if (!target) {
-    if (report) {
-      report.missingAliasTargets.push(token.path);
-    }
-    return null;
-  }
-
-  const startRef = token.variableId || token.path;
-  let current = target;
-  const seen = new Set([startRef]);
-  while (current) {
-    const currentRef = current.variableId || current.path;
-    if (seen.has(currentRef)) {
-      if (report) {
-        report.aliasCycles.push(token.path);
-      }
-      return null;
-    }
-    seen.add(currentRef);
-    if (
-      !(
-        current.aliasTargetId ||
-        current.aliasTargetName ||
-        current.aliasRefPath
-      )
-    ) {
-      break;
-    }
-    current = lookupAliasTarget(current, lookup);
-    if (!current) break;
-  }
-
-  if (target.cssVarRef) return target.cssVarRef;
-  if (target.cssVar) return `var(${target.cssVar})`;
-  return aliasToCssVar(target.path);
 }
 
 function isBreakpointToken(segments) {
@@ -1096,41 +950,6 @@ function formatYamlScalar(value) {
     return String(value);
   }
   return JSON.stringify(String(value));
-}
-
-function formatLength(value) {
-  if (typeof value === "number") return toRem(value);
-  if (typeof value === "string") {
-    const trimmed = value.trim();
-    const pxMatch = trimmed.match(/^(-?\d*\.?\d+)px$/i);
-    if (pxMatch) {
-      const parsed = Number(pxMatch[1]);
-      if (!Number.isNaN(parsed)) return toRem(parsed);
-    }
-    const remMatch = trimmed.match(/^(-?\d*\.?\d+)rem$/i);
-    if (remMatch) {
-      const parsed = Number(remMatch[1]);
-      if (!Number.isNaN(parsed)) return formatRemValue(parsed);
-    }
-  }
-  return value;
-}
-
-function toRem(px) {
-  return formatRemValue(px / 16);
-}
-
-function formatRemValue(rem) {
-  let trimmed = rem
-    .toFixed(4)
-    .replace(/\.0+$/, "")
-    .replace(/(\.\d*[1-9])0+$/, "$1");
-
-  if (trimmed === "-0") trimmed = "0";
-  if (trimmed.startsWith("0.") && trimmed !== "0") trimmed = trimmed.slice(1);
-  if (trimmed.startsWith("-0.")) trimmed = `-${trimmed.slice(2)}`;
-
-  return trimmed === "0" ? "0" : `${trimmed}rem`;
 }
 
 if (require.main === module) {
