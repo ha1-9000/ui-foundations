@@ -1,26 +1,7 @@
-const fs = require("fs");
-const path = require("path");
-const yaml = require("js-yaml");
-
-const TOKENS_YAML_PATH = path.join(
-  __dirname,
-  "..",
-  "..",
-  "dist",
-  "tokens",
-  "tokens.yaml",
-);
-
-function loadTokens() {
-  if (!fs.existsSync(TOKENS_YAML_PATH)) return [];
-
-  try {
-    const doc = yaml.load(fs.readFileSync(TOKENS_YAML_PATH, "utf8"));
-    return Array.isArray(doc?.tokens) ? doc.tokens : [];
-  } catch {
-    return [];
-  }
-}
+const {
+  TOKENS_YAML_RELATIVE_PATH,
+  loadTokensFromYaml,
+} = require("../lib/tokens-yaml");
 
 function normalizeTokens(tokens) {
   return tokens
@@ -53,7 +34,7 @@ function pickByPrefixes(tokens, prefixes) {
 }
 
 module.exports = () => {
-  const tokens = normalizeTokens(loadTokens());
+  const tokens = normalizeTokens(loadTokensFromYaml());
   const semanticPrefixes = [
     "--color-text-",
     "--color-fill-",
@@ -110,6 +91,6 @@ module.exports = () => {
 
   return {
     groups,
-    sourceDir: "dist/tokens/tokens.yaml",
+    sourceDir: TOKENS_YAML_RELATIVE_PATH,
   };
 };

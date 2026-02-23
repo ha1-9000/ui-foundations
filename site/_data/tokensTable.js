@@ -1,15 +1,7 @@
-const fs = require("fs");
-const path = require("path");
-const yaml = require("js-yaml");
-
-const TOKENS_YAML_PATH = path.join(
-  __dirname,
-  "..",
-  "..",
-  "dist",
-  "tokens",
-  "tokens.yaml",
-);
+const {
+  TOKENS_YAML_RELATIVE_PATH,
+  loadTokensFromYaml,
+} = require("../lib/tokens-yaml");
 
 const TOKEN_KIND_BY_GROUP = {
   colors: "color",
@@ -48,19 +40,10 @@ function sortRows(a, b) {
 }
 
 function loadRows() {
-  if (!fs.existsSync(TOKENS_YAML_PATH)) return [];
-
-  try {
-    const doc = yaml.load(fs.readFileSync(TOKENS_YAML_PATH, "utf8"));
-    const tokens = Array.isArray(doc?.tokens) ? doc.tokens : [];
-
-    return tokens
-      .filter((token) => String(token?.cssVar || "").startsWith("--"))
-      .map(mapTokenRow)
-      .sort(sortRows);
-  } catch {
-    return [];
-  }
+  return loadTokensFromYaml()
+    .filter((token) => String(token?.cssVar || "").startsWith("--"))
+    .map(mapTokenRow)
+    .sort(sortRows);
 }
 
 function uniqueSorted(values) {
@@ -74,6 +57,6 @@ module.exports = () => {
     count: rows.length,
     scopes: uniqueSorted(rows.map((row) => row.scope)),
     kinds: uniqueSorted(rows.map((row) => row.kind)),
-    sourceDir: "dist/tokens/tokens.yaml",
+    sourceDir: TOKENS_YAML_RELATIVE_PATH,
   };
 };

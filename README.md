@@ -101,5 +101,6 @@ Generated JSON tokens follow the official Design Tokens Community Group format w
 2. Build CSS bundles from already generated tokens: `npm run build:css`
 3. Full refresh in one command (tokens + CSS): `npm run build:all`
 4. Build docs: `npm run docs:site`
+5. Run CI-equivalent checks locally: `npm run ci:check`
 
 `npm run build:css` fails if `dist/tokens/css/*.tokens.css` does not exist yet.
