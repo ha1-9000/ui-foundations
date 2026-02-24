@@ -9,6 +9,14 @@ playgroundUrl: /components/icon-playground/
 playgroundLabel: Open Icon Playground
 ---
 
+## Preview
+
+<div class="docs-stack" style="line-height: 24px;">
+  <span class="icon" style="--icon-src: url('/assets/icons/search.svg');" aria-hidden="true"></span>
+  <span class="icon" style="--icon-src: url('/assets/icons/menu.svg'); color: #0057b8;" aria-hidden="true"></span>
+  <span class="icon" style="--icon-src: url('/assets/icons/plus.svg'); color: #d81b60;" aria-hidden="true"></span>
+</div>
+
 ## Usage (HTML)
 
 ```html
@@ -19,12 +27,20 @@ playgroundLabel: Open Icon Playground
 ></span>
 ```
 
-## Preview
+## Used tokens
 
-<div class="docs-stack" style="line-height: 24px;">
-  <span class="icon" style="--icon-src: url('/assets/icons/search.svg');" aria-hidden="true"></span>
-  <span class="icon" style="--icon-src: url('/assets/icons/menu.svg'); color: #0057b8;" aria-hidden="true"></span>
-  <span class="icon" style="--icon-src: url('/assets/icons/plus.svg'); color: #d81b60;" aria-hidden="true"></span>
+<div class="docs-table-wrap">
+  <table class="docs-table">
+    <thead>
+      <tr>
+        <th>Token</th>
+        <th>Usage</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><code>--icon-src</code></td><td>Mask image source URL for the icon glyph</td></tr>
+    </tbody>
+  </table>
 </div>
 
 ## API (React)
