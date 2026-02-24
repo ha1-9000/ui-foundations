@@ -92,6 +92,22 @@ body {
 
 .docs-content > h1 {
   margin-top: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.docs-draft-stamp {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  padding: 2px 10px;
+  font-size: 0.75em;
+  font-weight: 700;
+  line-height: 1.2;
+  background: var(--color-fill-danger, #b00020);
+  color: var(--color-text-inverse, #fff);
 }
 
 .docs-breadcrumb {
@@ -133,12 +149,20 @@ body {
 
 .docs-page-actions {
   margin: -8px 0 20px;
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
 }
 
 .docs-page-link {
   color: var(--color-text-brand, inherit);
   text-decoration: underline;
   text-underline-offset: 2px;
+}
+
+.docs-page-link-separator {
+  color: var(--color-text-subtle, #555);
 }
 
 .mode-toggle {

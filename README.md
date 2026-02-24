@@ -188,6 +188,43 @@ Generated JSON tokens follow the official Design Tokens Community Group format w
 2. Inspect source tokens in `figma/exports/` and generated tokens in `dist/tokens/`
 3. Run `npm run docs:dev`
 
+## Prompt to UI Component
+
+Use this copy/paste prompt with AI when you want a new component scaffolded and implemented in this repo:
+
+```text
+Scaffold and implement a new UI component named <component-name> in this repository.
+
+Follow these sources strictly:
+- docs/agentic/team-ai-playbook.md
+- docs/agentic/assistant-behavior-rules.md
+- docs/foundations/*
+
+Execution requirements:
+1) Run the Component Boundary Check first and state the decision (composition vs standalone).
+2) Keep scope small, incremental, and reviewable in Git.
+3) Implement token-first and reuse existing patterns:
+   - src/ui/patterns/<component>.css
+   - src/react/<component>.js and src/react/index.js (if needed)
+   - site/components/<component>.md
+   - site/components/<component>-playground.md
+   - figma/connections/web-<component>.figma.ts (only if a publishable top-level Figma component/component-set exists)
+4) Validate before handoff:
+   - npm run lint
+   - npm run test:unit
+   - npm run ci:check
+
+Mandatory progress tracker for this task type:
+- Start with: Tasks completion: 0/4
+- Update after each phase: 1/4, 2/4, 3/4, 4/4
+
+Handoff format:
+- boundary decision result
+- files changed
+- validation results
+- open follow-ups (if any)
+```
+
 ## Build (local)
 
 1. Optional syntax lint for JS files: `npm run lint`

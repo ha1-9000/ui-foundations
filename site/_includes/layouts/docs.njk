@@ -96,13 +96,33 @@
             </ol>
           </nav>
           {% endif %}
-          {% if title and not compactTitleInBreadcrumb %}<h1>{{ title }}</h1>{% endif %}
+          {% set isComponentsOverview = page.url == "/components/" or page.url == "/components" %}
+          {% set isComponentDoc = page.url and page.url.indexOf("/components/") == 0 and not isPlayground and not isComponentsOverview %}
+          {% set hasFigmaConnection = figmaConnections and figmaConnections.byName and figmaConnections.byName[page.fileSlug] %}
+          {% set figmaComponentUrl = figmaConnections and figmaConnections.urlsByName and figmaConnections.urlsByName[page.fileSlug] %}
+          {% set showDraftPrefix = isComponentDoc and not hasFigmaConnection %}
+          {% if title and not compactTitleInBreadcrumb %}
+          <h1>
+            {% if showDraftPrefix %}<span class="docs-draft-stamp">!Draft</span>{% endif %}
+            {{ title }}
+          </h1>
+          {% endif %}
           {% if description and not isPlayground %}<p class="page-intro">{{ description }}</p>{% endif %}
-          {% if playgroundUrl %}
+          {% if playgroundUrl or figmaComponentUrl %}
           <p class="docs-page-actions">
+            {% if playgroundUrl %}
             <a class="docs-page-link" href="{{ playgroundUrl }}">
               {{ playgroundLabel or "Open Playground" }}
             </a>
+            {% endif %}
+            {% if playgroundUrl and figmaComponentUrl %}
+            <span class="docs-page-link-separator">•</span>
+            {% endif %}
+            {% if figmaComponentUrl %}
+            <a class="docs-page-link" href="{{ figmaComponentUrl }}" target="_blank" rel="noopener noreferrer">
+              Open {{ title }} in Figma
+            </a>
+            {% endif %}
           </p>
           {% endif %}
           {{ content | safe }}

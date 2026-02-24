@@ -68,6 +68,34 @@ Run this decision gate before implementing a "new component":
    - `dist/tokens/tokens.yaml`
 5. If warnings appear (missing/invalid WEB syntax, alias issues), fix in Figma first.
 
+## Standard Workflow: Figma Drift Reconciliation
+
+Use this when the component was scaffolded in code first and component variables/variants are created or changed in Figma afterwards.
+
+1. Define the contract first:
+   - component API (props/states/semantics)
+   - token names and expected usage
+2. Update Figma variables/variants and export tokens:
+   - `figma/exports/*.tokens.json`
+3. Rebuild token artifacts:
+   - `npm run build:all`
+   - `npm run tokens:validate`
+4. Reconcile Code Connect mappings:
+   - update `figma/connections/web-<component>.figma.ts`
+   - align node-id targets and property names with actual Figma top-level component/component set
+   - run `figma connect parse`
+   - run `figma connect publish --dry-run`
+5. Reconcile implementation only where needed:
+   - adjust CSS/React/docs/playground to match agreed contract
+   - avoid broad rewrites; keep changes minimal
+6. Validate and stabilize:
+   - `npm run lint`
+   - `npm run test:unit`
+   - `npm run ci:check`
+7. Commit with explicit scope, for example:
+   - `chore(figma): reconcile <component> code-connect mapping`
+   - `feat(<component>): align states and tokens with figma`
+
 ## Standard Workflow: Refactor and Quality
 
 1. Ask AI to identify one small refactor target.
@@ -105,6 +133,41 @@ and apply minimal fixes so docs and bundles are green.
 ```text
 Refactor <target file/module> for maintainability in small steps only.
 No behavior changes. Add tests if needed. Keep ci:check green.
+```
+
+### 4) Prompt to UI component (scaffold + implement)
+
+```text
+Scaffold and implement a new UI component named <component-name> in this repository.
+
+Follow these sources strictly:
+- docs/agentic/team-ai-playbook.md
+- docs/agentic/assistant-behavior-rules.md
+- docs/foundations/*
+
+Execution requirements:
+1) Run the Component Boundary Check first and state the decision (composition vs standalone).
+2) Keep scope small, incremental, and reviewable in Git.
+3) Implement token-first and reuse existing patterns:
+   - src/ui/patterns/<component>.css
+   - src/react/<component>.js and src/react/index.js (if needed)
+   - site/components/<component>.md
+   - site/components/<component>-playground.md
+   - figma/connections/web-<component>.figma.ts (only if a publishable top-level Figma component/component-set exists)
+4) Validate before handoff:
+   - npm run lint
+   - npm run test:unit
+   - npm run ci:check
+
+Mandatory progress tracker for this task type:
+- Start with: Tasks completion: 0/4
+- Update after each phase: 1/4, 2/4, 3/4, 4/4
+
+Handoff format:
+- boundary decision result
+- files changed
+- validation results
+- open follow-ups (if any)
 ```
 
 ## Definition of Done (AI Task)

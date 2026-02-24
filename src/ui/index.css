@@ -2,3 +2,4 @@
 @import url("./patterns/button.css") layer(components);
 @import url("./patterns/input.css") layer(components);
 @import url("./patterns/icon.css") layer(components);
+@import url("./patterns/checkbox.css") layer(components);

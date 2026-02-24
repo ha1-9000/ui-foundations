@@ -3,6 +3,8 @@
   const quoteAttr = shared.quoteAttr || ((value) => String(value || ""));
   const normalizeIconName =
     shared.normalizeIconName || ((rawValue) => String(rawValue || "").trim());
+  const asBoolean = (value) =>
+    value === true || value === "true" || value === 1 || value === "1";
 
   const iconLabelFromName = (name) =>
     String(name || "")
@@ -304,6 +306,49 @@
     return { element, code };
   };
 
+  const renderVanillaCheckbox = ({ props, meta }) => {
+    const previewState = String(meta.state || "default");
+    const labelText = String(props.label || "Accept terms");
+    const checked = asBoolean(props.checked);
+    const disabled =
+      previewState === "disabled" ||
+      asBoolean(props.disabled);
+
+    const wrapper = document.createElement("label");
+    const wrapperClasses = ["checkbox-field"];
+    if (disabled) wrapperClasses.push("is-disabled");
+    wrapper.className = wrapperClasses.join(" ");
+
+    const input = document.createElement("input");
+    const inputClasses = ["checkbox"];
+    if (checked) inputClasses.push("is-checked");
+    if (previewState === "hover") inputClasses.push("is-hover");
+    if (previewState === "active") inputClasses.push("is-active");
+    if (previewState === "focus") inputClasses.push("is-focus-visible");
+    if (disabled) inputClasses.push("is-disabled");
+
+    input.className = inputClasses.join(" ");
+    input.type = "checkbox";
+    input.checked = checked;
+    input.disabled = disabled;
+
+    const text = document.createElement("span");
+    text.className = "checkbox-field__text";
+    text.textContent = labelText;
+
+    wrapper.append(input, text);
+
+    const attrs = [
+      `class="${quoteAttr(input.className)}"`,
+      'type="checkbox"',
+    ];
+    if (checked) attrs.push("checked");
+    if (disabled) attrs.push("disabled");
+
+    const code = `<label class="${quoteAttr(wrapper.className)}"><input ${attrs.join(" ")} /><span class="checkbox-field__text">${quoteAttr(labelText)}</span></label>`;
+    return { element: wrapper, code };
+  };
+
   const renderVanillaButtonGroup = ({ props, meta }) => {
     const element = document.createElement("div");
     const orientation =
@@ -382,6 +427,7 @@
     renderers: {
       button: renderVanillaButton,
       "button-group": renderVanillaButtonGroup,
+      checkbox: renderVanillaCheckbox,
       icon: renderVanillaIcon,
       input: renderVanillaInput,
       label: renderVanillaLabel,
