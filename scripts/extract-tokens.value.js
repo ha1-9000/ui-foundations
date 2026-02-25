@@ -52,6 +52,12 @@ function isLayoutPxToken(segments) {
   );
 }
 
+function isOpacityToken(segments, tokenKey) {
+  const head = String(segments[0] || "").toLowerCase();
+  if (head === "opacity") return true;
+  return tokenKey.toLowerCase().includes("opacity");
+}
+
 function formatPx(value) {
   if (typeof value === "number") return `${value}px`;
   return value;
@@ -110,6 +116,9 @@ function formatTokenValue(token, rawValue, tokenKey, segments) {
 
   if (type === "number") {
     if (lowerKey.startsWith("zindex-") || lowerKey.startsWith("z-index-")) {
+      return rawValue;
+    }
+    if (isOpacityToken(segments, tokenKey)) {
       return rawValue;
     }
     if (isLayoutColumnsToken(segments)) {

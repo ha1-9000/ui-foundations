@@ -1,9 +1,0 @@
-@import url("./base/reset.css") layer(reset);
-@import url("./base/fonts.css") layer(base);
-@import url("./base/base.css") layer(base);
-@import url("./base/typography.css") layer(base);
-@import url("../../dist/tokens/css/core.tokens.css") layer(tokens);
-@import url("../../dist/tokens/css/color.light.tokens.css") layer(tokens);
-@import url("../../dist/tokens/css/semantic.tokens.css") layer(tokens);
-@import url("../../dist/tokens/css/component.tokens.css") layer(tokens);
-@import url("./themes/mode.css") layer(themes);

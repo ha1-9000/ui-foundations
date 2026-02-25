@@ -7,49 +7,23 @@
   "private": true,
   "files": [
     "dist/**",
-    "README.md",
-    "docs/foundations/**"
+    "README.md"
   ],
   "exports": {
-    "./core.css": "./dist/core/index.css",
-    "./ui.css": "./dist/ui/index.css",
-    "./react": "./dist/react/index.js",
-    "./react/button": "./dist/react/button.js",
-    "./react/icon": "./dist/react/icon.js",
-    "./react/input": "./dist/react/input.js",
-    "./react/label": "./dist/react/label.js",
-    "./assets/*": "./dist/assets/*",
-    "./tokens/core.css": "./dist/tokens/css/core.tokens.css",
-    "./tokens/color.css": "./dist/tokens/css/color.light.tokens.css",
+    "./tokens/brand-a.css": "./dist/tokens/css/brand-a.tokens.css",
+    "./tokens/brand-b.css": "./dist/tokens/css/brand-b.tokens.css",
     "./tokens/color-light.css": "./dist/tokens/css/color.light.tokens.css",
     "./tokens/color-dark.css": "./dist/tokens/css/color.dark.tokens.css",
     "./tokens/semantic.css": "./dist/tokens/css/semantic.tokens.css",
-    "./tokens/components.css": "./dist/tokens/css/component.tokens.css"
+    "./tokens/component.css": "./dist/tokens/css/component.tokens.css",
+    "./tokens/primitives.css": "./dist/tokens/css/primitives.tokens.css"
   },
   "scripts": {
-    "icons:generate-list": "node scripts/generate-icon-list.mjs",
-    "lint:js": "node scripts/lint-js.mjs",
-    "lint": "npm run lint:js",
-    "test:unit": "node --test tests/*.test.mjs",
-    "test": "npm run test:unit",
-    "smoke:check": "node scripts/smoke-check.mjs",
     "tokens:generate": "node scripts/extract-tokens.js",
-    "tokens:validate": "node scripts/validate-tokens.mjs",
-    "tokens:build": "npm run tokens:generate",
-    "build:css": "node scripts/build-css.mjs",
-    "build:all": "npm run icons:generate-list && npm run tokens:generate && npm run build:css",
-    "build": "npm run build:all",
-    "docs:build": "eleventy",
-    "docs:site": "npm run build:all && npm run docs:build",
-    "ci:check": "npm run lint && npm run test:unit && npm run build:all && npm run smoke:check && npm run tokens:validate && npm run docs:build",
-    "docs:dev": "npm run build:all && eleventy --serve"
+    "tokens:validate": "node scripts/validate-tokens.mjs"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^3.1.2",
-    "@figma/code-connect": "^1.2.0",
     "fast-glob": "^3.3.3",
-    "js-yaml": "^4.1.0",
-    "jsonc-parser": "^3.3.1",
-    "prismjs": "^1.30.0"
+    "jsonc-parser": "^3.3.1"
   }
 }

@@ -1,23 +1,14 @@
 # AGENTS
 
-This file is the entry point for AI coding agents working in this repository.
+This repository is intentionally trimmed to **token extraction only**.
 
-## Agentic docs
+## Scope
 
-- `docs/agentic/assistant-behavior-rules.md` — behavior and architecture guardrails for assistants
-- `docs/agentic/team-ai-playbook.md` — team workflow for AI-assisted implementation
+- Input: `figma/exports/`
+- Output: `dist/tokens/`
+- Scripts: `scripts/`
 
-## Required baseline
+## Baseline checks
 
-1. Follow foundation rules in `docs/foundations/` as source of truth.
-2. Keep changes small, reviewable, and non-breaking by default.
-3. Validate changes before handoff with:
-   - `npm run lint`
-   - `npm run test:unit`
-   - `npm run ci:check`
-
-## Scope notes
-
-- This repo is token-first and Figma-aligned.
-- Prefer extending existing patterns over introducing new frameworks.
-- Keep docs and implementation in sync when changing workflows.
+- Generate tokens: `npm run tokens:generate`
+- Validate tokens: `npm run tokens:validate`
