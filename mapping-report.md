@@ -1,0 +1,906 @@
+# Token Mapping Report (CSS Variables)
+
+|  | @tui/design-system | Figma Library |
+| --- | --- | --- |
+| Variables | 454 | 227 |
+| Missing | 227 | 454 |
+
+=> Matches 0 : 0
+
+## Matches
+## Missing In @tui/design-system
+### colors
+- `--color-blue-blue-10`
+- `--color-blue-blue-100`
+- `--color-blue-blue-20`
+- `--color-blue-blue-30`
+- `--color-blue-blue-40`
+- `--color-blue-blue-50`
+- `--color-blue-blue-60`
+- `--color-blue-blue-70`
+- `--color-blue-blue-80`
+- `--color-blue-blue-90`
+- `--color-border-border-brand-strong`
+- `--color-border-border-card`
+- `--color-border-border-danger`
+- `--color-border-border-dashed`
+- `--color-border-border-divider`
+- `--color-border-border-input`
+- `--color-border-border-interaction`
+- `--color-border-border-inverse`
+- `--color-brand-brand-bluestar-blue`
+- `--color-brand-brand-holiday-villages-purple`
+- `--color-brand-brand-kids-club-blue`
+- `--color-brand-brand-local-biege`
+- `--color-brand-brand-magic-life-yellow`
+- `--color-brand-brand-musement-yellow`
+- `--color-brand-brand-pay-pal-blue`
+- `--color-brand-brand-riu-red`
+- `--color-brand-brand-robison-blue`
+- `--color-brand-brand-scene-black`
+- `--color-brand-brand-small---friendly-blue`
+- `--color-brand-brand-soneo-club-blue`
+- `--color-brand-brand-splashworld-aqua`
+- `--color-brand-brand-the-mora-brown`
+- `--color-brand-brand-the-mora-pink`
+- `--color-brand-brand-time-to-smile-gold`
+- `--color-brand-brand-trip-advisor-green`
+- `--color-brand-brand-tui-blue-blue`
+- `--color-brands-brand-bluestar`
+- `--color-brands-brand-holiday-villages`
+- `--color-brands-brand-kids-club`
+- `--color-brands-brand-local`
+- `--color-brands-brand-magic-life`
+- `--color-brands-brand-musement`
+- `--color-brands-brand-pay-pal`
+- `--color-brands-brand-riu`
+- `--color-brands-brand-robison`
+- `--color-brands-brand-scene`
+- `--color-brands-brand-small---friendly`
+- `--color-brands-brand-soneo-club`
+- `--color-brands-brand-splashworld`
+- `--color-brands-brand-the-mora-soft`
+- `--color-brands-brand-the-mora-strong`
+- `--color-brands-brand-time-to-smile`
+- `--color-brands-brand-trip-advisor`
+- `--color-brands-brand-tui-blue`
+- `--color-canvas-canvas-contrast`
+- `--color-canvas-canvas-default`
+- `--color-cool-blue-cool-blue-10`
+- `--color-cool-blue-cool-blue-100`
+- `--color-cool-blue-cool-blue-20`
+- `--color-cool-blue-cool-blue-30`
+- `--color-cool-blue-cool-blue-40`
+- `--color-cool-blue-cool-blue-50`
+- `--color-cool-blue-cool-blue-60`
+- `--color-cool-blue-cool-blue-70`
+- `--color-cool-blue-cool-blue-80`
+- `--color-cool-blue-cool-blue-90`
+- `--color-core-color-brand-strong`
+- `--color-core-core-brand`
+- `--color-core-core-interaction`
+- `--color-core-core-neutral`
+- `--color-core-core-surface`
+- `--color-green-green-10`
+- `--color-green-green-100`
+- `--color-green-green-20`
+- `--color-green-green-30`
+- `--color-green-green-40`
+- `--color-green-green-50`
+- `--color-green-green-60`
+- `--color-green-green-70`
+- `--color-green-green-80`
+- `--color-green-green-90`
+- `--color-neutral-neutral-10`
+- `--color-neutral-neutral-100`
+- `--color-neutral-neutral-20`
+- `--color-neutral-neutral-30`
+- `--color-neutral-neutral-40`
+- `--color-neutral-neutral-50`
+- `--color-neutral-neutral-60`
+- `--color-neutral-neutral-70`
+- `--color-neutral-neutral-80`
+- `--color-neutral-neutral-90`
+- `--color-orange-orange-10`
+- `--color-orange-orange-100`
+- `--color-orange-orange-20`
+- `--color-orange-orange-30`
+- `--color-orange-orange-40`
+- `--color-orange-orange-50`
+- `--color-orange-orange-60`
+- `--color-orange-orange-70`
+- `--color-orange-orange-80`
+- `--color-orange-orange-90`
+- `--color-other-other-active-state-tint`
+- `--color-other-other-button-hover-state-secondary`
+- `--color-other-other-button-hover-state-shortlist`
+- `--color-other-other-buttons-hover-state`
+- `--color-other-other-disabled-soft`
+- `--color-other-other-disabled-strong`
+- `--color-other-other-elevation`
+- `--color-other-other-scrim`
+- `--color-other-other-skeleton-loading`
+- `--color-promotion-promotion-free-kids`
+- `--color-promotion-promotion-promotion`
+- `--color-purple-purple-10`
+- `--color-purple-purple-100`
+- `--color-purple-purple-20`
+- `--color-purple-purple-30`
+- `--color-purple-purple-40`
+- `--color-purple-purple-50`
+- `--color-purple-purple-60`
+- `--color-purple-purple-70`
+- `--color-purple-purple-80`
+- `--color-purple-purple-90`
+- `--color-red-red-10`
+- `--color-red-red-100`
+- `--color-red-red-20`
+- `--color-red-red-30`
+- `--color-red-red-40`
+- `--color-red-red-50`
+- `--color-red-red-60`
+- `--color-red-red-70`
+- `--color-red-red-80`
+- `--color-red-red-90`
+- `--color-status-status-danger-surface`
+- `--color-status-status-info-surface`
+- `--color-status-status-success-surface`
+- `--color-status-status-warning-surface`
+- `--color-status-staus-danger-icon`
+- `--color-status-staus-info-icon`
+- `--color-status-staus-success-icon`
+- `--color-status-staus-warning-icon`
+- `--color-text-text-body`
+- `--color-text-text-danger`
+- `--color-text-text-inverse`
+- `--color-text-text-link`
+- `--color-text-text-link-visited`
+- `--color-text-text-link-visited-inverse`
+- `--color-text-text-promotion`
+- `--color-text-text-strong`
+
+### typography
+- `--typography-font-family-heading`
+- `--typography-font-family-label`
+- `--typography-font-family-paragraph`
+- `--typography-font-size-display-desktop-desktop-display-large`
+- `--typography-font-size-display-desktop-desktop-display-medium`
+- `--typography-font-size-display-desktop-desktop-display-small`
+- `--typography-font-size-display-mobile-mobile-display-large`
+- `--typography-font-size-display-mobile-mobile-display-medium`
+- `--typography-font-size-display-mobile-mobile-display-small`
+- `--typography-font-size-fixed-fixed-100`
+- `--typography-font-size-fixed-fixed-120`
+- `--typography-font-size-fixed-fixed-140`
+- `--typography-font-size-fixed-fixed-160`
+- `--typography-font-size-fixed-fixed-190`
+- `--typography-font-size-fixed-fixed-220`
+- `--typography-font-size-fixed-fixed-260`
+- `--typography-font-size-fixed-fixed-300`
+- `--typography-font-size-fixed-fixed-340`
+- `--typography-font-size-fixed-fixed-60`
+- `--typography-font-size-fixed-fixed-80`
+- `--typography-font-size-page-headings-desktop-desktop-heading-large`
+- `--typography-font-size-page-headings-desktop-desktop-heading-medium`
+- `--typography-font-size-page-headings-desktop-desktop-heading-small`
+- `--typography-font-size-page-headings-desktop-desktop-heading-xlarge`
+- `--typography-font-size-page-headings-desktop-desktop-heading-xxxlarge`
+- `--typography-font-size-page-headings-mobile-mobile-heading-large`
+- `--typography-font-size-page-headings-mobile-mobile-heading-medium`
+- `--typography-font-size-page-headings-mobile-mobile-heading-small`
+- `--typography-font-size-page-headings-mobile-mobile-heading-xlarge`
+- `--typography-font-size-page-headings-mobile-mobile-heading-xxlarge`
+- `--typography-font-weight-ambit-bold`
+- `--typography-font-weight-ambit-regular`
+- `--typography-font-weight-ambit-semibold`
+- `--typography-font-weight-tuitype-light-latn-bold`
+- `--typography-font-weight-tuitype-light-latn-regular`
+
+### spacing
+- `--spacing-spacing-050`
+- `--spacing-spacing-100`
+- `--spacing-spacing-1000`
+- `--spacing-spacing-1100`
+- `--spacing-spacing-1200`
+- `--spacing-spacing-1300`
+- `--spacing-spacing-1400`
+- `--spacing-spacing-150`
+- `--spacing-spacing-1500`
+- `--spacing-spacing-1600`
+- `--spacing-spacing-200`
+- `--spacing-spacing-25`
+- `--spacing-spacing-250`
+- `--spacing-spacing-300`
+- `--spacing-spacing-400`
+- `--spacing-spacing-50`
+- `--spacing-spacing-500`
+- `--spacing-spacing-550`
+- `--spacing-spacing-600`
+- `--spacing-spacing-700`
+- `--spacing-spacing-800`
+- `--spacing-spacing-900`
+- `--spacing-spacing-none`
+
+### radii
+- `--border-radius-border-radius-100`
+- `--border-radius-border-radius-1000`
+- `--border-radius-border-radius-1400`
+- `--border-radius-border-radius-1800`
+- `--border-radius-border-radius-200`
+- `--border-radius-border-radius-300`
+- `--border-radius-border-radius-400`
+- `--border-radius-border-radius-600`
+- `--border-radius-border-radius-none`
+- `--border-radius-border-radius-pill`
+- `--border-radius-pill`
+
+### opacity
+- `--opacity-opacity-10`
+- `--opacity-opacity-100`
+- `--opacity-opacity-20`
+- `--opacity-opacity-30`
+- `--opacity-opacity-40`
+- `--opacity-opacity-50`
+- `--opacity-opacity-60`
+- `--opacity-opacity-70`
+- `--opacity-opacity-80`
+- `--opacity-opacity-90`
+
+## Missing In Figma Library
+### colors
+- `--color-inverse`
+- `--color-strong`
+- `--uilib-card-search-color-flagship`
+- `--uilib-card-search-color-flagship-text`
+- `--uilib-color-border-card`
+- `--uilib-color-border-danger`
+- `--uilib-color-border-dashed`
+- `--uilib-color-border-divider`
+- `--uilib-color-border-input`
+- `--uilib-color-border-inverse`
+- `--uilib-color-brand-local`
+- `--uilib-color-brand-musement`
+- `--uilib-color-brand-trip-advisor`
+- `--uilib-color-brand-tui-blue`
+- `--uilib-color-canvas-contrast`
+- `--uilib-color-canvas-default`
+- `--uilib-color-core-brand`
+- `--uilib-color-core-brand-strong`
+- `--uilib-color-core-interaction`
+- `--uilib-color-core-neutral`
+- `--uilib-color-core-surface`
+- `--uilib-color-other-active-state-tint`
+- `--uilib-color-other-button-hover-state`
+- `--uilib-color-other-disabled-soft`
+- `--uilib-color-other-disabled-strong`
+- `--uilib-color-other-elevation`
+- `--uilib-color-other-scrim`
+- `--uilib-color-other-scroll-handle`
+- `--uilib-color-other-secondary-button-hover-state`
+- `--uilib-color-promotion`
+- `--uilib-color-status-danger-icon`
+- `--uilib-color-status-danger-surface`
+- `--uilib-color-status-info-icon`
+- `--uilib-color-status-info-surface`
+- `--uilib-color-status-success-icon`
+- `--uilib-color-status-success-surface`
+- `--uilib-color-status-warning-icon`
+- `--uilib-color-status-warning-surface`
+- `--uilib-color-strong`
+- `--uilib-color-text-body`
+- `--uilib-color-text-danger`
+- `--uilib-color-text-inverse`
+- `--uilib-color-text-link`
+- `--uilib-color-text-link-visited`
+- `--uilib-color-text-link-visited-inverse`
+- `--uilib-color-text-promotion`
+- `--uilib-color-text-strong`
+- `--uilib-input-checkbox-text-color-strong`
+- `--uilib-input-count-color-bg`
+- `--uilib-input-count-color-border`
+- `--uilib-input-count-color-selected`
+- `--uilib-input-count-color-selected-text`
+- `--uilib-input-count-color-text`
+- `--uilib-input-radio-text-color-strong`
+- `--uilib-input-slider-track-color-selected`
+- `--uilib-link-decoration-color-inverse`
+- `--uilib-link-decoration-color-inverse-visited`
+- `--uilib-link-decoration-color-visited`
+- `--uilib-ratings-numerical-color-inverse`
+- `--uilib-tooltip-color-bg`
+- `--uilib-tooltip-color-text`
+
+### typography
+- `--uilib-font-family-base`
+- `--uilib-font-family-lead`
+- `--uilib-font-size-root`
+- `--uilib-font-weight-bold`
+- `--uilib-font-weight-regular`
+- `--uilib-font-weight-semibold`
+- `--uilib-loader-font-large`
+- `--uilib-loader-font-medium`
+- `--uilib-loader-font-small`
+- `--uilib-price-font-main-large`
+- `--uilib-price-font-main-medium`
+- `--uilib-price-font-primary`
+- `--uilib-price-font-secondary`
+- `--uilib-price-font-sub-large`
+- `--uilib-ratings-numerical-font-score`
+- `--uilib-typography-body-large`
+- `--uilib-typography-body-large-strong`
+- `--uilib-typography-body-medium`
+- `--uilib-typography-body-medium-strong`
+- `--uilib-typography-component-heading-large`
+- `--uilib-typography-component-heading-medium`
+- `--uilib-typography-component-heading-medium-strong`
+- `--uilib-typography-component-heading-small`
+- `--uilib-typography-component-heading-small-strong`
+- `--uilib-typography-component-heading-xlarge`
+- `--uilib-typography-component-heading-xlarge-strong`
+- `--uilib-typography-component-heading-xxlarge-strong`
+- `--uilib-typography-heading-large`
+- `--uilib-typography-heading-medium`
+- `--uilib-typography-heading-small`
+- `--uilib-typography-heading-xlarge`
+- `--uilib-typography-heading-xxlarge`
+- `--uilib-typography-label-large`
+- `--uilib-typography-label-medium`
+- `--uilib-typography-label-medium-strong`
+- `--uilib-typography-label-small`
+- `--uilib-typography-label-small-strong`
+- `--uilib-typography-label-xsmall`
+
+### spacing
+- `--uilib-spacing-050`
+- `--uilib-spacing-100`
+- `--uilib-spacing-1000`
+- `--uilib-spacing-1100`
+- `--uilib-spacing-1200`
+- `--uilib-spacing-150`
+- `--uilib-spacing-1600`
+- `--uilib-spacing-200`
+- `--uilib-spacing-300`
+- `--uilib-spacing-400`
+- `--uilib-spacing-50`
+- `--uilib-spacing-500`
+- `--uilib-spacing-600`
+- `--uilib-spacing-800`
+- `--uilib-spacing-900`
+- `--uilib-spacing-none`
+
+### radii
+- `--uilib-border-radius-100`
+- `--uilib-border-radius-200`
+- `--uilib-border-radius-400`
+- `--uilib-border-radius-600`
+- `--uilib-border-radius-circle`
+- `--uilib-border-radius-none`
+- `--uilib-border-radius-pill`
+- `--uilib-card-search-radius-spacing`
+- `--uilib-list-image-radius-alt`
+
+### other
+- `---`
+- `-------`
+- `--alt`
+- `--bottom`
+- `--brand`
+- `--button-spacing`
+- `--buttons`
+- `--card`
+- `--center`
+- `--choice`
+- `--circle`
+- `--circle-icon`
+- `--clear`
+- `--close`
+- `--column`
+- `--columns`
+- `--component`
+- `--confirm`
+- `--container`
+- `--control`
+- `--controlbox-minwidth`
+- `--current`
+- `--dashed`
+- `--decrement`
+- `--disabled`
+- `--divider`
+- `--error`
+- `--filled`
+- `--filter`
+- `--gap-sm`
+- `--ghost`
+- `--h-`
+- `--heading`
+- `--heavy`
+- `--hidden`
+- `--hide`
+- `--holidaycheck`
+- `--horizontal`
+- `--icon`
+- `--icon-large`
+- `--icon-size`
+- `--icon-small`
+- `--icon-url`
+- `--image`
+- `--image-alt`
+- `--increment`
+- `--info`
+- `--inverse`
+- `--invisible`
+- `--justify-between`
+- `--label`
+- `--landscape`
+- `--large`
+- `--left`
+- `--link`
+- `--list`
+- `--local-product`
+- `--logo`
+- `--medium`
+- `--month-calendar`
+- `--next`
+- `--no-gutters`
+- `--no-gutters-`
+- `--nofade`
+- `--numbered`
+- `--offset`
+- `--order`
+- `--outlined`
+- `--panoramic`
+- `--percentage`
+- `--portrait`
+- `--position`
+- `--prev`
+- `--promotion`
+- `--rating-max`
+- `--reduced`
+- `--right`
+- `--rounded`
+- `--rounded-bottom`
+- `--scarcity`
+- `--search`
+- `--secondary`
+- `--selected`
+- `--shortlist`
+- `--show`
+- `--size`
+- `--small`
+- `--spacer`
+- `--square`
+- `--star`
+- `--stepper`
+- `--strong`
+- `--subheading`
+- `--success`
+- `--sun`
+- `--tertiary`
+- `--text`
+- `--tile-bg-icon`
+- `--tile-bg-icon-checked`
+- `--title`
+- `--top`
+- `--tripadvisor`
+- `--tui-t`
+- `--uilib-`
+- `--uilib-accordion-border-color`
+- `--uilib-accordion-default-bg-color`
+- `--uilib-accordion-divider-color`
+- `--uilib-accordion-icon`
+- `--uilib-accordion-logo-radius`
+- `--uilib-accordion-radius`
+- `--uilib-active-tag-background-color`
+- `--uilib-active-tag-border-color`
+- `--uilib-active-tag-cross-color`
+- `--uilib-active-tag-icon`
+- `--uilib-active-tag-radius`
+- `--uilib-alert-icon-error-bg`
+- `--uilib-alert-icon-error-mask`
+- `--uilib-alert-icon-info-bg`
+- `--uilib-alert-icon-info-mask`
+- `--uilib-alert-icon-success-bg`
+- `--uilib-alert-icon-success-mask`
+- `--uilib-alert-icon-warning-bg`
+- `--uilib-alert-icon-warning-mask`
+- `--uilib-alert-radius`
+- `--uilib-alert-text-color`
+- `--uilib-aspect-ratio-16x9-wide`
+- `--uilib-aspect-ratio-1x1-square`
+- `--uilib-aspect-ratio-3x1-panoramic`
+- `--uilib-aspect-ratio-4x3-landscape`
+- `--uilib-aspect-ratio-4x3-portrait`
+- `--uilib-breadcrumb-icon`
+- `--uilib-button-disabled-bg-color`
+- `--uilib-button-disabled-color`
+- `--uilib-button-primary-bg-color`
+- `--uilib-button-primary-color`
+- `--uilib-button-primary-hover-bg-color`
+- `--uilib-button-promotion-bg-color`
+- `--uilib-button-promotion-color`
+- `--uilib-button-promotion-hover-bg-color`
+- `--uilib-button-radius`
+- `--uilib-button-search-bg-color`
+- `--uilib-button-search-color`
+- `--uilib-button-search-hover-bg-color`
+- `--uilib-button-secondary-bg-color`
+- `--uilib-button-secondary-color`
+- `--uilib-button-secondary-hover-bg-color`
+- `--uilib-button-tertiary-bg-color`
+- `--uilib-button-tertiary-color`
+- `--uilib-button-tertiary-hover-bg-color`
+- `--uilib-card-search-highlights-icon`
+- `--uilib-card-search-radius`
+- `--uilib-elevation-0`
+- `--uilib-elevation-100`
+- `--uilib-focus-default`
+- `--uilib-focus-gap`
+- `--uilib-focus-size`
+- `--uilib-form-row-icon`
+- `--uilib-form-row-label-font`
+- `--uilib-grid-columns`
+- `--uilib-grid-gutter-height`
+- `--uilib-grid-gutter-width`
+- `--uilib-grid-size`
+- `--uilib-icon-button-control-bg-color`
+- `--uilib-icon-button-control-color`
+- `--uilib-icon-button-control-hover-bg-color`
+- `--uilib-icon-button-disabled-bg-color`
+- `--uilib-icon-button-disabled-color`
+- `--uilib-icon-button-ghost-bg-color`
+- `--uilib-icon-button-ghost-color`
+- `--uilib-icon-button-ghost-hover-bg-color`
+- `--uilib-icon-button-primary-bg-color`
+- `--uilib-icon-button-primary-color`
+- `--uilib-icon-button-primary-hover-bg-color`
+- `--uilib-icon-button-promotion-bg-color`
+- `--uilib-icon-button-promotion-color`
+- `--uilib-icon-button-promotion-hover-bg-color`
+- `--uilib-icon-button-radius`
+- `--uilib-icon-button-search-bg-color`
+- `--uilib-icon-button-search-color`
+- `--uilib-icon-button-search-hover-bg-color`
+- `--uilib-icon-button-secondary-bg-color`
+- `--uilib-icon-button-secondary-color`
+- `--uilib-icon-button-secondary-hover-bg-color`
+- `--uilib-icon-button-shortlist-bg-color`
+- `--uilib-icon-button-shortlist-color`
+- `--uilib-icon-button-shortlist-hover-bg-color`
+- `--uilib-icon-size-`
+- `--uilib-icon-size-default`
+- `--uilib-icon-size-large`
+- `--uilib-icon-size-medium`
+- `--uilib-icon-size-small`
+- `--uilib-icon-size-xsmall`
+- `--uilib-image-fallback`
+- `--uilib-image-landscape`
+- `--uilib-image-panoramic`
+- `--uilib-image-portrait`
+- `--uilib-image-rectangle`
+- `--uilib-image-rounded`
+- `--uilib-image-square`
+- `--uilib-image-wide`
+- `--uilib-info-tag-info-bg-color`
+- `--uilib-info-tag-local-product-bg-color`
+- `--uilib-info-tag-neutral-bg-color`
+- `--uilib-info-tag-radius`
+- `--uilib-info-tag-scarcity-bg-color`
+- `--uilib-info-tag-text-color`
+- `--uilib-input-checkbox-confirm-radius`
+- `--uilib-input-checkbox-icon-checked`
+- `--uilib-input-checkbox-icon-indeterminate`
+- `--uilib-input-chip-active-bg-color`
+- `--uilib-input-chip-active-border-color`
+- `--uilib-input-chip-active-hover-bg-color`
+- `--uilib-input-chip-default-bg-color`
+- `--uilib-input-chip-default-border-color`
+- `--uilib-input-chip-default-text-color`
+- `--uilib-input-chip-disabled-bg-color`
+- `--uilib-input-chip-disabled-color`
+- `--uilib-input-chip-hover-bg-color`
+- `--uilib-input-chip-radius`
+- `--uilib-input-count-font`
+- `--uilib-input-count-radius`
+- `--uilib-input-count-size`
+- `--uilib-input-slider-position`
+- `--uilib-input-slider-thumb-border-color`
+- `--uilib-input-slider-thumb-radius`
+- `--uilib-input-slider-thumb-size`
+- `--uilib-input-slider-track-background`
+- `--uilib-input-slider-track-color`
+- `--uilib-input-slider-track-height`
+- `--uilib-input-slider-track-radius`
+- `--uilib-input-stepper-icon-decrement`
+- `--uilib-input-stepper-icon-increment`
+- `--uilib-input-text-icon-calendar`
+- `--uilib-input-text-icon-clear`
+- `--uilib-input-text-icon-hide`
+- `--uilib-input-text-icon-show`
+- `--uilib-layer-tooltip`
+- `--uilib-layer-top`
+- `--uilib-layout-app-height`
+- `--uilib-layout-max-width`
+- `--uilib-line-height-body`
+- `--uilib-line-height-heading`
+- `--uilib-link-decoration-color`
+- `--uilib-link-decoration-style`
+- `--uilib-link-decoration-thickness`
+- `--uilib-link-decoration-thickness-hover`
+- `--uilib-link-underline-offset`
+- `--uilib-list-bullet-color`
+- `--uilib-list-bullet-icon`
+- `--uilib-list-image-radius`
+- `--uilib-loader-image`
+- `--uilib-loader-large`
+- `--uilib-loader-medium`
+- `--uilib-loader-small`
+- `--uilib-media-button-color`
+- `--uilib-modal-backdrop-color`
+- `--uilib-modal-icon-close`
+- `--uilib-modal-radius`
+- `--uilib-motion-duration-fast`
+- `--uilib-motion-duration-medium`
+- `--uilib-motion-timing-inout`
+- `--uilib-motion-timing-out`
+- `--uilib-pagination-border-radius`
+- `--uilib-pagination-hover-bg`
+- `--uilib-pagination-icon-color`
+- `--uilib-pagination-icon-next`
+- `--uilib-pagination-icon-prev`
+- `--uilib-pagination-selected-bg`
+- `--uilib-pagination-text-color`
+- `--uilib-price-color`
+- `--uilib-price-discount-color`
+- `--uilib-promo-tag-bg-color`
+- `--uilib-promo-tag-color`
+- `--uilib-promo-tag-font`
+- `--uilib-promo-tag-radius`
+- `--uilib-ratings-numerical-alt-bg`
+- `--uilib-ratings-numerical-alt-color`
+- `--uilib-ratings-numerical-alt-height`
+- `--uilib-ratings-numerical-alt-icon`
+- `--uilib-ratings-numerical-alt-icon-color`
+- `--uilib-ratings-numerical-alt-radius`
+- `--uilib-ratings-numerical-brand-bg`
+- `--uilib-ratings-numerical-brand-color`
+- `--uilib-ratings-numerical-brand-logo`
+- `--uilib-ratings-numerical-brand-radius`
+- `--uilib-ratings-numerical-color`
+- `--uilib-ratings-numerical-font`
+- `--uilib-ratings-percentage-leading-icon`
+- `--uilib-ratings-range-bar-bar-background`
+- `--uilib-ratings-range-bar-bar-color`
+- `--uilib-ratings-range-bar-bar-width`
+- `--uilib-ratings-range-bar-icon-color`
+- `--uilib-ratings-range-bar-tripadvisor-bar-background`
+- `--uilib-ratings-range-bar-tripadvisor-bar-color`
+- `--uilib-ratings-range-bar-tripadvisor-bar-width`
+- `--uilib-ratings-range-icons-star-rating-icon`
+- `--uilib-ratings-range-icons-star-rating-icon-checked`
+- `--uilib-ratings-range-icons-sun-rating-icon`
+- `--uilib-ratings-range-icons-sun-rating-icon-checked`
+- `--uilib-ratings-range-icons-tripadvisor-logo`
+- `--uilib-ratings-range-icons-tripadvisor-rating-icon`
+- `--uilib-ratings-range-icons-tripadvisor-rating-icon-checked`
+- `--uilib-ratings-range-icons-tui-t-plus-color`
+- `--uilib-ratings-range-icons-tui-t-rating-icon`
+- `--uilib-scroller-bar-size`
+- `--uilib-scroller-end-fade`
+- `--uilib-scroller-fade-size`
+- `--uilib-scroller-focus-radius`
+- `--uilib-scroller-start-fade`
+- `--uilib-scroller-thumb-color`
+- `--uilib-scroller-thumb-radius`
+- `--uilib-scroller-thumb-size`
+- `--uilib-scrollfade`
+- `--uilib-show-more-less-icon`
+- `--uilib-skeleton-color`
+- `--uilib-skeleton-position`
+- `--uilib-skeleton-shimmer-color`
+- `--uilib-stroke-size-025`
+- `--uilib-stroke-size-050`
+- `--uilib-stroke-style-dashed`
+- `--uilib-stroke-style-solid`
+- `--uilib-theme-name`
+- `--uilib-tooltip-radius`
+- `--vertical`
+- `--w-`
+- `--warning`
+- `--webkit-mask-image`
+- `--width-restrict`
+- `--xlarge`
+- `--xxlarge`
+
+## Potential Renames (Heuristic)
+- `--border-radius-border-radius-100`
+- suggestion: `--uilib-border-radius-100` (75%)
+- `--border-radius-border-radius-200`
+- suggestion: `--uilib-border-radius-200` (75%)
+- `--border-radius-border-radius-400`
+- suggestion: `--uilib-border-radius-400` (75%)
+- `--border-radius-border-radius-600`
+- suggestion: `--uilib-border-radius-600` (75%)
+- `--border-radius-border-radius-none`
+- suggestion: `--uilib-border-radius-none` (75%)
+- `--border-radius-border-radius-pill`
+- suggestion: `--uilib-border-radius-pill` (75%)
+- `--border-radius-pill`
+- suggestion: `--uilib-border-radius-pill` (75%)
+- `--color-border-border-brand-strong`
+- suggestion: `--uilib-color-core-brand-strong` (60%)
+- `--color-border-border-card`
+- suggestion: `--uilib-color-border-card` (75%)
+- `--color-border-border-danger`
+- suggestion: `--uilib-color-border-danger` (75%)
+- `--color-border-border-dashed`
+- suggestion: `--uilib-color-border-dashed` (75%)
+- `--color-border-border-divider`
+- suggestion: `--uilib-color-border-divider` (75%)
+- `--color-border-border-input`
+- suggestion: `--uilib-color-border-input` (75%)
+- suggestion: `--uilib-input-count-color-border` (60%)
+- `--color-border-border-inverse`
+- suggestion: `--uilib-color-border-inverse` (75%)
+- suggestion: `--color-inverse` (67%)
+- `--color-brand-brand-bluestar-blue`
+- suggestion: `--uilib-color-brand-tui-blue` (60%)
+- `--color-brand-brand-kids-club-blue`
+- suggestion: `--uilib-color-brand-tui-blue` (60%)
+- `--color-brand-brand-local-biege`
+- suggestion: `--uilib-color-brand-local` (75%)
+- `--color-brand-brand-musement-yellow`
+- suggestion: `--uilib-color-brand-musement` (75%)
+- `--color-brand-brand-pay-pal-blue`
+- suggestion: `--uilib-color-brand-tui-blue` (60%)
+- `--color-brand-brand-robison-blue`
+- suggestion: `--uilib-color-brand-tui-blue` (60%)
+- `--color-brand-brand-small---friendly-blue`
+- suggestion: `--uilib-color-brand-tui-blue` (60%)
+- `--color-brand-brand-soneo-club-blue`
+- suggestion: `--uilib-color-brand-tui-blue` (60%)
+- `--color-brand-brand-trip-advisor-green`
+- suggestion: `--uilib-color-brand-trip-advisor` (80%)
+- `--color-brand-brand-tui-blue-blue`
+- suggestion: `--uilib-color-brand-tui-blue` (80%)
+- `--color-brands-brand-local`
+- suggestion: `--uilib-color-brand-local` (75%)
+- `--color-brands-brand-musement`
+- suggestion: `--uilib-color-brand-musement` (75%)
+- `--color-brands-brand-trip-advisor`
+- suggestion: `--uilib-color-brand-trip-advisor` (80%)
+- `--color-brands-brand-tui-blue`
+- suggestion: `--uilib-color-brand-tui-blue` (80%)
+- `--color-canvas-canvas-contrast`
+- suggestion: `--uilib-color-canvas-contrast` (75%)
+- `--color-canvas-canvas-default`
+- suggestion: `--uilib-color-canvas-default` (75%)
+- `--color-core-color-brand-strong`
+- suggestion: `--uilib-color-core-brand-strong` (80%)
+- suggestion: `--uilib-color-core-brand` (75%)
+- `--color-core-core-brand`
+- suggestion: `--uilib-color-core-brand` (75%)
+- suggestion: `--uilib-color-core-brand-strong` (60%)
+- `--color-core-core-interaction`
+- suggestion: `--uilib-color-core-interaction` (75%)
+- `--color-core-core-neutral`
+- suggestion: `--uilib-color-core-neutral` (75%)
+- `--color-core-core-surface`
+- suggestion: `--uilib-color-core-surface` (75%)
+- `--color-other-other-active-state-tint`
+- suggestion: `--uilib-color-other-active-state-tint` (83%)
+- `--color-other-other-button-hover-state-secondary`
+- suggestion: `--uilib-color-other-secondary-button-hover-state` (86%)
+- suggestion: `--uilib-color-other-button-hover-state` (83%)
+- suggestion: `--uilib-button-secondary-hover-bg-color` (67%)
+- `--color-other-other-button-hover-state-shortlist`
+- suggestion: `--uilib-color-other-button-hover-state` (83%)
+- suggestion: `--uilib-color-other-secondary-button-hover-state` (71%)
+- `--color-other-other-buttons-hover-state`
+- suggestion: `--uilib-color-other-button-hover-state` (67%)
+- `--color-other-other-disabled-soft`
+- suggestion: `--uilib-color-other-disabled-soft` (80%)
+- suggestion: `--uilib-color-other-disabled-strong` (60%)
+- `--color-other-other-disabled-strong`
+- suggestion: `--uilib-color-other-disabled-strong` (80%)
+- suggestion: `--uilib-color-other-disabled-soft` (60%)
+- `--color-other-other-elevation`
+- suggestion: `--uilib-color-other-elevation` (75%)
+- `--color-other-other-scrim`
+- suggestion: `--uilib-color-other-scrim` (75%)
+- `--color-promotion-promotion-promotion`
+- suggestion: `--uilib-color-promotion` (67%)
+- `--color-status-status-danger-surface`
+- suggestion: `--uilib-color-status-danger-surface` (80%)
+- suggestion: `--uilib-color-status-danger-icon` (60%)
+- suggestion: `--uilib-color-status-info-surface` (60%)
+- `--color-status-status-info-surface`
+- suggestion: `--uilib-color-status-info-surface` (80%)
+- suggestion: `--uilib-color-status-danger-surface` (60%)
+- suggestion: `--uilib-color-status-info-icon` (60%)
+- `--color-status-status-success-surface`
+- suggestion: `--uilib-color-status-success-surface` (80%)
+- suggestion: `--uilib-color-status-danger-surface` (60%)
+- suggestion: `--uilib-color-status-info-surface` (60%)
+- `--color-status-status-warning-surface`
+- suggestion: `--uilib-color-status-warning-surface` (80%)
+- suggestion: `--uilib-color-status-danger-surface` (60%)
+- suggestion: `--uilib-color-status-info-surface` (60%)
+- `--color-status-staus-danger-icon`
+- suggestion: `--uilib-color-status-danger-icon` (80%)
+- suggestion: `--uilib-color-status-danger-surface` (60%)
+- suggestion: `--uilib-color-status-info-icon` (60%)
+- `--color-status-staus-info-icon`
+- suggestion: `--uilib-color-status-info-icon` (80%)
+- suggestion: `--uilib-color-status-danger-icon` (60%)
+- suggestion: `--uilib-color-status-info-surface` (60%)
+- `--color-status-staus-success-icon`
+- suggestion: `--uilib-color-status-success-icon` (80%)
+- suggestion: `--uilib-color-status-danger-icon` (60%)
+- suggestion: `--uilib-color-status-info-icon` (60%)
+- `--color-status-staus-warning-icon`
+- suggestion: `--uilib-color-status-warning-icon` (80%)
+- suggestion: `--uilib-color-status-danger-icon` (60%)
+- suggestion: `--uilib-color-status-info-icon` (60%)
+- `--color-text-text-body`
+- suggestion: `--uilib-color-text-body` (75%)
+- `--color-text-text-danger`
+- suggestion: `--uilib-color-text-danger` (75%)
+- `--color-text-text-inverse`
+- suggestion: `--uilib-color-text-inverse` (75%)
+- suggestion: `--color-inverse` (67%)
+- `--color-text-text-link`
+- suggestion: `--uilib-color-text-link` (75%)
+- suggestion: `--uilib-color-text-link-visited` (60%)
+- `--color-text-text-link-visited`
+- suggestion: `--uilib-color-text-link-visited` (80%)
+- suggestion: `--uilib-color-text-link` (75%)
+- suggestion: `--uilib-color-text-link-visited-inverse` (67%)
+- `--color-text-text-link-visited-inverse`
+- suggestion: `--uilib-color-text-link-visited-inverse` (83%)
+- suggestion: `--uilib-color-text-link-visited` (80%)
+- suggestion: `--uilib-link-decoration-color-inverse-visited` (67%)
+- `--color-text-text-promotion`
+- suggestion: `--uilib-color-text-promotion` (75%)
+- suggestion: `--uilib-color-promotion` (67%)
+- `--color-text-text-strong`
+- suggestion: `--uilib-color-text-strong` (75%)
+- suggestion: `--color-strong` (67%)
+- suggestion: `--uilib-color-strong` (67%)
+- `--spacing-spacing-050`
+- suggestion: `--uilib-spacing-050` (67%)
+- `--spacing-spacing-100`
+- suggestion: `--uilib-spacing-100` (67%)
+- `--spacing-spacing-1000`
+- suggestion: `--uilib-spacing-1000` (67%)
+- `--spacing-spacing-1100`
+- suggestion: `--uilib-spacing-1100` (67%)
+- `--spacing-spacing-1200`
+- suggestion: `--uilib-spacing-1200` (67%)
+- `--spacing-spacing-150`
+- suggestion: `--uilib-spacing-150` (67%)
+- `--spacing-spacing-1600`
+- suggestion: `--uilib-spacing-1600` (67%)
+- `--spacing-spacing-200`
+- suggestion: `--uilib-spacing-200` (67%)
+- `--spacing-spacing-300`
+- suggestion: `--uilib-spacing-300` (67%)
+- `--spacing-spacing-400`
+- suggestion: `--uilib-spacing-400` (67%)
+- `--spacing-spacing-50`
+- suggestion: `--uilib-spacing-50` (67%)
+- `--spacing-spacing-500`
+- suggestion: `--uilib-spacing-500` (67%)
+- `--spacing-spacing-600`
+- suggestion: `--uilib-spacing-600` (67%)
+- `--spacing-spacing-800`
+- suggestion: `--uilib-spacing-800` (67%)
+- `--spacing-spacing-900`
+- suggestion: `--uilib-spacing-900` (67%)
+- `--spacing-spacing-none`
+- suggestion: `--uilib-spacing-none` (67%)
+- `--typography-font-weight-ambit-bold`
+- suggestion: `--uilib-font-weight-bold` (60%)
+- `--typography-font-weight-ambit-regular`
+- suggestion: `--uilib-font-weight-regular` (60%)
+- `--typography-font-weight-ambit-semibold`
+- suggestion: `--uilib-font-weight-semibold` (60%)

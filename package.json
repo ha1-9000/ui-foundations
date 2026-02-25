@@ -9,15 +9,6 @@
     "dist/**",
     "README.md"
   ],
-  "exports": {
-    "./tokens/brand-a.css": "./dist/tokens/css/brand-a.tokens.css",
-    "./tokens/brand-b.css": "./dist/tokens/css/brand-b.tokens.css",
-    "./tokens/color-light.css": "./dist/tokens/css/color.light.tokens.css",
-    "./tokens/color-dark.css": "./dist/tokens/css/color.dark.tokens.css",
-    "./tokens/semantic.css": "./dist/tokens/css/semantic.tokens.css",
-    "./tokens/component.css": "./dist/tokens/css/component.tokens.css",
-    "./tokens/primitives.css": "./dist/tokens/css/primitives.tokens.css"
-  },
   "scripts": {
     "tokens:generate": "node scripts/extract-tokens.js",
     "tokens:validate": "node scripts/validate-tokens.mjs"
@@ -25,5 +16,8 @@
   "devDependencies": {
     "fast-glob": "^3.3.3",
     "jsonc-parser": "^3.3.1"
+  },
+  "dependencies": {
+    "@tui/design-system": "^5.0.0-beta.1"
   }
 }
