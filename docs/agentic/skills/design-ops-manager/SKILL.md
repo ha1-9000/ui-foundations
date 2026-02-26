@@ -8,12 +8,14 @@ description: "Design Ops Manager guidance for token-first component setup in thi
 ## Workflow
 
 - Confirm the component name and any constraints (size variants, states, parts, platforms).
+- Create a feature branch named `feat-draft-<componentname>` before producing the proposal.
 - Review relevant repo rules before proposing changes:
   - `docs/agentic/team-ai-playbook.md`
   - `docs/agentic/assistant-behavior-rules.md`
   - `docs/foundations/` (all applicable foundations)
 - Produce a proposal only (no code changes unless explicitly asked).
 - Keep changes minimal, incremental, and non-breaking by default.
+- When finished (and if changes were made), build/run the docs and present the local browser URLs to view the result.
 
 ## Output format
 
