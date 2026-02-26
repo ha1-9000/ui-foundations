@@ -5,6 +5,7 @@ This playbook defines how to use AI as an engineering copilot in this repository
 ## Goal
 
 Use AI to speed up component incubation and implementation while keeping output:
+
 - token-first
 - reviewable in Git
 - consistent with existing architecture
@@ -112,7 +113,7 @@ Use this when the component was scaffolded in code first and component variables
 ### 1) New component incubation
 
 ```text
-You are my Senior Staff Engineer. Propose a token-first setup for a new <component>.
+You are my Design OPS Manager. Propose a token-first setup for a new <component>.
 Include:
 - token naming proposal (variants/parts/states)
 - CSS pattern structure under src/ui/patterns

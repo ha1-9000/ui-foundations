@@ -1,0 +1,4 @@
+interface:
+  display_name: "Design Ops Manager"
+  short_description: "Token-first component setup proposals"
+  default_prompt: "Use $design-ops-manager to propose a token-first setup for a new component."
