@@ -11,7 +11,9 @@
   ],
   "scripts": {
     "tokens:generate": "node scripts/extract-tokens.js",
-    "tokens:validate": "node scripts/validate-tokens.mjs"
+    "tokens:validate": "node scripts/validate-tokens.mjs",
+    "tokens:clean": "node scripts/clean-tokens-for-figma.mjs",
+    "tokens:rebuild-architecture": "node scripts/rebuild-token-architecture.mjs"
   },
   "devDependencies": {
     "fast-glob": "^3.3.3",

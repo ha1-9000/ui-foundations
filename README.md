@@ -21,6 +21,11 @@ Validate token output:
 npm run tokens:validate
 ```
 
+Clean exports for re-import into Figma:
+```bash
+npm run tokens:clean
+```
+
 ## Output
 
 - JSON: `dist/tokens/json/`
@@ -38,6 +43,23 @@ The token mapping report is stored in this project at:
 
 Progress tracking over time is stored in:
 - `figma-change-log.md`
+
+## Figma import-ready files
+
+`npm run tokens:clean` writes cleaned import files to:
+- `figma/import-ready/Primitives.cleaned.tokens.json`
+- `figma/import-ready/Semantics.cleaned.tokens.json`
+- `figma/import-ready/Uilib.components.tokens.json`
+- `figma/import-ready/Uilib.missing-from-figma.tokens.json`
+- `figma/import-ready/cleaning-report.json`
+
+By default, component/missing files are built from:
+- `/Users/Thomas.Bielich@tui.com/Sites/uilib-1/dist`
+
+You can override this source with:
+```bash
+UILIB_DIST_DIR=/path/to/uilib/dist npm run tokens:clean
+```
 
 ## Input requirements
 

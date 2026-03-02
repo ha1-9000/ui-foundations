@@ -1,0 +1,2361 @@
+{
+  "Accordion": {
+    "Icon": {
+      "$type": "string",
+      "$value": "chevron-down",
+      "$extensions": {
+        "com.figma.codeSyntax": {
+          "WEB": "var(--uilib-accordion-icon)",
+          "ANDROID": "R.dimen.uilib_accordion_icon",
+          "iOS": "DimensionToken.uilibAccordionIcon"
+        }
+      }
+    },
+    "Radius": {
+      "$type": "string",
+      "$value": "var(--uilib-border-radius-100)",
+      "$extensions": {
+        "com.figma.codeSyntax": {
+          "WEB": "var(--uilib-accordion-radius)",
+          "ANDROID": "R.dimen.uilib_accordion_radius",
+          "iOS": "DimensionToken.uilibAccordionRadius"
+        }
+      }
+    },
+    "Border": {
+      "Color": {
+        "$type": "string",
+        "$value": "var(--uilib-color-border-card)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-accordion-border-color)",
+            "ANDROID": "R.color.uilib_accordion_border_color",
+            "iOS": "ColorToken.uilibAccordionBorderColor"
+          }
+        }
+      }
+    },
+    "Default": {
+      "Bg": {
+        "Color": {
+          "$type": "string",
+          "$value": "var(--uilib-color-canvas-default)",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-accordion-default-bg-color)",
+              "ANDROID": "R.color.uilib_accordion_default_bg_color",
+              "iOS": "ColorToken.uilibAccordionDefaultBgColor"
+            }
+          }
+        }
+      }
+    },
+    "Divider": {
+      "Color": {
+        "$type": "string",
+        "$value": "var(--uilib-color-border-card)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-accordion-divider-color)",
+            "ANDROID": "R.color.uilib_accordion_divider_color",
+            "iOS": "ColorToken.uilibAccordionDividerColor"
+          }
+        }
+      }
+    },
+    "Logo": {
+      "Radius": {
+        "$type": "string",
+        "$value": "var(--uilib-border-radius-100)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-accordion-logo-radius)",
+            "ANDROID": "R.dimen.uilib_accordion_logo_radius",
+            "iOS": "DimensionToken.uilibAccordionLogoRadius"
+          }
+        }
+      }
+    }
+  },
+  "Active": {
+    "Tag": {
+      "Icon": {
+        "$type": "string",
+        "$value": "var(--uilib-show-more-less-icon)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-active-tag-icon)",
+            "ANDROID": "R.dimen.uilib_active_tag_icon",
+            "iOS": "DimensionToken.uilibActiveTagIcon"
+          }
+        }
+      },
+      "Radius": {
+        "$type": "string",
+        "$value": "var(--uilib-border-radius-200)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-active-tag-radius)",
+            "ANDROID": "R.dimen.uilib_active_tag_radius",
+            "iOS": "DimensionToken.uilibActiveTagRadius"
+          }
+        }
+      },
+      "Background": {
+        "Color": {
+          "$type": "string",
+          "$value": "var(--uilib-color-core-neutral)",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-active-tag-background-color)",
+              "ANDROID": "R.color.uilib_active_tag_background_color",
+              "iOS": "ColorToken.uilibActiveTagBackgroundColor"
+            }
+          }
+        }
+      },
+      "Border": {
+        "Color": {
+          "$type": "string",
+          "$value": "var(--uilib-color-border-input)",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-active-tag-border-color)",
+              "ANDROID": "R.color.uilib_active_tag_border_color",
+              "iOS": "ColorToken.uilibActiveTagBorderColor"
+            }
+          }
+        }
+      },
+      "Cross": {
+        "Color": {
+          "$type": "string",
+          "$value": "var(--uilib-color-core-interaction)",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-active-tag-cross-color)",
+              "ANDROID": "R.color.uilib_active_tag_cross_color",
+              "iOS": "ColorToken.uilibActiveTagCrossColor"
+            }
+          }
+        }
+      }
+    }
+  },
+  "Alert": {
+    "Radius": {
+      "$type": "string",
+      "$value": "var(--uilib-border-radius-100)",
+      "$extensions": {
+        "com.figma.codeSyntax": {
+          "WEB": "var(--uilib-alert-radius)",
+          "ANDROID": "R.dimen.uilib_alert_radius",
+          "iOS": "DimensionToken.uilibAlertRadius"
+        }
+      }
+    },
+    "Icon": {
+      "Error": {
+        "Bg": {
+          "$type": "string",
+          "$value": "exclamation-mark-circled-filled",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-alert-icon-error-bg)",
+              "ANDROID": "R.dimen.uilib_alert_icon_error_bg",
+              "iOS": "DimensionToken.uilibAlertIconErrorBg"
+            }
+          }
+        },
+        "Mask": {
+          "$type": "string",
+          "$value": "exclamation-mark-circled-filled",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-alert-icon-error-mask)",
+              "ANDROID": "R.dimen.uilib_alert_icon_error_mask",
+              "iOS": "DimensionToken.uilibAlertIconErrorMask"
+            }
+          }
+        }
+      },
+      "Info": {
+        "Bg": {
+          "$type": "string",
+          "$value": "letter-i-circled-filled",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-alert-icon-info-bg)",
+              "ANDROID": "R.dimen.uilib_alert_icon_info_bg",
+              "iOS": "DimensionToken.uilibAlertIconInfoBg"
+            }
+          }
+        },
+        "Mask": {
+          "$type": "string",
+          "$value": "letter-i-circled-filled",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-alert-icon-info-mask)",
+              "ANDROID": "R.dimen.uilib_alert_icon_info_mask",
+              "iOS": "DimensionToken.uilibAlertIconInfoMask"
+            }
+          }
+        }
+      },
+      "Success": {
+        "Bg": {
+          "$type": "string",
+          "$value": "checkmark-circled-filled",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-alert-icon-success-bg)",
+              "ANDROID": "R.dimen.uilib_alert_icon_success_bg",
+              "iOS": "DimensionToken.uilibAlertIconSuccessBg"
+            }
+          }
+        },
+        "Mask": {
+          "$type": "string",
+          "$value": "checkmark-circled-filled",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-alert-icon-success-mask)",
+              "ANDROID": "R.dimen.uilib_alert_icon_success_mask",
+              "iOS": "DimensionToken.uilibAlertIconSuccessMask"
+            }
+          }
+        }
+      },
+      "Warning": {
+        "Bg": {
+          "$type": "string",
+          "$value": "warning",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-alert-icon-warning-bg)",
+              "ANDROID": "R.dimen.uilib_alert_icon_warning_bg",
+              "iOS": "DimensionToken.uilibAlertIconWarningBg"
+            }
+          }
+        },
+        "Mask": {
+          "$type": "string",
+          "$value": "warning",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-alert-icon-warning-mask)",
+              "ANDROID": "R.dimen.uilib_alert_icon_warning_mask",
+              "iOS": "DimensionToken.uilibAlertIconWarningMask"
+            }
+          }
+        }
+      }
+    },
+    "Text": {
+      "Color": {
+        "$type": "string",
+        "$value": "var(--uilib-color-text-strong)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-alert-text-color)",
+            "ANDROID": "R.color.uilib_alert_text_color",
+            "iOS": "ColorToken.uilibAlertTextColor"
+          }
+        }
+      }
+    }
+  },
+  "Breadcrumb": {
+    "Icon": {
+      "$type": "string",
+      "$value": "chevron-right",
+      "$extensions": {
+        "com.figma.codeSyntax": {
+          "WEB": "var(--uilib-breadcrumb-icon)",
+          "ANDROID": "R.dimen.uilib_breadcrumb_icon",
+          "iOS": "DimensionToken.uilibBreadcrumbIcon"
+        }
+      }
+    }
+  },
+  "Button": {
+    "Radius": {
+      "$type": "string",
+      "$value": "var(--uilib-border-radius-pill)",
+      "$extensions": {
+        "com.figma.codeSyntax": {
+          "WEB": "var(--uilib-button-radius)",
+          "ANDROID": "R.dimen.uilib_button_radius",
+          "iOS": "DimensionToken.uilibButtonRadius"
+        }
+      }
+    },
+    "Disabled": {
+      "Color": {
+        "$type": "string",
+        "$value": "var(--uilib-color-other-disabled-strong)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-button-disabled-color)",
+            "ANDROID": "R.color.uilib_button_disabled_color",
+            "iOS": "ColorToken.uilibButtonDisabledColor"
+          }
+        }
+      },
+      "Bg": {
+        "Color": {
+          "$type": "string",
+          "$value": "var(--uilib-color-other-disabled-soft)",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-button-disabled-bg-color)",
+              "ANDROID": "R.color.uilib_button_disabled_bg_color",
+              "iOS": "ColorToken.uilibButtonDisabledBgColor"
+            }
+          }
+        }
+      }
+    },
+    "Primary": {
+      "Color": {
+        "$type": "string",
+        "$value": "var(--uilib-color-text-inverse)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-button-primary-color)",
+            "ANDROID": "R.color.uilib_button_primary_color",
+            "iOS": "ColorToken.uilibButtonPrimaryColor"
+          }
+        }
+      },
+      "Bg": {
+        "Color": {
+          "$type": "string",
+          "$value": "var(--uilib-color-core-interaction)",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-button-primary-bg-color)",
+              "ANDROID": "R.color.uilib_button_primary_bg_color",
+              "iOS": "ColorToken.uilibButtonPrimaryBgColor"
+            }
+          }
+        }
+      }
+    },
+    "Promotion": {
+      "Color": {
+        "$type": "string",
+        "$value": "var(--uilib-color-text-inverse)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-button-promotion-color)",
+            "ANDROID": "R.color.uilib_button_promotion_color",
+            "iOS": "ColorToken.uilibButtonPromotionColor"
+          }
+        }
+      },
+      "Bg": {
+        "Color": {
+          "$type": "string",
+          "$value": "var(--uilib-color-promotion)",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-button-promotion-bg-color)",
+              "ANDROID": "R.color.uilib_button_promotion_bg_color",
+              "iOS": "ColorToken.uilibButtonPromotionBgColor"
+            }
+          }
+        }
+      }
+    },
+    "Search": {
+      "Color": {
+        "$type": "string",
+        "$value": "var(--uilib-color-text-inverse)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-button-search-color)",
+            "ANDROID": "R.color.uilib_button_search_color",
+            "iOS": "ColorToken.uilibButtonSearchColor"
+          }
+        }
+      },
+      "Bg": {
+        "Color": {
+          "$type": "string",
+          "$value": "var(--uilib-color-core-brand-strong)",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-button-search-bg-color)",
+              "ANDROID": "R.color.uilib_button_search_bg_color",
+              "iOS": "ColorToken.uilibButtonSearchBgColor"
+            }
+          }
+        }
+      }
+    },
+    "Secondary": {
+      "Color": {
+        "$type": "string",
+        "$value": "var(--uilib-color-core-interaction)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-button-secondary-color)",
+            "ANDROID": "R.color.uilib_button_secondary_color",
+            "iOS": "ColorToken.uilibButtonSecondaryColor"
+          }
+        }
+      },
+      "Bg": {
+        "Color": {
+          "$type": "string",
+          "$value": "var(--uilib-color-core-neutral)",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-button-secondary-bg-color)",
+              "ANDROID": "R.color.uilib_button_secondary_bg_color",
+              "iOS": "ColorToken.uilibButtonSecondaryBgColor"
+            }
+          }
+        }
+      }
+    },
+    "Tertiary": {
+      "Color": {
+        "$type": "string",
+        "$value": "var(--uilib-color-text-strong)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-button-tertiary-color)",
+            "ANDROID": "R.color.uilib_button_tertiary_color",
+            "iOS": "ColorToken.uilibButtonTertiaryColor"
+          }
+        }
+      },
+      "Bg": {
+        "Color": {
+          "$type": "string",
+          "$value": "var(--uilib-color-core-brand)",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-button-tertiary-bg-color)",
+              "ANDROID": "R.color.uilib_button_tertiary_bg_color",
+              "iOS": "ColorToken.uilibButtonTertiaryBgColor"
+            }
+          }
+        }
+      }
+    }
+  },
+  "Card": {
+    "Search": {
+      "Radius": {
+        "$type": "string",
+        "$value": "var(--uilib-border-radius-400)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-card-search-radius)",
+            "ANDROID": "R.dimen.uilib_card_search_radius",
+            "iOS": "DimensionToken.uilibCardSearchRadius"
+          }
+        }
+      },
+      "Color": {
+        "Brand": {
+          "$type": "string",
+          "$value": "var(--uilib-color-brand-tui-blue)",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-card-search-color-brand)",
+              "ANDROID": "R.dimen.uilib_card_search_color_brand",
+              "iOS": "DimensionToken.uilibCardSearchColorBrand"
+            }
+          }
+        },
+        "Flagship": {
+          "$type": "string",
+          "$value": "var(--uilib-color-core-brand-strong)",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-card-search-color-flagship)",
+              "ANDROID": "R.dimen.uilib_card_search_color_flagship",
+              "iOS": "DimensionToken.uilibCardSearchColorFlagship"
+            }
+          }
+        }
+      },
+      "Highlights": {
+        "Icon": {
+          "$type": "string",
+          "$value": "chevron-down",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-card-search-highlights-icon)",
+              "ANDROID": "R.dimen.uilib_card_search_highlights_icon",
+              "iOS": "DimensionToken.uilibCardSearchHighlightsIcon"
+            }
+          }
+        }
+      }
+    }
+  },
+  "Focus": {
+    "Default": {
+      "$type": "string",
+      "$value": "0 0 0 2 #fff, 0 0 0 4 #0c4bf3, 0 0 0 6 rgba(12, 75, 243, 0.4)",
+      "$extensions": {
+        "com.figma.codeSyntax": {
+          "WEB": "var(--uilib-focus-default)",
+          "ANDROID": "R.dimen.uilib_focus_default",
+          "iOS": "DimensionToken.uilibFocusDefault"
+        }
+      }
+    },
+    "Gap": {
+      "$type": "string",
+      "$value": "var(--uilib-spacing-050)",
+      "$extensions": {
+        "com.figma.codeSyntax": {
+          "WEB": "var(--uilib-focus-gap)",
+          "ANDROID": "R.dimen.uilib_focus_gap",
+          "iOS": "DimensionToken.uilibFocusGap"
+        }
+      }
+    },
+    "Size": {
+      "$type": "string",
+      "$value": "calc(var(--uilib-spacing-050) * 3)",
+      "$extensions": {
+        "com.figma.codeSyntax": {
+          "WEB": "var(--uilib-focus-size)",
+          "ANDROID": "R.dimen.uilib_focus_size",
+          "iOS": "DimensionToken.uilibFocusSize"
+        }
+      }
+    }
+  },
+  "Form": {
+    "Row": {
+      "Icon": {
+        "$type": "string",
+        "$value": "exclamation-mark-circled-filled",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-form-row-icon)",
+            "ANDROID": "R.dimen.uilib_form_row_icon",
+            "iOS": "DimensionToken.uilibFormRowIcon"
+          }
+        }
+      },
+      "Label": {
+        "Font": {
+          "$type": "string",
+          "$value": "var(--uilib-typography-label-medium)",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-form-row-label-font)",
+              "ANDROID": "R.dimen.uilib_form_row_label_font",
+              "iOS": "DimensionToken.uilibFormRowLabelFont"
+            }
+          }
+        }
+      }
+    }
+  },
+  "Icon": {
+    "Button": {
+      "Radius": {
+        "$type": "string",
+        "$value": "var(--uilib-border-radius-pill)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-icon-button-radius)",
+            "ANDROID": "R.dimen.uilib_icon_button_radius",
+            "iOS": "DimensionToken.uilibIconButtonRadius"
+          }
+        }
+      },
+      "Control": {
+        "Color": {
+          "$type": "string",
+          "$value": "var(--uilib-color-core-interaction)",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-icon-button-control-color)",
+              "ANDROID": "R.color.uilib_icon_button_control_color",
+              "iOS": "ColorToken.uilibIconButtonControlColor"
+            }
+          }
+        },
+        "Bg": {
+          "Color": {
+            "$type": "string",
+            "$value": "var(--uilib-color-core-neutral)",
+            "$extensions": {
+              "com.figma.codeSyntax": {
+                "WEB": "var(--uilib-icon-button-control-bg-color)",
+                "ANDROID": "R.color.uilib_icon_button_control_bg_color",
+                "iOS": "ColorToken.uilibIconButtonControlBgColor"
+              }
+            }
+          }
+        }
+      },
+      "Disabled": {
+        "Color": {
+          "$type": "string",
+          "$value": "var(--uilib-color-other-disabled-strong)",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-icon-button-disabled-color)",
+              "ANDROID": "R.color.uilib_icon_button_disabled_color",
+              "iOS": "ColorToken.uilibIconButtonDisabledColor"
+            }
+          }
+        },
+        "Bg": {
+          "Color": {
+            "$type": "string",
+            "$value": "var(--uilib-color-other-disabled-soft)",
+            "$extensions": {
+              "com.figma.codeSyntax": {
+                "WEB": "var(--uilib-icon-button-disabled-bg-color)",
+                "ANDROID": "R.color.uilib_icon_button_disabled_bg_color",
+                "iOS": "ColorToken.uilibIconButtonDisabledBgColor"
+              }
+            }
+          }
+        }
+      },
+      "Ghost": {
+        "Color": {
+          "$type": "string",
+          "$value": "var(--uilib-color-core-interaction)",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-icon-button-ghost-color)",
+              "ANDROID": "R.color.uilib_icon_button_ghost_color",
+              "iOS": "ColorToken.uilibIconButtonGhostColor"
+            }
+          }
+        },
+        "Bg": {
+          "Color": {
+            "$type": "string",
+            "$value": "transparent",
+            "$extensions": {
+              "com.figma.codeSyntax": {
+                "WEB": "var(--uilib-icon-button-ghost-bg-color)",
+                "ANDROID": "R.color.uilib_icon_button_ghost_bg_color",
+                "iOS": "ColorToken.uilibIconButtonGhostBgColor"
+              }
+            }
+          }
+        }
+      },
+      "Primary": {
+        "Color": {
+          "$type": "string",
+          "$value": "var(--uilib-color-text-inverse)",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-icon-button-primary-color)",
+              "ANDROID": "R.color.uilib_icon_button_primary_color",
+              "iOS": "ColorToken.uilibIconButtonPrimaryColor"
+            }
+          }
+        },
+        "Bg": {
+          "Color": {
+            "$type": "string",
+            "$value": "var(--uilib-color-core-interaction)",
+            "$extensions": {
+              "com.figma.codeSyntax": {
+                "WEB": "var(--uilib-icon-button-primary-bg-color)",
+                "ANDROID": "R.color.uilib_icon_button_primary_bg_color",
+                "iOS": "ColorToken.uilibIconButtonPrimaryBgColor"
+              }
+            }
+          }
+        }
+      },
+      "Promotion": {
+        "Color": {
+          "$type": "string",
+          "$value": "var(--uilib-color-text-inverse)",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-icon-button-promotion-color)",
+              "ANDROID": "R.color.uilib_icon_button_promotion_color",
+              "iOS": "ColorToken.uilibIconButtonPromotionColor"
+            }
+          }
+        },
+        "Bg": {
+          "Color": {
+            "$type": "string",
+            "$value": "var(--uilib-color-promotion)",
+            "$extensions": {
+              "com.figma.codeSyntax": {
+                "WEB": "var(--uilib-icon-button-promotion-bg-color)",
+                "ANDROID": "R.color.uilib_icon_button_promotion_bg_color",
+                "iOS": "ColorToken.uilibIconButtonPromotionBgColor"
+              }
+            }
+          }
+        }
+      },
+      "Search": {
+        "Color": {
+          "$type": "string",
+          "$value": "var(--uilib-color-text-inverse)",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-icon-button-search-color)",
+              "ANDROID": "R.color.uilib_icon_button_search_color",
+              "iOS": "ColorToken.uilibIconButtonSearchColor"
+            }
+          }
+        },
+        "Bg": {
+          "Color": {
+            "$type": "string",
+            "$value": "var(--uilib-color-core-brand-strong)",
+            "$extensions": {
+              "com.figma.codeSyntax": {
+                "WEB": "var(--uilib-icon-button-search-bg-color)",
+                "ANDROID": "R.color.uilib_icon_button_search_bg_color",
+                "iOS": "ColorToken.uilibIconButtonSearchBgColor"
+              }
+            }
+          }
+        }
+      },
+      "Secondary": {
+        "Color": {
+          "$type": "string",
+          "$value": "var(--uilib-color-core-interaction)",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-icon-button-secondary-color)",
+              "ANDROID": "R.color.uilib_icon_button_secondary_color",
+              "iOS": "ColorToken.uilibIconButtonSecondaryColor"
+            }
+          }
+        },
+        "Bg": {
+          "Color": {
+            "$type": "string",
+            "$value": "var(--uilib-color-core-neutral)",
+            "$extensions": {
+              "com.figma.codeSyntax": {
+                "WEB": "var(--uilib-icon-button-secondary-bg-color)",
+                "ANDROID": "R.color.uilib_icon_button_secondary_bg_color",
+                "iOS": "ColorToken.uilibIconButtonSecondaryBgColor"
+              }
+            }
+          }
+        }
+      },
+      "Shortlist": {
+        "Color": {
+          "$type": "string",
+          "$value": "var(--uilib-color-text-promotion)",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-icon-button-shortlist-color)",
+              "ANDROID": "R.color.uilib_icon_button_shortlist_color",
+              "iOS": "ColorToken.uilibIconButtonShortlistColor"
+            }
+          }
+        },
+        "Bg": {
+          "Color": {
+            "$type": "string",
+            "$value": "var(--uilib-color-core-neutral)",
+            "$extensions": {
+              "com.figma.codeSyntax": {
+                "WEB": "var(--uilib-icon-button-shortlist-bg-color)",
+                "ANDROID": "R.color.uilib_icon_button_shortlist_bg_color",
+                "iOS": "ColorToken.uilibIconButtonShortlistBgColor"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Size": {
+      "Default": {
+        "$type": "number",
+        "$value": 20,
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-icon-size-default)",
+            "ANDROID": "R.dimen.uilib_icon_size_default",
+            "iOS": "DimensionToken.uilibIconSizeDefault"
+          }
+        }
+      },
+      "Large": {
+        "$type": "number",
+        "$value": 32,
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-icon-size-large)",
+            "ANDROID": "R.dimen.uilib_icon_size_large",
+            "iOS": "DimensionToken.uilibIconSizeLarge"
+          }
+        }
+      },
+      "Medium": {
+        "$type": "number",
+        "$value": 24,
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-icon-size-medium)",
+            "ANDROID": "R.dimen.uilib_icon_size_medium",
+            "iOS": "DimensionToken.uilibIconSizeMedium"
+          }
+        }
+      },
+      "Small": {
+        "$type": "number",
+        "$value": 20,
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-icon-size-small)",
+            "ANDROID": "R.dimen.uilib_icon_size_small",
+            "iOS": "DimensionToken.uilibIconSizeSmall"
+          }
+        }
+      },
+      "Xlarge": {
+        "$type": "number",
+        "$value": 36,
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-icon-size-xlarge)",
+            "ANDROID": "R.dimen.uilib_icon_size_xlarge",
+            "iOS": "DimensionToken.uilibIconSizeXlarge"
+          }
+        }
+      },
+      "Xsmall": {
+        "$type": "number",
+        "$value": 16,
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-icon-size-xsmall)",
+            "ANDROID": "R.dimen.uilib_icon_size_xsmall",
+            "iOS": "DimensionToken.uilibIconSizeXsmall"
+          }
+        }
+      },
+      "Xxlarge": {
+        "$type": "number",
+        "$value": 40,
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-icon-size-xxlarge)",
+            "ANDROID": "R.dimen.uilib_icon_size_xxlarge",
+            "iOS": "DimensionToken.uilibIconSizeXxlarge"
+          }
+        }
+      },
+      "Xxxlarge": {
+        "$type": "number",
+        "$value": 48,
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-icon-size-xxxlarge)",
+            "ANDROID": "R.dimen.uilib_icon_size_xxxlarge",
+            "iOS": "DimensionToken.uilibIconSizeXxxlarge"
+          }
+        }
+      }
+    }
+  },
+  "Image": {
+    "Fallback": {
+      "$type": "string",
+      "$value": "sunset-adults",
+      "$extensions": {
+        "com.figma.codeSyntax": {
+          "WEB": "var(--uilib-image-fallback)",
+          "ANDROID": "R.dimen.uilib_image_fallback",
+          "iOS": "DimensionToken.uilibImageFallback"
+        }
+      }
+    },
+    "Landscape": {
+      "$type": "string",
+      "$value": "var(--uilib-aspect-ratio-4x3-landscape)",
+      "$extensions": {
+        "com.figma.codeSyntax": {
+          "WEB": "var(--uilib-image-landscape)",
+          "ANDROID": "R.dimen.uilib_image_landscape",
+          "iOS": "DimensionToken.uilibImageLandscape"
+        }
+      }
+    },
+    "Panoramic": {
+      "$type": "string",
+      "$value": "var(--uilib-aspect-ratio-3x1-panoramic)",
+      "$extensions": {
+        "com.figma.codeSyntax": {
+          "WEB": "var(--uilib-image-panoramic)",
+          "ANDROID": "R.dimen.uilib_image_panoramic",
+          "iOS": "DimensionToken.uilibImagePanoramic"
+        }
+      }
+    },
+    "Portrait": {
+      "$type": "string",
+      "$value": "var(--uilib-aspect-ratio-4x3-portrait)",
+      "$extensions": {
+        "com.figma.codeSyntax": {
+          "WEB": "var(--uilib-image-portrait)",
+          "ANDROID": "R.dimen.uilib_image_portrait",
+          "iOS": "DimensionToken.uilibImagePortrait"
+        }
+      }
+    },
+    "Rectangle": {
+      "$type": "string",
+      "$value": "var(--uilib-border-radius-none)",
+      "$extensions": {
+        "com.figma.codeSyntax": {
+          "WEB": "var(--uilib-image-rectangle)",
+          "ANDROID": "R.dimen.uilib_image_rectangle",
+          "iOS": "DimensionToken.uilibImageRectangle"
+        }
+      }
+    },
+    "Rounded": {
+      "$type": "string",
+      "$value": "var(--uilib-border-radius-600)",
+      "$extensions": {
+        "com.figma.codeSyntax": {
+          "WEB": "var(--uilib-image-rounded)",
+          "ANDROID": "R.dimen.uilib_image_rounded",
+          "iOS": "DimensionToken.uilibImageRounded"
+        }
+      }
+    },
+    "Square": {
+      "$type": "string",
+      "$value": "var(--uilib-aspect-ratio-1x1-square)",
+      "$extensions": {
+        "com.figma.codeSyntax": {
+          "WEB": "var(--uilib-image-square)",
+          "ANDROID": "R.dimen.uilib_image_square",
+          "iOS": "DimensionToken.uilibImageSquare"
+        }
+      }
+    },
+    "Wide": {
+      "$type": "string",
+      "$value": "var(--uilib-aspect-ratio-16x9-wide)",
+      "$extensions": {
+        "com.figma.codeSyntax": {
+          "WEB": "var(--uilib-image-wide)",
+          "ANDROID": "R.dimen.uilib_image_wide",
+          "iOS": "DimensionToken.uilibImageWide"
+        }
+      }
+    }
+  },
+  "Info": {
+    "Tag": {
+      "Radius": {
+        "$type": "string",
+        "$value": "var(--uilib-border-radius-100)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-info-tag-radius)",
+            "ANDROID": "R.dimen.uilib_info_tag_radius",
+            "iOS": "DimensionToken.uilibInfoTagRadius"
+          }
+        }
+      },
+      "Info": {
+        "Bg": {
+          "Color": {
+            "$type": "string",
+            "$value": "var(--uilib-color-status-info-surface)",
+            "$extensions": {
+              "com.figma.codeSyntax": {
+                "WEB": "var(--uilib-info-tag-info-bg-color)",
+                "ANDROID": "R.color.uilib_info_tag_info_bg_color",
+                "iOS": "ColorToken.uilibInfoTagInfoBgColor"
+              }
+            }
+          }
+        }
+      },
+      "Local": {
+        "Product": {
+          "Bg": {
+            "Color": {
+              "$type": "string",
+              "$value": "var(--uilib-color-brand-local)",
+              "$extensions": {
+                "com.figma.codeSyntax": {
+                  "WEB": "var(--uilib-info-tag-local-product-bg-color)",
+                  "ANDROID": "R.color.uilib_info_tag_local_product_bg_color",
+                  "iOS": "ColorToken.uilibInfoTagLocalProductBgColor"
+                }
+              }
+            }
+          }
+        }
+      },
+      "Neutral": {
+        "Bg": {
+          "Color": {
+            "$type": "string",
+            "$value": "var(--uilib-color-core-neutral)",
+            "$extensions": {
+              "com.figma.codeSyntax": {
+                "WEB": "var(--uilib-info-tag-neutral-bg-color)",
+                "ANDROID": "R.color.uilib_info_tag_neutral_bg_color",
+                "iOS": "ColorToken.uilibInfoTagNeutralBgColor"
+              }
+            }
+          }
+        }
+      },
+      "Scarcity": {
+        "Bg": {
+          "Color": {
+            "$type": "string",
+            "$value": "var(--uilib-color-status-warning-surface)",
+            "$extensions": {
+              "com.figma.codeSyntax": {
+                "WEB": "var(--uilib-info-tag-scarcity-bg-color)",
+                "ANDROID": "R.color.uilib_info_tag_scarcity_bg_color",
+                "iOS": "ColorToken.uilibInfoTagScarcityBgColor"
+              }
+            }
+          }
+        }
+      },
+      "Text": {
+        "Color": {
+          "$type": "string",
+          "$value": "var(--uilib-color-text-strong)",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-info-tag-text-color)",
+              "ANDROID": "R.color.uilib_info_tag_text_color",
+              "iOS": "ColorToken.uilibInfoTagTextColor"
+            }
+          }
+        }
+      }
+    }
+  },
+  "Input": {
+    "Checkbox": {
+      "Confirm": {
+        "Radius": {
+          "$type": "string",
+          "$value": "var(--uilib-border-radius-100)",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-input-checkbox-confirm-radius)",
+              "ANDROID": "R.dimen.uilib_input_checkbox_confirm_radius",
+              "iOS": "DimensionToken.uilibInputCheckboxConfirmRadius"
+            }
+          }
+        }
+      },
+      "Icon": {
+        "Checked": {
+          "$type": "string",
+          "$value": "checkmark",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-input-checkbox-icon-checked)",
+              "ANDROID": "R.dimen.uilib_input_checkbox_icon_checked",
+              "iOS": "DimensionToken.uilibInputCheckboxIconChecked"
+            }
+          }
+        },
+        "Indeterminate": {
+          "$type": "string",
+          "$value": "minus",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-input-checkbox-icon-indeterminate)",
+              "ANDROID": "R.dimen.uilib_input_checkbox_icon_indeterminate",
+              "iOS": "DimensionToken.uilibInputCheckboxIconIndeterminate"
+            }
+          }
+        }
+      },
+      "Text": {
+        "Color": {
+          "Strong": {
+            "$type": "string",
+            "$value": "var(--uilib-color-text-strong)",
+            "$extensions": {
+              "com.figma.codeSyntax": {
+                "WEB": "var(--uilib-input-checkbox-text-color-strong)",
+                "ANDROID": "R.dimen.uilib_input_checkbox_text_color_strong",
+                "iOS": "DimensionToken.uilibInputCheckboxTextColorStrong"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Chip": {
+      "Radius": {
+        "$type": "string",
+        "$value": "var(--uilib-border-radius-200)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-input-chip-radius)",
+            "ANDROID": "R.dimen.uilib_input_chip_radius",
+            "iOS": "DimensionToken.uilibInputChipRadius"
+          }
+        }
+      },
+      "Active": {
+        "Bg": {
+          "Color": {
+            "$type": "string",
+            "$value": "var(--uilib-color-other-active-state-tint)",
+            "$extensions": {
+              "com.figma.codeSyntax": {
+                "WEB": "var(--uilib-input-chip-active-bg-color)",
+                "ANDROID": "R.color.uilib_input_chip_active_bg_color",
+                "iOS": "ColorToken.uilibInputChipActiveBgColor"
+              }
+            }
+          }
+        },
+        "Border": {
+          "Color": {
+            "$type": "string",
+            "$value": "var(--uilib-color-core-interaction)",
+            "$extensions": {
+              "com.figma.codeSyntax": {
+                "WEB": "var(--uilib-input-chip-active-border-color)",
+                "ANDROID": "R.color.uilib_input_chip_active_border_color",
+                "iOS": "ColorToken.uilibInputChipActiveBorderColor"
+              }
+            }
+          }
+        }
+      },
+      "Box": {
+        "Shadow": {
+          "$type": "string",
+          "$value": "var(--uilib-elevation-100)",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-input-chip-box-shadow)",
+              "ANDROID": "R.dimen.uilib_input_chip_box_shadow",
+              "iOS": "DimensionToken.uilibInputChipBoxShadow"
+            }
+          }
+        }
+      },
+      "Default": {
+        "Bg": {
+          "Color": {
+            "$type": "string",
+            "$value": "var(--uilib-color-core-neutral)",
+            "$extensions": {
+              "com.figma.codeSyntax": {
+                "WEB": "var(--uilib-input-chip-default-bg-color)",
+                "ANDROID": "R.color.uilib_input_chip_default_bg_color",
+                "iOS": "ColorToken.uilibInputChipDefaultBgColor"
+              }
+            }
+          }
+        },
+        "Border": {
+          "Color": {
+            "$type": "string",
+            "$value": "var(--uilib-color-border-card)",
+            "$extensions": {
+              "com.figma.codeSyntax": {
+                "WEB": "var(--uilib-input-chip-default-border-color)",
+                "ANDROID": "R.color.uilib_input_chip_default_border_color",
+                "iOS": "ColorToken.uilibInputChipDefaultBorderColor"
+              }
+            }
+          }
+        },
+        "Text": {
+          "Color": {
+            "$type": "string",
+            "$value": "var(--uilib-color-text-strong)",
+            "$extensions": {
+              "com.figma.codeSyntax": {
+                "WEB": "var(--uilib-input-chip-default-text-color)",
+                "ANDROID": "R.color.uilib_input_chip_default_text_color",
+                "iOS": "ColorToken.uilibInputChipDefaultTextColor"
+              }
+            }
+          }
+        }
+      },
+      "Disabled": {
+        "Bg": {
+          "Color": {
+            "$type": "string",
+            "$value": "var(--uilib-color-core-neutral)",
+            "$extensions": {
+              "com.figma.codeSyntax": {
+                "WEB": "var(--uilib-input-chip-disabled-bg-color)",
+                "ANDROID": "R.color.uilib_input_chip_disabled_bg_color",
+                "iOS": "ColorToken.uilibInputChipDisabledBgColor"
+              }
+            }
+          }
+        },
+        "Text": {
+          "Color": {
+            "$type": "string",
+            "$value": "var(--uilib-color-other-disabled-soft)",
+            "$extensions": {
+              "com.figma.codeSyntax": {
+                "WEB": "var(--uilib-input-chip-disabled-text-color)",
+                "ANDROID": "R.color.uilib_input_chip_disabled_text_color",
+                "iOS": "ColorToken.uilibInputChipDisabledTextColor"
+              }
+            }
+          }
+        }
+      },
+      "Hover": {
+        "Bg": {
+          "Color": {
+            "$type": "string",
+            "$value": "var(--uilib-color-other-secondary-button-hover-state)",
+            "$extensions": {
+              "com.figma.codeSyntax": {
+                "WEB": "var(--uilib-input-chip-hover-bg-color)",
+                "ANDROID": "R.color.uilib_input_chip_hover_bg_color",
+                "iOS": "ColorToken.uilibInputChipHoverBgColor"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Count": {
+      "Font": {
+        "$type": "string",
+        "$value": "var(--uilib-typography-body-medium-strong)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-input-count-font)",
+            "ANDROID": "R.dimen.uilib_input_count_font",
+            "iOS": "DimensionToken.uilibInputCountFont"
+          }
+        }
+      },
+      "Radius": {
+        "$type": "string",
+        "$value": "var(--uilib-border-radius-100)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-input-count-radius)",
+            "ANDROID": "R.dimen.uilib_input_count_radius",
+            "iOS": "DimensionToken.uilibInputCountRadius"
+          }
+        }
+      },
+      "Size": {
+        "$type": "string",
+        "$value": "var(--uilib-spacing-800)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-input-count-size)",
+            "ANDROID": "R.dimen.uilib_input_count_size",
+            "iOS": "DimensionToken.uilibInputCountSize"
+          }
+        }
+      },
+      "Color": {
+        "Bg": {
+          "$type": "string",
+          "$value": "var(--uilib-color-canvas-default)",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-input-count-color-bg)",
+              "ANDROID": "R.dimen.uilib_input_count_color_bg",
+              "iOS": "DimensionToken.uilibInputCountColorBg"
+            }
+          }
+        },
+        "Border": {
+          "$type": "string",
+          "$value": "var(--uilib-color-border-input)",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-input-count-color-border)",
+              "ANDROID": "R.dimen.uilib_input_count_color_border",
+              "iOS": "DimensionToken.uilibInputCountColorBorder"
+            }
+          }
+        },
+        "Selected": {
+          "$type": "string",
+          "$value": "var(--uilib-color-core-interaction)",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-input-count-color-selected)",
+              "ANDROID": "R.dimen.uilib_input_count_color_selected",
+              "iOS": "DimensionToken.uilibInputCountColorSelected"
+            }
+          }
+        },
+        "Text": {
+          "$type": "string",
+          "$value": "var(--uilib-color-text-strong)",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-input-count-color-text)",
+              "ANDROID": "R.dimen.uilib_input_count_color_text",
+              "iOS": "DimensionToken.uilibInputCountColorText"
+            }
+          }
+        }
+      }
+    },
+    "Radio": {
+      "Text": {
+        "Color": {
+          "Strong": {
+            "$type": "string",
+            "$value": "var(--uilib-color-text-strong)",
+            "$extensions": {
+              "com.figma.codeSyntax": {
+                "WEB": "var(--uilib-input-radio-text-color-strong)",
+                "ANDROID": "R.dimen.uilib_input_radio_text_color_strong",
+                "iOS": "DimensionToken.uilibInputRadioTextColorStrong"
+              }
+            }
+          }
+        }
+      }
+    },
+    "Slider": {
+      "Thumb": {
+        "Radius": {
+          "$type": "string",
+          "$value": "var(--uilib-border-radius-circle)",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-input-slider-thumb-radius)",
+              "ANDROID": "R.dimen.uilib_input_slider_thumb_radius",
+              "iOS": "DimensionToken.uilibInputSliderThumbRadius"
+            }
+          }
+        },
+        "Size": {
+          "$type": "number",
+          "$value": 32,
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-input-slider-thumb-size)",
+              "ANDROID": "R.dimen.uilib_input_slider_thumb_size",
+              "iOS": "DimensionToken.uilibInputSliderThumbSize"
+            }
+          }
+        },
+        "Border": {
+          "Color": {
+            "$type": "string",
+            "$value": "var(--uilib-color-core-interaction)",
+            "$extensions": {
+              "com.figma.codeSyntax": {
+                "WEB": "var(--uilib-input-slider-thumb-border-color)",
+                "ANDROID": "R.color.uilib_input_slider_thumb_border_color",
+                "iOS": "ColorToken.uilibInputSliderThumbBorderColor"
+              }
+            }
+          }
+        }
+      },
+      "Track": {
+        "Color": {
+          "$type": "string",
+          "$value": "var(--uilib-color-other-disabled-strong)",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-input-slider-track-color)",
+              "ANDROID": "R.color.uilib_input_slider_track_color",
+              "iOS": "ColorToken.uilibInputSliderTrackColor"
+            }
+          }
+        },
+        "Height": {
+          "$type": "number",
+          "$value": 6,
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-input-slider-track-height)",
+              "ANDROID": "R.dimen.uilib_input_slider_track_height",
+              "iOS": "DimensionToken.uilibInputSliderTrackHeight"
+            }
+          }
+        },
+        "Radius": {
+          "$type": "string",
+          "$value": "var(--uilib-border-radius-pill)",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-input-slider-track-radius)",
+              "ANDROID": "R.dimen.uilib_input_slider_track_radius",
+              "iOS": "DimensionToken.uilibInputSliderTrackRadius"
+            }
+          }
+        }
+      }
+    },
+    "Stepper": {
+      "Icon": {
+        "Decrement": {
+          "$type": "string",
+          "$value": "minus",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-input-stepper-icon-decrement)",
+              "ANDROID": "R.dimen.uilib_input_stepper_icon_decrement",
+              "iOS": "DimensionToken.uilibInputStepperIconDecrement"
+            }
+          }
+        },
+        "Increment": {
+          "$type": "string",
+          "$value": "plus",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-input-stepper-icon-increment)",
+              "ANDROID": "R.dimen.uilib_input_stepper_icon_increment",
+              "iOS": "DimensionToken.uilibInputStepperIconIncrement"
+            }
+          }
+        }
+      }
+    },
+    "Text": {
+      "Icon": {
+        "Calendar": {
+          "$type": "string",
+          "$value": "calendar",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-input-text-icon-calendar)",
+              "ANDROID": "R.dimen.uilib_input_text_icon_calendar",
+              "iOS": "DimensionToken.uilibInputTextIconCalendar"
+            }
+          }
+        },
+        "Clear": {
+          "$type": "string",
+          "$value": "cross",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-input-text-icon-clear)",
+              "ANDROID": "R.dimen.uilib_input_text_icon_clear",
+              "iOS": "DimensionToken.uilibInputTextIconClear"
+            }
+          }
+        },
+        "Hide": {
+          "$type": "string",
+          "$value": "view-hidden",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-input-text-icon-hide)",
+              "ANDROID": "R.dimen.uilib_input_text_icon_hide",
+              "iOS": "DimensionToken.uilibInputTextIconHide"
+            }
+          }
+        },
+        "Show": {
+          "$type": "string",
+          "$value": "view",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-input-text-icon-show)",
+              "ANDROID": "R.dimen.uilib_input_text_icon_show",
+              "iOS": "DimensionToken.uilibInputTextIconShow"
+            }
+          }
+        }
+      }
+    }
+  },
+  "Link": {
+    "Decoration": {
+      "Color": {
+        "$type": "string",
+        "$value": "var(--uilib-color-text-link)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-link-decoration-color)",
+            "ANDROID": "R.color.uilib_link_decoration_color",
+            "iOS": "ColorToken.uilibLinkDecorationColor"
+          }
+        }
+      },
+      "Style": {
+        "$type": "string",
+        "$value": "var(--uilib-stroke-style-solid)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-link-decoration-style)",
+            "ANDROID": "R.dimen.uilib_link_decoration_style",
+            "iOS": "DimensionToken.uilibLinkDecorationStyle"
+          }
+        }
+      },
+      "Thickness": {
+        "$type": "string",
+        "$value": "var(--uilib-stroke-size-025)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-link-decoration-thickness)",
+            "ANDROID": "R.dimen.uilib_link_decoration_thickness",
+            "iOS": "DimensionToken.uilibLinkDecorationThickness"
+          }
+        }
+      }
+    },
+    "Underline": {
+      "Offset": {
+        "$type": "string",
+        "$value": "var(--uilib-spacing-050)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-link-underline-offset)",
+            "ANDROID": "R.dimen.uilib_link_underline_offset",
+            "iOS": "DimensionToken.uilibLinkUnderlineOffset"
+          }
+        }
+      }
+    }
+  },
+  "List": {
+    "Bullet": {
+      "Color": {
+        "$type": "string",
+        "$value": "var(--uilib-color-text-strong)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-list-bullet-color)",
+            "ANDROID": "R.color.uilib_list_bullet_color",
+            "iOS": "ColorToken.uilibListBulletColor"
+          }
+        }
+      },
+      "Icon": {
+        "$type": "string",
+        "$value": "list-item",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-list-bullet-icon)",
+            "ANDROID": "R.dimen.uilib_list_bullet_icon",
+            "iOS": "DimensionToken.uilibListBulletIcon"
+          }
+        }
+      }
+    },
+    "Image": {
+      "Radius": {
+        "$type": "string",
+        "$value": "var(--uilib-border-radius-100)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-list-image-radius)",
+            "ANDROID": "R.dimen.uilib_list_image_radius",
+            "iOS": "DimensionToken.uilibListImageRadius"
+          }
+        }
+      }
+    }
+  },
+  "Loader": {
+    "Image": {
+      "$type": "string",
+      "$value": "loader",
+      "$extensions": {
+        "com.figma.codeSyntax": {
+          "WEB": "var(--uilib-loader-image)",
+          "ANDROID": "R.dimen.uilib_loader_image",
+          "iOS": "DimensionToken.uilibLoaderImage"
+        }
+      }
+    },
+    "Large": {
+      "$type": "number",
+      "$value": 180,
+      "$extensions": {
+        "com.figma.codeSyntax": {
+          "WEB": "var(--uilib-loader-large)",
+          "ANDROID": "R.dimen.uilib_loader_large",
+          "iOS": "DimensionToken.uilibLoaderLarge"
+        }
+      }
+    },
+    "Medium": {
+      "$type": "number",
+      "$value": 120,
+      "$extensions": {
+        "com.figma.codeSyntax": {
+          "WEB": "var(--uilib-loader-medium)",
+          "ANDROID": "R.dimen.uilib_loader_medium",
+          "iOS": "DimensionToken.uilibLoaderMedium"
+        }
+      }
+    },
+    "Small": {
+      "$type": "number",
+      "$value": 60,
+      "$extensions": {
+        "com.figma.codeSyntax": {
+          "WEB": "var(--uilib-loader-small)",
+          "ANDROID": "R.dimen.uilib_loader_small",
+          "iOS": "DimensionToken.uilibLoaderSmall"
+        }
+      }
+    },
+    "Font": {
+      "Large": {
+        "$type": "string",
+        "$value": "var(--uilib-typography-component-heading-xlarge)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-loader-font-large)",
+            "ANDROID": "UiLibTokens.Typography.uilibLoaderFontLarge",
+            "iOS": "TypographyToken.uilibLoaderFontLarge"
+          }
+        }
+      },
+      "Medium": {
+        "$type": "string",
+        "$value": "var(--uilib-typography-component-heading-large)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-loader-font-medium)",
+            "ANDROID": "UiLibTokens.Typography.uilibLoaderFontMedium",
+            "iOS": "TypographyToken.uilibLoaderFontMedium"
+          }
+        }
+      },
+      "Small": {
+        "$type": "string",
+        "$value": "var(--uilib-typography-component-heading-medium)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-loader-font-small)",
+            "ANDROID": "UiLibTokens.Typography.uilibLoaderFontSmall",
+            "iOS": "TypographyToken.uilibLoaderFontSmall"
+          }
+        }
+      }
+    }
+  },
+  "Modal": {
+    "Radius": {
+      "$type": "number",
+      "$value": 16,
+      "$extensions": {
+        "com.figma.codeSyntax": {
+          "WEB": "var(--uilib-modal-radius)",
+          "ANDROID": "R.dimen.uilib_modal_radius",
+          "iOS": "DimensionToken.uilibModalRadius"
+        }
+      }
+    },
+    "Backdrop": {
+      "Color": {
+        "$type": "string",
+        "$value": "var(--uilib-color-other-scrim)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-modal-backdrop-color)",
+            "ANDROID": "R.color.uilib_modal_backdrop_color",
+            "iOS": "ColorToken.uilibModalBackdropColor"
+          }
+        }
+      }
+    },
+    "Icon": {
+      "Close": {
+        "$type": "string",
+        "$value": "cross",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-modal-icon-close)",
+            "ANDROID": "R.dimen.uilib_modal_icon_close",
+            "iOS": "DimensionToken.uilibModalIconClose"
+          }
+        }
+      }
+    }
+  },
+  "Pagination": {
+    "Border": {
+      "Radius": {
+        "$type": "string",
+        "$value": "var(--uilib-icon-button-radius)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-pagination-border-radius)",
+            "ANDROID": "R.dimen.uilib_pagination_border_radius",
+            "iOS": "DimensionToken.uilibPaginationBorderRadius"
+          }
+        }
+      }
+    },
+    "Hover": {
+      "Bg": {
+        "$type": "string",
+        "$value": "var(--uilib-icon-button-ghost-hover-bg-color)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-pagination-hover-bg)",
+            "ANDROID": "R.dimen.uilib_pagination_hover_bg",
+            "iOS": "DimensionToken.uilibPaginationHoverBg"
+          }
+        }
+      }
+    },
+    "Icon": {
+      "Color": {
+        "$type": "string",
+        "$value": "var(--uilib-icon-button-ghost-color)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-pagination-icon-color)",
+            "ANDROID": "R.color.uilib_pagination_icon_color",
+            "iOS": "ColorToken.uilibPaginationIconColor"
+          }
+        }
+      },
+      "Next": {
+        "$type": "string",
+        "$value": "chevron-right",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-pagination-icon-next)",
+            "ANDROID": "R.dimen.uilib_pagination_icon_next",
+            "iOS": "DimensionToken.uilibPaginationIconNext"
+          }
+        }
+      },
+      "Prev": {
+        "$type": "string",
+        "$value": "chevron-left",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-pagination-icon-prev)",
+            "ANDROID": "R.dimen.uilib_pagination_icon_prev",
+            "iOS": "DimensionToken.uilibPaginationIconPrev"
+          }
+        }
+      }
+    },
+    "Selected": {
+      "Bg": {
+        "$type": "string",
+        "$value": "var(--uilib-icon-button-ghost-color)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-pagination-selected-bg)",
+            "ANDROID": "R.dimen.uilib_pagination_selected_bg",
+            "iOS": "DimensionToken.uilibPaginationSelectedBg"
+          }
+        }
+      }
+    },
+    "Text": {
+      "Color": {
+        "$type": "string",
+        "$value": "var(--uilib-color-text-body)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-pagination-text-color)",
+            "ANDROID": "R.color.uilib_pagination_text_color",
+            "iOS": "ColorToken.uilibPaginationTextColor"
+          }
+        }
+      }
+    }
+  },
+  "Price": {
+    "Color": {
+      "$type": "string",
+      "$value": "var(--uilib-color-text-strong)",
+      "$extensions": {
+        "com.figma.codeSyntax": {
+          "WEB": "var(--uilib-price-color)",
+          "ANDROID": "R.color.uilib_price_color",
+          "iOS": "ColorToken.uilibPriceColor"
+        }
+      }
+    },
+    "Discount": {
+      "Color": {
+        "$type": "string",
+        "$value": "var(--uilib-color-promotion)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-price-discount-color)",
+            "ANDROID": "R.color.uilib_price_discount_color",
+            "iOS": "ColorToken.uilibPriceDiscountColor"
+          }
+        }
+      }
+    },
+    "Font": {
+      "Primary": {
+        "$type": "string",
+        "$value": "var(--uilib-typography-component-heading-medium)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-price-font-primary)",
+            "ANDROID": "UiLibTokens.Typography.uilibPriceFontPrimary",
+            "iOS": "TypographyToken.uilibPriceFontPrimary"
+          }
+        }
+      },
+      "Secondary": {
+        "$type": "string",
+        "$value": "var(--uilib-typography-body-large)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-price-font-secondary)",
+            "ANDROID": "UiLibTokens.Typography.uilibPriceFontSecondary",
+            "iOS": "TypographyToken.uilibPriceFontSecondary"
+          }
+        }
+      },
+      "Main": {
+        "Large": {
+          "$type": "string",
+          "$value": "var(--uilib-typography-component-heading-xxlarge-strong)",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-price-font-main-large)",
+              "ANDROID": "UiLibTokens.Typography.uilibPriceFontMainLarge",
+              "iOS": "TypographyToken.uilibPriceFontMainLarge"
+            }
+          }
+        },
+        "Medium": {
+          "$type": "string",
+          "$value": "var(--uilib-typography-component-heading-xlarge-strong)",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-price-font-main-medium)",
+              "ANDROID": "UiLibTokens.Typography.uilibPriceFontMainMedium",
+              "iOS": "TypographyToken.uilibPriceFontMainMedium"
+            }
+          }
+        }
+      },
+      "Sub": {
+        "Large": {
+          "$type": "string",
+          "$value": "var(--uilib-typography-component-heading-medium-strong)",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-price-font-sub-large)",
+              "ANDROID": "UiLibTokens.Typography.uilibPriceFontSubLarge",
+              "iOS": "TypographyToken.uilibPriceFontSubLarge"
+            }
+          }
+        }
+      }
+    }
+  },
+  "Promo": {
+    "Tag": {
+      "Color": {
+        "$type": "string",
+        "$value": "var(--uilib-color-text-strong)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-promo-tag-color)",
+            "ANDROID": "R.color.uilib_promo_tag_color",
+            "iOS": "ColorToken.uilibPromoTagColor"
+          }
+        }
+      },
+      "Font": {
+        "$type": "string",
+        "$value": "var(--uilib-typography-label-small)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-promo-tag-font)",
+            "ANDROID": "R.dimen.uilib_promo_tag_font",
+            "iOS": "DimensionToken.uilibPromoTagFont"
+          }
+        }
+      },
+      "Radius": {
+        "$type": "string",
+        "$value": "var(--uilib-border-radius-400)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-promo-tag-radius)",
+            "ANDROID": "R.dimen.uilib_promo_tag_radius",
+            "iOS": "DimensionToken.uilibPromoTagRadius"
+          }
+        }
+      },
+      "Bg": {
+        "Color": {
+          "$type": "string",
+          "$value": "var(--uilib-color-core-neutral)",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-promo-tag-bg-color)",
+              "ANDROID": "R.color.uilib_promo_tag_bg_color",
+              "iOS": "ColorToken.uilibPromoTagBgColor"
+            }
+          }
+        }
+      }
+    }
+  },
+  "Ratings": {
+    "Numerical": {
+      "Color": {
+        "$type": "string",
+        "$value": "var(--uilib-color-text-body)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-ratings-numerical-color)",
+            "ANDROID": "R.color.uilib_ratings_numerical_color",
+            "iOS": "ColorToken.uilibRatingsNumericalColor"
+          }
+        }
+      },
+      "Font": {
+        "$type": "string",
+        "$value": "var(--uilib-typography-body-medium)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-ratings-numerical-font)",
+            "ANDROID": "R.dimen.uilib_ratings_numerical_font",
+            "iOS": "DimensionToken.uilibRatingsNumericalFont"
+          }
+        }
+      },
+      "Alt": {
+        "Bg": {
+          "$type": "string",
+          "$value": "var(--uilib-color-core-brand-strong)",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-ratings-numerical-alt-bg)",
+              "ANDROID": "R.dimen.uilib_ratings_numerical_alt_bg",
+              "iOS": "DimensionToken.uilibRatingsNumericalAltBg"
+            }
+          }
+        },
+        "Color": {
+          "$type": "string",
+          "$value": "var(--uilib-color-text-inverse)",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-ratings-numerical-alt-color)",
+              "ANDROID": "R.color.uilib_ratings_numerical_alt_color",
+              "iOS": "ColorToken.uilibRatingsNumericalAltColor"
+            }
+          }
+        },
+        "Icon": {
+          "$type": "string",
+          "$value": "star-filled",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-ratings-numerical-alt-icon)",
+              "ANDROID": "R.dimen.uilib_ratings_numerical_alt_icon",
+              "iOS": "DimensionToken.uilibRatingsNumericalAltIcon"
+            }
+          }
+        },
+        "Radius": {
+          "$type": "string",
+          "$value": "var(--uilib-border-radius-100)",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-ratings-numerical-alt-radius)",
+              "ANDROID": "R.dimen.uilib_ratings_numerical_alt_radius",
+              "iOS": "DimensionToken.uilibRatingsNumericalAltRadius"
+            }
+          }
+        }
+      },
+      "Brand": {
+        "Bg": {
+          "$type": "string",
+          "$value": "var(--uilib-color-core-brand)",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-ratings-numerical-brand-bg)",
+              "ANDROID": "R.dimen.uilib_ratings_numerical_brand_bg",
+              "iOS": "DimensionToken.uilibRatingsNumericalBrandBg"
+            }
+          }
+        },
+        "Color": {
+          "$type": "string",
+          "$value": "var(--uilib-color-text-strong)",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-ratings-numerical-brand-color)",
+              "ANDROID": "R.color.uilib_ratings_numerical_brand_color",
+              "iOS": "ColorToken.uilibRatingsNumericalBrandColor"
+            }
+          }
+        },
+        "Logo": {
+          "$type": "string",
+          "$value": "tui-smile",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-ratings-numerical-brand-logo)",
+              "ANDROID": "R.dimen.uilib_ratings_numerical_brand_logo",
+              "iOS": "DimensionToken.uilibRatingsNumericalBrandLogo"
+            }
+          }
+        },
+        "Radius": {
+          "$type": "string",
+          "$value": "var(--uilib-border-radius-pill)",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-ratings-numerical-brand-radius)",
+              "ANDROID": "R.dimen.uilib_ratings_numerical_brand_radius",
+              "iOS": "DimensionToken.uilibRatingsNumericalBrandRadius"
+            }
+          }
+        }
+      }
+    },
+    "Percentage": {
+      "Leading": {
+        "Icon": {
+          "$type": "string",
+          "$value": "thumbs-up",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-ratings-percentage-leading-icon)",
+              "ANDROID": "R.dimen.uilib_ratings_percentage_leading_icon",
+              "iOS": "DimensionToken.uilibRatingsPercentageLeadingIcon"
+            }
+          }
+        }
+      }
+    },
+    "Range": {
+      "Bar": {
+        "Bar": {
+          "Background": {
+            "$type": "string",
+            "$value": "var(--uilib-color-core-surface)",
+            "$extensions": {
+              "com.figma.codeSyntax": {
+                "WEB": "var(--uilib-ratings-range-bar-bar-background)",
+                "ANDROID": "R.dimen.uilib_ratings_range_bar_bar_background",
+                "iOS": "DimensionToken.uilibRatingsRangeBarBarBackground"
+              }
+            }
+          },
+          "Color": {
+            "$type": "string",
+            "$value": "var(--uilib-color-core-brand)",
+            "$extensions": {
+              "com.figma.codeSyntax": {
+                "WEB": "var(--uilib-ratings-range-bar-bar-color)",
+                "ANDROID": "R.color.uilib_ratings_range_bar_bar_color",
+                "iOS": "ColorToken.uilibRatingsRangeBarBarColor"
+              }
+            }
+          },
+          "Width": {
+            "$type": "number",
+            "$value": 184,
+            "$extensions": {
+              "com.figma.codeSyntax": {
+                "WEB": "var(--uilib-ratings-range-bar-bar-width)",
+                "ANDROID": "R.dimen.uilib_ratings_range_bar_bar_width",
+                "iOS": "DimensionToken.uilibRatingsRangeBarBarWidth"
+              }
+            }
+          }
+        },
+        "Icon": {
+          "Color": {
+            "$type": "string",
+            "$value": "var(--uilib-color-status-info-icon)",
+            "$extensions": {
+              "com.figma.codeSyntax": {
+                "WEB": "var(--uilib-ratings-range-bar-icon-color)",
+                "ANDROID": "R.color.uilib_ratings_range_bar_icon_color",
+                "iOS": "ColorToken.uilibRatingsRangeBarIconColor"
+              }
+            }
+          }
+        },
+        "Tripadvisor": {
+          "Bar": {
+            "Background": {
+              "$type": "string",
+              "$value": "var(--uilib-color-other-disabled-soft)",
+              "$extensions": {
+                "com.figma.codeSyntax": {
+                  "WEB": "var(--uilib-ratings-range-bar-tripadvisor-bar-background)",
+                  "ANDROID": "R.dimen.uilib_ratings_range_bar_tripadvisor_bar_background",
+                  "iOS": "DimensionToken.uilibRatingsRangeBarTripadvisorBarBackground"
+                }
+              }
+            },
+            "Color": {
+              "$type": "string",
+              "$value": "var(--uilib-color-brand-trip-advisor)",
+              "$extensions": {
+                "com.figma.codeSyntax": {
+                  "WEB": "var(--uilib-ratings-range-bar-tripadvisor-bar-color)",
+                  "ANDROID": "R.color.uilib_ratings_range_bar_tripadvisor_bar_color",
+                  "iOS": "ColorToken.uilibRatingsRangeBarTripadvisorBarColor"
+                }
+              }
+            },
+            "Width": {
+              "$type": "number",
+              "$value": 105,
+              "$extensions": {
+                "com.figma.codeSyntax": {
+                  "WEB": "var(--uilib-ratings-range-bar-tripadvisor-bar-width)",
+                  "ANDROID": "R.dimen.uilib_ratings_range_bar_tripadvisor_bar_width",
+                  "iOS": "DimensionToken.uilibRatingsRangeBarTripadvisorBarWidth"
+                }
+              }
+            }
+          }
+        }
+      },
+      "Icons": {
+        "Star": {
+          "Rating": {
+            "Icon": {
+              "$type": "string",
+              "$value": "tui-star-unchecked",
+              "$extensions": {
+                "com.figma.codeSyntax": {
+                  "WEB": "var(--uilib-ratings-range-icons-star-rating-icon)",
+                  "ANDROID": "R.dimen.uilib_ratings_range_icons_star_rating_icon",
+                  "iOS": "DimensionToken.uilibRatingsRangeIconsStarRatingIcon"
+                }
+              }
+            }
+          }
+        },
+        "Sun": {
+          "Rating": {
+            "Icon": {
+              "$type": "string",
+              "$value": "tui-sun-unchecked",
+              "$extensions": {
+                "com.figma.codeSyntax": {
+                  "WEB": "var(--uilib-ratings-range-icons-sun-rating-icon)",
+                  "ANDROID": "R.dimen.uilib_ratings_range_icons_sun_rating_icon",
+                  "iOS": "DimensionToken.uilibRatingsRangeIconsSunRatingIcon"
+                }
+              }
+            }
+          }
+        },
+        "Tripadvisor": {
+          "Logo": {
+            "$type": "string",
+            "$value": "tripadvisor-logo-small",
+            "$extensions": {
+              "com.figma.codeSyntax": {
+                "WEB": "var(--uilib-ratings-range-icons-tripadvisor-logo)",
+                "ANDROID": "R.dimen.uilib_ratings_range_icons_tripadvisor_logo",
+                "iOS": "DimensionToken.uilibRatingsRangeIconsTripadvisorLogo"
+              }
+            }
+          },
+          "Rating": {
+            "Icon": {
+              "$type": "string",
+              "$value": "tripadvisor-unchecked",
+              "$extensions": {
+                "com.figma.codeSyntax": {
+                  "WEB": "var(--uilib-ratings-range-icons-tripadvisor-rating-icon)",
+                  "ANDROID": "R.dimen.uilib_ratings_range_icons_tripadvisor_rating_icon",
+                  "iOS": "DimensionToken.uilibRatingsRangeIconsTripadvisorRatingIcon"
+                }
+              }
+            }
+          }
+        },
+        "Tui": {
+          "T": {
+            "Rating": {
+              "Icon": {
+                "$type": "string",
+                "$value": "tui-t",
+                "$extensions": {
+                  "com.figma.codeSyntax": {
+                    "WEB": "var(--uilib-ratings-range-icons-tui-t-rating-icon)",
+                    "ANDROID": "R.dimen.uilib_ratings_range_icons_tui_t_rating_icon",
+                    "iOS": "DimensionToken.uilibRatingsRangeIconsTuiTRatingIcon"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "Scroller": {
+    "Bar": {
+      "Size": {
+        "$type": "string",
+        "$value": "var(--uilib-spacing-400)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-scroller-bar-size)",
+            "ANDROID": "R.dimen.uilib_scroller_bar_size",
+            "iOS": "DimensionToken.uilibScrollerBarSize"
+          }
+        }
+      }
+    },
+    "Fade": {
+      "Size": {
+        "$type": "string",
+        "$value": "var(--uilib-spacing-400)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-scroller-fade-size)",
+            "ANDROID": "R.dimen.uilib_scroller_fade_size",
+            "iOS": "DimensionToken.uilibScrollerFadeSize"
+          }
+        }
+      }
+    },
+    "Focus": {
+      "Radius": {
+        "$type": "string",
+        "$value": "var(--uilib-border-radius-100)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-scroller-focus-radius)",
+            "ANDROID": "R.dimen.uilib_scroller_focus_radius",
+            "iOS": "DimensionToken.uilibScrollerFocusRadius"
+          }
+        }
+      }
+    },
+    "Thumb": {
+      "Color": {
+        "$type": "string",
+        "$value": "var(--uilib-color-other-scroll-handle)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-scroller-thumb-color)",
+            "ANDROID": "R.color.uilib_scroller_thumb_color",
+            "iOS": "ColorToken.uilibScrollerThumbColor"
+          }
+        }
+      },
+      "Radius": {
+        "$type": "string",
+        "$value": "var(--uilib-border-radius-pill)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-scroller-thumb-radius)",
+            "ANDROID": "R.dimen.uilib_scroller_thumb_radius",
+            "iOS": "DimensionToken.uilibScrollerThumbRadius"
+          }
+        }
+      },
+      "Size": {
+        "$type": "string",
+        "$value": "var(--uilib-spacing-400)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-scroller-thumb-size)",
+            "ANDROID": "R.dimen.uilib_scroller_thumb_size",
+            "iOS": "DimensionToken.uilibScrollerThumbSize"
+          }
+        }
+      }
+    }
+  },
+  "Show": {
+    "More": {
+      "Less": {
+        "Icon": {
+          "$type": "string",
+          "$value": "chevron-down",
+          "$extensions": {
+            "com.figma.codeSyntax": {
+              "WEB": "var(--uilib-show-more-less-icon)",
+              "ANDROID": "R.dimen.uilib_show_more_less_icon",
+              "iOS": "DimensionToken.uilibShowMoreLessIcon"
+            }
+          }
+        }
+      }
+    }
+  },
+  "Tooltip": {
+    "Radius": {
+      "$type": "string",
+      "$value": "var(--uilib-border-radius-100)",
+      "$extensions": {
+        "com.figma.codeSyntax": {
+          "WEB": "var(--uilib-tooltip-radius)",
+          "ANDROID": "R.dimen.uilib_tooltip_radius",
+          "iOS": "DimensionToken.uilibTooltipRadius"
+        }
+      }
+    },
+    "Color": {
+      "Bg": {
+        "$type": "string",
+        "$value": "var(--uilib-color-text-body)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-tooltip-color-bg)",
+            "ANDROID": "R.dimen.uilib_tooltip_color_bg",
+            "iOS": "DimensionToken.uilibTooltipColorBg"
+          }
+        }
+      },
+      "Text": {
+        "$type": "string",
+        "$value": "var(--uilib-color-text-inverse)",
+        "$extensions": {
+          "com.figma.codeSyntax": {
+            "WEB": "var(--uilib-tooltip-color-text)",
+            "ANDROID": "R.dimen.uilib_tooltip_color_text",
+            "iOS": "DimensionToken.uilibTooltipColorText"
+          }
+        }
+      }
+    }
+  }
+}

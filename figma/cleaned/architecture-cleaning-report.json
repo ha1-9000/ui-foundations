@@ -1,0 +1,62 @@
+{
+  "createdAt": "2026-03-02T17:35:54.375Z",
+  "input": {
+    "primitives": "/Users/Thomas.Bielich@tui.com/GitHub/ui-foundations/figma/exports/Primitives.tokens.json",
+    "semantics": "/Users/Thomas.Bielich@tui.com/GitHub/ui-foundations/figma/exports/Semantics.tokens.json",
+    "components": "/Users/Thomas.Bielich@tui.com/GitHub/ui-foundations/figma/exports/Components.tokens.json"
+  },
+  "output": {
+    "primitives": "/Users/Thomas.Bielich@tui.com/GitHub/ui-foundations/figma/cleaned/Primitives.cleaned.tokens.json",
+    "semantics": "/Users/Thomas.Bielich@tui.com/GitHub/ui-foundations/figma/cleaned/Semantics.cleaned.tokens.json",
+    "components": "/Users/Thomas.Bielich@tui.com/GitHub/ui-foundations/figma/cleaned/Components.cleaned.tokens.json"
+  },
+  "stats": {
+    "primitives": {
+      "kept": 243,
+      "duplicatesSkipped": 0
+    },
+    "semantics": {
+      "kept": 94,
+      "duplicatesSkipped": 0
+    },
+    "components": {
+      "kept": 185,
+      "duplicatesSkipped": 0
+    },
+    "movedFromComponents": {
+      "toPrimitives": 82,
+      "toSemantics": 20,
+      "keptInComponents": 185
+    },
+    "sourceTokens": {
+      "primitives": 161,
+      "semantics": 74,
+      "components": 287
+    },
+    "aliasing": {
+      "semanticSpacingAliases": 10
+    }
+  },
+  "routingRules": {
+    "movedFromComponentsToPrimitives": [
+      "Aspect",
+      "Border",
+      "Breakpoints",
+      "Color",
+      "Elevation",
+      "Font",
+      "Grid",
+      "Layer",
+      "Layout",
+      "Line",
+      "Media",
+      "Motion",
+      "Spacing",
+      "Stroke",
+      "Theme"
+    ],
+    "movedFromComponentsToSemantics": [
+      "Typography"
+    ]
+  }
+}

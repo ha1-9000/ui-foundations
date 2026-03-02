@@ -3,3 +3,5 @@
 node_modules
 dist
 _site
+figma/import-ready/*.cleaned.tokens.json
+figma/import-ready/cleaning-report.json
