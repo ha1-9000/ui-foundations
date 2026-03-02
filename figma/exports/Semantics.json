@@ -2071,6 +2071,100 @@
       }
     }
   },
+  "Typography": {
+    "Display": {
+      "Font Family": {
+        "$type": "string",
+        "$value": "TUI Headline",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:8021:385",
+          "com.figma.scopes": [
+            "ALL_SCOPES"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--typography-display-font-family)"
+          },
+          "com.figma.type": "string",
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:e4443be32568a5c2c7e4ba2ac9d1970d623d4fb8/-1:-1",
+            "targetVariableName": "Typography/Font family/tuiheadline",
+            "targetVariableSetId": "VariableCollectionId:e111f122f70a9ec3c890a395ee904fe1caf63eb2/-1:-1",
+            "targetVariableSetName": "Primitives"
+          },
+          "com.figma.isOverride": true
+        }
+      }
+    },
+    "Heading": {
+      "Font Family": {
+        "$type": "string",
+        "$value": "Ambit",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:8021:384",
+          "com.figma.scopes": [
+            "ALL_SCOPES"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--typography-heading-font-family)"
+          },
+          "com.figma.type": "string",
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:17c21775fa2bcb2c689b2bbc21178abe7a0f420d/-1:-1",
+            "targetVariableName": "Typography/Font family/ambit",
+            "targetVariableSetId": "VariableCollectionId:e111f122f70a9ec3c890a395ee904fe1caf63eb2/-1:-1",
+            "targetVariableSetName": "Primitives"
+          },
+          "com.figma.isOverride": true
+        }
+      }
+    },
+    "Body": {
+      "Font Family": {
+        "$type": "string",
+        "$value": "TUIType Light LATN",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:8021:382",
+          "com.figma.scopes": [
+            "ALL_SCOPES"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--typography-body-font-family)"
+          },
+          "com.figma.type": "string",
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:247cc3df108062307fcb01c84ba99e5c7684b428/-1:-1",
+            "targetVariableName": "Typography/Font family/tuitypelight",
+            "targetVariableSetId": "VariableCollectionId:e111f122f70a9ec3c890a395ee904fe1caf63eb2/-1:-1",
+            "targetVariableSetName": "Primitives"
+          },
+          "com.figma.isOverride": true
+        }
+      }
+    },
+    "Label": {
+      "Font Family": {
+        "$type": "string",
+        "$value": "Ambit",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:8021:383",
+          "com.figma.scopes": [
+            "ALL_SCOPES"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--typography-label-font-family)"
+          },
+          "com.figma.type": "string",
+          "com.figma.aliasData": {
+            "targetVariableId": "VariableID:17c21775fa2bcb2c689b2bbc21178abe7a0f420d/-1:-1",
+            "targetVariableName": "Typography/Font family/ambit",
+            "targetVariableSetId": "VariableCollectionId:e111f122f70a9ec3c890a395ee904fe1caf63eb2/-1:-1",
+            "targetVariableSetName": "Primitives"
+          },
+          "com.figma.isOverride": true
+        }
+      }
+    }
+  },
   "$extensions": {
     "com.figma.modeName": "TUI"
   }

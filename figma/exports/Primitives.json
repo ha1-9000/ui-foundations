@@ -1839,7 +1839,22 @@
   },
   "Typography": {
     "Font family": {
-      "Heading": {
+      "tuiheadline": {
+        "$type": "string",
+        "$value": "TUI Headline",
+        "$extensions": {
+          "com.figma.variableId": "VariableID:8002:354",
+          "com.figma.scopes": [
+            "ALL_SCOPES"
+          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--font-family-tuiheadline)"
+          },
+          "com.figma.type": "string",
+          "com.figma.isOverride": true
+        }
+      },
+      "ambit": {
         "$type": "string",
         "$value": "Ambit",
         "$extensions": {
@@ -1847,11 +1862,14 @@
           "com.figma.scopes": [
             "ALL_SCOPES"
           ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--font-family-ambit)"
+          },
           "com.figma.type": "string",
           "com.figma.isOverride": true
         }
       },
-      "Paragraph": {
+      "tuitypelight": {
         "$type": "string",
         "$value": "TUIType Light LATN",
         "$extensions": {
@@ -1859,18 +1877,9 @@
           "com.figma.scopes": [
             "ALL_SCOPES"
           ],
-          "com.figma.type": "string",
-          "com.figma.isOverride": true
-        }
-      },
-      "Label": {
-        "$type": "string",
-        "$value": "Ambit",
-        "$extensions": {
-          "com.figma.variableId": "VariableID:1128:2255",
-          "com.figma.scopes": [
-            "ALL_SCOPES"
-          ],
+          "com.figma.codeSyntax": {
+            "WEB": "var(--font-family-tuitypelight)"
+          },
           "com.figma.type": "string",
           "com.figma.isOverride": true
         }
@@ -2724,6 +2733,6 @@
     }
   },
   "$extensions": {
-    "com.figma.modeName": "Value - TUI Light"
+    "com.figma.modeName": "TUI"
   }
 }

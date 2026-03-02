@@ -26,6 +26,12 @@ npm run tokens:validate
 - JSON: `dist/tokens/json/`
 - CSS: `dist/tokens/css/`
 - YAML: `dist/tokens/tokens.yaml`
+- Mapping report: `mapping-report.md`
+
+## Mapping report
+
+The token mapping report is stored in this project at:
+- `mapping-report.md`
 
 ## Input requirements
 
