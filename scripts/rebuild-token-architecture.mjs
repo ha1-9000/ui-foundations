@@ -60,10 +60,110 @@ function cloneTokenNode(node) {
     node.$extensions["com.figma.codeSyntax"] &&
     typeof node.$extensions["com.figma.codeSyntax"] === "object"
   ) {
+    const normalizedCodeSyntax = normalizeCodeSyntax(node.$type, node.$extensions["com.figma.codeSyntax"]);
     out.$extensions = {
-      "com.figma.codeSyntax": node.$extensions["com.figma.codeSyntax"],
+      "com.figma.codeSyntax": normalizedCodeSyntax,
     };
   }
+  return out;
+}
+
+function arraysEqual(a, b) {
+  if (a.length !== b.length) return false;
+  for (let i = 0; i < a.length; i += 1) {
+    if (a[i] !== b[i]) return false;
+  }
+  return true;
+}
+
+function dedupeLeadingRepeatedChunk(parts) {
+  if (!Array.isArray(parts) || parts.length < 2) return parts;
+  const maxK = Math.floor(parts.length / 2);
+  for (let k = maxK; k >= 1; k -= 1) {
+    const first = parts.slice(0, k);
+    const second = parts.slice(k, 2 * k);
+    if (arraysEqual(first, second)) {
+      return [...first, ...parts.slice(2 * k)];
+    }
+  }
+  return parts;
+}
+
+function normalizeColorVarName(name) {
+  if (typeof name !== "string") return name;
+  const lower = name.toLowerCase();
+  const webPrefix = "--uilib-color-";
+  const androidPrefix = "uilib_color_";
+
+  if (lower.startsWith(webPrefix)) {
+    const suffix = name.slice(webPrefix.length);
+    const parts = suffix.split("-").filter(Boolean);
+    const deduped = dedupeLeadingRepeatedChunk(parts);
+    return `${webPrefix}${deduped.join("-")}`;
+  }
+
+  if (lower.startsWith(androidPrefix)) {
+    const suffix = name.slice(androidPrefix.length);
+    const parts = suffix.split("_").filter(Boolean);
+    const deduped = dedupeLeadingRepeatedChunk(parts);
+    return `${androidPrefix}${deduped.join("_")}`;
+  }
+
+  return name;
+}
+
+function splitCamelWords(input) {
+  if (typeof input !== "string" || !input) return [];
+  const matches = input.match(/[A-Z]?[a-z]+|[A-Z]+(?![a-z])|\d+/g);
+  return matches || [input];
+}
+
+function toCamel(words) {
+  if (!words.length) return "";
+  const normalized = words.map((w) => String(w));
+  const first = normalized[0].charAt(0).toLowerCase() + normalized[0].slice(1);
+  const rest = normalized.slice(1).map((w) => {
+    if (/^\d+$/.test(w)) return w;
+    return w.charAt(0).toUpperCase() + w.slice(1);
+  });
+  return [first, ...rest].join("");
+}
+
+function normalizeColorIosRef(ref) {
+  if (typeof ref !== "string") return ref;
+  const prefix = "ColorToken.";
+  if (!ref.startsWith(prefix)) return ref;
+  const token = ref.slice(prefix.length);
+  const words = splitCamelWords(token);
+  if (words.length < 3) return ref;
+  const [first, ...rest] = words;
+  const dedupedRest = dedupeLeadingRepeatedChunk(rest);
+  return `${prefix}${toCamel([first, ...dedupedRest])}`;
+}
+
+function normalizeCodeSyntax(tokenType, codeSyntax) {
+  if (!codeSyntax || typeof codeSyntax !== "object") return codeSyntax;
+  const out = { ...codeSyntax };
+  if (String(tokenType).toLowerCase() !== "color") return out;
+
+  if (typeof out.WEB === "string") {
+    const m = out.WEB.match(/^var\(\s*(--[a-zA-Z0-9_-]+)\s*\)$/);
+    if (m) {
+      out.WEB = `var(${normalizeColorVarName(m[1])})`;
+    }
+  }
+
+  if (typeof out.ANDROID === "string") {
+    const m = out.ANDROID.match(/^R\.color\.(uilib_color_[a-zA-Z0-9_]+)$/);
+    if (m) {
+      out.ANDROID = `R.color.${normalizeColorVarName(m[1])}`;
+    }
+  }
+
+  if (typeof out.iOS === "string") {
+    out.iOS = normalizeColorIosRef(out.iOS);
+  }
+
   return out;
 }
 

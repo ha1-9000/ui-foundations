@@ -15,9 +15,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-blue-blue-100)",
-            "ANDROID": "R.color.uilib_color_blue_blue_100",
-            "iOS": "ColorToken.colorBlueBlue100"
+            "WEB": "var(--uilib-color-blue-100)",
+            "ANDROID": "R.color.uilib_color_blue_100",
+            "iOS": "ColorToken.colorBlue100"
           }
         }
       },
@@ -35,9 +35,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-blue-blue-90)",
-            "ANDROID": "R.color.uilib_color_blue_blue_90",
-            "iOS": "ColorToken.colorBlueBlue90"
+            "WEB": "var(--uilib-color-blue-90)",
+            "ANDROID": "R.color.uilib_color_blue_90",
+            "iOS": "ColorToken.colorBlue90"
           }
         }
       },
@@ -55,9 +55,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-blue-blue-80)",
-            "ANDROID": "R.color.uilib_color_blue_blue_80",
-            "iOS": "ColorToken.colorBlueBlue80"
+            "WEB": "var(--uilib-color-blue-80)",
+            "ANDROID": "R.color.uilib_color_blue_80",
+            "iOS": "ColorToken.colorBlue80"
           }
         }
       },
@@ -75,9 +75,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-blue-blue-70)",
-            "ANDROID": "R.color.uilib_color_blue_blue_70",
-            "iOS": "ColorToken.colorBlueBlue70"
+            "WEB": "var(--uilib-color-blue-70)",
+            "ANDROID": "R.color.uilib_color_blue_70",
+            "iOS": "ColorToken.colorBlue70"
           }
         }
       },
@@ -95,9 +95,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-blue-blue-60)",
-            "ANDROID": "R.color.uilib_color_blue_blue_60",
-            "iOS": "ColorToken.colorBlueBlue60"
+            "WEB": "var(--uilib-color-blue-60)",
+            "ANDROID": "R.color.uilib_color_blue_60",
+            "iOS": "ColorToken.colorBlue60"
           }
         }
       },
@@ -115,9 +115,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-blue-blue-50)",
-            "ANDROID": "R.color.uilib_color_blue_blue_50",
-            "iOS": "ColorToken.colorBlueBlue50"
+            "WEB": "var(--uilib-color-blue-50)",
+            "ANDROID": "R.color.uilib_color_blue_50",
+            "iOS": "ColorToken.colorBlue50"
           }
         }
       },
@@ -135,9 +135,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-blue-blue-40)",
-            "ANDROID": "R.color.uilib_color_blue_blue_40",
-            "iOS": "ColorToken.colorBlueBlue40"
+            "WEB": "var(--uilib-color-blue-40)",
+            "ANDROID": "R.color.uilib_color_blue_40",
+            "iOS": "ColorToken.colorBlue40"
           }
         }
       },
@@ -155,9 +155,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-blue-blue-30)",
-            "ANDROID": "R.color.uilib_color_blue_blue_30",
-            "iOS": "ColorToken.colorBlueBlue30"
+            "WEB": "var(--uilib-color-blue-30)",
+            "ANDROID": "R.color.uilib_color_blue_30",
+            "iOS": "ColorToken.colorBlue30"
           }
         }
       },
@@ -175,9 +175,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-blue-blue-20)",
-            "ANDROID": "R.color.uilib_color_blue_blue_20",
-            "iOS": "ColorToken.colorBlueBlue20"
+            "WEB": "var(--uilib-color-blue-20)",
+            "ANDROID": "R.color.uilib_color_blue_20",
+            "iOS": "ColorToken.colorBlue20"
           }
         }
       },
@@ -195,9 +195,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-blue-blue-10)",
-            "ANDROID": "R.color.uilib_color_blue_blue_10",
-            "iOS": "ColorToken.colorBlueBlue10"
+            "WEB": "var(--uilib-color-blue-10)",
+            "ANDROID": "R.color.uilib_color_blue_10",
+            "iOS": "ColorToken.colorBlue10"
           }
         }
       }
@@ -217,9 +217,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-cool-blue-cool-blue-100)",
-            "ANDROID": "R.color.uilib_color_cool_blue_cool_blue_100",
-            "iOS": "ColorToken.colorCoolBlueCoolBlue100"
+            "WEB": "var(--uilib-color-cool-blue-100)",
+            "ANDROID": "R.color.uilib_color_cool_blue_100",
+            "iOS": "ColorToken.colorCoolBlue100"
           }
         }
       },
@@ -237,9 +237,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-cool-blue-cool-blue-90)",
-            "ANDROID": "R.color.uilib_color_cool_blue_cool_blue_90",
-            "iOS": "ColorToken.colorCoolBlueCoolBlue90"
+            "WEB": "var(--uilib-color-cool-blue-90)",
+            "ANDROID": "R.color.uilib_color_cool_blue_90",
+            "iOS": "ColorToken.colorCoolBlue90"
           }
         }
       },
@@ -257,9 +257,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-cool-blue-cool-blue-80)",
-            "ANDROID": "R.color.uilib_color_cool_blue_cool_blue_80",
-            "iOS": "ColorToken.colorCoolBlueCoolBlue80"
+            "WEB": "var(--uilib-color-cool-blue-80)",
+            "ANDROID": "R.color.uilib_color_cool_blue_80",
+            "iOS": "ColorToken.colorCoolBlue80"
           }
         }
       },
@@ -277,9 +277,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-cool-blue-cool-blue-70)",
-            "ANDROID": "R.color.uilib_color_cool_blue_cool_blue_70",
-            "iOS": "ColorToken.colorCoolBlueCoolBlue70"
+            "WEB": "var(--uilib-color-cool-blue-70)",
+            "ANDROID": "R.color.uilib_color_cool_blue_70",
+            "iOS": "ColorToken.colorCoolBlue70"
           }
         }
       },
@@ -297,9 +297,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-cool-blue-cool-blue-60)",
-            "ANDROID": "R.color.uilib_color_cool_blue_cool_blue_60",
-            "iOS": "ColorToken.colorCoolBlueCoolBlue60"
+            "WEB": "var(--uilib-color-cool-blue-60)",
+            "ANDROID": "R.color.uilib_color_cool_blue_60",
+            "iOS": "ColorToken.colorCoolBlue60"
           }
         }
       },
@@ -317,9 +317,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-cool-blue-cool-blue-50)",
-            "ANDROID": "R.color.uilib_color_cool_blue_cool_blue_50",
-            "iOS": "ColorToken.colorCoolBlueCoolBlue50"
+            "WEB": "var(--uilib-color-cool-blue-50)",
+            "ANDROID": "R.color.uilib_color_cool_blue_50",
+            "iOS": "ColorToken.colorCoolBlue50"
           }
         }
       },
@@ -337,9 +337,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-cool-blue-cool-blue-40)",
-            "ANDROID": "R.color.uilib_color_cool_blue_cool_blue_40",
-            "iOS": "ColorToken.colorCoolBlueCoolBlue40"
+            "WEB": "var(--uilib-color-cool-blue-40)",
+            "ANDROID": "R.color.uilib_color_cool_blue_40",
+            "iOS": "ColorToken.colorCoolBlue40"
           }
         }
       },
@@ -357,9 +357,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-cool-blue-cool-blue-30)",
-            "ANDROID": "R.color.uilib_color_cool_blue_cool_blue_30",
-            "iOS": "ColorToken.colorCoolBlueCoolBlue30"
+            "WEB": "var(--uilib-color-cool-blue-30)",
+            "ANDROID": "R.color.uilib_color_cool_blue_30",
+            "iOS": "ColorToken.colorCoolBlue30"
           }
         }
       },
@@ -377,9 +377,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-cool-blue-cool-blue-20)",
-            "ANDROID": "R.color.uilib_color_cool_blue_cool_blue_20",
-            "iOS": "ColorToken.colorCoolBlueCoolBlue20"
+            "WEB": "var(--uilib-color-cool-blue-20)",
+            "ANDROID": "R.color.uilib_color_cool_blue_20",
+            "iOS": "ColorToken.colorCoolBlue20"
           }
         }
       },
@@ -397,9 +397,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-cool-blue-cool-blue-10)",
-            "ANDROID": "R.color.uilib_color_cool_blue_cool_blue_10",
-            "iOS": "ColorToken.colorCoolBlueCoolBlue10"
+            "WEB": "var(--uilib-color-cool-blue-10)",
+            "ANDROID": "R.color.uilib_color_cool_blue_10",
+            "iOS": "ColorToken.colorCoolBlue10"
           }
         }
       }
@@ -419,9 +419,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-purple-purple-100)",
-            "ANDROID": "R.color.uilib_color_purple_purple_100",
-            "iOS": "ColorToken.colorPurplePurple100"
+            "WEB": "var(--uilib-color-purple-100)",
+            "ANDROID": "R.color.uilib_color_purple_100",
+            "iOS": "ColorToken.colorPurple100"
           }
         }
       },
@@ -439,9 +439,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-purple-purple-90)",
-            "ANDROID": "R.color.uilib_color_purple_purple_90",
-            "iOS": "ColorToken.colorPurplePurple90"
+            "WEB": "var(--uilib-color-purple-90)",
+            "ANDROID": "R.color.uilib_color_purple_90",
+            "iOS": "ColorToken.colorPurple90"
           }
         }
       },
@@ -459,9 +459,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-purple-purple-80)",
-            "ANDROID": "R.color.uilib_color_purple_purple_80",
-            "iOS": "ColorToken.colorPurplePurple80"
+            "WEB": "var(--uilib-color-purple-80)",
+            "ANDROID": "R.color.uilib_color_purple_80",
+            "iOS": "ColorToken.colorPurple80"
           }
         }
       },
@@ -479,9 +479,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-purple-purple-70)",
-            "ANDROID": "R.color.uilib_color_purple_purple_70",
-            "iOS": "ColorToken.colorPurplePurple70"
+            "WEB": "var(--uilib-color-purple-70)",
+            "ANDROID": "R.color.uilib_color_purple_70",
+            "iOS": "ColorToken.colorPurple70"
           }
         }
       },
@@ -499,9 +499,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-purple-purple-60)",
-            "ANDROID": "R.color.uilib_color_purple_purple_60",
-            "iOS": "ColorToken.colorPurplePurple60"
+            "WEB": "var(--uilib-color-purple-60)",
+            "ANDROID": "R.color.uilib_color_purple_60",
+            "iOS": "ColorToken.colorPurple60"
           }
         }
       },
@@ -519,9 +519,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-purple-purple-50)",
-            "ANDROID": "R.color.uilib_color_purple_purple_50",
-            "iOS": "ColorToken.colorPurplePurple50"
+            "WEB": "var(--uilib-color-purple-50)",
+            "ANDROID": "R.color.uilib_color_purple_50",
+            "iOS": "ColorToken.colorPurple50"
           }
         }
       },
@@ -539,9 +539,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-purple-purple-40)",
-            "ANDROID": "R.color.uilib_color_purple_purple_40",
-            "iOS": "ColorToken.colorPurplePurple40"
+            "WEB": "var(--uilib-color-purple-40)",
+            "ANDROID": "R.color.uilib_color_purple_40",
+            "iOS": "ColorToken.colorPurple40"
           }
         }
       },
@@ -559,9 +559,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-purple-purple-30)",
-            "ANDROID": "R.color.uilib_color_purple_purple_30",
-            "iOS": "ColorToken.colorPurplePurple30"
+            "WEB": "var(--uilib-color-purple-30)",
+            "ANDROID": "R.color.uilib_color_purple_30",
+            "iOS": "ColorToken.colorPurple30"
           }
         }
       },
@@ -579,9 +579,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-purple-purple-20)",
-            "ANDROID": "R.color.uilib_color_purple_purple_20",
-            "iOS": "ColorToken.colorPurplePurple20"
+            "WEB": "var(--uilib-color-purple-20)",
+            "ANDROID": "R.color.uilib_color_purple_20",
+            "iOS": "ColorToken.colorPurple20"
           }
         }
       },
@@ -599,9 +599,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-purple-purple-10)",
-            "ANDROID": "R.color.uilib_color_purple_purple_10",
-            "iOS": "ColorToken.colorPurplePurple10"
+            "WEB": "var(--uilib-color-purple-10)",
+            "ANDROID": "R.color.uilib_color_purple_10",
+            "iOS": "ColorToken.colorPurple10"
           }
         }
       }
@@ -621,9 +621,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-green-green-100)",
-            "ANDROID": "R.color.uilib_color_green_green_100",
-            "iOS": "ColorToken.colorGreenGreen100"
+            "WEB": "var(--uilib-color-green-100)",
+            "ANDROID": "R.color.uilib_color_green_100",
+            "iOS": "ColorToken.colorGreen100"
           }
         }
       },
@@ -641,9 +641,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-green-green-90)",
-            "ANDROID": "R.color.uilib_color_green_green_90",
-            "iOS": "ColorToken.colorGreenGreen90"
+            "WEB": "var(--uilib-color-green-90)",
+            "ANDROID": "R.color.uilib_color_green_90",
+            "iOS": "ColorToken.colorGreen90"
           }
         }
       },
@@ -661,9 +661,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-green-green-80)",
-            "ANDROID": "R.color.uilib_color_green_green_80",
-            "iOS": "ColorToken.colorGreenGreen80"
+            "WEB": "var(--uilib-color-green-80)",
+            "ANDROID": "R.color.uilib_color_green_80",
+            "iOS": "ColorToken.colorGreen80"
           }
         }
       },
@@ -681,9 +681,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-green-green-70)",
-            "ANDROID": "R.color.uilib_color_green_green_70",
-            "iOS": "ColorToken.colorGreenGreen70"
+            "WEB": "var(--uilib-color-green-70)",
+            "ANDROID": "R.color.uilib_color_green_70",
+            "iOS": "ColorToken.colorGreen70"
           }
         }
       },
@@ -701,9 +701,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-green-green-60)",
-            "ANDROID": "R.color.uilib_color_green_green_60",
-            "iOS": "ColorToken.colorGreenGreen60"
+            "WEB": "var(--uilib-color-green-60)",
+            "ANDROID": "R.color.uilib_color_green_60",
+            "iOS": "ColorToken.colorGreen60"
           }
         }
       },
@@ -721,9 +721,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-green-green-50)",
-            "ANDROID": "R.color.uilib_color_green_green_50",
-            "iOS": "ColorToken.colorGreenGreen50"
+            "WEB": "var(--uilib-color-green-50)",
+            "ANDROID": "R.color.uilib_color_green_50",
+            "iOS": "ColorToken.colorGreen50"
           }
         }
       },
@@ -741,9 +741,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-green-green-40)",
-            "ANDROID": "R.color.uilib_color_green_green_40",
-            "iOS": "ColorToken.colorGreenGreen40"
+            "WEB": "var(--uilib-color-green-40)",
+            "ANDROID": "R.color.uilib_color_green_40",
+            "iOS": "ColorToken.colorGreen40"
           }
         }
       },
@@ -761,9 +761,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-green-green-30)",
-            "ANDROID": "R.color.uilib_color_green_green_30",
-            "iOS": "ColorToken.colorGreenGreen30"
+            "WEB": "var(--uilib-color-green-30)",
+            "ANDROID": "R.color.uilib_color_green_30",
+            "iOS": "ColorToken.colorGreen30"
           }
         }
       },
@@ -781,9 +781,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-green-green-20)",
-            "ANDROID": "R.color.uilib_color_green_green_20",
-            "iOS": "ColorToken.colorGreenGreen20"
+            "WEB": "var(--uilib-color-green-20)",
+            "ANDROID": "R.color.uilib_color_green_20",
+            "iOS": "ColorToken.colorGreen20"
           }
         }
       },
@@ -801,9 +801,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-green-green-10)",
-            "ANDROID": "R.color.uilib_color_green_green_10",
-            "iOS": "ColorToken.colorGreenGreen10"
+            "WEB": "var(--uilib-color-green-10)",
+            "ANDROID": "R.color.uilib_color_green_10",
+            "iOS": "ColorToken.colorGreen10"
           }
         }
       }
@@ -823,9 +823,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-red-red-100)",
-            "ANDROID": "R.color.uilib_color_red_red_100",
-            "iOS": "ColorToken.colorRedRed100"
+            "WEB": "var(--uilib-color-red-100)",
+            "ANDROID": "R.color.uilib_color_red_100",
+            "iOS": "ColorToken.colorRed100"
           }
         }
       },
@@ -843,9 +843,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-red-red-90)",
-            "ANDROID": "R.color.uilib_color_red_red_90",
-            "iOS": "ColorToken.colorRedRed90"
+            "WEB": "var(--uilib-color-red-90)",
+            "ANDROID": "R.color.uilib_color_red_90",
+            "iOS": "ColorToken.colorRed90"
           }
         }
       },
@@ -863,9 +863,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-red-red-80)",
-            "ANDROID": "R.color.uilib_color_red_red_80",
-            "iOS": "ColorToken.colorRedRed80"
+            "WEB": "var(--uilib-color-red-80)",
+            "ANDROID": "R.color.uilib_color_red_80",
+            "iOS": "ColorToken.colorRed80"
           }
         }
       },
@@ -883,9 +883,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-red-red-70)",
-            "ANDROID": "R.color.uilib_color_red_red_70",
-            "iOS": "ColorToken.colorRedRed70"
+            "WEB": "var(--uilib-color-red-70)",
+            "ANDROID": "R.color.uilib_color_red_70",
+            "iOS": "ColorToken.colorRed70"
           }
         }
       },
@@ -903,9 +903,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-red-red-60)",
-            "ANDROID": "R.color.uilib_color_red_red_60",
-            "iOS": "ColorToken.colorRedRed60"
+            "WEB": "var(--uilib-color-red-60)",
+            "ANDROID": "R.color.uilib_color_red_60",
+            "iOS": "ColorToken.colorRed60"
           }
         }
       },
@@ -923,9 +923,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-red-red-50)",
-            "ANDROID": "R.color.uilib_color_red_red_50",
-            "iOS": "ColorToken.colorRedRed50"
+            "WEB": "var(--uilib-color-red-50)",
+            "ANDROID": "R.color.uilib_color_red_50",
+            "iOS": "ColorToken.colorRed50"
           }
         }
       },
@@ -943,9 +943,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-red-red-40)",
-            "ANDROID": "R.color.uilib_color_red_red_40",
-            "iOS": "ColorToken.colorRedRed40"
+            "WEB": "var(--uilib-color-red-40)",
+            "ANDROID": "R.color.uilib_color_red_40",
+            "iOS": "ColorToken.colorRed40"
           }
         }
       },
@@ -963,9 +963,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-red-red-30)",
-            "ANDROID": "R.color.uilib_color_red_red_30",
-            "iOS": "ColorToken.colorRedRed30"
+            "WEB": "var(--uilib-color-red-30)",
+            "ANDROID": "R.color.uilib_color_red_30",
+            "iOS": "ColorToken.colorRed30"
           }
         }
       },
@@ -983,9 +983,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-red-red-20)",
-            "ANDROID": "R.color.uilib_color_red_red_20",
-            "iOS": "ColorToken.colorRedRed20"
+            "WEB": "var(--uilib-color-red-20)",
+            "ANDROID": "R.color.uilib_color_red_20",
+            "iOS": "ColorToken.colorRed20"
           }
         }
       },
@@ -1003,9 +1003,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-red-red-10)",
-            "ANDROID": "R.color.uilib_color_red_red_10",
-            "iOS": "ColorToken.colorRedRed10"
+            "WEB": "var(--uilib-color-red-10)",
+            "ANDROID": "R.color.uilib_color_red_10",
+            "iOS": "ColorToken.colorRed10"
           }
         }
       }
@@ -1025,9 +1025,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-orange-orange-100)",
-            "ANDROID": "R.color.uilib_color_orange_orange_100",
-            "iOS": "ColorToken.colorOrangeOrange100"
+            "WEB": "var(--uilib-color-orange-100)",
+            "ANDROID": "R.color.uilib_color_orange_100",
+            "iOS": "ColorToken.colorOrange100"
           }
         }
       },
@@ -1045,9 +1045,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-orange-orange-90)",
-            "ANDROID": "R.color.uilib_color_orange_orange_90",
-            "iOS": "ColorToken.colorOrangeOrange90"
+            "WEB": "var(--uilib-color-orange-90)",
+            "ANDROID": "R.color.uilib_color_orange_90",
+            "iOS": "ColorToken.colorOrange90"
           }
         }
       },
@@ -1065,9 +1065,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-orange-orange-80)",
-            "ANDROID": "R.color.uilib_color_orange_orange_80",
-            "iOS": "ColorToken.colorOrangeOrange80"
+            "WEB": "var(--uilib-color-orange-80)",
+            "ANDROID": "R.color.uilib_color_orange_80",
+            "iOS": "ColorToken.colorOrange80"
           }
         }
       },
@@ -1085,9 +1085,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-orange-orange-70)",
-            "ANDROID": "R.color.uilib_color_orange_orange_70",
-            "iOS": "ColorToken.colorOrangeOrange70"
+            "WEB": "var(--uilib-color-orange-70)",
+            "ANDROID": "R.color.uilib_color_orange_70",
+            "iOS": "ColorToken.colorOrange70"
           }
         }
       },
@@ -1105,9 +1105,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-orange-orange-60)",
-            "ANDROID": "R.color.uilib_color_orange_orange_60",
-            "iOS": "ColorToken.colorOrangeOrange60"
+            "WEB": "var(--uilib-color-orange-60)",
+            "ANDROID": "R.color.uilib_color_orange_60",
+            "iOS": "ColorToken.colorOrange60"
           }
         }
       },
@@ -1125,9 +1125,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-orange-orange-50)",
-            "ANDROID": "R.color.uilib_color_orange_orange_50",
-            "iOS": "ColorToken.colorOrangeOrange50"
+            "WEB": "var(--uilib-color-orange-50)",
+            "ANDROID": "R.color.uilib_color_orange_50",
+            "iOS": "ColorToken.colorOrange50"
           }
         }
       },
@@ -1145,9 +1145,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-orange-orange-40)",
-            "ANDROID": "R.color.uilib_color_orange_orange_40",
-            "iOS": "ColorToken.colorOrangeOrange40"
+            "WEB": "var(--uilib-color-orange-40)",
+            "ANDROID": "R.color.uilib_color_orange_40",
+            "iOS": "ColorToken.colorOrange40"
           }
         }
       },
@@ -1165,9 +1165,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-orange-orange-30)",
-            "ANDROID": "R.color.uilib_color_orange_orange_30",
-            "iOS": "ColorToken.colorOrangeOrange30"
+            "WEB": "var(--uilib-color-orange-30)",
+            "ANDROID": "R.color.uilib_color_orange_30",
+            "iOS": "ColorToken.colorOrange30"
           }
         }
       },
@@ -1185,9 +1185,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-orange-orange-20)",
-            "ANDROID": "R.color.uilib_color_orange_orange_20",
-            "iOS": "ColorToken.colorOrangeOrange20"
+            "WEB": "var(--uilib-color-orange-20)",
+            "ANDROID": "R.color.uilib_color_orange_20",
+            "iOS": "ColorToken.colorOrange20"
           }
         }
       },
@@ -1205,9 +1205,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-orange-orange-10)",
-            "ANDROID": "R.color.uilib_color_orange_orange_10",
-            "iOS": "ColorToken.colorOrangeOrange10"
+            "WEB": "var(--uilib-color-orange-10)",
+            "ANDROID": "R.color.uilib_color_orange_10",
+            "iOS": "ColorToken.colorOrange10"
           }
         }
       }
@@ -1227,9 +1227,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-neutral-neutral-100)",
-            "ANDROID": "R.color.uilib_color_neutral_neutral_100",
-            "iOS": "ColorToken.colorNeutralNeutral100"
+            "WEB": "var(--uilib-color-neutral-100)",
+            "ANDROID": "R.color.uilib_color_neutral_100",
+            "iOS": "ColorToken.colorNeutral100"
           }
         }
       },
@@ -1247,9 +1247,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-neutral-neutral-90)",
-            "ANDROID": "R.color.uilib_color_neutral_neutral_90",
-            "iOS": "ColorToken.colorNeutralNeutral90"
+            "WEB": "var(--uilib-color-neutral-90)",
+            "ANDROID": "R.color.uilib_color_neutral_90",
+            "iOS": "ColorToken.colorNeutral90"
           }
         }
       },
@@ -1267,9 +1267,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-neutral-neutral-80)",
-            "ANDROID": "R.color.uilib_color_neutral_neutral_80",
-            "iOS": "ColorToken.colorNeutralNeutral80"
+            "WEB": "var(--uilib-color-neutral-80)",
+            "ANDROID": "R.color.uilib_color_neutral_80",
+            "iOS": "ColorToken.colorNeutral80"
           }
         }
       },
@@ -1287,9 +1287,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-neutral-neutral-70)",
-            "ANDROID": "R.color.uilib_color_neutral_neutral_70",
-            "iOS": "ColorToken.colorNeutralNeutral70"
+            "WEB": "var(--uilib-color-neutral-70)",
+            "ANDROID": "R.color.uilib_color_neutral_70",
+            "iOS": "ColorToken.colorNeutral70"
           }
         }
       },
@@ -1307,9 +1307,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-neutral-neutral-60)",
-            "ANDROID": "R.color.uilib_color_neutral_neutral_60",
-            "iOS": "ColorToken.colorNeutralNeutral60"
+            "WEB": "var(--uilib-color-neutral-60)",
+            "ANDROID": "R.color.uilib_color_neutral_60",
+            "iOS": "ColorToken.colorNeutral60"
           }
         }
       },
@@ -1327,9 +1327,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-neutral-neutral-50)",
-            "ANDROID": "R.color.uilib_color_neutral_neutral_50",
-            "iOS": "ColorToken.colorNeutralNeutral50"
+            "WEB": "var(--uilib-color-neutral-50)",
+            "ANDROID": "R.color.uilib_color_neutral_50",
+            "iOS": "ColorToken.colorNeutral50"
           }
         }
       },
@@ -1347,9 +1347,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-neutral-neutral-40)",
-            "ANDROID": "R.color.uilib_color_neutral_neutral_40",
-            "iOS": "ColorToken.colorNeutralNeutral40"
+            "WEB": "var(--uilib-color-neutral-40)",
+            "ANDROID": "R.color.uilib_color_neutral_40",
+            "iOS": "ColorToken.colorNeutral40"
           }
         }
       },
@@ -1367,9 +1367,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-neutral-neutral-30)",
-            "ANDROID": "R.color.uilib_color_neutral_neutral_30",
-            "iOS": "ColorToken.colorNeutralNeutral30"
+            "WEB": "var(--uilib-color-neutral-30)",
+            "ANDROID": "R.color.uilib_color_neutral_30",
+            "iOS": "ColorToken.colorNeutral30"
           }
         }
       },
@@ -1387,9 +1387,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-neutral-neutral-20)",
-            "ANDROID": "R.color.uilib_color_neutral_neutral_20",
-            "iOS": "ColorToken.colorNeutralNeutral20"
+            "WEB": "var(--uilib-color-neutral-20)",
+            "ANDROID": "R.color.uilib_color_neutral_20",
+            "iOS": "ColorToken.colorNeutral20"
           }
         }
       },
@@ -1407,9 +1407,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-neutral-neutral-10)",
-            "ANDROID": "R.color.uilib_color_neutral_neutral_10",
-            "iOS": "ColorToken.colorNeutralNeutral10"
+            "WEB": "var(--uilib-color-neutral-10)",
+            "ANDROID": "R.color.uilib_color_neutral_10",
+            "iOS": "ColorToken.colorNeutral10"
           }
         }
       }
@@ -1429,9 +1429,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-brand-brand-tui-blue-blue)",
-            "ANDROID": "R.color.uilib_color_brand_brand_tui_blue_blue",
-            "iOS": "ColorToken.colorBrandBrandTuiBlueBlue"
+            "WEB": "var(--uilib-color-brand-tui-blue-blue)",
+            "ANDROID": "R.color.uilib_color_brand_tui_blue_blue",
+            "iOS": "ColorToken.colorBrandTuiBlueBlue"
           }
         }
       },
@@ -1449,9 +1449,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-brand-brand-magic-life-yellow)",
-            "ANDROID": "R.color.uilib_color_brand_brand_magic_life_yellow",
-            "iOS": "ColorToken.colorBrandBrandMagicLifeYellow"
+            "WEB": "var(--uilib-color-brand-magic-life-yellow)",
+            "ANDROID": "R.color.uilib_color_brand_magic_life_yellow",
+            "iOS": "ColorToken.colorBrandMagicLifeYellow"
           }
         }
       },
@@ -1469,9 +1469,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-brand-brand-bluestar-blue)",
-            "ANDROID": "R.color.uilib_color_brand_brand_bluestar_blue",
-            "iOS": "ColorToken.colorBrandBrandBluestarBlue"
+            "WEB": "var(--uilib-color-brand-bluestar-blue)",
+            "ANDROID": "R.color.uilib_color_brand_bluestar_blue",
+            "iOS": "ColorToken.colorBrandBluestarBlue"
           }
         }
       },
@@ -1489,9 +1489,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-brand-brand-splashworld-aqua)",
-            "ANDROID": "R.color.uilib_color_brand_brand_splashworld_aqua",
-            "iOS": "ColorToken.colorBrandBrandSplashworldAqua"
+            "WEB": "var(--uilib-color-brand-splashworld-aqua)",
+            "ANDROID": "R.color.uilib_color_brand_splashworld_aqua",
+            "iOS": "ColorToken.colorBrandSplashworldAqua"
           }
         }
       },
@@ -1509,9 +1509,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-brand-brand-riu-red)",
-            "ANDROID": "R.color.uilib_color_brand_brand_riu_red",
-            "iOS": "ColorToken.colorBrandBrandRiuRed"
+            "WEB": "var(--uilib-color-brand-riu-red)",
+            "ANDROID": "R.color.uilib_color_brand_riu_red",
+            "iOS": "ColorToken.colorBrandRiuRed"
           }
         }
       },
@@ -1529,9 +1529,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-brand-brand-soneo-club-blue)",
-            "ANDROID": "R.color.uilib_color_brand_brand_soneo_club_blue",
-            "iOS": "ColorToken.colorBrandBrandSoneoClubBlue"
+            "WEB": "var(--uilib-color-brand-soneo-club-blue)",
+            "ANDROID": "R.color.uilib_color_brand_soneo_club_blue",
+            "iOS": "ColorToken.colorBrandSoneoClubBlue"
           }
         }
       },
@@ -1549,9 +1549,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-brand-brand-small-and-friendly-blue)",
-            "ANDROID": "R.color.uilib_color_brand_brand_small_and_friendly_blue",
-            "iOS": "ColorToken.colorBrandBrandSmallAndFriendlyBlue"
+            "WEB": "var(--uilib-color-brand-small-and-friendly-blue)",
+            "ANDROID": "R.color.uilib_color_brand_small_and_friendly_blue",
+            "iOS": "ColorToken.colorBrandSmallAndFriendlyBlue"
           }
         }
       },
@@ -1569,9 +1569,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-brand-brand-robison-blue)",
-            "ANDROID": "R.color.uilib_color_brand_brand_robison_blue",
-            "iOS": "ColorToken.colorBrandBrandRobisonBlue"
+            "WEB": "var(--uilib-color-brand-robison-blue)",
+            "ANDROID": "R.color.uilib_color_brand_robison_blue",
+            "iOS": "ColorToken.colorBrandRobisonBlue"
           }
         }
       },
@@ -1589,9 +1589,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-brand-brand-scene-black)",
-            "ANDROID": "R.color.uilib_color_brand_brand_scene_black",
-            "iOS": "ColorToken.colorBrandBrandSceneBlack"
+            "WEB": "var(--uilib-color-brand-scene-black)",
+            "ANDROID": "R.color.uilib_color_brand_scene_black",
+            "iOS": "ColorToken.colorBrandSceneBlack"
           }
         }
       },
@@ -1609,9 +1609,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-brand-brand-time-to-smile-gold)",
-            "ANDROID": "R.color.uilib_color_brand_brand_time_to_smile_gold",
-            "iOS": "ColorToken.colorBrandBrandTimeToSmileGold"
+            "WEB": "var(--uilib-color-brand-time-to-smile-gold)",
+            "ANDROID": "R.color.uilib_color_brand_time_to_smile_gold",
+            "iOS": "ColorToken.colorBrandTimeToSmileGold"
           }
         }
       },
@@ -1629,9 +1629,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-brand-brand-trip-advisor-green)",
-            "ANDROID": "R.color.uilib_color_brand_brand_trip_advisor_green",
-            "iOS": "ColorToken.colorBrandBrandTripAdvisorGreen"
+            "WEB": "var(--uilib-color-brand-trip-advisor-green)",
+            "ANDROID": "R.color.uilib_color_brand_trip_advisor_green",
+            "iOS": "ColorToken.colorBrandTripAdvisorGreen"
           }
         }
       },
@@ -1649,9 +1649,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-brand-brand-paypal-blue)",
-            "ANDROID": "R.color.uilib_color_brand_brand_paypal_blue",
-            "iOS": "ColorToken.colorBrandBrandPaypalBlue"
+            "WEB": "var(--uilib-color-brand-paypal-blue)",
+            "ANDROID": "R.color.uilib_color_brand_paypal_blue",
+            "iOS": "ColorToken.colorBrandPaypalBlue"
           }
         }
       },
@@ -1669,9 +1669,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-brand-brand-kids-club-blue)",
-            "ANDROID": "R.color.uilib_color_brand_brand_kids_club_blue",
-            "iOS": "ColorToken.colorBrandBrandKidsClubBlue"
+            "WEB": "var(--uilib-color-brand-kids-club-blue)",
+            "ANDROID": "R.color.uilib_color_brand_kids_club_blue",
+            "iOS": "ColorToken.colorBrandKidsClubBlue"
           }
         }
       },
@@ -1689,9 +1689,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-brand-brand-local-biege)",
-            "ANDROID": "R.color.uilib_color_brand_brand_local_biege",
-            "iOS": "ColorToken.colorBrandBrandLocalBiege"
+            "WEB": "var(--uilib-color-brand-local-biege)",
+            "ANDROID": "R.color.uilib_color_brand_local_biege",
+            "iOS": "ColorToken.colorBrandLocalBiege"
           }
         }
       },
@@ -1709,9 +1709,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-brand-brand-holiday-villages-purple)",
-            "ANDROID": "R.color.uilib_color_brand_brand_holiday_villages_purple",
-            "iOS": "ColorToken.colorBrandBrandHolidayVillagesPurple"
+            "WEB": "var(--uilib-color-brand-holiday-villages-purple)",
+            "ANDROID": "R.color.uilib_color_brand_holiday_villages_purple",
+            "iOS": "ColorToken.colorBrandHolidayVillagesPurple"
           }
         }
       },
@@ -1729,9 +1729,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-brand-brand-musement-yellow)",
-            "ANDROID": "R.color.uilib_color_brand_brand_musement_yellow",
-            "iOS": "ColorToken.colorBrandBrandMusementYellow"
+            "WEB": "var(--uilib-color-brand-musement-yellow)",
+            "ANDROID": "R.color.uilib_color_brand_musement_yellow",
+            "iOS": "ColorToken.colorBrandMusementYellow"
           }
         }
       },
@@ -1749,9 +1749,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-brand-brand-the-mora-brown)",
-            "ANDROID": "R.color.uilib_color_brand_brand_the_mora_brown",
-            "iOS": "ColorToken.colorBrandBrandTheMoraBrown"
+            "WEB": "var(--uilib-color-brand-the-mora-brown)",
+            "ANDROID": "R.color.uilib_color_brand_the_mora_brown",
+            "iOS": "ColorToken.colorBrandTheMoraBrown"
           }
         }
       },
@@ -1769,9 +1769,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-brand-brand-the-mora-pink)",
-            "ANDROID": "R.color.uilib_color_brand_brand_the_mora_pink",
-            "iOS": "ColorToken.colorBrandBrandTheMoraPink"
+            "WEB": "var(--uilib-color-brand-the-mora-pink)",
+            "ANDROID": "R.color.uilib_color_brand_the_mora_pink",
+            "iOS": "ColorToken.colorBrandTheMoraPink"
           }
         }
       }

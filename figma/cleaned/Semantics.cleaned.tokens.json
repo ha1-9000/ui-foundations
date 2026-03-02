@@ -16,9 +16,9 @@
         "$description": "Use this for all interactions",
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-core-core-interaction)",
-            "ANDROID": "R.color.uilib_color_core_core_interaction",
-            "iOS": "ColorToken.colorCoreCoreInteraction"
+            "WEB": "var(--uilib-color-core-interaction)",
+            "ANDROID": "R.color.uilib_color_core_interaction",
+            "iOS": "ColorToken.colorCoreInteraction"
           }
         }
       },
@@ -36,9 +36,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-core-core-brand)",
-            "ANDROID": "R.color.uilib_color_core_core_brand",
-            "iOS": "ColorToken.colorCoreCoreBrand"
+            "WEB": "var(--uilib-color-core-brand)",
+            "ANDROID": "R.color.uilib_color_core_brand",
+            "iOS": "ColorToken.colorCoreBrand"
           }
         }
       },
@@ -76,9 +76,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-core-core-surface)",
-            "ANDROID": "R.color.uilib_color_core_core_surface",
-            "iOS": "ColorToken.colorCoreCoreSurface"
+            "WEB": "var(--uilib-color-core-surface)",
+            "ANDROID": "R.color.uilib_color_core_surface",
+            "iOS": "ColorToken.colorCoreSurface"
           }
         }
       },
@@ -96,9 +96,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-core-core-neutral)",
-            "ANDROID": "R.color.uilib_color_core_core_neutral",
-            "iOS": "ColorToken.colorCoreCoreNeutral"
+            "WEB": "var(--uilib-color-core-neutral)",
+            "ANDROID": "R.color.uilib_color_core_neutral",
+            "iOS": "ColorToken.colorCoreNeutral"
           }
         }
       }
@@ -118,9 +118,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-text-text-strong)",
-            "ANDROID": "R.color.uilib_color_text_text_strong",
-            "iOS": "ColorToken.colorTextTextStrong"
+            "WEB": "var(--uilib-color-text-strong)",
+            "ANDROID": "R.color.uilib_color_text_strong",
+            "iOS": "ColorToken.colorTextStrong"
           }
         }
       },
@@ -138,9 +138,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-text-text-body)",
-            "ANDROID": "R.color.uilib_color_text_text_body",
-            "iOS": "ColorToken.colorTextTextBody"
+            "WEB": "var(--uilib-color-text-body)",
+            "ANDROID": "R.color.uilib_color_text_body",
+            "iOS": "ColorToken.colorTextBody"
           }
         }
       },
@@ -158,9 +158,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-text-text-link)",
-            "ANDROID": "R.color.uilib_color_text_text_link",
-            "iOS": "ColorToken.colorTextTextLink"
+            "WEB": "var(--uilib-color-text-link)",
+            "ANDROID": "R.color.uilib_color_text_link",
+            "iOS": "ColorToken.colorTextLink"
           }
         }
       },
@@ -178,9 +178,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-text-text-inverse)",
-            "ANDROID": "R.color.uilib_color_text_text_inverse",
-            "iOS": "ColorToken.colorTextTextInverse"
+            "WEB": "var(--uilib-color-text-inverse)",
+            "ANDROID": "R.color.uilib_color_text_inverse",
+            "iOS": "ColorToken.colorTextInverse"
           }
         }
       },
@@ -198,9 +198,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-text-text-link-visited)",
-            "ANDROID": "R.color.uilib_color_text_text_link_visited",
-            "iOS": "ColorToken.colorTextTextLinkVisited"
+            "WEB": "var(--uilib-color-text-link-visited)",
+            "ANDROID": "R.color.uilib_color_text_link_visited",
+            "iOS": "ColorToken.colorTextLinkVisited"
           }
         }
       },
@@ -218,9 +218,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-text-text-link-visited-inverse)",
-            "ANDROID": "R.color.uilib_color_text_text_link_visited_inverse",
-            "iOS": "ColorToken.colorTextTextLinkVisitedInverse"
+            "WEB": "var(--uilib-color-text-link-visited-inverse)",
+            "ANDROID": "R.color.uilib_color_text_link_visited_inverse",
+            "iOS": "ColorToken.colorTextLinkVisitedInverse"
           }
         }
       },
@@ -238,9 +238,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-text-text-promotion)",
-            "ANDROID": "R.color.uilib_color_text_text_promotion",
-            "iOS": "ColorToken.colorTextTextPromotion"
+            "WEB": "var(--uilib-color-text-promotion)",
+            "ANDROID": "R.color.uilib_color_text_promotion",
+            "iOS": "ColorToken.colorTextPromotion"
           }
         }
       },
@@ -258,9 +258,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-text-text-danger)",
-            "ANDROID": "R.color.uilib_color_text_text_danger",
-            "iOS": "ColorToken.colorTextTextDanger"
+            "WEB": "var(--uilib-color-text-danger)",
+            "ANDROID": "R.color.uilib_color_text_danger",
+            "iOS": "ColorToken.colorTextDanger"
           }
         }
       }
@@ -281,9 +281,9 @@
         "$description": "Use this for success alert backgrounds",
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-status-status-success-surface)",
-            "ANDROID": "R.color.uilib_color_status_status_success_surface",
-            "iOS": "ColorToken.colorStatusStatusSuccessSurface"
+            "WEB": "var(--uilib-color-status-success-surface)",
+            "ANDROID": "R.color.uilib_color_status_success_surface",
+            "iOS": "ColorToken.colorStatusSuccessSurface"
           }
         }
       },
@@ -301,9 +301,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-status-status-danger-surface)",
-            "ANDROID": "R.color.uilib_color_status_status_danger_surface",
-            "iOS": "ColorToken.colorStatusStatusDangerSurface"
+            "WEB": "var(--uilib-color-status-danger-surface)",
+            "ANDROID": "R.color.uilib_color_status_danger_surface",
+            "iOS": "ColorToken.colorStatusDangerSurface"
           }
         }
       },
@@ -321,9 +321,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-status-status-warning-surface)",
-            "ANDROID": "R.color.uilib_color_status_status_warning_surface",
-            "iOS": "ColorToken.colorStatusStatusWarningSurface"
+            "WEB": "var(--uilib-color-status-warning-surface)",
+            "ANDROID": "R.color.uilib_color_status_warning_surface",
+            "iOS": "ColorToken.colorStatusWarningSurface"
           }
         }
       },
@@ -341,9 +341,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-status-status-info-surface)",
-            "ANDROID": "R.color.uilib_color_status_status_info_surface",
-            "iOS": "ColorToken.colorStatusStatusInfoSurface"
+            "WEB": "var(--uilib-color-status-info-surface)",
+            "ANDROID": "R.color.uilib_color_status_info_surface",
+            "iOS": "ColorToken.colorStatusInfoSurface"
           }
         }
       },
@@ -443,9 +443,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-canvas-canvas-default)",
-            "ANDROID": "R.color.uilib_color_canvas_canvas_default",
-            "iOS": "ColorToken.colorCanvasCanvasDefault"
+            "WEB": "var(--uilib-color-canvas-default)",
+            "ANDROID": "R.color.uilib_color_canvas_default",
+            "iOS": "ColorToken.colorCanvasDefault"
           }
         }
       },
@@ -463,9 +463,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-canvas-canvas-contrast)",
-            "ANDROID": "R.color.uilib_color_canvas_canvas_contrast",
-            "iOS": "ColorToken.colorCanvasCanvasContrast"
+            "WEB": "var(--uilib-color-canvas-contrast)",
+            "ANDROID": "R.color.uilib_color_canvas_contrast",
+            "iOS": "ColorToken.colorCanvasContrast"
           }
         }
       }
@@ -485,9 +485,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-border-border-interaction)",
-            "ANDROID": "R.color.uilib_color_border_border_interaction",
-            "iOS": "ColorToken.colorBorderBorderInteraction"
+            "WEB": "var(--uilib-color-border-interaction)",
+            "ANDROID": "R.color.uilib_color_border_interaction",
+            "iOS": "ColorToken.colorBorderInteraction"
           }
         }
       },
@@ -505,9 +505,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-border-border-brand-strong)",
-            "ANDROID": "R.color.uilib_color_border_border_brand_strong",
-            "iOS": "ColorToken.colorBorderBorderBrandStrong"
+            "WEB": "var(--uilib-color-border-brand-strong)",
+            "ANDROID": "R.color.uilib_color_border_brand_strong",
+            "iOS": "ColorToken.colorBorderBrandStrong"
           }
         }
       },
@@ -525,9 +525,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-border-border-input)",
-            "ANDROID": "R.color.uilib_color_border_border_input",
-            "iOS": "ColorToken.colorBorderBorderInput"
+            "WEB": "var(--uilib-color-border-input)",
+            "ANDROID": "R.color.uilib_color_border_input",
+            "iOS": "ColorToken.colorBorderInput"
           }
         }
       },
@@ -545,9 +545,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-border-border-card)",
-            "ANDROID": "R.color.uilib_color_border_border_card",
-            "iOS": "ColorToken.colorBorderBorderCard"
+            "WEB": "var(--uilib-color-border-card)",
+            "ANDROID": "R.color.uilib_color_border_card",
+            "iOS": "ColorToken.colorBorderCard"
           }
         }
       },
@@ -565,9 +565,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-border-border-inverse)",
-            "ANDROID": "R.color.uilib_color_border_border_inverse",
-            "iOS": "ColorToken.colorBorderBorderInverse"
+            "WEB": "var(--uilib-color-border-inverse)",
+            "ANDROID": "R.color.uilib_color_border_inverse",
+            "iOS": "ColorToken.colorBorderInverse"
           }
         }
       },
@@ -585,9 +585,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-border-border-dashed)",
-            "ANDROID": "R.color.uilib_color_border_border_dashed",
-            "iOS": "ColorToken.colorBorderBorderDashed"
+            "WEB": "var(--uilib-color-border-dashed)",
+            "ANDROID": "R.color.uilib_color_border_dashed",
+            "iOS": "ColorToken.colorBorderDashed"
           }
         }
       },
@@ -605,9 +605,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-border-border-divider)",
-            "ANDROID": "R.color.uilib_color_border_border_divider",
-            "iOS": "ColorToken.colorBorderBorderDivider"
+            "WEB": "var(--uilib-color-border-divider)",
+            "ANDROID": "R.color.uilib_color_border_divider",
+            "iOS": "ColorToken.colorBorderDivider"
           }
         }
       },
@@ -625,9 +625,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-border-border-danger)",
-            "ANDROID": "R.color.uilib_color_border_border_danger",
-            "iOS": "ColorToken.colorBorderBorderDanger"
+            "WEB": "var(--uilib-color-border-danger)",
+            "ANDROID": "R.color.uilib_color_border_danger",
+            "iOS": "ColorToken.colorBorderDanger"
           }
         }
       }
@@ -647,9 +647,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-promotion-promotion-promotion)",
-            "ANDROID": "R.color.uilib_color_promotion_promotion_promotion",
-            "iOS": "ColorToken.colorPromotionPromotionPromotion"
+            "WEB": "var(--uilib-color-promotion-promotion)",
+            "ANDROID": "R.color.uilib_color_promotion_promotion",
+            "iOS": "ColorToken.colorPromotionPromotion"
           }
         }
       },
@@ -667,9 +667,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-promotion-promotion-free-kids)",
-            "ANDROID": "R.color.uilib_color_promotion_promotion_free_kids",
-            "iOS": "ColorToken.colorPromotionPromotionFreeKids"
+            "WEB": "var(--uilib-color-promotion-free-kids)",
+            "ANDROID": "R.color.uilib_color_promotion_free_kids",
+            "iOS": "ColorToken.colorPromotionFreeKids"
           }
         }
       }
@@ -689,9 +689,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-other-other-disabled-soft)",
-            "ANDROID": "R.color.uilib_color_other_other_disabled_soft",
-            "iOS": "ColorToken.colorOtherOtherDisabledSoft"
+            "WEB": "var(--uilib-color-other-disabled-soft)",
+            "ANDROID": "R.color.uilib_color_other_disabled_soft",
+            "iOS": "ColorToken.colorOtherDisabledSoft"
           }
         }
       },
@@ -709,9 +709,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-other-other-disabled-strong)",
-            "ANDROID": "R.color.uilib_color_other_other_disabled_strong",
-            "iOS": "ColorToken.colorOtherOtherDisabledStrong"
+            "WEB": "var(--uilib-color-other-disabled-strong)",
+            "ANDROID": "R.color.uilib_color_other_disabled_strong",
+            "iOS": "ColorToken.colorOtherDisabledStrong"
           }
         }
       },
@@ -729,9 +729,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-other-other-elevation)",
-            "ANDROID": "R.color.uilib_color_other_other_elevation",
-            "iOS": "ColorToken.colorOtherOtherElevation"
+            "WEB": "var(--uilib-color-other-elevation)",
+            "ANDROID": "R.color.uilib_color_other_elevation",
+            "iOS": "ColorToken.colorOtherElevation"
           }
         }
       },
@@ -749,9 +749,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-other-other-scrim)",
-            "ANDROID": "R.color.uilib_color_other_other_scrim",
-            "iOS": "ColorToken.colorOtherOtherScrim"
+            "WEB": "var(--uilib-color-other-scrim)",
+            "ANDROID": "R.color.uilib_color_other_scrim",
+            "iOS": "ColorToken.colorOtherScrim"
           }
         }
       },
@@ -769,9 +769,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-other-other-active-state-tint)",
-            "ANDROID": "R.color.uilib_color_other_other_active_state_tint",
-            "iOS": "ColorToken.colorOtherOtherActiveStateTint"
+            "WEB": "var(--uilib-color-other-active-state-tint)",
+            "ANDROID": "R.color.uilib_color_other_active_state_tint",
+            "iOS": "ColorToken.colorOtherActiveStateTint"
           }
         }
       },
@@ -789,9 +789,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-other-other-buttons-hover-state)",
-            "ANDROID": "R.color.uilib_color_other_other_buttons_hover_state",
-            "iOS": "ColorToken.colorOtherOtherButtonsHoverState"
+            "WEB": "var(--uilib-color-other-buttons-hover-state)",
+            "ANDROID": "R.color.uilib_color_other_buttons_hover_state",
+            "iOS": "ColorToken.colorOtherButtonsHoverState"
           }
         }
       },
@@ -809,9 +809,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-other-other-button-hover-state-secondary)",
-            "ANDROID": "R.color.uilib_color_other_other_button_hover_state_secondary",
-            "iOS": "ColorToken.colorOtherOtherButtonHoverStateSecondary"
+            "WEB": "var(--uilib-color-other-button-hover-state-secondary)",
+            "ANDROID": "R.color.uilib_color_other_button_hover_state_secondary",
+            "iOS": "ColorToken.colorOtherButtonHoverStateSecondary"
           }
         }
       },
@@ -829,9 +829,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-other-other-button-hover-state-shortlist)",
-            "ANDROID": "R.color.uilib_color_other_other_button_hover_state_shortlist",
-            "iOS": "ColorToken.colorOtherOtherButtonHoverStateShortlist"
+            "WEB": "var(--uilib-color-other-button-hover-state-shortlist)",
+            "ANDROID": "R.color.uilib_color_other_button_hover_state_shortlist",
+            "iOS": "ColorToken.colorOtherButtonHoverStateShortlist"
           }
         }
       },
@@ -849,9 +849,9 @@
         },
         "$extensions": {
           "com.figma.codeSyntax": {
-            "WEB": "var(--uilib-color-other-other-skeleton-loading)",
-            "ANDROID": "R.color.uilib_color_other_other_skeleton_loading",
-            "iOS": "ColorToken.colorOtherOtherSkeletonLoading"
+            "WEB": "var(--uilib-color-other-skeleton-loading)",
+            "ANDROID": "R.color.uilib_color_other_skeleton_loading",
+            "iOS": "ColorToken.colorOtherSkeletonLoading"
           }
         }
       }
