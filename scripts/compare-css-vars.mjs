@@ -4,8 +4,9 @@ import fg from "fast-glob";
 
 const repoRoot = path.resolve(path.dirname(new URL(import.meta.url).pathname), "..");
 const localCssDir = path.join(repoRoot, "dist", "tokens", "css");
-const uilibSrcDir = "/tmp/uilib/src";
+const uilibSrcDir = "/Users/Thomas.Bielich@tui.com/Sites/uilib-1/dist";
 const outputPath = path.join(repoRoot, "mapping-report.md");
+const changeLogPath = path.join(repoRoot, "figma-change-log.md");
 
 function readFiles(globPattern, cwd) {
   return fg.sync(globPattern, { cwd, absolute: true, onlyFiles: true });
@@ -145,7 +146,111 @@ function writeGroupedSection(lines, title, groups) {
   }
 }
 
+function parseSummaryFromReport(reportText) {
+  if (!reportText) return null;
+
+  const variablesMatch = reportText.match(/\| Variables \| (\d+) \| (\d+) \|/);
+  const missingMatch = reportText.match(/\| Missing \| (\d+) \| (\d+) \|/);
+  const matchesMatch = reportText.match(/=> Matches (\d+) : (\d+)/);
+
+  if (!variablesMatch || !missingMatch || !matchesMatch) return null;
+
+  return {
+    uilibVars: Number(variablesMatch[1]),
+    localVars: Number(variablesMatch[2]),
+    missingInUilib: Number(missingMatch[1]),
+    missingInLocal: Number(missingMatch[2]),
+    matches: Number(matchesMatch[1]),
+  };
+}
+
+function readPreviousSummary() {
+  if (!fs.existsSync(outputPath)) return null;
+  const previousText = fs.readFileSync(outputPath, "utf8");
+  return parseSummaryFromReport(previousText);
+}
+
+function formatDelta(value) {
+  if (value > 0) return `+${value}`;
+  return `${value}`;
+}
+
+function buildSummary(localVars, uilibVars, matches, missingInUilib, missingInLocal) {
+  return {
+    uilibVars: uilibVars.size,
+    localVars: localVars.size,
+    missingInUilib: missingInUilib.length,
+    missingInLocal: missingInLocal.length,
+    matches: matches.length,
+  };
+}
+
+function timestampUtc() {
+  return new Date().toISOString().replace("T", " ").replace(/\.\d{3}Z$/, " UTC");
+}
+
+function parseLatestChangeLogSummary(changeLogText) {
+  const rowRe =
+    /^\| [^|]+ \| (\d+) \| [^|]+ \| (\d+) \| (\d+) \| (\d+) \| (\d+) \|$/gm;
+  let match;
+  let last = null;
+  while ((match = rowRe.exec(changeLogText)) !== null) {
+    last = {
+      matches: Number(match[1]),
+      uilibVars: Number(match[2]),
+      localVars: Number(match[3]),
+      missingInUilib: Number(match[4]),
+      missingInLocal: Number(match[5]),
+    };
+  }
+  return last;
+}
+
+function writeChangeLog(currentSummary, previousSummary) {
+  const matchDelta = previousSummary
+    ? formatDelta(currentSummary.matches - previousSummary.matches)
+    : "n/a";
+  const row =
+    `| ${timestampUtc()} | ${currentSummary.matches} | ${matchDelta} | ` +
+    `${currentSummary.uilibVars} | ${currentSummary.localVars} | ` +
+    `${currentSummary.missingInUilib} | ${currentSummary.missingInLocal} |`;
+
+  if (!fs.existsSync(changeLogPath)) {
+    const initial = [
+      "# Figma Change Log",
+      "",
+      "## Token Mapping Progress",
+      "",
+      "| Date (UTC) | Matches | Delta | Variables (@tui/design-system) | Variables (Figma Library) | Missing In @tui/design-system | Missing In Figma Library |",
+      "| --- | ---: | ---: | ---: | ---: | ---: | ---: |",
+      row,
+      "",
+    ];
+    fs.writeFileSync(changeLogPath, initial.join("\n"));
+    return true;
+  }
+
+  const existing = fs.readFileSync(changeLogPath, "utf8").trimEnd();
+  const latest = parseLatestChangeLogSummary(existing);
+  if (
+    latest &&
+    latest.matches === currentSummary.matches &&
+    latest.uilibVars === currentSummary.uilibVars &&
+    latest.localVars === currentSummary.localVars &&
+    latest.missingInUilib === currentSummary.missingInUilib &&
+    latest.missingInLocal === currentSummary.missingInLocal
+  ) {
+    return false;
+  }
+  const withNewline = existing.endsWith("\n") ? existing : `${existing}\n`;
+  fs.writeFileSync(changeLogPath, `${withNewline}${row}\n`);
+  return true;
+}
+
 function writeReport({
+  localFiles,
+  uilibFiles,
+  sourceInfo,
   localVars,
   uilibVars,
   matches,
@@ -162,6 +267,22 @@ function writeReport({
   lines.push(`| Missing | ${missingInUilib.length} | ${missingInLocal.length} |`);
   lines.push("");
   lines.push(`=> Matches ${matches.length} : ${matches.length}`);
+  lines.push("");
+
+  lines.push("## Data Sources & Limitations");
+  lines.push(`- Figma source directory: \`${localCssDir}\``);
+  lines.push(`- Figma source files: ${localFiles.length}`);
+  for (const file of localFiles) lines.push(`- file: \`${path.relative(repoRoot, file)}\``);
+  lines.push(`- @tui source directory: \`${uilibSrcDir}\``);
+  lines.push(`- @tui source files: ${uilibFiles.length}`);
+  for (const file of uilibFiles) lines.push(`- file: \`${file}\``);
+  lines.push(`- @tui source type: \`${sourceInfo.type}\``);
+  if (sourceInfo.type === "git-checkout") {
+    lines.push(`- @tui source revision: \`${sourceInfo.revision}\``);
+  } else {
+    lines.push("- Limitation: @tui source is not a git checkout (likely snapshot/local copy).");
+    lines.push("- Impact: match/missing counts may differ from latest uilib version.");
+  }
   lines.push("");
 
   writeGroupedSection(lines, "Matches", groupVars(matches));
@@ -204,6 +325,13 @@ if (!fs.existsSync(uilibSrcDir)) {
 
 const localFiles = readFiles(["**/*.css"], localCssDir);
 const uilibFiles = readFiles(["**/*.{css,scss}"], uilibSrcDir);
+const uilibGitHeadPath = path.join(path.dirname(uilibSrcDir), ".git", "HEAD");
+const sourceInfo = fs.existsSync(uilibGitHeadPath)
+  ? {
+      type: "git-checkout",
+      revision: fs.readFileSync(uilibGitHeadPath, "utf8").trim(),
+    }
+  : { type: "snapshot" };
 
 const localVars = collectVars(localFiles);
 const uilibVars = collectVars(uilibFiles);
@@ -212,8 +340,19 @@ const matches = [...localVars].filter((v) => uilibVars.has(v)).sort();
 const missingInUilib = [...localVars].filter((v) => !uilibVars.has(v)).sort();
 const missingInLocal = [...uilibVars].filter((v) => !localVars.has(v)).sort();
 const suggestions = suggestRenames(missingInUilib, missingInLocal);
+const previousSummary = readPreviousSummary();
+const currentSummary = buildSummary(
+  localVars,
+  uilibVars,
+  matches,
+  missingInUilib,
+  missingInLocal,
+);
 
 writeReport({
+  localFiles,
+  uilibFiles,
+  sourceInfo,
   localVars,
   uilibVars,
   matches,
@@ -221,5 +360,11 @@ writeReport({
   missingInLocal,
   suggestions,
 });
+const didWriteChangeLog = writeChangeLog(currentSummary, previousSummary);
 
 console.log(`✅ Wrote mapping report to ${outputPath}`);
+if (didWriteChangeLog) {
+  console.log(`✅ Updated Figma change log at ${changeLogPath}`);
+} else {
+  console.log(`ℹ️ No metric changes; Figma change log left unchanged`);
+}

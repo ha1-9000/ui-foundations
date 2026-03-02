@@ -1,20 +1,35 @@
 # Token Mapping Report (CSS Variables)
 
-|  | @tui/design-system | Figma Library |
-| --- | --- | --- |
-| Variables | 306 | 231 |
-| Missing | 228 | 303 |
+|           | @tui/design-system | Figma Library |
+| --------- | ------------------ | ------------- |
+| Variables | 404                | 231           |
+| Missing   | 231                | 404           |
 
-=> Matches 3 : 3
+=> Matches 0 : 0
+
+## Data Sources & Limitations
+
+- Figma source directory: `/Users/Thomas.Bielich@tui.com/GitHub/ui-foundations/dist/tokens/css`
+- Figma source files: 2
+- file: `dist/tokens/css/primitives.tokens.css`
+- file: `dist/tokens/css/semantics.tokens.css`
+- @tui source directory: `/Users/Thomas.Bielich@tui.com/Sites/uilib-1/dist`
+- @tui source files: 6
+- file: `/Users/Thomas.Bielich@tui.com/Sites/uilib-1/dist/themes/crystalski/fonts.css`
+- file: `/Users/Thomas.Bielich@tui.com/Sites/uilib-1/dist/themes/crystalski/index.css`
+- file: `/Users/Thomas.Bielich@tui.com/Sites/uilib-1/dist/themes/firstchoice/fonts.css`
+- file: `/Users/Thomas.Bielich@tui.com/Sites/uilib-1/dist/themes/firstchoice/index.css`
+- file: `/Users/Thomas.Bielich@tui.com/Sites/uilib-1/dist/themes/tui/fonts.css`
+- file: `/Users/Thomas.Bielich@tui.com/Sites/uilib-1/dist/themes/tui/index.css`
+- @tui source type: `git-checkout`
+- @tui source revision: `ref: refs/heads/main`
 
 ## Matches
-### typography
-- `--typography-body-font-family`
-- `--typography-heading-font-family`
-- `--typography-label-font-family`
 
 ## Missing In @tui/design-system
+
 ### colors
+
 - `--color-blue-blue-10`
 - `--color-blue-blue-100`
 - `--color-blue-blue-20`
@@ -165,9 +180,11 @@
 - `--color-text-text-strong`
 
 ### typography
+
 - `--font-family-ambit`
 - `--font-family-tuiheadline`
 - `--font-family-tuitypelight`
+- `--typography-body-font-family`
 - `--typography-display-font-family`
 - `--typography-font-size-display-desktop-desktop-display-large`
 - `--typography-font-size-display-desktop-desktop-display-medium`
@@ -201,8 +218,11 @@
 - `--typography-font-weight-ambit-semibold`
 - `--typography-font-weight-tuitype-light-latn-bold`
 - `--typography-font-weight-tuitype-light-latn-regular`
+- `--typography-heading-font-family`
+- `--typography-label-font-family`
 
 ### spacing
+
 - `--spacing-spacing-050`
 - `--spacing-spacing-100`
 - `--spacing-spacing-1000`
@@ -228,6 +248,7 @@
 - `--spacing-spacing-none`
 
 ### radii
+
 - `--border-radius-border-radius-100`
 - `--border-radius-border-radius-1000`
 - `--border-radius-border-radius-1400`
@@ -241,6 +262,7 @@
 - `--border-radius-pill`
 
 ### opacity
+
 - `--opacity-opacity-10`
 - `--opacity-opacity-100`
 - `--opacity-opacity-20`
@@ -253,618 +275,666 @@
 - `--opacity-opacity-90`
 
 ## Missing In Figma Library
+
 ### colors
-- `--brand-color-accent`
-- `--brand-color-accent-dark`
-- `--brand-color-functional-base`
-- `--brand-color-functional-base-dark`
-- `--brand-color-functional-danger`
-- `--brand-color-functional-success`
-- `--brand-color-primary`
-- `--brand-color-primary-dark`
-- `--brand-color-subtle`
-- `--brand-color-subtle-dark`
-- `--brand-color-subtle-light`
-- `--button-border-color-disabled`
-- `--button-ghost-border-color-active`
-- `--button-ghost-border-color-default`
-- `--button-ghost-border-color-focus`
-- `--button-ghost-border-color-hover`
-- `--button-ghost-text-color-active`
-- `--button-ghost-text-color-default`
-- `--button-ghost-text-color-hover`
-- `--button-outline-border-color-active`
-- `--button-outline-border-color-default`
-- `--button-outline-border-color-focus`
-- `--button-outline-border-color-hover`
-- `--button-outline-text-color-active`
-- `--button-outline-text-color-default`
-- `--button-outline-text-color-hover`
-- `--button-solid-border-color-active`
-- `--button-solid-border-color-default`
-- `--button-solid-border-color-focus`
-- `--button-solid-border-color-hover`
-- `--button-solid-text-color-active`
-- `--button-solid-text-color-default`
-- `--button-solid-text-color-hover`
-- `--button-text-color-disabled`
-- `--color-border-brand`
-- `--color-border-danger`
-- `--color-border-default`
-- `--color-border-disabled`
-- `--color-border-strong`
-- `--color-border-subtle`
-- `--color-brand-a-blue-200`
-- `--color-brand-a-blue-500`
-- `--color-brand-a-blue-700`
-- `--color-brand-a-blue-800`
-- `--color-brand-a-green`
-- `--color-brand-a-purple-200`
-- `--color-brand-a-purple-600`
-- `--color-brand-a-purple-800`
-- `--color-brand-a-red`
-- `--color-brand-b-blue-200`
-- `--color-brand-b-blue-500`
-- `--color-brand-b-blue-700`
-- `--color-brand-b-blue-800`
-- `--color-brand-b-green`
-- `--color-brand-b-purple-200`
-- `--color-brand-b-purple-600`
-- `--color-brand-b-purple-800`
-- `--color-brand-b-red`
-- `--color-fill-active`
-- `--color-fill-brand`
-- `--color-fill-danger`
-- `--color-fill-disabled`
-- `--color-fill-hover`
-- `--color-fill-subtle`
-- `--color-fill-success`
-- `--color-fill-surface`
-- `--color-focus`
-- `--color-neutral-000`
-- `--color-neutral-100`
-- `--color-neutral-1000`
-- `--color-neutral-200`
-- `--color-neutral-300`
-- `--color-neutral-400`
-- `--color-neutral-500`
-- `--color-neutral-600`
-- `--color-neutral-700`
-- `--color-neutral-800`
-- `--color-neutral-900`
-- `--color-neutral-alpha-000`
-- `--color-neutral-alpha-100`
-- `--color-neutral-alpha-200`
-- `--color-neutral-alpha-300`
-- `--color-neutral-alpha-400`
-- `--color-neutral-alpha-500`
-- `--color-neutral-alpha-600`
-- `--color-neutral-alpha-700`
-- `--color-neutral-alpha-800`
-- `--color-neutral-alpha-900`
-- `--color-overlay-active`
-- `--color-overlay-backdrop`
-- `--color-overlay-hover`
-- `--color-overlay-selected`
-- `--color-text-brand`
-- `--color-text-danger`
-- `--color-text-default`
-- `--color-text-disabled`
-- `--color-text-inverse`
-- `--color-text-strong`
-- `--color-text-subtle`
-- `--color-text-success`
-- `--color-transparent`
-- `--form-field-helper-text-color-default`
-- `--form-field-helper-text-color-invalid`
-- `--input-border-color-disabled`
-- `--input-text-border-color-active`
-- `--input-text-border-color-default`
-- `--input-text-border-color-focus`
-- `--input-text-border-color-hover`
-- `--input-text-border-color-invalid`
-- `--input-text-border-color-valid`
-- `--input-text-color-disabled`
-- `--input-text-text-color-active`
-- `--input-text-text-color-default`
-- `--input-text-text-color-hover`
-- `--input-text-text-color-placeholder`
+
+- `--uilib-card-search-color-brand`
+- `--uilib-card-search-color-flagship`
+- `--uilib-card-search-color-flagship-text`
+- `--uilib-color-border-brand`
+- `--uilib-color-border-brand-strong`
+- `--uilib-color-border-card`
+- `--uilib-color-border-danger`
+- `--uilib-color-border-dashed`
+- `--uilib-color-border-divider`
+- `--uilib-color-border-input`
+- `--uilib-color-border-insider`
+- `--uilib-color-border-interaction`
+- `--uilib-color-border-inverse`
+- `--uilib-color-brand-bluestar`
+- `--uilib-color-brand-holiday-villages`
+- `--uilib-color-brand-kids-club`
+- `--uilib-color-brand-local`
+- `--uilib-color-brand-magiclife`
+- `--uilib-color-brand-musement`
+- `--uilib-color-brand-paypal`
+- `--uilib-color-brand-riu`
+- `--uilib-color-brand-robinson`
+- `--uilib-color-brand-scene`
+- `--uilib-color-brand-small-and-friendly`
+- `--uilib-color-brand-soneo`
+- `--uilib-color-brand-splashworld`
+- `--uilib-color-brand-time-to-smile`
+- `--uilib-color-brand-trip-advisor`
+- `--uilib-color-brand-tui-blue`
+- `--uilib-color-canvas-contrast`
+- `--uilib-color-canvas-default`
+- `--uilib-color-canvas-footer`
+- `--uilib-color-core-brand`
+- `--uilib-color-core-brand-strong`
+- `--uilib-color-core-interaction`
+- `--uilib-color-core-neutral`
+- `--uilib-color-core-surface`
+- `--uilib-color-other-active-state-tint`
+- `--uilib-color-other-button-hover-state`
+- `--uilib-color-other-disabled-soft`
+- `--uilib-color-other-disabled-strong`
+- `--uilib-color-other-elevation`
+- `--uilib-color-other-gradient-diagonal`
+- `--uilib-color-other-gradient-diagonal-soft`
+- `--uilib-color-other-gradient-diagonal-strong`
+- `--uilib-color-other-gradient-linear`
+- `--uilib-color-other-gradient-linear-soft`
+- `--uilib-color-other-gradient-linear-strong`
+- `--uilib-color-other-scrim`
+- `--uilib-color-other-scroll-handle`
+- `--uilib-color-other-secondary-button-hover-state`
+- `--uilib-color-other-skeleton-loading`
+- `--uilib-color-promotion`
+- `--uilib-color-promotion-free-kids`
+- `--uilib-color-promotion-insider-soft`
+- `--uilib-color-promotion-insider-strong`
+- `--uilib-color-status-danger-icon`
+- `--uilib-color-status-danger-surface`
+- `--uilib-color-status-info-icon`
+- `--uilib-color-status-info-surface`
+- `--uilib-color-status-success-icon`
+- `--uilib-color-status-success-surface`
+- `--uilib-color-status-warning-icon`
+- `--uilib-color-status-warning-surface`
+- `--uilib-color-sustainability`
+- `--uilib-color-sustainability-soft`
+- `--uilib-color-text-body`
+- `--uilib-color-text-danger`
+- `--uilib-color-text-inverse`
+- `--uilib-color-text-link`
+- `--uilib-color-text-link-visited`
+- `--uilib-color-text-link-visited-inverse`
+- `--uilib-color-text-promotion`
+- `--uilib-color-text-strong`
+- `--uilib-color-text-tooltip`
+- `--uilib-input-checkbox-text-color-strong`
+- `--uilib-input-count-color-bg`
+- `--uilib-input-count-color-border`
+- `--uilib-input-count-color-selected`
+- `--uilib-input-count-color-selected-text`
+- `--uilib-input-count-color-text`
+- `--uilib-input-radio-text-color-strong`
+- `--uilib-input-slider-track-color-selected`
+- `--uilib-link-decoration-color-inverse`
+- `--uilib-link-decoration-color-inverse-visited`
+- `--uilib-link-decoration-color-visited`
+- `--uilib-ratings-numerical-color-inverse`
+- `--uilib-tooltip-color-bg`
+- `--uilib-tooltip-color-text`
 
 ### typography
-- `--brand-font-base`
-- `--brand-font-lead`
-- `--button-font-family`
-- `--button-font-size`
-- `--button-font-weight`
-- `--font-family-mono`
-- `--font-family-sans`
-- `--font-family-serif`
-- `--font-size-lg`
-- `--font-size-md`
-- `--font-size-sm`
-- `--font-size-xl`
-- `--font-size-xs`
-- `--font-size-xxl`
-- `--font-size-xxxl`
-- `--font-weight-100`
-- `--font-weight-200`
-- `--font-weight-300`
-- `--font-weight-400`
-- `--font-weight-500`
-- `--font-weight-600`
-- `--font-weight-700`
-- `--font-weight-800`
-- `--font-weight-900`
-- `--input-font-family`
-- `--input-font-size`
-- `--input-font-weight`
-- `--line-height-lg`
-- `--line-height-md`
-- `--line-height-sm`
-- `--line-height-xl`
-- `--line-height-xs`
-- `--line-height-xxl`
-- `--line-height-xxxl`
-- `--typography-body-font-size`
-- `--typography-body-font-weight`
-- `--typography-body-line-height`
-- `--typography-code`
-- `--typography-heading-font-size-lg`
-- `--typography-heading-font-size-md`
-- `--typography-heading-font-size-sm`
-- `--typography-heading-font-size-xl`
-- `--typography-heading-font-size-xs`
-- `--typography-heading-font-size-xxl`
-- `--typography-heading-font-size-xxxl`
-- `--typography-heading-font-weight`
-- `--typography-heading-line-height`
-- `--typography-heading-line-height-lg`
-- `--typography-heading-line-height-md`
-- `--typography-heading-line-height-sm`
-- `--typography-heading-line-height-xl`
-- `--typography-heading-line-height-xs`
-- `--typography-heading-line-height-xxl`
-- `--typography-heading-line-height-xxxl`
-- `--typography-label-font-size`
-- `--typography-label-font-weight`
-- `--typography-label-gap`
-- `--typography-label-line-height`
+
+- `--uilib-font-family-base`
+- `--uilib-font-family-lead`
+- `--uilib-font-size-root`
+- `--uilib-font-weight-bold`
+- `--uilib-font-weight-regular`
+- `--uilib-font-weight-semibold`
+- `--uilib-loader-font-large`
+- `--uilib-loader-font-medium`
+- `--uilib-loader-font-small`
+- `--uilib-price-font-main-large`
+- `--uilib-price-font-main-medium`
+- `--uilib-price-font-primary`
+- `--uilib-price-font-secondary`
+- `--uilib-price-font-sub-large`
+- `--uilib-ratings-numerical-font-score`
+- `--uilib-typography-body-large`
+- `--uilib-typography-body-large-strong`
+- `--uilib-typography-body-medium`
+- `--uilib-typography-body-medium-strong`
+- `--uilib-typography-body-small`
+- `--uilib-typography-body-small-strong`
+- `--uilib-typography-component-heading-large`
+- `--uilib-typography-component-heading-large-strong`
+- `--uilib-typography-component-heading-medium`
+- `--uilib-typography-component-heading-medium-strong`
+- `--uilib-typography-component-heading-small`
+- `--uilib-typography-component-heading-small-strong`
+- `--uilib-typography-component-heading-xlarge`
+- `--uilib-typography-component-heading-xlarge-strong`
+- `--uilib-typography-component-heading-xxlarge`
+- `--uilib-typography-component-heading-xxlarge-strong`
+- `--uilib-typography-display-large`
+- `--uilib-typography-display-medium`
+- `--uilib-typography-display-small`
+- `--uilib-typography-heading-large`
+- `--uilib-typography-heading-medium`
+- `--uilib-typography-heading-small`
+- `--uilib-typography-heading-xlarge`
+- `--uilib-typography-heading-xxlarge`
+- `--uilib-typography-label-large`
+- `--uilib-typography-label-large-strong`
+- `--uilib-typography-label-medium`
+- `--uilib-typography-label-medium-strong`
+- `--uilib-typography-label-small`
+- `--uilib-typography-label-small-strong`
+- `--uilib-typography-label-xsmall`
+- `--uilib-typography-label-xsmall-strong`
 
 ### spacing
-- `--size-spacing-000`
-- `--size-spacing-100`
-- `--size-spacing-1000`
-- `--size-spacing-200`
-- `--size-spacing-300`
-- `--size-spacing-400`
-- `--size-spacing-500`
-- `--size-spacing-600`
-- `--size-spacing-700`
-- `--size-spacing-800`
-- `--size-spacing-900`
+
+- `--uilib-spacing-050`
+- `--uilib-spacing-100`
+- `--uilib-spacing-1000`
+- `--uilib-spacing-1100`
+- `--uilib-spacing-1200`
+- `--uilib-spacing-1300`
+- `--uilib-spacing-1400`
+- `--uilib-spacing-1500`
+- `--uilib-spacing-1600`
+- `--uilib-spacing-200`
+- `--uilib-spacing-300`
+- `--uilib-spacing-400`
+- `--uilib-spacing-500`
+- `--uilib-spacing-600`
+- `--uilib-spacing-700`
+- `--uilib-spacing-800`
+- `--uilib-spacing-900`
+- `--uilib-spacing-auto`
+- `--uilib-spacing-none`
 
 ### radii
-- `--brand-corner-button`
-- `--brand-corner-card`
-- `--brand-corner-input`
-- `--brand-corner-modal`
-- `--corner-button-radius`
-- `--corner-card-radius`
-- `--corner-form-radius`
-- `--corner-modal-radius`
-- `--size-radius-000`
-- `--size-radius-100`
-- `--size-radius-200`
-- `--size-radius-300`
-- `--size-radius-400`
-- `--size-radius-500`
-- `--size-radius-600`
-- `--size-radius-700`
-- `--size-radius-800`
-- `--size-radius-900`
-- `--size-radius-full`
 
-### shadows
-- `--shadow-focus`
-
-### breakpoints
-- `--breakpoint-100`
-- `--breakpoint-200`
-- `--breakpoint-300`
-- `--breakpoint-400`
-- `--breakpoint-500`
-- `--breakpoint-600`
-
-### containers
-- `--button-container-background-disabled`
-- `--button-ghost-container-background-active`
-- `--button-ghost-container-background-default`
-- `--button-ghost-container-background-focus`
-- `--button-ghost-container-background-hover`
-- `--button-outline-container-background-active`
-- `--button-outline-container-background-default`
-- `--button-outline-container-background-focus`
-- `--button-outline-container-background-hover`
-- `--button-solid-container-background-active`
-- `--button-solid-container-background-default`
-- `--button-solid-container-background-focus`
-- `--button-solid-container-background-hover`
-- `--container-100`
-- `--container-200`
-- `--container-300`
-- `--container-400`
-- `--container-500`
-- `--container-600`
-- `--form-container-background`
-- `--form-container-border-color`
-- `--input-container-background-disabled`
-- `--input-text-container-background-active`
-- `--input-text-container-background-default`
-- `--input-text-container-background-focus`
-- `--input-text-container-background-hover`
+- `--uilib-border-radius-100`
+- `--uilib-border-radius-1000`
+- `--uilib-border-radius-1400`
+- `--uilib-border-radius-1800`
+- `--uilib-border-radius-200`
+- `--uilib-border-radius-400`
+- `--uilib-border-radius-600`
+- `--uilib-border-radius-circle`
+- `--uilib-border-radius-none`
+- `--uilib-border-radius-pill`
+- `--uilib-card-search-radius-spacing`
+- `--uilib-list-image-radius-alt`
 
 ### other
-- `--button-border-radius`
-- `--button-border-size-active`
-- `--button-border-size-default`
-- `--button-border-size-hover`
-- `--button-gap`
-- `--button-ghost-border-size`
-- `--button-group-border-radius`
-- `--button-group-gap`
-- `--button-height`
-- `--button-line-height`
-- `--button-outline-border-size`
-- `--button-overlay-active`
-- `--button-overlay-hover`
-- `--button-padding-block`
-- `--button-padding-inline`
-- `--button-padding-inline-icon-only`
-- `--button-solid-border-size`
-- `--field-label-gap`
-- `--field-label-line-height`
-- `--field-label-required-color`
-- `--form-border-radius`
-- `--form-border-size`
-- `--form-field-gap`
-- `--form-gap`
-- `--form-group-gap`
-- `--form-group-title-color`
-- `--form-padding-block`
-- `--form-padding-inline`
-- `--icon-only`
-- `--icon-src`
-- `--input-border-radius`
-- `--input-border-size-active`
-- `--input-border-size-default`
-- `--input-border-size-hover`
-- `--input-gap`
-- `--input-height`
-- `--input-line-height`
-- `--input-overlay-active`
-- `--input-overlay-hover`
-- `--input-padding-block`
-- `--input-padding-inline`
-- `--input-padding-inline-icon-only`
-- `--label-gap`
-- `--layout-base-grid`
-- `--layout-column-max-width`
-- `--layout-columns`
-- `--layout-float-breakpoint`
-- `--layout-gutter`
-- `--layout-max-width`
-- `--modal-backdrop-color`
-- `--modal-surface-border-radius`
-- `--modal-surface-color`
-- `--size-border-000`
-- `--size-border-100`
-- `--size-border-200`
-- `--size-border-300`
-- `--zindex-base`
-- `--zindex-dropdown`
-- `--zindex-dropdown-base`
-- `--zindex-fixed`
-- `--zindex-hidden`
-- `--zindex-modal`
-- `--zindex-modal-overlay`
-- `--zindex-popover`
-- `--zindex-raised`
-- `--zindex-sticky`
-- `--zindex-tooltip`
+
+- `--uilib-accordion-border-color`
+- `--uilib-accordion-default-bg-color`
+- `--uilib-accordion-divider-color`
+- `--uilib-accordion-icon`
+- `--uilib-accordion-logo-radius`
+- `--uilib-accordion-radius`
+- `--uilib-active-tag-background-color`
+- `--uilib-active-tag-border-color`
+- `--uilib-active-tag-cross-color`
+- `--uilib-active-tag-icon`
+- `--uilib-active-tag-radius`
+- `--uilib-alert-icon-error-bg`
+- `--uilib-alert-icon-error-mask`
+- `--uilib-alert-icon-info-bg`
+- `--uilib-alert-icon-info-mask`
+- `--uilib-alert-icon-success-bg`
+- `--uilib-alert-icon-success-mask`
+- `--uilib-alert-icon-warning-bg`
+- `--uilib-alert-icon-warning-mask`
+- `--uilib-alert-radius`
+- `--uilib-alert-text-color`
+- `--uilib-aspect-ratio-16x9-wide`
+- `--uilib-aspect-ratio-1x1-square`
+- `--uilib-aspect-ratio-3x1-panoramic`
+- `--uilib-aspect-ratio-4x3-landscape`
+- `--uilib-aspect-ratio-4x3-portrait`
+- `--uilib-breadcrumb-icon`
+- `--uilib-breakpoints-lg`
+- `--uilib-breakpoints-md`
+- `--uilib-breakpoints-sm`
+- `--uilib-breakpoints-xl`
+- `--uilib-breakpoints-xs`
+- `--uilib-breakpoints-xxl`
+- `--uilib-breakpoints-xxs`
+- `--uilib-button-disabled-bg-color`
+- `--uilib-button-disabled-color`
+- `--uilib-button-primary-bg-color`
+- `--uilib-button-primary-color`
+- `--uilib-button-primary-hover-bg-color`
+- `--uilib-button-promotion-bg-color`
+- `--uilib-button-promotion-color`
+- `--uilib-button-promotion-hover-bg-color`
+- `--uilib-button-radius`
+- `--uilib-button-search-bg-color`
+- `--uilib-button-search-color`
+- `--uilib-button-search-hover-bg-color`
+- `--uilib-button-secondary-bg-color`
+- `--uilib-button-secondary-color`
+- `--uilib-button-secondary-hover-bg-color`
+- `--uilib-button-tertiary-bg-color`
+- `--uilib-button-tertiary-color`
+- `--uilib-button-tertiary-hover-bg-color`
+- `--uilib-card-search-highlights-icon`
+- `--uilib-card-search-radius`
+- `--uilib-elevation-0`
+- `--uilib-elevation-100`
+- `--uilib-elevation-200`
+- `--uilib-focus-default`
+- `--uilib-focus-gap`
+- `--uilib-focus-size`
+- `--uilib-form-row-icon`
+- `--uilib-form-row-label-font`
+- `--uilib-grid-columns`
+- `--uilib-grid-gutter-height`
+- `--uilib-grid-gutter-width`
+- `--uilib-grid-size`
+- `--uilib-icon-button-control-bg-color`
+- `--uilib-icon-button-control-color`
+- `--uilib-icon-button-control-hover-bg-color`
+- `--uilib-icon-button-disabled-bg-color`
+- `--uilib-icon-button-disabled-color`
+- `--uilib-icon-button-ghost-bg-color`
+- `--uilib-icon-button-ghost-color`
+- `--uilib-icon-button-ghost-hover-bg-color`
+- `--uilib-icon-button-primary-bg-color`
+- `--uilib-icon-button-primary-color`
+- `--uilib-icon-button-primary-hover-bg-color`
+- `--uilib-icon-button-promotion-bg-color`
+- `--uilib-icon-button-promotion-color`
+- `--uilib-icon-button-promotion-hover-bg-color`
+- `--uilib-icon-button-radius`
+- `--uilib-icon-button-search-bg-color`
+- `--uilib-icon-button-search-color`
+- `--uilib-icon-button-search-hover-bg-color`
+- `--uilib-icon-button-secondary-bg-color`
+- `--uilib-icon-button-secondary-color`
+- `--uilib-icon-button-secondary-hover-bg-color`
+- `--uilib-icon-button-shortlist-bg-color`
+- `--uilib-icon-button-shortlist-color`
+- `--uilib-icon-button-shortlist-hover-bg-color`
+- `--uilib-icon-size-default`
+- `--uilib-icon-size-large`
+- `--uilib-icon-size-medium`
+- `--uilib-icon-size-small`
+- `--uilib-icon-size-xlarge`
+- `--uilib-icon-size-xsmall`
+- `--uilib-icon-size-xxlarge`
+- `--uilib-icon-size-xxxlarge`
+- `--uilib-image-fallback`
+- `--uilib-image-landscape`
+- `--uilib-image-panoramic`
+- `--uilib-image-portrait`
+- `--uilib-image-rectangle`
+- `--uilib-image-rounded`
+- `--uilib-image-square`
+- `--uilib-image-wide`
+- `--uilib-info-tag-info-bg-color`
+- `--uilib-info-tag-local-product-bg-color`
+- `--uilib-info-tag-neutral-bg-color`
+- `--uilib-info-tag-radius`
+- `--uilib-info-tag-scarcity-bg-color`
+- `--uilib-info-tag-text-color`
+- `--uilib-input-checkbox-confirm-radius`
+- `--uilib-input-checkbox-icon-checked`
+- `--uilib-input-checkbox-icon-indeterminate`
+- `--uilib-input-chip-active-bg-color`
+- `--uilib-input-chip-active-border-color`
+- `--uilib-input-chip-active-hover-bg-color`
+- `--uilib-input-chip-box-shadow`
+- `--uilib-input-chip-default-bg-color`
+- `--uilib-input-chip-default-border-color`
+- `--uilib-input-chip-default-text-color`
+- `--uilib-input-chip-disabled-bg-color`
+- `--uilib-input-chip-disabled-text-color`
+- `--uilib-input-chip-hover-bg-color`
+- `--uilib-input-chip-radius`
+- `--uilib-input-count-font`
+- `--uilib-input-count-radius`
+- `--uilib-input-count-size`
+- `--uilib-input-slider-thumb-border-color`
+- `--uilib-input-slider-thumb-radius`
+- `--uilib-input-slider-thumb-size`
+- `--uilib-input-slider-track-color`
+- `--uilib-input-slider-track-height`
+- `--uilib-input-slider-track-radius`
+- `--uilib-input-stepper-icon-decrement`
+- `--uilib-input-stepper-icon-increment`
+- `--uilib-input-text-icon-calendar`
+- `--uilib-input-text-icon-clear`
+- `--uilib-input-text-icon-hide`
+- `--uilib-input-text-icon-show`
+- `--uilib-layer-default`
+- `--uilib-layer-dropdown`
+- `--uilib-layer-fixed`
+- `--uilib-layer-hidden`
+- `--uilib-layer-modal`
+- `--uilib-layer-overlay`
+- `--uilib-layer-popover`
+- `--uilib-layer-sticky`
+- `--uilib-layer-tooltip`
+- `--uilib-layer-top`
+- `--uilib-layout-app-height`
+- `--uilib-layout-max-width`
+- `--uilib-line-height-body`
+- `--uilib-line-height-heading`
+- `--uilib-line-height-none`
+- `--uilib-link-decoration-color`
+- `--uilib-link-decoration-style`
+- `--uilib-link-decoration-thickness`
+- `--uilib-link-decoration-thickness-hover`
+- `--uilib-link-underline-offset`
+- `--uilib-list-bullet-color`
+- `--uilib-list-bullet-icon`
+- `--uilib-list-image-radius`
+- `--uilib-loader-image`
+- `--uilib-loader-large`
+- `--uilib-loader-medium`
+- `--uilib-loader-small`
+- `--uilib-media-button-color`
+- `--uilib-modal-backdrop-color`
+- `--uilib-modal-icon-close`
+- `--uilib-modal-radius`
+- `--uilib-motion-duration-fast`
+- `--uilib-motion-duration-medium`
+- `--uilib-motion-duration-slow`
+- `--uilib-motion-timing-brand`
+- `--uilib-motion-timing-in`
+- `--uilib-motion-timing-inout`
+- `--uilib-motion-timing-out`
+- `--uilib-pagination-border-radius`
+- `--uilib-pagination-hover-bg`
+- `--uilib-pagination-icon-color`
+- `--uilib-pagination-icon-next`
+- `--uilib-pagination-icon-prev`
+- `--uilib-pagination-selected-bg`
+- `--uilib-pagination-text-color`
+- `--uilib-price-color`
+- `--uilib-price-discount-color`
+- `--uilib-promo-tag-bg-color`
+- `--uilib-promo-tag-color`
+- `--uilib-promo-tag-font`
+- `--uilib-promo-tag-radius`
+- `--uilib-ratings-numerical-alt-bg`
+- `--uilib-ratings-numerical-alt-color`
+- `--uilib-ratings-numerical-alt-icon`
+- `--uilib-ratings-numerical-alt-icon-color`
+- `--uilib-ratings-numerical-alt-radius`
+- `--uilib-ratings-numerical-brand-bg`
+- `--uilib-ratings-numerical-brand-color`
+- `--uilib-ratings-numerical-brand-logo`
+- `--uilib-ratings-numerical-brand-radius`
+- `--uilib-ratings-numerical-color`
+- `--uilib-ratings-numerical-font`
+- `--uilib-ratings-percentage-leading-icon`
+- `--uilib-ratings-range-bar-bar-background`
+- `--uilib-ratings-range-bar-bar-color`
+- `--uilib-ratings-range-bar-bar-width`
+- `--uilib-ratings-range-bar-icon-color`
+- `--uilib-ratings-range-bar-tripadvisor-bar-background`
+- `--uilib-ratings-range-bar-tripadvisor-bar-color`
+- `--uilib-ratings-range-bar-tripadvisor-bar-width`
+- `--uilib-ratings-range-icons-star-rating-icon`
+- `--uilib-ratings-range-icons-star-rating-icon-checked`
+- `--uilib-ratings-range-icons-sun-rating-icon`
+- `--uilib-ratings-range-icons-sun-rating-icon-checked`
+- `--uilib-ratings-range-icons-tripadvisor-logo`
+- `--uilib-ratings-range-icons-tripadvisor-rating-icon`
+- `--uilib-ratings-range-icons-tripadvisor-rating-icon-checked`
+- `--uilib-ratings-range-icons-tui-t-plus-color`
+- `--uilib-ratings-range-icons-tui-t-rating-icon`
+- `--uilib-scroller-bar-size`
+- `--uilib-scroller-fade-size`
+- `--uilib-scroller-focus-radius`
+- `--uilib-scroller-thumb-color`
+- `--uilib-scroller-thumb-radius`
+- `--uilib-scroller-thumb-size`
+- `--uilib-show-more-less-icon`
+- `--uilib-skeleton-color`
+- `--uilib-skeleton-shimmer-color`
+- `--uilib-stroke-size-025`
+- `--uilib-stroke-size-050`
+- `--uilib-stroke-size-075`
+- `--uilib-stroke-style-dashed`
+- `--uilib-stroke-style-none`
+- `--uilib-stroke-style-solid`
+- `--uilib-theme-name`
+- `--uilib-tooltip-radius`
 
 ## Potential Renames (Heuristic)
+
 - `--border-radius-border-radius-100`
-- suggestion: `--button-border-radius` (67%)
-- suggestion: `--form-border-radius` (67%)
-- suggestion: `--input-border-radius` (67%)
+- suggestion: `--uilib-border-radius-100` (75%)
 - `--border-radius-border-radius-1000`
-- suggestion: `--button-border-radius` (67%)
-- suggestion: `--form-border-radius` (67%)
-- suggestion: `--input-border-radius` (67%)
+- suggestion: `--uilib-border-radius-1000` (75%)
 - `--border-radius-border-radius-1400`
-- suggestion: `--button-border-radius` (67%)
-- suggestion: `--form-border-radius` (67%)
-- suggestion: `--input-border-radius` (67%)
+- suggestion: `--uilib-border-radius-1400` (75%)
 - `--border-radius-border-radius-1800`
-- suggestion: `--button-border-radius` (67%)
-- suggestion: `--form-border-radius` (67%)
-- suggestion: `--input-border-radius` (67%)
+- suggestion: `--uilib-border-radius-1800` (75%)
 - `--border-radius-border-radius-200`
-- suggestion: `--button-border-radius` (67%)
-- suggestion: `--form-border-radius` (67%)
-- suggestion: `--input-border-radius` (67%)
-- `--border-radius-border-radius-300`
-- suggestion: `--button-border-radius` (67%)
-- suggestion: `--form-border-radius` (67%)
-- suggestion: `--input-border-radius` (67%)
+- suggestion: `--uilib-border-radius-200` (75%)
 - `--border-radius-border-radius-400`
-- suggestion: `--button-border-radius` (67%)
-- suggestion: `--form-border-radius` (67%)
-- suggestion: `--input-border-radius` (67%)
+- suggestion: `--uilib-border-radius-400` (75%)
 - `--border-radius-border-radius-600`
-- suggestion: `--button-border-radius` (67%)
-- suggestion: `--form-border-radius` (67%)
-- suggestion: `--input-border-radius` (67%)
+- suggestion: `--uilib-border-radius-600` (75%)
 - `--border-radius-border-radius-none`
-- suggestion: `--button-border-radius` (67%)
-- suggestion: `--form-border-radius` (67%)
-- suggestion: `--input-border-radius` (67%)
+- suggestion: `--uilib-border-radius-none` (75%)
 - `--border-radius-border-radius-pill`
-- suggestion: `--button-border-radius` (67%)
-- suggestion: `--form-border-radius` (67%)
-- suggestion: `--input-border-radius` (67%)
+- suggestion: `--uilib-border-radius-pill` (75%)
 - `--border-radius-pill`
-- suggestion: `--button-border-radius` (67%)
-- suggestion: `--form-border-radius` (67%)
-- suggestion: `--input-border-radius` (67%)
-- `--color-blue-blue-100`
-- suggestion: `--color-neutral-100` (67%)
+- suggestion: `--uilib-border-radius-pill` (75%)
 - `--color-border-border-brand-strong`
-- suggestion: `--color-border-brand` (75%)
-- suggestion: `--color-border-strong` (75%)
+- suggestion: `--uilib-color-border-brand-strong` (80%)
+- suggestion: `--uilib-color-border-brand` (75%)
+- suggestion: `--uilib-color-core-brand-strong` (60%)
 - `--color-border-border-card`
-- suggestion: `--color-border-brand` (67%)
-- suggestion: `--color-border-danger` (67%)
-- suggestion: `--color-border-default` (67%)
+- suggestion: `--uilib-color-border-card` (75%)
 - `--color-border-border-danger`
-- suggestion: `--color-border-danger` (100%)
-- suggestion: `--color-border-brand` (67%)
-- suggestion: `--color-border-default` (67%)
+- suggestion: `--uilib-color-border-danger` (75%)
 - `--color-border-border-dashed`
-- suggestion: `--color-border-brand` (67%)
-- suggestion: `--color-border-danger` (67%)
-- suggestion: `--color-border-default` (67%)
+- suggestion: `--uilib-color-border-dashed` (75%)
 - `--color-border-border-divider`
-- suggestion: `--color-border-brand` (67%)
-- suggestion: `--color-border-danger` (67%)
-- suggestion: `--color-border-default` (67%)
+- suggestion: `--uilib-color-border-divider` (75%)
 - `--color-border-border-input`
-- suggestion: `--input-border-color-disabled` (75%)
-- suggestion: `--color-border-brand` (67%)
-- suggestion: `--color-border-danger` (67%)
+- suggestion: `--uilib-color-border-input` (75%)
+- suggestion: `--uilib-input-count-color-border` (60%)
 - `--color-border-border-interaction`
-- suggestion: `--color-border-brand` (67%)
-- suggestion: `--color-border-danger` (67%)
-- suggestion: `--color-border-default` (67%)
+- suggestion: `--uilib-color-border-interaction` (75%)
 - `--color-border-border-inverse`
-- suggestion: `--color-border-brand` (67%)
-- suggestion: `--color-border-danger` (67%)
-- suggestion: `--color-border-default` (67%)
+- suggestion: `--uilib-color-border-inverse` (75%)
 - `--color-brand-brand-bluestar-blue`
-- suggestion: `--color-brand-a-blue-200` (60%)
-- suggestion: `--color-brand-a-blue-500` (60%)
-- suggestion: `--color-brand-a-blue-700` (60%)
+- suggestion: `--uilib-color-brand-bluestar` (75%)
+- suggestion: `--uilib-color-brand-tui-blue` (60%)
 - `--color-brand-brand-holiday-villages-purple`
-- suggestion: `--color-brand-a-purple-200` (60%)
-- suggestion: `--color-brand-a-purple-600` (60%)
-- suggestion: `--color-brand-a-purple-800` (60%)
+- suggestion: `--uilib-color-brand-holiday-villages` (80%)
 - `--color-brand-brand-kids-club-blue`
-- suggestion: `--color-brand-a-blue-200` (60%)
-- suggestion: `--color-brand-a-blue-500` (60%)
-- suggestion: `--color-brand-a-blue-700` (60%)
+- suggestion: `--uilib-color-brand-kids-club` (80%)
+- suggestion: `--uilib-color-brand-tui-blue` (60%)
+- `--color-brand-brand-local-biege`
+- suggestion: `--uilib-color-brand-local` (75%)
+- `--color-brand-brand-musement-yellow`
+- suggestion: `--uilib-color-brand-musement` (75%)
 - `--color-brand-brand-pay-pal-blue`
-- suggestion: `--color-brand-a-blue-200` (60%)
-- suggestion: `--color-brand-a-blue-500` (60%)
-- suggestion: `--color-brand-a-blue-700` (60%)
+- suggestion: `--uilib-color-brand-tui-blue` (60%)
 - `--color-brand-brand-riu-red`
-- suggestion: `--color-brand-a-red` (75%)
-- suggestion: `--color-brand-b-red` (75%)
+- suggestion: `--uilib-color-brand-riu` (75%)
 - `--color-brand-brand-robison-blue`
-- suggestion: `--color-brand-a-blue-200` (60%)
-- suggestion: `--color-brand-a-blue-500` (60%)
-- suggestion: `--color-brand-a-blue-700` (60%)
+- suggestion: `--uilib-color-brand-tui-blue` (60%)
+- `--color-brand-brand-scene-black`
+- suggestion: `--uilib-color-brand-scene` (75%)
 - `--color-brand-brand-small---friendly-blue`
-- suggestion: `--color-brand-a-blue-200` (60%)
-- suggestion: `--color-brand-a-blue-500` (60%)
-- suggestion: `--color-brand-a-blue-700` (60%)
+- suggestion: `--uilib-color-brand-small-and-friendly` (67%)
+- suggestion: `--uilib-color-brand-tui-blue` (60%)
 - `--color-brand-brand-soneo-club-blue`
-- suggestion: `--color-brand-a-blue-200` (60%)
-- suggestion: `--color-brand-a-blue-500` (60%)
-- suggestion: `--color-brand-a-blue-700` (60%)
+- suggestion: `--uilib-color-brand-kids-club` (60%)
+- suggestion: `--uilib-color-brand-soneo` (60%)
+- suggestion: `--uilib-color-brand-tui-blue` (60%)
+- `--color-brand-brand-splashworld-aqua`
+- suggestion: `--uilib-color-brand-splashworld` (75%)
+- `--color-brand-brand-time-to-smile-gold`
+- suggestion: `--uilib-color-brand-time-to-smile` (83%)
 - `--color-brand-brand-trip-advisor-green`
-- suggestion: `--color-brand-a-green` (60%)
-- suggestion: `--color-brand-b-green` (60%)
+- suggestion: `--uilib-color-brand-trip-advisor` (80%)
 - `--color-brand-brand-tui-blue-blue`
-- suggestion: `--color-brand-a-blue-200` (60%)
-- suggestion: `--color-brand-a-blue-500` (60%)
-- suggestion: `--color-brand-a-blue-700` (60%)
+- suggestion: `--uilib-color-brand-tui-blue` (80%)
+- `--color-brands-brand-bluestar`
+- suggestion: `--uilib-color-brand-bluestar` (75%)
+- `--color-brands-brand-holiday-villages`
+- suggestion: `--uilib-color-brand-holiday-villages` (80%)
+- `--color-brands-brand-kids-club`
+- suggestion: `--uilib-color-brand-kids-club` (80%)
+- `--color-brands-brand-local`
+- suggestion: `--uilib-color-brand-local` (75%)
+- `--color-brands-brand-musement`
+- suggestion: `--uilib-color-brand-musement` (75%)
+- `--color-brands-brand-riu`
+- suggestion: `--uilib-color-brand-riu` (75%)
+- `--color-brands-brand-scene`
+- suggestion: `--uilib-color-brand-scene` (75%)
+- `--color-brands-brand-small---friendly`
+- suggestion: `--uilib-color-brand-small-and-friendly` (67%)
+- `--color-brands-brand-soneo-club`
+- suggestion: `--uilib-color-brand-kids-club` (60%)
+- suggestion: `--uilib-color-brand-soneo` (60%)
+- `--color-brands-brand-splashworld`
+- suggestion: `--uilib-color-brand-splashworld` (75%)
+- `--color-brands-brand-time-to-smile`
+- suggestion: `--uilib-color-brand-time-to-smile` (83%)
+- `--color-brands-brand-trip-advisor`
+- suggestion: `--uilib-color-brand-trip-advisor` (80%)
 - `--color-brands-brand-tui-blue`
-- suggestion: `--color-brand-a-blue-200` (60%)
-- suggestion: `--color-brand-a-blue-500` (60%)
-- suggestion: `--color-brand-a-blue-700` (60%)
+- suggestion: `--uilib-color-brand-tui-blue` (80%)
+- `--color-canvas-canvas-contrast`
+- suggestion: `--uilib-color-canvas-contrast` (75%)
 - `--color-canvas-canvas-default`
-- suggestion: `--color-border-default` (67%)
-- suggestion: `--color-text-default` (67%)
+- suggestion: `--uilib-color-canvas-default` (75%)
+- `--color-core-color-brand-strong`
+- suggestion: `--uilib-color-core-brand-strong` (80%)
+- suggestion: `--uilib-color-core-brand` (75%)
+- suggestion: `--uilib-color-border-brand-strong` (60%)
 - `--color-core-core-brand`
-- suggestion: `--brand-color-accent` (67%)
-- suggestion: `--brand-color-primary` (67%)
-- suggestion: `--brand-color-subtle` (67%)
+- suggestion: `--uilib-color-core-brand` (75%)
+- suggestion: `--uilib-color-core-brand-strong` (60%)
+- `--color-core-core-interaction`
+- suggestion: `--uilib-color-core-interaction` (75%)
 - `--color-core-core-neutral`
-- suggestion: `--color-neutral-000` (67%)
-- suggestion: `--color-neutral-100` (67%)
-- suggestion: `--color-neutral-1000` (67%)
+- suggestion: `--uilib-color-core-neutral` (75%)
 - `--color-core-core-surface`
-- suggestion: `--color-fill-surface` (67%)
-- suggestion: `--modal-surface-color` (67%)
-- `--color-green-green-100`
-- suggestion: `--color-neutral-100` (67%)
-- `--color-neutral-neutral-10`
-- suggestion: `--color-neutral-000` (67%)
-- suggestion: `--color-neutral-100` (67%)
-- suggestion: `--color-neutral-1000` (67%)
-- `--color-neutral-neutral-100`
-- suggestion: `--color-neutral-100` (100%)
-- suggestion: `--color-neutral-alpha-100` (75%)
-- suggestion: `--color-neutral-000` (67%)
-- `--color-neutral-neutral-20`
-- suggestion: `--color-neutral-000` (67%)
-- suggestion: `--color-neutral-100` (67%)
-- suggestion: `--color-neutral-1000` (67%)
-- `--color-neutral-neutral-30`
-- suggestion: `--color-neutral-000` (67%)
-- suggestion: `--color-neutral-100` (67%)
-- suggestion: `--color-neutral-1000` (67%)
-- `--color-neutral-neutral-40`
-- suggestion: `--color-neutral-000` (67%)
-- suggestion: `--color-neutral-100` (67%)
-- suggestion: `--color-neutral-1000` (67%)
-- `--color-neutral-neutral-50`
-- suggestion: `--color-neutral-000` (67%)
-- suggestion: `--color-neutral-100` (67%)
-- suggestion: `--color-neutral-1000` (67%)
-- `--color-neutral-neutral-60`
-- suggestion: `--color-neutral-000` (67%)
-- suggestion: `--color-neutral-100` (67%)
-- suggestion: `--color-neutral-1000` (67%)
-- `--color-neutral-neutral-70`
-- suggestion: `--color-neutral-000` (67%)
-- suggestion: `--color-neutral-100` (67%)
-- suggestion: `--color-neutral-1000` (67%)
-- `--color-neutral-neutral-80`
-- suggestion: `--color-neutral-000` (67%)
-- suggestion: `--color-neutral-100` (67%)
-- suggestion: `--color-neutral-1000` (67%)
-- `--color-neutral-neutral-90`
-- suggestion: `--color-neutral-000` (67%)
-- suggestion: `--color-neutral-100` (67%)
-- suggestion: `--color-neutral-1000` (67%)
-- `--color-orange-orange-100`
-- suggestion: `--color-neutral-100` (67%)
-- `--color-purple-purple-100`
-- suggestion: `--color-neutral-100` (67%)
-- `--color-red-red-100`
-- suggestion: `--color-neutral-100` (67%)
+- suggestion: `--uilib-color-core-surface` (75%)
+- `--color-other-other-active-state-tint`
+- suggestion: `--uilib-color-other-active-state-tint` (83%)
+- `--color-other-other-button-hover-state-secondary`
+- suggestion: `--uilib-color-other-secondary-button-hover-state` (86%)
+- suggestion: `--uilib-color-other-button-hover-state` (83%)
+- suggestion: `--uilib-button-secondary-hover-bg-color` (67%)
+- `--color-other-other-button-hover-state-shortlist`
+- suggestion: `--uilib-color-other-button-hover-state` (83%)
+- suggestion: `--uilib-color-other-secondary-button-hover-state` (71%)
+- `--color-other-other-buttons-hover-state`
+- suggestion: `--uilib-color-other-button-hover-state` (67%)
+- `--color-other-other-disabled-soft`
+- suggestion: `--uilib-color-other-disabled-soft` (80%)
+- suggestion: `--uilib-color-other-disabled-strong` (60%)
+- `--color-other-other-disabled-strong`
+- suggestion: `--uilib-color-other-disabled-strong` (80%)
+- suggestion: `--uilib-color-other-disabled-soft` (60%)
+- `--color-other-other-elevation`
+- suggestion: `--uilib-color-other-elevation` (75%)
+- `--color-other-other-scrim`
+- suggestion: `--uilib-color-other-scrim` (75%)
+- `--color-other-other-skeleton-loading`
+- suggestion: `--uilib-color-other-skeleton-loading` (80%)
+- `--color-promotion-promotion-free-kids`
+- suggestion: `--uilib-color-promotion-free-kids` (80%)
+- `--color-promotion-promotion-promotion`
+- suggestion: `--uilib-color-promotion` (67%)
+- `--color-status-status-danger-surface`
+- suggestion: `--uilib-color-status-danger-surface` (80%)
+- suggestion: `--uilib-color-status-danger-icon` (60%)
+- suggestion: `--uilib-color-status-info-surface` (60%)
+- `--color-status-status-info-surface`
+- suggestion: `--uilib-color-status-info-surface` (80%)
+- suggestion: `--uilib-color-status-danger-surface` (60%)
+- suggestion: `--uilib-color-status-info-icon` (60%)
+- `--color-status-status-success-surface`
+- suggestion: `--uilib-color-status-success-surface` (80%)
+- suggestion: `--uilib-color-status-danger-surface` (60%)
+- suggestion: `--uilib-color-status-info-surface` (60%)
+- `--color-status-status-warning-surface`
+- suggestion: `--uilib-color-status-warning-surface` (80%)
+- suggestion: `--uilib-color-status-danger-surface` (60%)
+- suggestion: `--uilib-color-status-info-surface` (60%)
+- `--color-status-staus-danger-icon`
+- suggestion: `--uilib-color-status-danger-icon` (80%)
+- suggestion: `--uilib-color-status-danger-surface` (60%)
+- suggestion: `--uilib-color-status-info-icon` (60%)
+- `--color-status-staus-info-icon`
+- suggestion: `--uilib-color-status-info-icon` (80%)
+- suggestion: `--uilib-color-status-danger-icon` (60%)
+- suggestion: `--uilib-color-status-info-surface` (60%)
+- `--color-status-staus-success-icon`
+- suggestion: `--uilib-color-status-success-icon` (80%)
+- suggestion: `--uilib-color-status-danger-icon` (60%)
+- suggestion: `--uilib-color-status-info-icon` (60%)
+- `--color-status-staus-warning-icon`
+- suggestion: `--uilib-color-status-warning-icon` (80%)
+- suggestion: `--uilib-color-status-danger-icon` (60%)
+- suggestion: `--uilib-color-status-info-icon` (60%)
 - `--color-text-text-body`
-- suggestion: `--color-text-brand` (67%)
-- suggestion: `--color-text-danger` (67%)
-- suggestion: `--color-text-default` (67%)
+- suggestion: `--uilib-color-text-body` (75%)
 - `--color-text-text-danger`
-- suggestion: `--color-text-danger` (100%)
-- suggestion: `--color-border-danger` (67%)
-- suggestion: `--color-fill-danger` (67%)
+- suggestion: `--uilib-color-text-danger` (75%)
 - `--color-text-text-inverse`
-- suggestion: `--color-text-inverse` (100%)
-- suggestion: `--color-text-brand` (67%)
-- suggestion: `--color-text-danger` (67%)
+- suggestion: `--uilib-color-text-inverse` (75%)
 - `--color-text-text-link`
-- suggestion: `--color-text-brand` (67%)
-- suggestion: `--color-text-danger` (67%)
-- suggestion: `--color-text-default` (67%)
+- suggestion: `--uilib-color-text-link` (75%)
+- suggestion: `--uilib-color-text-link-visited` (60%)
+- `--color-text-text-link-visited`
+- suggestion: `--uilib-color-text-link-visited` (80%)
+- suggestion: `--uilib-color-text-link` (75%)
+- suggestion: `--uilib-color-text-link-visited-inverse` (67%)
 - `--color-text-text-link-visited-inverse`
-- suggestion: `--color-text-inverse` (60%)
+- suggestion: `--uilib-color-text-link-visited-inverse` (83%)
+- suggestion: `--uilib-color-text-link-visited` (80%)
+- suggestion: `--uilib-link-decoration-color-inverse-visited` (67%)
 - `--color-text-text-promotion`
-- suggestion: `--color-text-brand` (67%)
-- suggestion: `--color-text-danger` (67%)
-- suggestion: `--color-text-default` (67%)
+- suggestion: `--uilib-color-text-promotion` (75%)
+- suggestion: `--uilib-color-promotion` (67%)
 - `--color-text-text-strong`
-- suggestion: `--color-text-strong` (100%)
-- suggestion: `--color-border-strong` (67%)
-- suggestion: `--color-text-brand` (67%)
-- `--font-family-ambit`
-- suggestion: `--button-font-family` (67%)
-- suggestion: `--font-family-mono` (67%)
-- suggestion: `--font-family-sans` (67%)
-- `--font-family-tuiheadline`
-- suggestion: `--button-font-family` (67%)
-- suggestion: `--font-family-mono` (67%)
-- suggestion: `--font-family-sans` (67%)
-- `--font-family-tuitypelight`
-- suggestion: `--button-font-family` (67%)
-- suggestion: `--font-family-mono` (67%)
-- suggestion: `--font-family-sans` (67%)
+- suggestion: `--uilib-color-text-strong` (75%)
+- `--spacing-spacing-050`
+- suggestion: `--uilib-spacing-050` (67%)
 - `--spacing-spacing-100`
-- suggestion: `--size-spacing-100` (67%)
+- suggestion: `--uilib-spacing-100` (67%)
 - `--spacing-spacing-1000`
-- suggestion: `--size-spacing-1000` (67%)
+- suggestion: `--uilib-spacing-1000` (67%)
+- `--spacing-spacing-1100`
+- suggestion: `--uilib-spacing-1100` (67%)
+- `--spacing-spacing-1200`
+- suggestion: `--uilib-spacing-1200` (67%)
+- `--spacing-spacing-1300`
+- suggestion: `--uilib-spacing-1300` (67%)
+- `--spacing-spacing-1400`
+- suggestion: `--uilib-spacing-1400` (67%)
+- `--spacing-spacing-1500`
+- suggestion: `--uilib-spacing-1500` (67%)
+- `--spacing-spacing-1600`
+- suggestion: `--uilib-spacing-1600` (67%)
 - `--spacing-spacing-200`
-- suggestion: `--size-spacing-200` (67%)
+- suggestion: `--uilib-spacing-200` (67%)
 - `--spacing-spacing-300`
-- suggestion: `--size-spacing-300` (67%)
+- suggestion: `--uilib-spacing-300` (67%)
 - `--spacing-spacing-400`
-- suggestion: `--size-spacing-400` (67%)
+- suggestion: `--uilib-spacing-400` (67%)
 - `--spacing-spacing-500`
-- suggestion: `--size-spacing-500` (67%)
+- suggestion: `--uilib-spacing-500` (67%)
 - `--spacing-spacing-600`
-- suggestion: `--size-spacing-600` (67%)
+- suggestion: `--uilib-spacing-600` (67%)
 - `--spacing-spacing-700`
-- suggestion: `--size-spacing-700` (67%)
+- suggestion: `--uilib-spacing-700` (67%)
 - `--spacing-spacing-800`
-- suggestion: `--size-spacing-800` (67%)
+- suggestion: `--uilib-spacing-800` (67%)
 - `--spacing-spacing-900`
-- suggestion: `--size-spacing-900` (67%)
-- `--typography-font-size-fixed-fixed-100`
-- suggestion: `--typography-body-font-size` (60%)
-- suggestion: `--typography-heading-font-size-lg` (60%)
-- suggestion: `--typography-heading-font-size-md` (60%)
-- `--typography-font-size-fixed-fixed-120`
-- suggestion: `--typography-body-font-size` (60%)
-- suggestion: `--typography-heading-font-size-lg` (60%)
-- suggestion: `--typography-heading-font-size-md` (60%)
-- `--typography-font-size-fixed-fixed-140`
-- suggestion: `--typography-body-font-size` (60%)
-- suggestion: `--typography-heading-font-size-lg` (60%)
-- suggestion: `--typography-heading-font-size-md` (60%)
-- `--typography-font-size-fixed-fixed-160`
-- suggestion: `--typography-body-font-size` (60%)
-- suggestion: `--typography-heading-font-size-lg` (60%)
-- suggestion: `--typography-heading-font-size-md` (60%)
-- `--typography-font-size-fixed-fixed-190`
-- suggestion: `--typography-body-font-size` (60%)
-- suggestion: `--typography-heading-font-size-lg` (60%)
-- suggestion: `--typography-heading-font-size-md` (60%)
-- `--typography-font-size-fixed-fixed-220`
-- suggestion: `--typography-body-font-size` (60%)
-- suggestion: `--typography-heading-font-size-lg` (60%)
-- suggestion: `--typography-heading-font-size-md` (60%)
-- `--typography-font-size-fixed-fixed-260`
-- suggestion: `--typography-body-font-size` (60%)
-- suggestion: `--typography-heading-font-size-lg` (60%)
-- suggestion: `--typography-heading-font-size-md` (60%)
-- `--typography-font-size-fixed-fixed-300`
-- suggestion: `--typography-body-font-size` (60%)
-- suggestion: `--typography-heading-font-size-lg` (60%)
-- suggestion: `--typography-heading-font-size-md` (60%)
-- `--typography-font-size-fixed-fixed-340`
-- suggestion: `--typography-body-font-size` (60%)
-- suggestion: `--typography-heading-font-size-lg` (60%)
-- suggestion: `--typography-heading-font-size-md` (60%)
-- `--typography-font-size-fixed-fixed-60`
-- suggestion: `--typography-body-font-size` (60%)
-- suggestion: `--typography-heading-font-size-lg` (60%)
-- suggestion: `--typography-heading-font-size-md` (60%)
-- `--typography-font-size-fixed-fixed-80`
-- suggestion: `--typography-body-font-size` (60%)
-- suggestion: `--typography-heading-font-size-lg` (60%)
-- suggestion: `--typography-heading-font-size-md` (60%)
+- suggestion: `--uilib-spacing-900` (67%)
+- `--spacing-spacing-none`
+- suggestion: `--uilib-spacing-none` (67%)
 - `--typography-font-weight-ambit-bold`
-- suggestion: `--typography-body-font-weight` (60%)
-- suggestion: `--typography-heading-font-weight` (60%)
-- suggestion: `--typography-label-font-weight` (60%)
+- suggestion: `--uilib-font-weight-bold` (60%)
 - `--typography-font-weight-ambit-regular`
-- suggestion: `--typography-body-font-weight` (60%)
-- suggestion: `--typography-heading-font-weight` (60%)
-- suggestion: `--typography-label-font-weight` (60%)
+- suggestion: `--uilib-font-weight-regular` (60%)
 - `--typography-font-weight-ambit-semibold`
-- suggestion: `--typography-body-font-weight` (60%)
-- suggestion: `--typography-heading-font-weight` (60%)
-- suggestion: `--typography-label-font-weight` (60%)
+- suggestion: `--uilib-font-weight-semibold` (60%)

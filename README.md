@@ -27,11 +27,17 @@ npm run tokens:validate
 - CSS: `dist/tokens/css/`
 - YAML: `dist/tokens/tokens.yaml`
 - Mapping report: `mapping-report.md`
+- Figma change log: `figma-change-log.md`
 
 ## Mapping report
 
 The token mapping report is stored in this project at:
 - `mapping-report.md`
+
+## Figma change log
+
+Progress tracking over time is stored in:
+- `figma-change-log.md`
 
 ## Input requirements
 
