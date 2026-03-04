@@ -46,6 +46,7 @@ root.dataset.mode = "light"; // "light" | "dark"
 
 - Foundations (source of truth): `docs/foundations/`
 - Workflow + pipeline details: `docs/foundations/foundation-010-implementation-and-pipeline-workflow.md`
+- Branching + release governance: `docs/foundations/foundation-011-branching-and-release-governance.md`
 - AI playbook: `docs/agentic/team-ai-playbook.md`
 - Shareable skill: `docs/agentic/skills/design-ops-specialist/SKILL.md`
 - Docs site content: `site/`
@@ -63,4 +64,12 @@ Validation baseline:
 npm run lint
 npm run test:unit
 npm run ci:check
+```
+
+Release shortcuts:
+
+```bash
+npm run release:patch   # or release:minor / release:major
+npm run release:push
+npm run release:publish # use npm publish --otp=<code> when 2FA is required
 ```
