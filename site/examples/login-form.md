@@ -1,7 +1,7 @@
 ---
 layout: layouts/docs.njk
 title: Login Form
-description: Einfaches Login-Formular als Organismus aus Label, Input und Button.
+description: Simple login form as an organism composed of Label, Input, and Button.
 navTitle: Login Form
 order: 10
 permalink: /examples/login-form/

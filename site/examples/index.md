@@ -1,13 +1,13 @@
 ---
 layout: layouts/docs.njk
 title: Examples
-description: Zusammengesetzte Muster (Organisms) aus bestehenden UI-Components.
+description: Composed patterns (organisms) built from existing UI components.
 navTitle: Overview
 order: 1
 permalink: /examples/
 ---
 
-Diese Sektion zeigt konkrete UI-Zusammenstellungen aus den bestehenden Components.
+This section shows concrete UI compositions built from existing components.
 
 <ul class="docs-link-list">
   {% for entry in collections.examplesDocs %}
