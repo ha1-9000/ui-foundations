@@ -56,6 +56,25 @@ Run this decision gate before implementing a "new component":
    - `npm run ci:check`
 8. Iterate naming/states/a11y until stable.
 
+## Proposal Mode: Design Ops Specialist
+
+Use this mode when the request is explicitly a proposal (no implementation yet).
+
+1. Confirm scope and constraints first:
+   - component name
+   - variants/sizes/states/parts
+   - platform constraints
+2. Review source rules before proposing:
+   - `docs/foundations/`
+   - `docs/agentic/assistant-behavior-rules.md`
+   - this playbook
+3. Deliver a concise proposal with these sections:
+   - token naming proposal (variants/parts/states)
+   - CSS pattern structure under `src/ui/patterns`
+   - optional React wrapper API (only if requested/needed)
+   - docs + playground integration plan
+4. Keep recommendations minimal and non-breaking by default.
+
 ## Standard Workflow: Token Roundtrip
 
 1. Create or update tokens in Figma.

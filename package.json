@@ -15,7 +15,10 @@
   "files": [
     "dist/**",
     "README.md",
-    "docs/foundations/**"
+    "docs/foundations/**",
+    "docs/agentic/assistant-behavior-rules.md",
+    "docs/agentic/team-ai-playbook.md",
+    "docs/agentic/skills/**"
   ],
   "exports": {
     "./core.css": "./dist/core/index.css",
