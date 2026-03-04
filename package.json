@@ -1,10 +1,17 @@
 {
   "name": "ui-foundations",
+  "version": "0.1.0",
+  "description": "Token-first UI foundations with CSS, tokens, and React exports.",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "git@ssh.source.tui:Thomas.Bielich/ui-foundations.git"
   },
-  "private": true,
+  "private": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
   "files": [
     "dist/**",
     "README.md",
@@ -19,7 +26,10 @@
     "./react/input": "./dist/react/input.js",
     "./react/label": "./dist/react/label.js",
     "./assets/*": "./dist/assets/*",
-    "./tokens/core.css": "./dist/tokens/css/core.tokens.css",
+    "./tokens/core.css": "./dist/tokens/css/primitives.tokens.css",
+    "./tokens/primitives.css": "./dist/tokens/css/primitives.tokens.css",
+    "./tokens/brand-a.css": "./dist/tokens/css/brand-a.tokens.css",
+    "./tokens/brand-b.css": "./dist/tokens/css/brand-b.tokens.css",
     "./tokens/color.css": "./dist/tokens/css/color.light.tokens.css",
     "./tokens/color-light.css": "./dist/tokens/css/color.light.tokens.css",
     "./tokens/color-dark.css": "./dist/tokens/css/color.dark.tokens.css",
@@ -39,6 +49,8 @@
     "build:css": "node scripts/build-css.mjs",
     "build:all": "npm run icons:generate-list && npm run tokens:generate && npm run build:css",
     "build": "npm run build:all",
+    "pack:check": "npm pack --dry-run",
+    "release:check": "npm run ci:check && npm run pack:check",
     "docs:build": "eleventy",
     "docs:site": "npm run build:all && npm run docs:build",
     "ci:check": "npm run lint && npm run test:unit && npm run build:all && npm run smoke:check && npm run tokens:validate && npm run docs:build",
