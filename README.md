@@ -48,7 +48,10 @@ root.dataset.mode = "light"; // "light" | "dark"
 - Workflow + pipeline details: `docs/foundations/foundation-010-implementation-and-pipeline-workflow.md`
 - Branching + release governance: `docs/foundations/foundation-011-branching-and-release-governance.md`
 - AI playbook: `docs/agentic/team-ai-playbook.md`
-- Shareable skill: `docs/agentic/skills/design-ops-specialist/SKILL.md`
+- Agentic skills overview: `docs/agentic/skills/README.md`
+- Shareable skills:
+  - `docs/agentic/skills/design-ops-specialist/SKILL.md`
+  - `docs/agentic/skills/design-system-architect/SKILL.md`
 - Docs site content: `site/`
 - Vanilla starter guide: `site/examples/vanilla-starter.md`
 
