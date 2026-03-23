@@ -56,6 +56,16 @@ Run this decision gate before implementing a "new component":
    - `npm run ci:check`
 8. Iterate naming/states/a11y until stable.
 
+## Skill selection
+
+Use the repo skills intentionally:
+
+- `design-ops-specialist` for tactical, proposal-first component work
+- `design-system-architect` for strategic, system-level reviews and decisions
+
+See also:
+- `docs/agentic/skills/README.md`
+
 ## Proposal Mode: Design Ops Specialist
 
 Use this mode when the request is explicitly a proposal (no implementation yet).
